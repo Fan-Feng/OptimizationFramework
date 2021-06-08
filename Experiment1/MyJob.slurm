@@ -12,4 +12,8 @@
 #SBATCH --output=Example1Out.%j    #Send stdout/err to "Example1Out.[jobID]"
 
 #
+ml Anaconda3/2020.11
+ml CMake/3.16.4-GCCcore-9.3.0
+
+export PATH=$SCRATCH/programs/EnergyPlus-9-4-0:$SCRATCH/programs/anaconda3/bin:$PATH
 python Experiment1.py
