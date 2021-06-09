@@ -61,7 +61,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
     # utility rate
     uRate = [0.5,0.5,0.6,0.7,1,1]
 
-    total_Cost = sum([x*uRate[i] for i,x in enumerate(res)])
+    total_Cost = - sum([x*uRate[i] for i,x in enumerate(res)])
 
     return total_Cost
 
@@ -151,7 +151,7 @@ if __name__ == "__main__":
     CVar_list = [CVar*5+12 for CVar in CVar_list]
 
     tim = start_time + 60*60*6
-    Eplus_FileName = "testModel.idf"
+    Eplus_FileName = "testModel_v94.idf"
 
     
     #prepare hyper parameter
@@ -201,5 +201,5 @@ if __name__ == "__main__":
 
     with Pool(processes=2) as pool:
         ga_instance.run()
-        
-    print(ga_instance.best_solutions())
+        print(ga_instance.best_solutions())    
+    
