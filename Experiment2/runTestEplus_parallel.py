@@ -183,6 +183,9 @@ if __name__ == "__main__":
 
     mutation_type = "random"
     mutation_num_genes = 1
+
+    ## 
+    print("Start Optimization")
     
     ga_instance = PooledGA(num_generations=num_generations,
                    num_parents_mating=num_parents_mating,
@@ -201,5 +204,7 @@ if __name__ == "__main__":
 
     with Pool(processes=2) as pool:
         ga_instance.run()
+        #
+        print("Op completed")
         print(ga_instance.best_solutions())    
     
