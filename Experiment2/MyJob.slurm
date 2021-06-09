@@ -18,4 +18,5 @@ export PATH=$SCRATCH/programs/EnergyPlus-9-4-0:$SCRATCH/programs/anaconda3/bin:$
 cd $SCRATCH/GeneticAlgorithmPython
 python setup.py install
 
+cd $SCRATCH/OptimizationFramework/Experiment2
 python runTestEplus_parallel.py
