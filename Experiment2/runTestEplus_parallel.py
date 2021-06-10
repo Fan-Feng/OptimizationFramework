@@ -113,7 +113,7 @@ def run_prediction(tim,CVar_list, CVar_timestep,X_sp_log, start_time,final_time,
   
   ## Step 3. After completion, retrieve results
   # .
-  output_DF = pd.read_result(Target_WorkPath+"//" + "eplusout.eso")
+  output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
   tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
   cooling_Rate = list(output_DF.iloc[tim_idx+48:end_idx+48,1])  # because of two design days start from 48.
 
