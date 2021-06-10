@@ -37,89 +37,128 @@ def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
       fp.writelines(line)
     
 def fitness_func(x,solution_idx):
-    # run simulation
-    res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
+  # run simulation
+  res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
 
-    # utility rate
-    uRate = [0.5,0.5,0.6,0.7,1,1]
+  # utility rate
+  uRate = [0.5,0.5,0.6,0.7,1,1]
 
-    total_Cost = sum([x*uRate[i] for i,x in enumerate(res)])
-    return total_Cost
+  total_Cost = sum([x*uRate[i] for i,x in enumerate(res)])
+  return total_Cost
     
 def fitness_wrapper(x,solution_idx,hyperParam):
-        # run simulation
-    tim = hyperParam["tim"]
-    CVar_timestep = hyperParam["CVar_timestep"]
-    X_sp_log = hyperParam["X_sp_log"]
-    start_time = hyperParam["start_time"]
-    final_time = hyperParam["final_time"]
-    Eplus_timestep = hyperParam["Eplus_timestep"]
-    Eplus_FileName = hyperParam["Eplus_FileName"]
-    
-    res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
+  # run simulation
+  tim = hyperParam["tim"]
+  CVar_timestep = hyperParam["CVar_timestep"]
+  X_sp_log = hyperParam["X_sp_log"]
+  start_time = hyperParam["start_time"]
+  final_time = hyperParam["final_time"]
+  Eplus_timestep = hyperParam["Eplus_timestep"]
+  Eplus_FileName = hyperParam["Eplus_FileName"]
+  
+  res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
 
-    # utility rate
-    uRate = [0.5,0.5,0.6,0.7,1,1]
+  # utility rate
+  uRate = [0.5,0.5,0.6,0.7,1,1]
 
-    total_Cost = - sum([x*uRate[i] for i,x in enumerate(res)])
+  total_Cost = - sum([x*uRate[i] for i,x in enumerate(res)])
 
-    return total_Cost
+  return total_Cost
 
 def run_prediction(tim,CVar_list, CVar_timestep,X_sp_log, start_time,final_time,Eplus_timestep,Eplus_FileName, solution_idx):
-    # This function runs the EPlus model over prediction horizon at "tim", and the control variable
-    # is overridden by CVar_list.
-    # Because get_state and set_state are not supported, then we need to run the EPlus from beginning everytime. 
+  # This function runs the EPlus model over prediction horizon at "tim", and the control variable
+  # is overridden by CVar_list.
+  # Because get_state and set_state are not supported, then we need to run the EPlus from beginning everytime. 
 
-    ## Step 0. Pre-process inputs for the models. 
-    if len(X_sp_log)>0:
-      X_sp = np.concatenate((X_sp_log ,CVar_list )) # concatenate these Sp log with new Sp
-    else:
-      X_sp = CVar_list
+  ## Step 0. Pre-process inputs for the models. 
+  if len(X_sp_log)>0:
+    X_sp = np.concatenate((X_sp_log ,CVar_list )) # concatenate these Sp log with new Sp
+  else:
+    X_sp = CVar_list
 
-    # calculate the end time of current prediction horizon
-    time_end = tim + len(CVar_list) * CVar_timestep
+  # calculate the end time of current prediction horizon
+  time_end = tim + len(CVar_list) * CVar_timestep
 
-    ## Generate some placeholders to make sure the model simulation time is a multiple of 86400
-    final_time = int((time_end - 1)/86400)*86400 + 86400  # 
+  ## Generate some placeholders to make sure the model simulation time is a multiple of 86400
+  final_time = int((time_end - 1)/86400)*86400 + 86400  # 
 
 
-    ##Step 1. make a copy of the base Eplus model with specific start time and end time
-    Cur_WorkPath =  os.getcwd()
-    Target_WorkPath = Cur_WorkPath + '//Model_T{}_{}'.format(tim/3600,solution_idx)
+  ##Step 1. make a copy of the base Eplus model with specific start time and end time
+  Cur_WorkPath =  os.getcwd()
+  Target_WorkPath = Cur_WorkPath + '//Model_T{}_{}'.format(tim/3600,solution_idx)
 
-    if (os.path.exists(Target_WorkPath)):# delete the workpath
-      shutil.rmtree(Target_WorkPath)
-
-    os.makedirs(Target_WorkPath)
-
-    startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time)
-    endMon,endDay = convert_NumOfSec_To_MonAndDay(final_time)
-    modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay)
-
-    # write control signal to the .csv file, both historical and new
-
-    shutil.copyfile(Cur_WorkPath + "//RadInletWater_SP_schedule.csv",Target_WorkPath+"//RadInletWater_SP_schedule.csv")
-
-    Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
-    start_idx,end_idx = int(start_time/3600),int(time_end/3600)
-    print(start_idx,end_idx,X_sp_log,CVar_list,X_sp)
-    Input_DF.iloc[start_idx:end_idx,0] = X_sp
-    
-    Input_DF.iloc[start_idx:end_idx,1] = X_sp
-    Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
-
-    ## Step 2. Run EnergyPlus model
-    sp.call(["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,"-r",Target_WorkPath+"//"+Eplus_FileName])
-    
-    ## Step 3. After completion, retrieve results
-    # .
-    output_DF = pd.read_csv(Target_WorkPath+"//" + "eplusout.csv")
-    tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-    cooling_Rate = list(output_DF.iloc[tim_idx+48:end_idx+48,1])  # because of two design days start from 48.
-
-    ## Step 4. Remove temporary files
+  if (os.path.exists(Target_WorkPath)):# delete the workpath
     shutil.rmtree(Target_WorkPath)
-    return cooling_Rate
+
+  os.makedirs(Target_WorkPath)
+
+  startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time)
+  endMon,endDay = convert_NumOfSec_To_MonAndDay(final_time)
+  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay)
+
+  # write control signal to the .csv file, both historical and new
+
+  shutil.copyfile(Cur_WorkPath + "//RadInletWater_SP_schedule.csv",Target_WorkPath+"//RadInletWater_SP_schedule.csv")
+
+  Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
+  start_idx,end_idx = int(start_time/3600),int(time_end/3600)
+  print(start_idx,end_idx,X_sp_log,CVar_list,X_sp)
+  Input_DF.iloc[start_idx:end_idx,0] = X_sp
+  
+  Input_DF.iloc[start_idx:end_idx,1] = X_sp
+  Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
+
+  ## Step 2. Run EnergyPlus model
+  sp.call(["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName])
+  
+  ## Step 3. After completion, retrieve results
+  # .
+  output_DF = pd.read_result(Target_WorkPath+"//" + "eplusout.eso")
+  tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
+  cooling_Rate = list(output_DF.iloc[tim_idx+48:end_idx+48,1])  # because of two design days start from 48.
+
+  ## Step 4. Remove temporary files
+  shutil.rmtree(Target_WorkPath)
+  return cooling_Rate
+
+def read_result(filename):
+  import datetime
+  ## a function used to process ESO file
+
+  id = 2050 # This is ID for Zone Radiant HVAC Cooling Rate
+  data = {'dtime':[],
+          'data':[],
+          'dayType':[]}
+
+
+  with open(filename) as fp:
+    while True:
+      line = fp.readline()
+      ## Skip the header part
+      if line.startswith('End of Data Dictionary'):
+        break
+      else:
+        continue
+      
+    while True:
+      line = fp.readline()
+      if line.startswith('End of Data'):
+        break
+
+      fields = [f.strip() for f in line.split(',')]
+      id = int(fields[0])
+      if id == 2: # this is the timestamp for all following outputs
+        dtime = datetime.datetime(2021,int(fields[2]),int(fields[3]),int(float(fields[5]))-1,int(float(fields[6])))
+        dayType = fields[-1]
+        continue
+      if id != 2050:
+        # skip entries that are not output:variables
+        continue
+      data['dtime'].append(dtime)
+      data['data'].append(float(fields[1]))
+      data['dayType'].append(dayType)
+  data = pd.DataFrame(data)
+  return data
 
 class PooledGA(pygad.GA):
 
@@ -131,6 +170,7 @@ class PooledGA(pygad.GA):
         return pop_fitness
         
 if __name__ == "__main__":
+
     # write control signal to the .csv file, both historical and new
     X_sp = [12]*24
 
