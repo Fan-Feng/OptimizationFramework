@@ -1,3 +1,13 @@
+'''
+A python script for implement a MPC framework
+
+Simulation model: EnergyPlus
+Optimization algorithm: pygad
+
+
+Author: ffeng@tamu.edu 
+'''
+
 import os, sys, shutil
 import subprocess as sp
 
@@ -9,14 +19,15 @@ import numpy.random as random
 import pandas as pd
 
 # Import optimization package
-from scipy.optimize import minimize
-
 import pygad
 
 
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
+  '''
+  Convert NumOfSec to Month/Day
+  '''
   DayOfYear = int(NumOfSec/86400)
-  HourOfDay = int((NumOfSec%86400)/3600)
+  HourOfDay = int((NumOfSec%86400)/3600)  # This is just a placehold..
   DateValue = datetime.datetime(2021, 1, 1) + datetime.timedelta(DayOfYear)
   Mon = DateValue.month
   DayValue = DateValue.day
@@ -24,6 +35,9 @@ def convert_NumOfSec_To_MonAndDay(NumOfSec):
   return Mon,DayValue
 
 def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
+  '''
+  Modify idf file by specifying startMon,startDay,endMon, endDay
+  '''
   with open(fileName,'r') as fp:
     lines = fp.readlines()
   
@@ -47,30 +61,30 @@ def fitness_func(x,solution_idx):
   return total_Cost
     
 def fitness_wrapper(x,solution_idx,hyperParam):
-  # run simulation
-  tim = hyperParam["tim"]
-  CVar_timestep = hyperParam["CVar_timestep"]
-  X_sp_log = hyperParam["X_sp_log"]
-  start_time = hyperParam["start_time"]
-  final_time = hyperParam["final_time"]
-  Eplus_timestep = hyperParam["Eplus_timestep"]
-  Eplus_FileName = hyperParam["Eplus_FileName"]
-  
-  res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
+  # run simulation 
+  res = run_prediction(x,solution_idx,hyperParam)
 
-  # utility rate
-  uRate = [0.5,0.5,0.6,0.7,1,1]
+  # utility rate, read from an external file
+  uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2  # Summer, workday. Replaced later. 
 
   total_Cost = - sum([x*uRate[i] for i,x in enumerate(res)])
 
   return total_Cost
 
-def run_prediction(tim,CVar_list, CVar_timestep,X_sp_log, start_time,final_time,Eplus_timestep,Eplus_FileName, solution_idx):
+def run_prediction(CVar_list, solution_idx,hyperParam):
   # This function runs the EPlus model over prediction horizon at "tim", and the control variable
   # is overridden by CVar_list.
   # Because get_state and set_state are not supported, then we need to run the EPlus from beginning everytime. 
 
   ## Step 0. Pre-process inputs for the models. 
+  tim = hyperParam["tim"]
+  CVar_timestep = hyperParam["CVar_timestep"]  #unit: Second.
+  X_sp_log = hyperParam["X_sp_log"]
+  start_time = hyperParam["start_time"]
+  final_time = hyperParam["final_time"]
+  Eplus_timestep = hyperParam["Eplus_timestep"]
+  Eplus_FileName = hyperParam["Eplus_FileName"]
+
   if len(X_sp_log)>0:
     X_sp = np.concatenate((X_sp_log ,CVar_list )) # concatenate these Sp log with new Sp
   else:
@@ -103,8 +117,7 @@ def run_prediction(tim,CVar_list, CVar_timestep,X_sp_log, start_time,final_time,
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
   print(start_idx,end_idx,X_sp_log,CVar_list,X_sp)
-  Input_DF.iloc[start_idx:end_idx,0] = X_sp
-  
+  Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
@@ -171,26 +184,23 @@ class PooledGA(pygad.GA):
         
 if __name__ == "__main__":
 
-    # write control signal to the .csv file, both historical and new
-    X_sp = [12]*24
-
     # simulation setup
     start_time= 60*60*24*151 
     final_time= 60*60*24*158
     Eplus_timestep = 60
 
     # setup for MPC
-    pred_horizon = {"length":6,"timestep":3600}
+    pred_horizon = {"length":24,"timestep":3600}
 
     #### run optimization
-    X_sp_log = [12] * 6  # This trend variable is used to store all setpoints from start_time 
+    X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
     CVar_list = rng.random(pred_horizon['length'])
     CVar_list = [CVar*5+12 for CVar in CVar_list]
 
-    tim = start_time + 60*60*6
+    tim = start_time
     Eplus_FileName = "testModel_v94.idf"
 
     
@@ -204,13 +214,11 @@ if __name__ == "__main__":
     hyperParam["Eplus_timestep"] = Eplus_timestep
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
-    fitness_function = fitness_func
     # Optimization algorithm setting
     num_generations = 50
+    sol_per_pop = 30   # Number of individuals
+
     num_parents_mating = 4
-    
-    # Number of individuals
-    sol_per_pop = 30
     num_genes = len(CVar_list)
 
     init_range_low = 7
@@ -229,7 +237,7 @@ if __name__ == "__main__":
     
     ga_instance = PooledGA(num_generations=num_generations,
                    num_parents_mating=num_parents_mating,
-                   fitness_func=fitness_function,
+                   fitness_func=fitness_func, # Actually this is not used.
                    sol_per_pop=sol_per_pop,
                    num_genes=num_genes,
                    init_range_low=init_range_low,
@@ -242,9 +250,9 @@ if __name__ == "__main__":
     # run optimization 
     #ga_instance.run()
 
-    with Pool(processes=2) as pool:
+    with Pool(processes=sol_per_pop) as pool:
         ga_instance.run()
         #
         print("Op completed")
-        print(ga_instance.best_solutions())    
+        print(ga_instance.best_solution())    
     
