@@ -247,9 +247,8 @@ if __name__ == "__main__":
                    crossover_type=crossover_type,
                    mutation_type=mutation_type,
                    mutation_num_genes=mutation_num_genes)
+    
     # run optimization 
-    #ga_instance.run()
-
     with Pool(processes=sol_per_pop) as pool:
         ga_instance.run()
         #
