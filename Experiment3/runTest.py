@@ -19,4 +19,4 @@ pool = mp.Pool(30)
 results = pool.starmap(howmany_within_range,[(row,4,8) for row in data])
 
 pool.close()
-print(results[:10])
+print(results[:60])
