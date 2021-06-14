@@ -1,4 +1,10 @@
 '''
+A python script for implement a MPC framework
+
+Simulation model: EnergyPlus
+Optimization algorithm: pygad
+
+
 Author: ffeng@tamu.edu 
 '''
 
@@ -8,8 +14,51 @@ import subprocess as sp
 import time,datetime
 from multiprocessing import Pool
 
+import numpy as np
+import numpy.random as random
+import pandas as pd
 
 # Import optimization package
+import pygad
+
+
+def convert_NumOfSec_To_MonAndDay(NumOfSec): 
+  '''
+  Convert NumOfSec to Month/Day
+  '''
+  DayOfYear = int(NumOfSec/86400)
+  HourOfDay = int((NumOfSec%86400)/3600)  # This is just a placehold..
+  DateValue = datetime.datetime(2021, 1, 1) + datetime.timedelta(DayOfYear)
+  Mon = DateValue.month
+  DayValue = DateValue.day
+
+  return Mon,DayValue
+def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
+  '''
+  Modify idf file by specifying startMon,startDay,endMon, endDay
+  '''
+  with open(fileName,'r') as fp:
+    lines = fp.readlines()
+  
+  # Replace
+  with open(targetFile,'w') as fp:
+    for line in lines:
+      line = line.replace("%BeginMon%",str(startMon)) 
+      line = line.replace("%BeginDay%",str(startDay))
+      line = line.replace("%EndMon%",str(endMon))
+      line = line.replace("%EndDay%",str(endDay))
+      fp.writelines(line)
+   
+def fitness_wrapper(x,solution_idx,hyperParam):
+  # run simulation 
+  res = run_prediction(x,solution_idx,hyperParam)
+
+  # utility rate, read from an external file
+  uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2  # Summer, workday. Replaced later. 
+
+  total_Cost = - sum([x*uRate[i] for i,x in enumerate(res)])
+
+  return total_Cost
 
 def run_prediction(CVar_list, solution_idx,hyperParam):
   # This function runs the EPlus model over prediction horizon at "tim", and the control variable
@@ -61,18 +110,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
-  ## Step 2. Run EnergyPlus model
-  sp.call(["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName])
-  
-  ## Step 3. After completion, retrieve results
-  # .
-  output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
-  tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-  cooling_Rate = list(output_DF.iloc[tim_idx+48:end_idx+48,1])  # because of two design days start from 48.
-
-  ## Step 4. Remove temporary files
-  shutil.rmtree(Target_WorkPath)
-  return cooling_Rate
+  return CVar_list
 
 def read_result(filename):
   import datetime
