@@ -10,7 +10,7 @@ def howmany_within_range(row,minimum,maximum):
     return count
 
 np.random.RandomState(100)
-arr = np.random.randint(0,10,size=[20000,5])
+arr = np.random.randint(0,10,size=[1000000,5])
 data = arr.tolist()
 
 
