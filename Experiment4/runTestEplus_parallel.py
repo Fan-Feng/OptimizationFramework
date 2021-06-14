@@ -222,5 +222,7 @@ if __name__ == "__main__":
 
     ## 
     print("Start Optimization")
-    pool = Pool(30)
+    pool = Pool(3)
     result = pool.starmap(fitness_wrapper,[(CVar_list,i,hyperParam) for i in range(60)])
+
+    pool.close()
