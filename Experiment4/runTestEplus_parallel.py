@@ -21,16 +21,6 @@ import pandas as pd
 # Import optimization package
 import pygad
 
-def fitness_func(x,solution_idx):
-  # run simulation
-  res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
-
-  # utility rate
-  uRate = [0.5,0.5,0.6,0.7,1,1]
-
-  total_Cost = sum([x*uRate[i] for i,x in enumerate(res)])
-  return total_Cost
-
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
   Convert NumOfSec to Month/Day
@@ -118,8 +108,19 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
-  print('//Model_T{}_{}'.format(tim/3600,solution_idx))
-  return CVar_list
+
+  ## Step 2. Run EnergyPlus model
+  sp.call(["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName])
+  
+  ## Step 3. After completion, retrieve results
+  # .
+  output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
+  tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
+  cooling_Rate = list(output_DF.iloc[tim_idx+48:end_idx+48,1])  # because of two design days start from 48.
+
+  ## Step 4. Remove temporary files
+  shutil.rmtree(Target_WorkPath)
+  return cooling_Rate
 
 def read_result(filename):
   import datetime
@@ -221,24 +222,5 @@ if __name__ == "__main__":
 
     ## 
     print("Start Optimization")
-    
-    ga_instance = PooledGA(num_generations=num_generations,
-                   num_parents_mating=num_parents_mating,
-                   fitness_func=fitness_func, # Actually this is not used.
-                   sol_per_pop=sol_per_pop,
-                   num_genes=num_genes,
-                   init_range_low=init_range_low,
-                   init_range_high=init_range_high,
-                   parent_selection_type=parent_selection_type,
-                   keep_parents=keep_parents,
-                   crossover_type=crossover_type,
-                   mutation_type=mutation_type,
-                   mutation_num_genes=mutation_num_genes)
-    
-    # run optimization 
-    with Pool(processes=sol_per_pop) as pool:
-        ga_instance.run()
-        #
-        print("Op completed")
-        print(ga_instance.best_solution())    
-    
+    pool = Pool(30)
+    result = pool.starmap(fitness_wrapper,[(CVar_list,i,hyperParam) for i in range(60)])
