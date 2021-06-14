@@ -109,7 +109,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
-
+  print('//Model_T{}_{}'.format(tim/3600,solution_idx))
   return CVar_list
 
 def read_result(filename):
