@@ -21,6 +21,15 @@ import pandas as pd
 # Import optimization package
 import pygad
 
+def fitness_func(x,solution_idx):
+  # run simulation
+  res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
+
+  # utility rate
+  uRate = [0.5,0.5,0.6,0.7,1,1]
+
+  total_Cost = sum([x*uRate[i] for i,x in enumerate(res)])
+  return total_Cost
 
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
