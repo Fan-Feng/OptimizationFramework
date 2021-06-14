@@ -15,5 +15,5 @@
 ml CMake/3.15.3-GCCcore-8.3.0
 export PATH=$SCRATCH/programs/EnergyPlus-9-4-0:$SCRATCH/programs/anaconda3/bin:$PATH
 
-cd $SCRATCH/OptimizationFramework/Experiment2
+cd $SCRATCH/OptimizationFramework/Experiment4
 python runTestEplus_parallel.py
