@@ -13,6 +13,6 @@
 
 ml purge
 ml intel/2018b
-ml mpi4py/3.0.1-intel-2018b-Python-3.6.6
+ml mpi4py/3.0.2-iimpi-2019a-timed-pingpong
 
 python runTest.py
