@@ -11,8 +11,8 @@
 #SBATCH --mem=2560M                #Request 2560MB (2.5GB) per node
 #SBATCH --output=Example1Out.%j    #Send stdout/err to "Example1Out.[jobID]"
 
-module load OpenMPI/3.1.4-GCC-8.3.0
-ml Python/3.7.4-GCCcore-8.3.0
-ml mpi4py/3.0.2-gompic-2019b-timed-pingpong
+ml purge
+ml intel/2018b
+ml mpi4py/3.0.1-intel-2018b-Python-3.6.6
 
 python runTest.py
