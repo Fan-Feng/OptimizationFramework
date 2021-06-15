@@ -15,5 +15,4 @@ module load OpenMPI/3.1.4-GCC-8.3.0
 ml Python/3.7.4-GCCcore-8.3.0
 ml mpi4py/3.0.2-gompic-2019b-timed-pingpong
 
-which mpirun
-mpirun python runTest.py
+./runTest.py
