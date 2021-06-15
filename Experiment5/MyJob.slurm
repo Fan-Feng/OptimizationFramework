@@ -11,5 +11,6 @@
 #SBATCH --mem=2560M                #Request 2560MB (2.5GB) per node
 #SBATCH --output=Example1Out.%j    #Send stdout/err to "Example1Out.[jobID]"
 
-ml Python/3.8.6-GCCcore-10.2.0
+ml CMake/3.15.3-GCCcore-8.3.0
+export PATH=$SCRATCH/programs/EnergyPlus-9-4-0:$SCRATCH/programs/anaconda3/bin:$PATH
 python runTest.py
