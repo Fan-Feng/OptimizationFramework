@@ -122,7 +122,9 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
   ## Step 2. Run EnergyPlus model
-  sp.call(["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName])
+   #srun --time 30 --mem-per-cpu 2048 -n 1 energyplus -w USA_CO_Golden-NREL.724666_TMY3.epw 1ZoneUncontrolled.idf
+  argument=["srun","--qos","long","--time","10","--mem-per-cpu","2048","-n","1", "energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]  
+  sp.Popen(argument)
   
   ## Step 3. After completion, retrieve results
   # .
