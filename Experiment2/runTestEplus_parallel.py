@@ -123,9 +123,9 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   ## Step 2. Run EnergyPlus model
    #srun --time 30 --mem-per-cpu 2048 -n 1 energyplus -w USA_CO_Golden-NREL.724666_TMY3.epw 1ZoneUncontrolled.idf
-  #argument=["srun","--qos","long","--time","10","--mem-per-cpu","2048","-n","1", "energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]  
+  argument=["srun","--qos","long","--time","10","--mem-per-cpu","2048","-n","1", "energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]  
   argument = ["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]
-  sp.Popen(argument)
+  sp.call(argument)
   
   ## Step 3. After completion, retrieve results
   # .
