@@ -249,7 +249,7 @@ if __name__ == "__main__":
                    mutation_num_genes=mutation_num_genes)
     
     # run optimization 
-    with Pool(processes=sol_per_pop) as pool:
+    with Pool(processes=5) as pool:
         ga_instance.run()
         #
         print("Op completed")
