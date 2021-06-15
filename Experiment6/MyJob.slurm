@@ -15,4 +15,4 @@ ml purge
 ml intel/2018b
 ml mpi4py/3.0.2-iimpi-2019a-timed-pingpong
 
-python runTest.py
+mpirun python runTest.py
