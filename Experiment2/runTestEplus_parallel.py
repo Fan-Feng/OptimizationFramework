@@ -116,7 +116,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
-  print(start_idx,end_idx,X_sp_log,CVar_list,X_sp)
+  #print(start_idx,end_idx,X_sp_log,CVar_list,X_sp)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
