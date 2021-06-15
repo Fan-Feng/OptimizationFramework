@@ -12,7 +12,7 @@ def howmany_within_range(row,minimum,maximum):
     return count
 
 random.seed(100)
-data = [[random.randint(0,10) for j in range(1000000)] for i in range(5)]
+data = [[random.randint(0,10) for j in range(100000000)] for i in range(5)]
 
 pool = mp.Pool(30)
 
