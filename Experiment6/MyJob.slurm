@@ -15,4 +15,4 @@ module load intel/2020b
 ml Python/3.7.4-GCCcore-8.3.0
 ml mpi4py/3.0.2-gompic-2019b-timed-pingpong
 
-srun -n 4 python runTest.py
+python runTest.py
