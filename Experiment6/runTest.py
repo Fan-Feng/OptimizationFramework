@@ -10,5 +10,4 @@ else:
     for procid in range(1,p):
         message = comm.recv(source=procid)
         print("process 0 receives message from process",procid,":",message)
-    with open("Test.txt") as fp:
-        fp.write('success')
+        print('Completed')
