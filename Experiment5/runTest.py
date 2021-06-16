@@ -23,4 +23,4 @@ if __name__ == "__main__":
     pool.shutdown()
     toc = time.perf_counter()
     print("Simulation time:",toc-tic)
-    print(results)
+    print(results[:])
