@@ -13,7 +13,6 @@
 
 export PATH=$SCRATCH/programs/EnergyPlus-9-4-0:$SCRATCH/programs/anaconda3/bin:$PATH
 ml purge
-ml intel/2019a
-ml mpi4py/3.0.2-iimpi-2019a-timed-pingpong
+ml intel/2020b
 
 python runTest.py
