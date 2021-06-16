@@ -16,4 +16,4 @@ ml intel/2019a
 #ml mpi4py/3.0.2-iimpi-2019a-timed-pingpong
 
 
-python runTest.py
+mpirun python runTest.py
