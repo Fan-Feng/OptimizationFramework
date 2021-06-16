@@ -6,10 +6,13 @@
 ##NECESSARY JOB SPECIFICATIONS
 #SBATCH --job-name=JobExample1     #Set the job name to "JobExample1"
 #SBATCH --time=03:30:00            #Set the wall clock limit to 1hr and 30min
-#SBATCH --ntasks=1000                #Request 1 task
-#SBATCH --ntasks-per-node=10        #Request 1 task/core per node
-#SBATCH --mem=20480M                #Request 2560MB (2.5GB) per node
+#SBATCH --ntasks=400                #Request 400 task
+#SBATCH --ntasks-per-node=20        #Request 20 task/core per node
+#SBATCH --mem=20480M                #Request 204800MB (20GB) per node
 #SBATCH --output=Example1Out.%j    #Send stdout/err to "Example1Out.[jobID]"
+
+##OPTIONAL JOB SPECIFICATIONS
+##SBATCH --account=122774970664             #Set billing account to 122774970664
 
 ml purge
 ml intel/2019a

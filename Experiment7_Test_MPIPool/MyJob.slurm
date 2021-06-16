@@ -11,6 +11,9 @@
 #SBATCH --mem=2560M                #Request 2560MB (2.5GB) per node
 #SBATCH --output=Example1Out.%j    #Send stdout/err to "Example1Out.[jobID]"
 
+##OPTIONAL JOB SPECIFICATIONS
+##SBATCH --account=122774970664             #Set billing account to 123456
+
 ml purge
 ml intel/2019a
 #ml mpi4py/3.0.2-iimpi-2019a-timed-pingpong
