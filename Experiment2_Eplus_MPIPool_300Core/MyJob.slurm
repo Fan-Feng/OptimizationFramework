@@ -8,7 +8,7 @@
 #SBATCH --time=03:30:00            #Set the wall clock limit to 1hr and 30min
 #SBATCH --ntasks=1000                #Request 1 task
 #SBATCH --ntasks-per-node=10        #Request 1 task/core per node
-#SBATCH --mem=2560M                #Request 2560MB (2.5GB) per node
+#SBATCH --mem=20480M                #Request 2560MB (2.5GB) per node
 #SBATCH --output=Example1Out.%j    #Send stdout/err to "Example1Out.[jobID]"
 
 ml purge
