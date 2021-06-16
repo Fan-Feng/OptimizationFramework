@@ -15,4 +15,4 @@ with MPIPool() as pool:
   result = pool.map_async(menial_task, range(100))
   print("Done already?", result.ready())
 
-print("All MPI processes join again here.")
+print("All MPI processes join again here.",result)
