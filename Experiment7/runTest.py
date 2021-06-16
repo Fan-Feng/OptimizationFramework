@@ -1,4 +1,4 @@
-from mpipool import MPIPool
+from mpipool import mpipool
 from mpi4py import MPI
 
 def menial_task(x):
