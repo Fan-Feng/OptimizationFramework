@@ -11,7 +11,7 @@ def howmany_within_range(row,minimum=4,maximum=8):
             count = count + 1
     #print(sys.version)
     return count
-    
+
 if __name__ == "__main__":
     random.seed(100)
     data = [[random.randint(0,10) for j in range(10)] for i in range(5)]
@@ -23,3 +23,4 @@ if __name__ == "__main__":
     pool.shutdown()
     toc = time.perf_counter()
     print("Simulation time:",toc-tic)
+    print(results)
