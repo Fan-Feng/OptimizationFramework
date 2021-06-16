@@ -12,7 +12,7 @@
 #SBATCH --output=Example1Out.%j    #Send stdout/err to "Example1Out.[jobID]"
 
 ml purge
-ml intel/2018b
+ml intel/2019a
 ml mpi4py/3.0.2-iimpi-2019a-timed-pingpong
 
 mpirun python runTest.py
