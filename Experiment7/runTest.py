@@ -5,9 +5,6 @@ def menial_task(x):
   return x ** MPI.COMM_WORLD.Get_rank()
 
 with Pool() as pool:
-  pool.workers_exit()
-  print("Only the master executes this code.")
-
   # Block for results
   results = pool.map(menial_task, range(100))
 
