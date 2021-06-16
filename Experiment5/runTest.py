@@ -19,6 +19,6 @@ pool = mpi4py.futures.MPIPoolExecutor(max_workers=30)
 
 tic = time.perf_counter()
 results = pool.map(howmany_within_range,[row for row in data])
-pool.close()
+pool.shutdown()
 toc = time.perf_counter()
 print("Simulation time:",toc-tic)
