@@ -11,9 +11,9 @@
 #SBATCH --mem=2560M                #Request 2560MB (2.5GB) per node
 #SBATCH --output=Example1Out.%j    #Send stdout/err to "Example1Out.[jobID]"
 ml purge
-ml intel/2018b
+ml OpenMPI/4.0.5-GCC-10.2.0
 #ml mpi4py/3.0.2-iimpi-2019a-timed-pingpong
 
 export PATH=$SCRATCH/programs/EnergyPlus-9-4-0:$SCRATCH/programs/anaconda3/bin:$PATH
 
-python runTest.py
+mpirun python runTest.py
