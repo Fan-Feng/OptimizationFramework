@@ -2,7 +2,7 @@ from mpipool import MPIPool
 from mpi4py import MPI
 
 def menial_task(x):
-    print(MPI.COMM_WORLD.Get_rank())
+    print(x, MPI.COMM_WORLD.Get_rank())
     return x ** MPI.COMM_WORLD.Get_rank()
 
 with MPIPool() as pool:
