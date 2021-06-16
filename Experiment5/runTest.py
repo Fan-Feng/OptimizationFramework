@@ -13,9 +13,9 @@ def howmany_within_range(row,minimum=4,maximum=8):
     return count
 
 random.seed(100)
-data = [[random.randint(0,10) for j in range(10000000)] for i in range(5)]
+data = [[random.randint(0,10) for j in range(10)] for i in range(5)]
 
-pool = mpi4py.futures.MPIPoolExecutor(max_workers=30)
+pool = mpi4py.futures.MPIPoolExecutor(max_workers=4)
 
 tic = time.perf_counter()
 results = pool.map(howmany_within_range,[row for row in data])
