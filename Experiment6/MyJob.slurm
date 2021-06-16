@@ -17,4 +17,4 @@ ml intel/2018b
 
 export PATH=$SCRATCH/programs/EnergyPlus-9-4-0:$SCRATCH/programs/anaconda3/bin:$PATH
 
-mpirun python runTest.py
+mpirun -n 4 python runTest.py
