@@ -10,5 +10,6 @@ with MPIPool() as pool:
     print("Only master")
 
     results = pool.map(menial_task, range(4))
+    print(results)
 
 print("All MPI processes join again here.")
