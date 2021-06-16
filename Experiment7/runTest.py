@@ -9,7 +9,7 @@ with MPIPool() as pool:
     pool.workers_exit()
     print("Only master")
 
-    results = pool.map(menial_task, range(4))
+    results = pool.map(menial_task, range(3))
     print(results)
 
 print("All MPI processes join again here.")
