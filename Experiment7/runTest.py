@@ -10,9 +10,10 @@ with MPIPool() as pool:
 
   # Block for results
   results = pool.map(menial_task, range(100))
+  print(results)
 
   # Async
   result = pool.map_async(menial_task, range(100))
   print("Done already?", result.ready())
 
-print("All MPI processes join again here.",result)
+print("All MPI processes join again here.")
