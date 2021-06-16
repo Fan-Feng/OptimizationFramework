@@ -4,7 +4,7 @@ from mpi4py import MPI
 def menial_task(x):
   return x ** MPI.COMM_WORLD.Get_rank()
 
-with MPIPool() as pool:
+with mpipool() as pool:
   pool.workers_exit()
   print("Only the master executes this code.")
 
