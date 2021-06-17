@@ -219,7 +219,7 @@ if __name__ == "__main__":
         
     # Optimization algorithm setting
     num_generations = 50
-    sol_per_pop = 30   # Number of individuals
+    sol_per_pop = 27   # Number of individuals
 
     num_parents_mating = 4
     num_genes = len(CVar_list)
@@ -252,7 +252,7 @@ if __name__ == "__main__":
                    mutation_num_genes=mutation_num_genes)
     
     # run optimization 
-    with Pool(processes=30) as pool:
+    with Pool(processes=27) as pool:
         ga_instance.run()
         #
         print("Op completed")
