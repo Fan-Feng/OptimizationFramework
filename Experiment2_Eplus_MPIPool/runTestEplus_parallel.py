@@ -4,7 +4,6 @@ A python script for implement a MPC framework
 Simulation model: EnergyPlus
 Optimization algorithm: pygad
 
-
 Author: ffeng@tamu.edu 
 '''
 
@@ -62,15 +61,32 @@ def fitness_func(x,solution_idx):
 
   total_Cost = sum([x*uRate[i] for i,x in enumerate(res)])
   return total_Cost
-    
+
+def penalty_func(ZMAT,output_DF):
+
+  ## This function could be modified in the future if necessary
+  SP_list = [26.7]*5+[25.6]+[25]+[24]*15+[26.7]*2 # [18,24]
+  ThermalComfort_range = 0.5
+
+  residuals = 0
+  for i in range(output_DF.shape[0]):
+    dtime = output_DF.iloc[i,0]
+    hourOfDay = int(dtime.hour)
+    residuals += max(ZMAT[i]-SP_list[hourOfDay]-ThermalComfort_range,0)
+  
+  
+  return residuals
+
 def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
-  res = run_prediction(x,solution_idx,hyperParam)
+  cooling_rate, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
 
   # utility rate, read from an external file
   uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2  # Summer, workday. Replaced later. 
+  
+  alpha = 10**20 ## This value should be adjusted.. 
 
-  total_Cost = - sum([x*uRate[i] for i,x in enumerate(res)])
+  total_Cost = - sum([x*uRate[i] for i,x in enumerate(cooling_rate)]) - alpha * penalty_func(ZMAT,output_DF)
 
   return total_Cost
 
@@ -125,7 +141,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
   ## Step 2. Run EnergyPlus model
-  #argument=["srun","--qos","long","--time","10","--mem-per-cpu","2048","-n","1", "energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]  
+   #srun --time 30 --mem-per-cpu 2048 -n 1 energyplus -w USA_CO_Golden-NREL.724666_TMY3.epw 1ZoneUncontrolled.idf
   argument = ["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]
   sp.call(argument)
   
@@ -133,11 +149,13 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   # .
   output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
   tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-  cooling_Rate = list(output_DF.iloc[tim_idx+48:end_idx+48,1])  # because of two design days start from 48.
+  cooling_Rate = list(output_DF.iloc[tim_idx+48:end_idx+48,2])  # because of two design days start from 48.
+  ZMAT = list(output_DF.iloc[tim_idx+48:end_idx+48,3])  # because of two design days start from 48.
+
 
   ## Step 4. Remove temporary files
   shutil.rmtree(Target_WorkPath)
-  return cooling_Rate
+  return cooling_Rate,ZMAT,output_DF.iloc[tim_idx+48:end_idx+48,:]
 
 def read_result(filename):
   import datetime
@@ -226,8 +244,8 @@ with MPIPool() as pool:
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
     # Optimization algorithm setting
-    num_generations = 50
-    sol_per_pop = 30   # Number of individuals
+    num_generations = 30
+    sol_per_pop = 199   # Number of individuals
 
     num_parents_mating = 4
     num_genes = len(CVar_list)
