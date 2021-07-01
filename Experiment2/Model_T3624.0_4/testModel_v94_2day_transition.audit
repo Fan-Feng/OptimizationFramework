@@ -1,0 +1,7 @@
+
+Conversion 9.4 => 9.5
+ Starting new Transition.audit
+ Will create new full IDFs
+ Will create new IDF lines with units where applicable
+ Will create new IDF lines leaving blank incoming fields as blank (no default fill)
+ Processing IDF -- C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment2\Model_T3624.0_4\testModel_v94_2day.idf

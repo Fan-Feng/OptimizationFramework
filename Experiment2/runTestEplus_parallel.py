@@ -49,7 +49,8 @@ def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
       line = line.replace("%EndMon%",str(endMon))
       line = line.replace("%EndDay%",str(endDay))
       fp.writelines(line)
-    
+
+
 def fitness_func(x,solution_idx):
   # run simulation
   res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
@@ -59,15 +60,32 @@ def fitness_func(x,solution_idx):
 
   total_Cost = sum([x*uRate[i] for i,x in enumerate(res)])
   return total_Cost
-    
+
+def penalty_func(ZMAT,output_DF):
+
+  ## This function could be modified in the future if necessary
+  SP_list = [26.7]*5+[25.6]+[25]+[24]*15+[26.7]*2 # [18,24]
+  ThermalComfort_range = 0.5
+
+  residuals = 0
+  for i in range(output_DF.shape[0]):
+    dtime = output_DF.iloc[i,0]
+    hourOfDay = int(dtime.hour)
+    residuals += max(abs(SP_list[hourOfDay]-ZMAT[i])-ThermalComfort_range,0)
+  
+  
+  return residuals
+
 def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
-  res = run_prediction(x,solution_idx,hyperParam)
+  cooling_rate, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
 
   # utility rate, read from an external file
   uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2  # Summer, workday. Replaced later. 
+  
+  alpha = 10**20 ## This value should be adjusted.. 
 
-  total_Cost = - sum([x*uRate[i] for i,x in enumerate(res)])
+  total_Cost = - sum([x*uRate[i] for i,x in enumerate(cooling_rate)]) - alpha * penalty_func(ZMAT,output_DF)
 
   return total_Cost
 
@@ -123,7 +141,6 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   ## Step 2. Run EnergyPlus model
    #srun --time 30 --mem-per-cpu 2048 -n 1 energyplus -w USA_CO_Golden-NREL.724666_TMY3.epw 1ZoneUncontrolled.idf
-  argument=["srun","--qos","long","--time","10","--mem-per-cpu","2048","-n","1", "energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]  
   argument = ["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]
   sp.call(argument)
   
@@ -131,21 +148,23 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   # .
   output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
   tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-  cooling_Rate = list(output_DF.iloc[tim_idx+48:end_idx+48,1])  # because of two design days start from 48.
+  cooling_Rate = list(output_DF.iloc[tim_idx+48:end_idx+48,2])  # because of two design days start from 48.
+  ZMAT = list(output_DF.iloc[tim_idx+48:end_idx+48,3])  # because of two design days start from 48.
+
 
   ## Step 4. Remove temporary files
   shutil.rmtree(Target_WorkPath)
-  return cooling_Rate
+  return cooling_Rate,ZMAT,output_DF.iloc[tim_idx+48:end_idx+48,:]
 
 def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  id = 2050 # This is ID for Zone Radiant HVAC Cooling Rate
+  output_idx = [2050,769] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
   data = {'dtime':[],
-          'data':[],
           'dayType':[]}
-
+  for id_i in output_idx:
+    data[str(id_i)] = []
 
   with open(filename) as fp:
     while True:
@@ -166,13 +185,16 @@ def read_result(filename):
       if id == 2: # this is the timestamp for all following outputs
         dtime = datetime.datetime(2021,int(fields[2]),int(fields[3]),int(float(fields[5]))-1,int(float(fields[6])))
         dayType = fields[-1]
+        data['dtime'].append(dtime)
+        data['dayType'].append(dayType)
         continue
-      if id != 2050:
+
+      if id in output_idx:
+        data[str(id)].append(float(fields[1]))
+      else:
         # skip entries that are not output:variables
         continue
-      data['dtime'].append(dtime)
-      data['data'].append(float(fields[1]))
-      data['dayType'].append(dayType)
+
   data = pd.DataFrame(data)
   return data
 
@@ -252,7 +274,7 @@ if __name__ == "__main__":
                    mutation_num_genes=mutation_num_genes)
     
     # run optimization 
-    with Pool(processes=27) as pool:
+    with Pool(processes=2) as pool:
         ga_instance.run()
         #
         print("Op completed")

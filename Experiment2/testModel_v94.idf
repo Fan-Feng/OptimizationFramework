@@ -2302,7 +2302,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    21.00;                   !- Field 4
+    19.00;                   !- Field 4
 
 Schedule:Compact,
     RADHEATLOWCONTROLTEMP,   !- Name
@@ -2310,7 +2310,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    15.00;                   !- Field 4
+    17.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLHIGHWATERTEMP,    !- Name
@@ -2334,7 +2334,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    26.00;                   !- Field 4
+    25.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLLOWCONTROLTEMP,   !- Name
@@ -2342,7 +2342,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    22.00;                   !- Field 4
+    23.00;                   !- Field 4
 
 Schedule:Compact,
     HVACTemplate-Always 1,   !- Name
@@ -10015,8 +10015,8 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri1_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri1_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
-    RADHEATLOWWATERTEMP,     !- Heating Low Water Temperature Schedule Name
+    RADCOOLHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
+    RADCOOLHIGHWATERTEMP_Test,  !- Heating Low Water Temperature Schedule Name
     RADHEATHIGHCONTROLTEMP,  !- Heating High Control Temperature Schedule Name
     RADHEATLOWCONTROLTEMP,   !- Heating Low Control Temperature Schedule Name
     Peri1_Top_LoTemp_Chw_Inlet,  !- Cooling Water Inlet Node Name
@@ -12539,6 +12539,11 @@ OutputControl:Table:Style,
 Output:Variable,
     PERI1_TOP_LOTEMP,        !- Key Value
     Zone Radiant HVAC Cooling Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    Perimeter_top_ZN_1,      !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 

@@ -143,11 +143,11 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  id = 2050 # This is ID for Zone Radiant HVAC Cooling Rate
+  output_idx = [2050,769] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
   data = {'dtime':[],
-          'data':[],
           'dayType':[]}
-
+  for id_i in output_idx:
+    data[str(id_i)] = []
 
   with open(filename) as fp:
     while True:
@@ -168,13 +168,16 @@ def read_result(filename):
       if id == 2: # this is the timestamp for all following outputs
         dtime = datetime.datetime(2021,int(fields[2]),int(fields[3]),int(float(fields[5]))-1,int(float(fields[6])))
         dayType = fields[-1]
+        data['dtime'].append(dtime)
+        data['dayType'].append(dayType)
         continue
-      if id != 2050:
+
+      if id in output_idx:
+        data[str(id)].append(float(fields[1]))
+      else:
         # skip entries that are not output:variables
         continue
-      data['dtime'].append(dtime)
-      data['data'].append(float(fields[1]))
-      data['dayType'].append(dayType)
+
   data = pd.DataFrame(data)
   return data
 

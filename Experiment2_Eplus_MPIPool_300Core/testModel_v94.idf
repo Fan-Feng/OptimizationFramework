@@ -12541,6 +12541,11 @@ Output:Variable,
     Zone Radiant HVAC Cooling Rate,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
+Output:Variable,
+    Perimeter_top_ZN_1,      !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:METER:METERFILEONLY ===========
 
