@@ -230,7 +230,7 @@ with MPIPool() as pool:
     CVar_list = [CVar*5+12 for CVar in CVar_list]
 
     tim = start_time
-    Eplus_FileName = "testModel_v94.idf"
+    Eplus_FileName = "testModel_v94_2day.idf"
 
 
     #prepare hyper parameter
