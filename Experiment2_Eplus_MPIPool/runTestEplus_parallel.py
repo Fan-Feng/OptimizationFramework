@@ -273,7 +273,8 @@ with MPIPool() as pool:
                 keep_parents=keep_parents,
                 crossover_type=crossover_type,
                 mutation_type=mutation_type,
-                mutation_num_genes=mutation_num_genes
+                mutation_num_genes=mutation_num_genes,
+                initial_population=[[12]*7+[10+2*rng.random(1)[0] for j in range(5)] + [13+2*rng.random(1)[0] for j in range(5)] +[12]*7 for i in range(sol_per_pop)]
                 )
 
     print("Start Optimization")
