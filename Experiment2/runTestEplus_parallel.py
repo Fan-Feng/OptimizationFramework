@@ -240,7 +240,7 @@ if __name__ == "__main__":
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
     # Optimization algorithm setting
-    num_generations = 50
+    num_generations = 20
     sol_per_pop = 27   # Number of individuals
 
     num_parents_mating = 4
