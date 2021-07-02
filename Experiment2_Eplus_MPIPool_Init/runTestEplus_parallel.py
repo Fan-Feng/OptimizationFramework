@@ -244,14 +244,14 @@ with MPIPool() as pool:
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
     # Optimization algorithm setting
-    num_generations = 20
+    num_generations = 5
     sol_per_pop = 399   # Number of individuals
 
     num_parents_mating = 4
     num_genes = len(CVar_list)
 
     init_range_low = 10
-    init_range_high = 18
+    init_range_high = 15
 
     parent_selection_type = "sss"
     keep_parents = 1
@@ -273,13 +273,14 @@ with MPIPool() as pool:
                 keep_parents=keep_parents,
                 crossover_type=crossover_type,
                 mutation_type=mutation_type,
-                mutation_num_genes=mutation_num_genes)
+                mutation_num_genes=mutation_num_genes,
+                initial_population=[[12]*7+[10+2*rng.random(1)[0] for j in range(5)] + [13+2*rng.random(1)[0] for j in range(5)] +[12]*7 for i in range(sol_per_pop)]
+                )
 
     print("Start Optimization")
 
     ga_instance.run()
-    
-    #Plot savefig
+
     print("Op completed")
     print(ga_instance.best_solution())  
 

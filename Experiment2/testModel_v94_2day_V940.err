@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.01 15:49,
+Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.02 01:04,
    ** Warning ** Sizing:Parameters: note Timesteps in Averaging Window entered value=[20] is less than 1 hour (i.e., 60 timesteps).
    ************* Beginning Zone Sizing Calculations
    ** Warning ** Weather file location will be used rather than entered (IDF) Location object.
@@ -93,4 +93,4 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.01 15:49,
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 30 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 32 Warning; 0 Severe Errors; Elapsed Time=00hr 01min 53.92sec
+   ************* EnergyPlus Completed Successfully-- 32 Warning; 0 Severe Errors; Elapsed Time=00hr 01min 50.02sec
