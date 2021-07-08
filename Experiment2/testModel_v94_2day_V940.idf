@@ -9727,6 +9727,14 @@ Sizing:Plant,
     NonCoincident,           !- Sizing Option
     1;                       !- Zone Timesteps in Averaging Window
 
+Sizing:Plant,
+    Chilled Water Loop Chilled Water Loop2,  !- Plant or Condenser Loop Name
+    Cooling,                 !- Loop Type
+    7.22,                    !- Design Loop Exit Temperature {C}
+    6.67,                    !- Loop Design Temperature Difference {deltaC}
+    NonCoincident,           !- Sizing Option
+    1;                       !- Zone Timesteps in Averaging Window
+
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONECONTROL:THERMOSTAT ===========
 
@@ -11277,12 +11285,28 @@ Branch,
     Chilled Water Loop ChW Supply Bypass Outlet;  !- Component 1 Outlet Node Name
 
 Branch,
+    Chilled Water Loop ChW Supply Bypass Branch2,  !- Name
+    ,                        !- Pressure Drop Curve Name
+    Pipe:Adiabatic,          !- Component 1 Object Type
+    Chilled Water Loop ChW Supply Side Bypass Pipe2,  !- Component 1 Name
+    Chilled Water Loop ChW Supply Bypass Inlet2,  !- Component 1 Inlet Node Name
+    Chilled Water Loop ChW Supply Bypass Outlet2;  !- Component 1 Outlet Node Name
+
+Branch,
     Chilled Water Loop ChW Supply Inlet Branch,  !- Name
     ,                        !- Pressure Drop Curve Name
     Pump:ConstantSpeed,      !- Component 1 Object Type
     Chilled Water Loop ChW Supply Pump,  !- Component 1 Name
     Chilled Water Loop ChW Supply Inlet,  !- Component 1 Inlet Node Name
     Chilled Water Loop ChW Pump Outlet;  !- Component 1 Outlet Node Name
+
+Branch,
+    Chilled Water Loop ChW Supply Inlet Branch2,  !- Name
+    ,                        !- Pressure Drop Curve Name
+    Pump:ConstantSpeed,      !- Component 1 Object Type
+    Chilled Water Loop ChW Supply Pump2,  !- Component 1 Name
+    Chilled Water Loop ChW Supply Inlet2,  !- Component 1 Inlet Node Name
+    Chilled Water Loop ChW Pump Outlet2;  !- Component 1 Outlet Node Name
 
 Branch,
     Chilled Water Loop ChW Supply Outlet Branch,  !- Name
@@ -11293,12 +11317,28 @@ Branch,
     Chilled Water Loop ChW Supply Outlet;  !- Component 1 Outlet Node Name
 
 Branch,
+    Chilled Water Loop ChW Supply Outlet Branch2,  !- Name
+    ,                        !- Pressure Drop Curve Name
+    Pipe:Adiabatic,          !- Component 1 Object Type
+    Chilled Water Loop ChW Supply Outlet Pipe2,  !- Component 1 Name
+    Chilled Water Loop ChW Supply Outlet Pipe Inlet2,  !- Component 1 Inlet Node Name
+    Chilled Water Loop ChW Supply Outlet2;  !- Component 1 Outlet Node Name
+
+Branch,
     Chilled Water Loop ChW Demand Inlet Branch,  !- Name
     ,                        !- Pressure Drop Curve Name
     Pipe:Adiabatic,          !- Component 1 Object Type
     Chilled Water Loop ChW Demand Inlet Pipe,  !- Component 1 Name
     Chilled Water Loop ChW Demand Inlet,  !- Component 1 Inlet Node Name
     Chilled Water Loop ChW Demand Inlet Pipe Outlet;  !- Component 1 Outlet Node Name
+
+Branch,
+    Chilled Water Loop ChW Demand Inlet Branch2,  !- Name
+    ,                        !- Pressure Drop Curve Name
+    Pipe:Adiabatic,          !- Component 1 Object Type
+    Chilled Water Loop ChW Demand Inlet Pipe2,  !- Component 1 Name
+    Chilled Water Loop ChW Demand Inlet2,  !- Component 1 Inlet Node Name
+    Chilled Water Loop ChW Demand Inlet Pipe Outlet2;  !- Component 1 Outlet Node Name
 
 Branch,
     Chilled Water Loop ChW Demand Bypass Branch,  !- Name
@@ -11309,12 +11349,28 @@ Branch,
     Chilled Water Loop ChW Demand Bypass Outlet;  !- Component 1 Outlet Node Name
 
 Branch,
+    Chilled Water Loop ChW Demand Bypass Branch2,  !- Name
+    ,                        !- Pressure Drop Curve Name
+    Pipe:Adiabatic,          !- Component 1 Object Type
+    Chilled Water Loop ChW Demand Side Bypass Pipe2,  !- Component 1 Name
+    Chilled Water Loop ChW Demand Bypass Inlet2,  !- Component 1 Inlet Node Name
+    Chilled Water Loop ChW Demand Bypass Outlet2;  !- Component 1 Outlet Node Name
+
+Branch,
     Chilled Water Loop ChW Demand Outlet Branch,  !- Name
     ,                        !- Pressure Drop Curve Name
     Pipe:Adiabatic,          !- Component 1 Object Type
     Chilled Water Loop ChW Demand Outlet Pipe,  !- Component 1 Name
     Chilled Water Loop ChW Demand Outlet Pipe Inlet,  !- Component 1 Inlet Node Name
     Chilled Water Loop ChW Demand Outlet;  !- Component 1 Outlet Node Name
+
+Branch,
+    Chilled Water Loop ChW Demand Outlet Branch2,  !- Name
+    ,                        !- Pressure Drop Curve Name
+    Pipe:Adiabatic,          !- Component 1 Object Type
+    Chilled Water Loop ChW Demand Outlet Pipe2,  !- Component 1 Name
+    Chilled Water Loop ChW Demand Outlet Pipe Inlet2,  !- Component 1 Inlet Node Name
+    Chilled Water Loop ChW Demand Outlet2;  !- Component 1 Outlet Node Name
 
 Branch,
     Core_Bot_LoTemp_Branch,  !- Name
@@ -11443,6 +11499,14 @@ Branch,
     PurchasedCooling,        !- Component 1 Name
     Purchased Cooling Inlet Node,  !- Component 1 Inlet Node Name
     Purchased Cooling Outlet Node;  !- Component 1 Outlet Node Name
+
+Branch,
+    Main Chiller ChW Branch2,!- Name
+    ,                        !- Pressure Drop Curve Name
+    DistrictCooling,         !- Component 1 Object Type
+    PurchasedCooling2,       !- Component 1 Name
+    Purchased Cooling Inlet Node2,  !- Component 1 Inlet Node Name
+    Purchased Cooling Outlet Node2;  !- Component 1 Outlet Node Name
 
 Branch,
     Main Boiler HW Branch,   !- Name
@@ -11672,21 +11736,20 @@ BranchList,
     Core_Bot_LoTemp_Branch,  !- Branch 2 Name
     Core_Mid_LoTemp_Branch,  !- Branch 3 Name
     Core_Top_LoTemp_Branch,  !- Branch 4 Name
-    Peri1_Top_LoTemp_Branch, !- Branch 5 Name
-    Peri2_Top_LoTemp_Branch, !- Branch 6 Name
-    Peri3_Top_LoTemp_Branch, !- Branch 7 Name
-    Peri4_Top_LoTemp_Branch, !- Branch 8 Name
-    Peri1_Mid_LoTemp_Branch, !- Branch 9 Name
-    Peri2_Mid_LoTemp_Branch, !- Branch 10 Name
-    Peri3_Mid_LoTemp_Branch, !- Branch 11 Name
-    Peri4_Mid_LoTemp_Branch, !- Branch 12 Name
-    Peri1_Bot_LoTemp_Branch, !- Branch 13 Name
-    Peri2_Bot_LoTemp_Branch, !- Branch 14 Name
-    Peri3_Bot_LoTemp_Branch, !- Branch 15 Name
-    Peri4_Bot_LoTemp_Branch, !- Branch 16 Name
-    DOAS Cooling Coil ChW Branch,  !- Branch 17 Name
-    Chilled Water Loop ChW Demand Bypass Branch,  !- Branch 18 Name
-    Chilled Water Loop ChW Demand Outlet Branch;  !- Branch 19 Name
+    Peri2_Top_LoTemp_Branch, !- Branch 5 Name
+    Peri3_Top_LoTemp_Branch, !- Branch 6 Name
+    Peri4_Top_LoTemp_Branch, !- Branch 7 Name
+    Peri1_Mid_LoTemp_Branch, !- Branch 8 Name
+    Peri2_Mid_LoTemp_Branch, !- Branch 9 Name
+    Peri3_Mid_LoTemp_Branch, !- Branch 10 Name
+    Peri4_Mid_LoTemp_Branch, !- Branch 11 Name
+    Peri1_Bot_LoTemp_Branch, !- Branch 12 Name
+    Peri2_Bot_LoTemp_Branch, !- Branch 13 Name
+    Peri3_Bot_LoTemp_Branch, !- Branch 14 Name
+    Peri4_Bot_LoTemp_Branch, !- Branch 15 Name
+    DOAS Cooling Coil ChW Branch,  !- Branch 16 Name
+    Chilled Water Loop ChW Demand Bypass Branch,  !- Branch 17 Name
+    Chilled Water Loop ChW Demand Outlet Branch;  !- Branch 18 Name
 
 BranchList,
     Hot Water Loop HW Supply Side Branches,  !- Name
@@ -11721,6 +11784,20 @@ BranchList,
     DOAS Branches,           !- Name
     DOAS Main Branch;        !- Branch 1 Name
 
+BranchList,
+    Chilled Water Loop ChW Supply Side Branches2,  !- Name
+    Chilled Water Loop ChW Supply Inlet Branch2,  !- Branch 1 Name
+    Main Chiller ChW Branch2,!- Branch 2 Name
+    Chilled Water Loop ChW Supply Bypass Branch2,  !- Branch 3 Name
+    Chilled Water Loop ChW Supply Outlet Branch2;  !- Branch 4 Name
+
+BranchList,
+    Chilled Water Loop ChW Demand Side Branches2,  !- Name
+    Chilled Water Loop ChW Demand Inlet Branch2,  !- Branch 1 Name
+    Peri1_Top_LoTemp_Branch, !- Branch 2 Name
+    Chilled Water Loop ChW Demand Bypass Branch2,  !- Branch 3 Name
+    Chilled Water Loop ChW Demand Outlet Branch2;  !- Branch 4 Name
+
 
 !-   ===========  ALL OBJECTS IN CLASS: CONNECTOR:SPLITTER ===========
 
@@ -11737,19 +11814,24 @@ Connector:Splitter,
     Core_Bot_LoTemp_Branch,  !- Outlet Branch 2 Name
     Core_Mid_LoTemp_Branch,  !- Outlet Branch 3 Name
     Core_Top_LoTemp_Branch,  !- Outlet Branch 4 Name
-    Peri1_Top_LoTemp_Branch, !- Outlet Branch 5 Name
-    Peri2_Top_LoTemp_Branch, !- Outlet Branch 6 Name
-    Peri3_Top_LoTemp_Branch, !- Outlet Branch 7 Name
-    Peri4_Top_LoTemp_Branch, !- Outlet Branch 8 Name
-    Peri1_Mid_LoTemp_Branch, !- Outlet Branch 9 Name
-    Peri2_Mid_LoTemp_Branch, !- Outlet Branch 10 Name
-    Peri3_Mid_LoTemp_Branch, !- Outlet Branch 11 Name
-    Peri4_Mid_LoTemp_Branch, !- Outlet Branch 12 Name
-    Peri1_Bot_LoTemp_Branch, !- Outlet Branch 13 Name
-    Peri2_Bot_LoTemp_Branch, !- Outlet Branch 14 Name
-    Peri3_Bot_LoTemp_Branch, !- Outlet Branch 15 Name
-    Peri4_Bot_LoTemp_Branch, !- Outlet Branch 16 Name
-    DOAS Cooling Coil ChW Branch;  !- Outlet Branch 17 Name
+    Peri2_Top_LoTemp_Branch, !- Outlet Branch 5 Name
+    Peri3_Top_LoTemp_Branch, !- Outlet Branch 6 Name
+    Peri4_Top_LoTemp_Branch, !- Outlet Branch 7 Name
+    Peri1_Mid_LoTemp_Branch, !- Outlet Branch 8 Name
+    Peri2_Mid_LoTemp_Branch, !- Outlet Branch 9 Name
+    Peri3_Mid_LoTemp_Branch, !- Outlet Branch 10 Name
+    Peri4_Mid_LoTemp_Branch, !- Outlet Branch 11 Name
+    Peri1_Bot_LoTemp_Branch, !- Outlet Branch 12 Name
+    Peri2_Bot_LoTemp_Branch, !- Outlet Branch 13 Name
+    Peri3_Bot_LoTemp_Branch, !- Outlet Branch 14 Name
+    Peri4_Bot_LoTemp_Branch, !- Outlet Branch 15 Name
+    DOAS Cooling Coil ChW Branch;  !- Outlet Branch 16 Name
+
+Connector:Splitter,
+    Chilled Water Loop ChW Demand Splitter2,  !- Name
+    Chilled Water Loop ChW Demand Inlet Branch2,  !- Inlet Branch Name
+    Chilled Water Loop ChW Demand Bypass Branch2,  !- Outlet Branch 1 Name
+    Peri1_Top_LoTemp_Branch; !- Outlet Branch 2 Name
 
 Connector:Splitter,
     Hot Water Loop HW Supply Splitter,  !- Name
@@ -11778,6 +11860,12 @@ Connector:Splitter,
     Peri3_Top Radiant Branch,!- Outlet Branch 16 Name
     DOAS Heating Coil HW Branch;  !- Outlet Branch 17 Name
 
+Connector:Splitter,
+    Chilled Water Loop ChW Supply Splitter2,  !- Name
+    Chilled Water Loop ChW Supply Inlet Branch2,  !- Inlet Branch Name
+    Chilled Water Loop ChW Supply Bypass Branch2,  !- Outlet Branch 1 Name
+    Main Chiller ChW Branch2;!- Outlet Branch 2 Name
+
 
 !-   ===========  ALL OBJECTS IN CLASS: CONNECTOR:MIXER ===========
 
@@ -11794,19 +11882,18 @@ Connector:Mixer,
     Core_Bot_LoTemp_Branch,  !- Inlet Branch 2 Name
     Core_Mid_LoTemp_Branch,  !- Inlet Branch 3 Name
     Core_Top_LoTemp_Branch,  !- Inlet Branch 4 Name
-    Peri1_Top_LoTemp_Branch, !- Inlet Branch 5 Name
-    Peri2_Top_LoTemp_Branch, !- Inlet Branch 6 Name
-    Peri3_Top_LoTemp_Branch, !- Inlet Branch 7 Name
-    Peri4_Top_LoTemp_Branch, !- Inlet Branch 8 Name
-    Peri1_Mid_LoTemp_Branch, !- Inlet Branch 9 Name
-    Peri2_Mid_LoTemp_Branch, !- Inlet Branch 10 Name
-    Peri3_Mid_LoTemp_Branch, !- Inlet Branch 11 Name
-    Peri4_Mid_LoTemp_Branch, !- Inlet Branch 12 Name
-    Peri1_Bot_LoTemp_Branch, !- Inlet Branch 13 Name
-    Peri2_Bot_LoTemp_Branch, !- Inlet Branch 14 Name
-    Peri3_Bot_LoTemp_Branch, !- Inlet Branch 15 Name
-    Peri4_Bot_LoTemp_Branch, !- Inlet Branch 16 Name
-    DOAS Cooling Coil ChW Branch;  !- Inlet Branch 17 Name
+    Peri2_Top_LoTemp_Branch, !- Inlet Branch 5 Name
+    Peri3_Top_LoTemp_Branch, !- Inlet Branch 6 Name
+    Peri4_Top_LoTemp_Branch, !- Inlet Branch 7 Name
+    Peri1_Mid_LoTemp_Branch, !- Inlet Branch 8 Name
+    Peri2_Mid_LoTemp_Branch, !- Inlet Branch 9 Name
+    Peri3_Mid_LoTemp_Branch, !- Inlet Branch 10 Name
+    Peri4_Mid_LoTemp_Branch, !- Inlet Branch 11 Name
+    Peri1_Bot_LoTemp_Branch, !- Inlet Branch 12 Name
+    Peri2_Bot_LoTemp_Branch, !- Inlet Branch 13 Name
+    Peri3_Bot_LoTemp_Branch, !- Inlet Branch 14 Name
+    Peri4_Bot_LoTemp_Branch, !- Inlet Branch 15 Name
+    DOAS Cooling Coil ChW Branch;  !- Inlet Branch 16 Name
 
 Connector:Mixer,
     Hot Water Loop HW Supply Mixer,  !- Name
@@ -11834,6 +11921,18 @@ Connector:Mixer,
     Peri3_Bot Radiant Branch,!- Inlet Branch 15 Name
     Peri4_Bot Radiant Branch,!- Inlet Branch 16 Name
     DOAS Heating Coil HW Branch;  !- Inlet Branch 17 Name
+
+Connector:Mixer,
+    Chilled Water Loop ChW Demand Mixer2,  !- Name
+    Chilled Water Loop ChW Demand Outlet Branch2,  !- Outlet Branch Name
+    Chilled Water Loop ChW Demand Bypass Branch2,  !- Inlet Branch 1 Name
+    Peri1_Top_LoTemp_Branch; !- Inlet Branch 2 Name
+
+Connector:Mixer,
+    Chilled Water Loop ChW Supply Mixer2,  !- Name
+    Chilled Water Loop ChW Supply Outlet Branch2,  !- Outlet Branch Name
+    Chilled Water Loop ChW Supply Bypass Branch2,  !- Inlet Branch 1 Name
+    Main Chiller ChW Branch2;!- Inlet Branch 2 Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: CONNECTORLIST ===========
@@ -11866,6 +11965,20 @@ ConnectorList,
     Connector:Mixer,         !- Connector 2 Object Type
     Hot Water Loop HW Demand Mixer;  !- Connector 2 Name
 
+ConnectorList,
+    Chilled Water Loop ChW Supply Side Connectors2,  !- Name
+    Connector:Splitter,      !- Connector 1 Object Type
+    Chilled Water Loop ChW Supply Splitter2,  !- Connector 1 Name
+    Connector:Mixer,         !- Connector 2 Object Type
+    Chilled Water Loop ChW Supply Mixer2;  !- Connector 2 Name
+
+ConnectorList,
+    Chilled Water Loop ChW Demand Side Connectors2,  !- Name
+    Connector:Splitter,      !- Connector 1 Object Type
+    Chilled Water Loop ChW Demand Splitter2,  !- Connector 1 Name
+    Connector:Mixer,         !- Connector 2 Object Type
+    Chilled Water Loop ChW Demand Mixer2;  !- Connector 2 Name
+
 
 !-   ===========  ALL OBJECTS IN CLASS: NODELIST ===========
 
@@ -11888,9 +12001,19 @@ Pipe:Adiabatic,
     Chilled Water Loop ChW Supply Bypass Outlet;  !- Outlet Node Name
 
 Pipe:Adiabatic,
+    Chilled Water Loop ChW Supply Side Bypass Pipe2,  !- Name
+    Chilled Water Loop ChW Supply Bypass Inlet2,  !- Inlet Node Name
+    Chilled Water Loop ChW Supply Bypass Outlet2;  !- Outlet Node Name
+
+Pipe:Adiabatic,
     Chilled Water Loop ChW Supply Outlet Pipe,  !- Name
     Chilled Water Loop ChW Supply Outlet Pipe Inlet,  !- Inlet Node Name
     Chilled Water Loop ChW Supply Outlet;  !- Outlet Node Name
+
+Pipe:Adiabatic,
+    Chilled Water Loop ChW Supply Outlet Pipe2,  !- Name
+    Chilled Water Loop ChW Supply Outlet Pipe Inlet2,  !- Inlet Node Name
+    Chilled Water Loop ChW Supply Outlet2;  !- Outlet Node Name
 
 Pipe:Adiabatic,
     Chilled Water Loop ChW Demand Inlet Pipe,  !- Name
@@ -11898,14 +12021,29 @@ Pipe:Adiabatic,
     Chilled Water Loop ChW Demand Inlet Pipe Outlet;  !- Outlet Node Name
 
 Pipe:Adiabatic,
+    Chilled Water Loop ChW Demand Inlet Pipe2,  !- Name
+    Chilled Water Loop ChW Demand Inlet2,  !- Inlet Node Name
+    Chilled Water Loop ChW Demand Inlet Pipe Outlet2;  !- Outlet Node Name
+
+Pipe:Adiabatic,
     Chilled Water Loop ChW Demand Side Bypass Pipe,  !- Name
     Chilled Water Loop ChW Demand Bypass Inlet,  !- Inlet Node Name
     Chilled Water Loop ChW Demand Bypass Outlet;  !- Outlet Node Name
 
 Pipe:Adiabatic,
+    Chilled Water Loop ChW Demand Side Bypass Pipe2,  !- Name
+    Chilled Water Loop ChW Demand Bypass Inlet2,  !- Inlet Node Name
+    Chilled Water Loop ChW Demand Bypass Outlet2;  !- Outlet Node Name
+
+Pipe:Adiabatic,
     Chilled Water Loop ChW Demand Outlet Pipe,  !- Name
     Chilled Water Loop ChW Demand Outlet Pipe Inlet,  !- Inlet Node Name
     Chilled Water Loop ChW Demand Outlet;  !- Outlet Node Name
+
+Pipe:Adiabatic,
+    Chilled Water Loop ChW Demand Outlet Pipe2,  !- Name
+    Chilled Water Loop ChW Demand Outlet Pipe Inlet2,  !- Inlet Node Name
+    Chilled Water Loop ChW Demand Outlet2;  !- Outlet Node Name
 
 Pipe:Adiabatic,
     Hot Water Loop HW Supply Side Bypass Pipe,  !- Name
@@ -11957,6 +12095,17 @@ Pump:ConstantSpeed,
     0,                       !- Fraction of Motor Inefficiencies to Fluid Stream
     INTERMITTENT;            !- Pump Control Type
 
+Pump:ConstantSpeed,
+    Chilled Water Loop ChW Supply Pump2,  !- Name
+    Chilled Water Loop ChW Supply Inlet2,  !- Inlet Node Name
+    Chilled Water Loop ChW Pump Outlet2,  !- Outlet Node Name
+    autosize,                !- Design Flow Rate {m3/s}
+    179352,                  !- Design Pump Head {Pa}
+    autosize,                !- Design Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    0,                       !- Fraction of Motor Inefficiencies to Fluid Stream
+    INTERMITTENT;            !- Pump Control Type
+
 
 !-   ===========  ALL OBJECTS IN CLASS: DISTRICTCOOLING ===========
 
@@ -11964,6 +12113,12 @@ DistrictCooling,
     PurchasedCooling,        !- Name
     Purchased Cooling Inlet Node,  !- Chilled Water Inlet Node Name
     Purchased Cooling Outlet Node,  !- Chilled Water Outlet Node Name
+    autosize;                !- Nominal Capacity {W}
+
+DistrictCooling,
+    PurchasedCooling2,       !- Name
+    Purchased Cooling Inlet Node2,  !- Chilled Water Inlet Node Name
+    Purchased Cooling Outlet Node2,  !- Chilled Water Outlet Node Name
     autosize;                !- Nominal Capacity {W}
 
 
@@ -12025,6 +12180,30 @@ PlantLoop,
     ,                        !- Availability Manager List Name
     SingleSetpoint;          !- Plant Loop Demand Calculation Scheme
 
+PlantLoop,
+    Chilled Water Loop Chilled Water Loop2,  !- Name
+    Water,                   !- Fluid Type
+    ,                        !- User Defined Fluid Type
+    Chilled Water Loop Chiller Operation2,  !- Plant Equipment Operation Scheme Name
+    Chilled Water Loop ChW Supply Outlet2,  !- Loop Temperature Setpoint Node Name
+    98,                      !- Maximum Loop Temperature {C}
+    1,                       !- Minimum Loop Temperature {C}
+    autosize,                !- Maximum Loop Flow Rate {m3/s}
+    0,                       !- Minimum Loop Flow Rate {m3/s}
+    autosize,                !- Plant Loop Volume {m3}
+    Chilled Water Loop ChW Supply Inlet2,  !- Plant Side Inlet Node Name
+    Chilled Water Loop ChW Supply Outlet2,  !- Plant Side Outlet Node Name
+    Chilled Water Loop ChW Supply Side Branches2,  !- Plant Side Branch List Name
+    Chilled Water Loop ChW Supply Side Connectors2,  !- Plant Side Connector List Name
+    Chilled Water Loop ChW Demand Inlet2,  !- Demand Side Inlet Node Name
+    Chilled Water Loop ChW Demand Outlet2,  !- Demand Side Outlet Node Name
+    Chilled Water Loop ChW Demand Side Branches2,  !- Demand Side Branch List Name
+    Chilled Water Loop ChW Demand Side Connectors2,  !- Demand Side Connector List Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ,                        !- Availability Manager List Name
+    SingleSetpoint,          !- Plant Loop Demand Calculation Scheme
+    None;                    !- Common Pipe Simulation
+
 
 !-   ===========  ALL OBJECTS IN CLASS: PLANTEQUIPMENTLIST ===========
 
@@ -12032,6 +12211,11 @@ PlantEquipmentList,
     Chilled Water Loop All Chillers,  !- Name
     DistrictCooling,         !- Equipment 1 Object Type
     PurchasedCooling;        !- Equipment 1 Name
+
+PlantEquipmentList,
+    Chilled Water Loop All Chillers2,  !- Name
+    DistrictCooling,         !- Equipment 1 Object Type
+    PurchasedCooling2;        !- Equipment 1 Name
 
 PlantEquipmentList,
     Hot Water Loop All Equipment,  !- Name
@@ -12047,6 +12231,11 @@ PlantEquipmentOperation:CoolingLoad,
     1000000000000000,        !- Load Range 1 Upper Limit {W}
     Chilled Water Loop All Chillers;  !- Range 1 Equipment List Name
 
+PlantEquipmentOperation:CoolingLoad,
+    Chilled Water Loop Chiller Operation All Hours2,  !- Name
+    0,                       !- Load Range 1 Lower Limit {W}
+    1000000000000000,        !- Load Range 1 Upper Limit {W}
+    Chilled Water Loop All Chillers2;  !- Range 1 Equipment List Name
 
 !-   ===========  ALL OBJECTS IN CLASS: PLANTEQUIPMENTOPERATION:HEATINGLOAD ===========
 
@@ -12064,6 +12253,13 @@ PlantEquipmentOperationSchemes,
     PlantEquipmentOperation:CoolingLoad,  !- Control Scheme 1 Object Type
     Chilled Water Loop Chiller Operation All Hours,  !- Control Scheme 1 Name
     HVACTemplate-Always 1;   !- Control Scheme 1 Schedule Name
+
+PlantEquipmentOperationSchemes,
+    Chilled Water Loop Chiller Operation2,  !- Name
+    PlantEquipmentOperation:CoolingLoad,  !- Control Scheme 1 Object Type
+    Chilled Water Loop Chiller Operation All Hours2,  !- Control Scheme 1 Name
+    HVACTemplate-Always 1;   !- Control Scheme 1 Schedule Name
+
 
 PlantEquipmentOperationSchemes,
     Hot Water Loop Operation,!- Name
@@ -12124,6 +12320,15 @@ SetpointManager:OutdoorAirReset,
     12.8,                    !- Setpoint at Outdoor High Temperature {C}
     26.7,                    !- Outdoor High Temperature {C}
     DOAS Supply Fan Outlet;  !- Setpoint Node or NodeList Name
+
+SetpointManager:OutdoorAirReset,
+    Chilled Water Loop ChW Temp Manager2,  !- Name
+    Temperature,             !- Control Variable
+    12.2,                    !- Setpoint at Outdoor Low Temperature {C}
+    15.6,                    !- Outdoor Low Temperature {C}
+    6.7,                     !- Setpoint at Outdoor High Temperature {C}
+    26.7,                    !- Outdoor High Temperature {C}
+    Chilled Water Loop ChW Supply Outlet2;  !- Setpoint Node or NodeList Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SETPOINTMANAGER:MIXEDAIR ===========
@@ -12610,6 +12815,11 @@ Output:Variable,
 Output:Variable,
     PERI1_TOP_LOTEMP,        !- Key Value
     Zone Radiant HVAC Recirculation Mass Flow Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    Peri2_Top_LoTemp,        !- Key Value
+    Zone Radiant HVAC Outlet Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 

@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.02 01:04
+Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.08 03:15
 ! <Version>, Version ID
  Version, 9.4
 ! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
@@ -1421,16 +1421,21 @@ Water Heating Coil Capacity Information,Coil:Heating:Water,DOAS HEATING COIL,258
  Component Sizing Information, Controller:WaterCoil, DOAS COOLING COIL CONTROLLER, Controller Convergence Tolerance, 2.34060E-005
  Component Sizing Information, Controller:WaterCoil, DOAS HEATING COIL CONTROLLER, Maximum Actuated Flow [m3/s], 7.68448E-003
  Component Sizing Information, Controller:WaterCoil, DOAS HEATING COIL CONTROLLER, Controller Convergence Tolerance, 6.19678E-005
- Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Maximum Loop Flow Rate [m3/s], 2.80563E-002
- Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Plant Loop Volume [m3], 3.36676
- Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Flow Rate [m3/s], 2.80563E-002
- Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Power Consumption [W], 7168.03512
- Component Sizing Information, DistrictCooling, PURCHASEDCOOLING, Design Size Nominal Capacity [W], 785502.80187
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Maximum Loop Flow Rate [m3/s], 2.76628E-002
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Plant Loop Volume [m3], 3.31953
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Flow Rate [m3/s], 2.76628E-002
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Power Consumption [W], 7067.48670
+ Component Sizing Information, DistrictCooling, PURCHASEDCOOLING, Design Size Nominal Capacity [W], 774484.29211
  Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP, Maximum Loop Flow Rate [m3/s], 1.53960E-002
  Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP, Plant Loop Volume [m3], 1.84752
  Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP, Design Flow Rate [m3/s], 1.53960E-002
  Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP, Design Power Consumption [W], 3933.47446
  Component Sizing Information, DistrictHeating, PURCHASED HEATING, Design Size Nominal Capacity [W], 710871.00393
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP2, Maximum Loop Flow Rate [m3/s], 3.93556E-004
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP2, Plant Loop Volume [m3], 4.72267E-002
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP2, Design Flow Rate [m3/s], 3.93556E-004
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP2, Design Power Consumption [W], 100.54842
+ Component Sizing Information, DistrictCooling, PURCHASEDCOOLING2, Design Size Nominal Capacity [W], 11018.50976
 ! <Zone Surfaces>,Zone Name,# Surfaces
 ! <Shading Surfaces>,Number of Shading Surfaces,# Surfaces
 ! <HeatTransfer Surface>,Surface Name,Surface Class,Base Surface,Heat Transfer Algorithm,Construction,Nominal U (w/o film coefs) {W/m2-K},Nominal U (with film coefs) {W/m2-K},Solar Diffusing,Area (Net) {m2},Area (Gross) {m2},Area (Sunlit Calc) {m2},Azimuth {deg},Tilt {deg},~Width {m},~Height {m},Reveal {m},ExtBoundCondition,ExtConvCoeffCalc,IntConvCoeffCalc,SunExposure,WindExposure,ViewFactorToGround,ViewFactorToSky,ViewFactorToGround-IR,ViewFactorToSky-IR,#Sides
@@ -1621,84 +1626,3 @@ HeatTransfer Surface,iz-CORE_MID_ZN_5_WALL_WEST,Wall,,CondFD - ConductionFiniteD
 HeatTransfer Surface,PERIMETER_MID_ZN_4_FLOOR,Floor,,CondFD - ConductionFiniteDifference,INT_SLAB_FLOOR,3.839,1.986,,131.25,131.25,131.25,270.00,180.00,24.13,6.47,0.00,iz-PERIMETER_MID_ZN_4_FLOOR,Other/Same Surface Int Conv,ASHRAETARP,NoSun,NoWind,1.00,0.00,1.00,0.00,4
 HeatTransfer Surface,PERIMETER_MID_ZN_4_CEILING,Roof,,CondFD - ConductionFiniteDifference,DROPCEILING,4.488,2.432,,131.25,131.25,131.25,90.00,0.00,24.13,6.47,0.00,iz-PERIMETER_MID_ZN_4_CEILING,Other/Same Surface Int Conv,ASHRAETARP,NoSun,NoWind,0.00,1.00,0.00,1.00,4
 HeatTransfer Surface,PERIMETER_MID_ZN_4_INTERNALMASS_1,Internal Mass,,CondFD - ConductionFiniteDifference,INTERIORFURNISHINGS,0.800,0.800,,262.51,262.51,262.51,0.00,90.00,262.51,1.00,0.00,PERIMETER_MID_ZN_4_INTERNALMASS_1,Other/Same Surface Int Conv,ASHRAETARP,NoSun,NoWind,0.00,0.50,1.00,0.00,0
-! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values, Sky Temperature Model
-! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
-! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
-! <Environment:WarmupDays>, NumberofWarmupDays
-Environment,ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A,Clark and Allen
-Environment:Daylight Saving,No,SizingPeriod:DesignDay
-! <Environment:Design Day Data>, Max Dry-Bulb Temp {C}, Temp Range {dC}, Temp Range Ind Type, Hum Ind Type, Hum Ind Value at Max Temp, Hum Ind Units, Pressure {Pa}, Wind Direction {deg CW from N}, Wind Speed {m/s}, Clearness, Rain, Snow
-! <Environment:Design Day Misc>,DayOfYear,ASHRAE A Coeff,ASHRAE B Coeff,ASHRAE C Coeff,Solar Constant-Annual Variation,Eq of Time {minutes}, Solar Declination Angle {deg}, Solar Model
-Environment:Design Day Data,-6.30,0.00,DefaultMultipliers,Wetbulb,-6.30,{C},97621,320,5.3,0.00,No,No
-Environment:Design Day Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
-Environment:WarmupDays,  8
-! <Tabular Report>,Style,Unit Conversion
-Tabular Report,Commaandhtml,commaandhtml
-! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
- Warmup Convergence Information,CORE_BOTTOM,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,8.6700818830E-004,4.3634133701E-004,Pass,Pass,1.2750938525E-004,6.4172656538E-005,Pass,Pass
- Warmup Convergence Information,TOPFLOOR_PLENUM,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,4.0414372367E-004,2.1540072085E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,MIDFLOOR_PLENUM,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,6.1386143865E-004,3.1631707494E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,FIRSTFLOOR_PLENUM,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,5.2998871116E-004,2.1539206362E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,CORE_MID,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,3.2672128526E-004,2.2744531408E-004,Pass,Pass,4.8016836397E-005,3.3426349308E-005,Pass,Pass
- Warmup Convergence Information,CORE_TOP,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,2.5953745670E-005,4.7751394761E-005,Pass,Pass,3.9369265308E-006,7.2430380409E-006,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_3,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,8.3915398919E-003,5.0791974056E-003,Pass,Pass,1.2340282757E-003,7.4834800497E-004,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_2,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,1.2628464109E-002,8.3141844595E-003,Pass,Pass,1.8419931113E-003,1.2053911583E-003,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_1,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,8.5497373468E-004,4.2052479080E-003,Pass,Pass,5.9312523043E-004,2.9087214422E-003,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_4,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,1.2894858866E-002,8.2927765850E-003,Pass,Pass,1.8821023170E-003,1.2107312160E-003,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_3,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,6.8712898609E-003,4.1006869216E-003,Pass,Pass,1.0097943531E-003,6.0096779011E-004,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_2,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,1.0170820218E-002,5.8984952679E-003,Pass,Pass,1.4843198080E-003,8.5659534120E-004,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_1,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,8.5783574002E-003,4.9020856602E-003,Pass,Pass,1.2569862909E-003,7.2066045376E-004,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_4,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,1.0325482900E-002,6.0185731354E-003,Pass,Pass,1.5064748096E-003,8.7502921546E-004,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_3,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,7.6270626955E-003,5.1949302497E-003,Pass,Pass,1.1178718294E-003,7.5625874718E-004,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_2,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,1.0231689817E-002,6.7533973350E-003,Pass,Pass,1.4917320240E-003,9.8526780020E-004,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_1,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,9.0614588022E-003,6.1998831836E-003,Pass,Pass,1.3228612100E-003,8.9885536619E-004,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_4,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN HTG 99.6% CONDNS DB,1.0289732718E-002,6.6086499392E-003,Pass,Pass,1.5003162483E-003,9.6361371164E-004,Pass,Pass
-Environment,ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A,Clark and Allen
-Environment:Daylight Saving,No,SizingPeriod:DesignDay
-Environment:Design Day Data,34.40,9.50,DefaultMultipliers,Wetbulb,23.50,{C},97621,300,4.0,0.00,No,No
-Environment:Design Day Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
-Environment:WarmupDays,  6
- Warmup Convergence Information,CORE_BOTTOM,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,3.4041673310E-003,2.5650285370E-002,Pass,Pass,1.0697694289E-002,0.1258414862,Pass,Pass
- Warmup Convergence Information,TOPFLOOR_PLENUM,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,9.9051986478E-004,3.8148730593E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,MIDFLOOR_PLENUM,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,4.4331279180E-004,4.1387228521E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,FIRSTFLOOR_PLENUM,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,1.5621687757E-003,1.0114362869E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,CORE_MID,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,1.2758280704E-003,4.1206533363E-003,Pass,Pass,3.1637300051E-004,2.0219325783E-003,Pass,Pass
- Warmup Convergence Information,CORE_TOP,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,1.0164469486E-003,3.9243016020E-003,Pass,Pass,3.2142160619E-004,1.9716066421E-003,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_3,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,1.1596682467E-003,3.3064779609E-003,Pass,Pass,8.8844495737E-004,2.1887182374E-003,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_2,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,2.6781930058E-003,1.9195420821E-002,Pass,Pass,5.1986677963E-003,7.2164001366E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_1,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,2.1568472365E-003,3.6914143828E-003,Pass,Pass,1.5890168275E-003,3.0076095568E-003,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_4,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,1.2086037953E-003,3.0202910535E-003,Pass,Pass,2.1194453452E-003,3.7851855387E-003,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_3,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,1.1394209098E-003,4.9524335862E-003,Pass,Pass,2.6744177141E-003,4.3972480507E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_2,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,2.5311690952E-003,1.8875312074E-002,Pass,Pass,3.8461725995E-003,4.6127953951E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_1,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,1.0357377866E-003,3.3829032654E-003,Pass,Pass,1.6582971497E-003,2.8169875978E-003,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_4,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,1.0337805689E-003,3.2157408353E-003,Pass,Pass,2.1455203098E-003,3.8590353220E-003,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_3,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,1.7300312310E-003,3.6482829450E-003,Pass,Pass,5.4406287737E-004,1.9742299484E-003,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_2,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,3.1447628374E-003,1.9357627782E-002,Pass,Pass,5.4197938422E-003,7.8049088035E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_1,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,1.6389431547E-003,3.6110102179E-003,Pass,Pass,1.4287333506E-003,2.7403933205E-003,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_4,SizingPeriod: ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA ANN CLG .4% CONDNS DB=>MWB,1.5439795351E-003,3.6143063142E-003,Pass,Pass,2.0385669793E-003,4.3738326552E-003,Pass,Pass
-Environment,RUNPERIOD 1,WeatherFileRunPeriod,06/01/2015,06/02/2015,Monday,2,Use RunPeriod Specified Day,No,No,No,Yes,Yes,Clark and Allen
-Environment:Daylight Saving,No,RunPeriod Object
-Environment:Special Days,NEW YEARS DAY,Holiday,InputFile,01/01,  1Environment:Special Days,VETERANS DAY,Holiday,InputFile,11/11,  1Environment:Special Days,CHRISTMAS,Holiday,InputFile,12/25,  1Environment:Special Days,INDEPENDENCE DAY,Holiday,InputFile,07/04,  1Environment:Special Days,MLK DAY,Holiday,InputFile,01/19,  1Environment:Special Days,PRESIDENTS DAY,Holiday,InputFile,02/16,  1Environment:Special Days,MEMORIAL DAY,Holiday,InputFile,05/25,  1Environment:Special Days,LABOR DAY,Holiday,InputFile,09/07,  1Environment:Special Days,COLUMBUS DAY,Holiday,InputFile,10/12,  1Environment:Special Days,THANKSGIVING,Holiday,InputFile,11/26,  1Environment:WarmupDays,  6
- Warmup Convergence Information,CORE_BOTTOM,RunPeriod: RUNPERIOD 1,3.5678323374E-003,1.3223187825E-002,Pass,Pass,2.9970052315E-003,3.2534856706E-002,Pass,Pass
- Warmup Convergence Information,TOPFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,1.4065885626E-003,1.0183867873E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,MIDFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,1.9134090945E-003,1.4010819408E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,FIRSTFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,1.8088338234E-003,1.6413002634E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,CORE_MID,RunPeriod: RUNPERIOD 1,4.8622773700E-003,1.1844572713E-002,Pass,Pass,1.5456642676E-003,2.5543629254E-002,Pass,Pass
- Warmup Convergence Information,CORE_TOP,RunPeriod: RUNPERIOD 1,4.9423607636E-003,1.2214568686E-002,Pass,Pass,1.5529651092E-003,2.5567898824E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_3,RunPeriod: RUNPERIOD 1,5.1108002343E-003,9.7760145573E-003,Pass,Pass,1.5246849880E-003,2.5516175211E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_2,RunPeriod: RUNPERIOD 1,5.5267062017E-003,9.7673169590E-003,Pass,Pass,2.8877501908E-003,3.0192160736E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_1,RunPeriod: RUNPERIOD 1,6.0950556528E-003,8.2826012293E-003,Pass,Pass,1.7203475656E-003,2.5004463126E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_4,RunPeriod: RUNPERIOD 1,5.2939933191E-003,1.0279863654E-002,Pass,Pass,3.2024149638E-003,2.6319781252E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_3,RunPeriod: RUNPERIOD 1,4.9747615146E-003,9.7701352902E-003,Pass,Pass,1.5158690186E-003,2.5532200934E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_2,RunPeriod: RUNPERIOD 1,5.0919025961E-003,9.0401622647E-003,Pass,Pass,2.6992865651E-003,2.9013284480E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_1,RunPeriod: RUNPERIOD 1,7.7610363430E-003,2.3739748807E-002,Pass,Pass,2.9505745422E-003,2.9113167134E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_4,RunPeriod: RUNPERIOD 1,4.9445275984E-003,1.0341515872E-002,Pass,Pass,3.4603447787E-003,2.7296595451E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_3,RunPeriod: RUNPERIOD 1,5.0502895493E-003,9.5396107966E-003,Pass,Pass,1.5437608326E-003,2.5474807460E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_2,RunPeriod: RUNPERIOD 1,5.5443851278E-003,9.9739196531E-003,Pass,Pass,2.8372418962E-003,2.9706664729E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_1,RunPeriod: RUNPERIOD 1,5.8768149362E-003,9.6134567001E-003,Pass,Pass,1.7526718355E-003,2.5485249314E-002,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_4,RunPeriod: RUNPERIOD 1,5.3520049686E-003,1.0212010630E-002,Pass,Pass,3.1963323415E-003,2.6221350041E-002,Pass,Pass
-! <ConductionFiniteDifference Numerical Parameters>, Starting Relaxation Factor, Final Relaxation Factor
-ConductionFiniteDifference Numerical Parameters, 1.000, 1.000
-! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
-Program Control:Threads/Parallel Sims, No,1, N/A, N/A, N/A, N/A, N/A, N/A
-End of Data
