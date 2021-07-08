@@ -245,7 +245,7 @@ with MPIPool() as pool:
         
     # Optimization algorithm setting
     num_generations = 4
-    sol_per_pop = 99   # Number of individuals
+    sol_per_pop = 29   # Number of individuals
 
     num_parents_mating = 4
     num_genes = len(CVar_list)
