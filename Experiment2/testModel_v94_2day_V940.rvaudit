@@ -1,16 +1,14 @@
-07/08/2021 Thu  3:15:31.91 ReadVars 
+07/08/2021 Thu  3:18:07.47 ReadVars 
  ReadVarsESO
  getting all vars from:eplusout.eso
- EOF encountered during read of ESO header records
- probable EnergyPlus error condition -- check eplusout.err
- ReadVarsESO program terminated.
+  number variables requested for output=          10
  ReadVars Run Time=00hr 00min  0.02sec
+ ReadVarsESO program completed successfully.
  ReadVarsESO
  processing:test.mvi
  input file:eplusout.mtr
  output file:eplusmtr.csv
  getting all vars from:eplusout.mtr
- EOF encountered during read of ESO header records
- probable EnergyPlus error condition -- check eplusout.err
- ReadVarsESO program terminated.
+  number variables requested for output=           4
  ReadVars Run Time=00hr 00min  0.02sec
+ ReadVarsESO program completed successfully.
