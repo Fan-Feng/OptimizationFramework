@@ -1,5 +1,6 @@
 import pygad
 import numpy
+import matplotlib.pyplot as plt
 from multiprocessing import Pool
 
 """
@@ -47,6 +48,7 @@ if __name__ == "__main__":
         ga_instance.run()
 
         #ga_instance.plot_result()
+        plt.plot(ga_instance.best_solutions_fitness)
 
         # Returning the details of the best solution.
         solution, solution_fitness, solution_idx = ga_instance.best_solution(ga_instance.last_generation_fitness)

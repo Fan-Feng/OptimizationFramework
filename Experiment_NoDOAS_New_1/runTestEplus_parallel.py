@@ -244,8 +244,8 @@ with MPIPool() as pool:
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
     # Optimization algorithm setting
-    num_generations = 49
-    sol_per_pop = 10   # Number of individuals
+    num_generations = 10
+    sol_per_pop = 50   # Number of individuals
 
     num_parents_mating = 4
     num_genes = len(CVar_list)
@@ -283,6 +283,10 @@ with MPIPool() as pool:
 
     print("Op completed")
     print(ga_instance.best_solution())  
+
+    print("best_solutions_fitness\n")
+    print(ga_instance.best_solutions_fitness)
+
 
 print("all mpi process join again then")
       
