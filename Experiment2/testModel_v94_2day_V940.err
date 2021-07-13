@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.08 03:15,
+Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.08 14:44,
    ** Warning ** Sizing:Parameters: note Timesteps in Averaging Window entered value=[20] is less than 1 hour (i.e., 60 timesteps).
    ************* Beginning Zone Sizing Calculations
    ** Warning ** Weather file location will be used rather than entered (IDF) Location object.
@@ -6,6 +6,8 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.08 03:15,
    **   ~~~   ** ..Weather File Location=Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300
    **   ~~~   ** ..due to location differences, Latitude difference=[8.34] degrees, Longitude difference=[3.49] degrees.
    **   ~~~   ** ..Time Zone difference=[1.0] hour(s), Elevation difference=[35.78] percent, [112.00] meters.
+   ** Warning ** The input file includes 1 MaterialProperty:PhaseChange objects but the conduction finite difference algorithm is not used anywhere.
+   **   ~~~   ** Previous materials will be ignored due to HeatBalanceAlgorithm choice.
    ** Warning ** CheckUsedConstructions: There are 121 nominally unused constructions in input.
    **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;
    ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
@@ -66,50 +68,23 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.08 03:15,
    ************* Beginning Plant Sizing Calculations
    ** Warning ** In calculating the design coil UA for Coil:Cooling:Water DOAS COOLING COIL
    **   ~~~   ** the coil bypass factor is unrealistically large;
-   **   ~~~   ** The initial design conditions are: Tair,in = 28.3621
-   **   ~~~   **                                    Wair,in = 1.446227E-002
+   **   ~~~   ** The initial design conditions are: Tair,in = 28.6262
+   **   ~~~   **                                    Wair,in = 1.446275E-002
    **   ~~~   **                                    Twater,in = 7.2200
    **   ~~~   **                                    Tair,out = 11.6225
    **   ~~~   **                                    Wair,out = 9.240000E-003
-   ** Severe  ** Plant Component DistrictCooling called "PURCHASEDCOOLING" was not found on plant loop="CHILLED WATER LOOP CHILLED WATER LOOP2".
-   **   ~~~   ** Look at Operation Scheme="CHILLED WATER LOOP CHILLER OPERATION".
-   **   ~~~   ** Look at Branches and Components on the Loop.
-   **   ~~~   ** Demand Branches:
-   **   ~~~   **   CHILLED WATER LOOP CHW DEMAND INLET BRANCH2
-   **   ~~~   **     Components on Branch:
-   **   ~~~   **       PIPE:ADIABATIC:CHILLED WATER LOOP CHW DEMAND INLET PIPE2
-   **   ~~~   **   PERI1_TOP_LOTEMP_BRANCH
-   **   ~~~   **     Components on Branch:
-   **   ~~~   **       ZONEHVAC:LOWTEMPERATURERADIANT:CONSTANTFLOW:PERI1_TOP_LOTEMP
-   **   ~~~   **   CHILLED WATER LOOP CHW DEMAND BYPASS BRANCH2
-   **   ~~~   **     Components on Branch:
-   **   ~~~   **       PIPE:ADIABATIC:CHILLED WATER LOOP CHW DEMAND SIDE BYPASS PIPE2
-   **   ~~~   **   CHILLED WATER LOOP CHW DEMAND OUTLET BRANCH2
-   **   ~~~   **     Components on Branch:
-   **   ~~~   **       PIPE:ADIABATIC:CHILLED WATER LOOP CHW DEMAND OUTLET PIPE2
-   **   ~~~   ** Supply Branches:
-   **   ~~~   **   CHILLED WATER LOOP CHW SUPPLY INLET BRANCH2
-   **   ~~~   **     Components on Branch:
-   **   ~~~   **       PUMP:CONSTANTSPEED:CHILLED WATER LOOP CHW SUPPLY PUMP2
-   **   ~~~   **   MAIN CHILLER CHW BRANCH2
-   **   ~~~   **     Components on Branch:
-   **   ~~~   **       DISTRICTCOOLING:PURCHASEDCOOLING2
-   **   ~~~   **   CHILLED WATER LOOP CHW SUPPLY BYPASS BRANCH2
-   **   ~~~   **     Components on Branch:
-   **   ~~~   **       PIPE:ADIABATIC:CHILLED WATER LOOP CHW SUPPLY SIDE BYPASS PIPE2
-   **   ~~~   **   CHILLED WATER LOOP CHW SUPPLY OUTLET BRANCH2
-   **   ~~~   **     Components on Branch:
-   **   ~~~   **       PIPE:ADIABATIC:CHILLED WATER LOOP CHW SUPPLY OUTLET PIPE2
-   ** Severe  ** InitLoadDistribution: Equipment specified for operation scheme not found on correct loop
-   **   ~~~   ** Operation Scheme name = CHILLED WATER LOOP CHILLER OPERATION ALL HOURS
-   **   ~~~   ** Loop name = CHILLED WATER LOOP CHILLED WATER LOOP2
-   **   ~~~   ** Component name = PURCHASEDCOOLING
-   **  Fatal  ** InitLoadDistribution: Simulation terminated because of error in operation scheme.
-   ...Summary of Errors that led to program termination:
-   ..... Reference severe error count=2
-   ..... Last severe error=InitLoadDistribution: Equipment specified for operation scheme not found on correct loop
-   ************* Warning:  Node connection errors not checked - most system input has not been read (see previous warning).
-   ************* Fatal error -- final processing.  Program exited before simulations began.  See previous error messages.
+   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name="NATURALGAS:FACILITY" - not found.
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Testing Individual Supply Air Path Integrity
+   ************* All Supply Air Paths passed integrity testing
+   ************* Testing Individual Return Air Path Integrity
+   ************* All Return Air Paths passed integrity testing
+   ************* No node connection errors were found.
+   ************* Beginning Simulation
+   ************* Simulation Error Summary *************
+   ************* There are 95 unused schedules in input.
+   ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
    *************
    ************* ===== Final Error Summary =====
    ************* The following error categories occurred.  Consider correcting or noting.
@@ -119,5 +94,5 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.08 03:15,
    ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Sizing Error Summary. During Sizing: 30 Warning; 0 Severe Errors.
-   ************* EnergyPlus Terminated--Fatal Error Detected. 31 Warning; 2 Severe Errors; Elapsed Time=00hr 00min 23.98sec
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 31 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 33 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 56.35sec
