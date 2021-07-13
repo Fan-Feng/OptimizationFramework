@@ -20,10 +20,6 @@ import pandas as pd
 # Import optimization package
 import pygad
 
-## import mpi management package
-from mpipool import MPIPool
-from mpi4py import MPI
-
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
   Convert NumOfSec to Month/Day
@@ -161,7 +157,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [2050,770] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
+  output_idx = [2050,769] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -199,19 +195,8 @@ def read_result(filename):
   data = pd.DataFrame(data)
   return data
 
-class PooledGA(pygad.GA):
-
-    def cal_pop_fitness(self):
-        global pool,hyperParam
-        pop_fitness = pool.starmap(fitness_wrapper, [(individual,i,hyperParam) for i,individual in enumerate(self.population)])
-        #print(pop_fitness)
-        pop_fitness = np.array(pop_fitness)
-        return pop_fitness
         
-
-# run optimization 
-with MPIPool() as pool:
-    pool.workers_exit() ## Only master process will proceed
+if __name__ == "__main__":
     
     # simulation setup
     start_time= 60*60*24*181 
@@ -226,8 +211,11 @@ with MPIPool() as pool:
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
-    CVar_list = rng.random(pred_horizon['length'])
-    CVar_list = [CVar*5+12 for CVar in CVar_list]
+    CVar_list = [12.        , 12.37500413, 11.71933894, 12.        , 12.99992188,
+       12.        , 12.18623162, 10.64614916, 11.14909494, 11.24342379,
+       10.51390134, 10.13714621, 14.41261964, 14.19104104, 12.87814535,
+       13.4330285 , 14.72041892, 12.        , 12.        , 12.68995326,
+       12.56376275, 12.        , 12.        , 12.2172163 ]
 
     tim = start_time
     Eplus_FileName = "testModel_v94_2day_V940_CFD_NoDOAS.idf"
@@ -243,50 +231,7 @@ with MPIPool() as pool:
     hyperParam["Eplus_timestep"] = Eplus_timestep
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
-    # Optimization algorithm setting
-    num_generations = 10
-    sol_per_pop = 50   # Number of individuals
+    res = fitness_wrapper(CVar_list,1,hyperParam)
+    print(1)
 
-    num_parents_mating = 4
-    num_genes = len(CVar_list)
-
-    init_range_low = 10
-    init_range_high = 15
-
-    parent_selection_type = "sss"
-    keep_parents = 1
-
-    crossover_type = "single_point"
-
-    mutation_type = "random"
-    mutation_num_genes = 1
-
-    ## 
-    ga_instance = PooledGA(num_generations=num_generations,
-                num_parents_mating=num_parents_mating,
-                fitness_func=fitness_func, # Actually this is not used.
-                sol_per_pop=sol_per_pop,
-                num_genes=num_genes,
-                init_range_low=init_range_low,
-                init_range_high=init_range_high,
-                parent_selection_type=parent_selection_type,
-                keep_parents=keep_parents,
-                crossover_type=crossover_type,
-                mutation_type=mutation_type,
-                mutation_num_genes=mutation_num_genes,
-                initial_population=[[12]*7+[10+2*rng.random(1)[0] for j in range(5)] + [13+2*rng.random(1)[0] for j in range(5)] +[12]*7 for i in range(sol_per_pop)]
-                )
-
-    print("Start Optimization")
-
-    ga_instance.run()
-
-    print("Op completed")
-    print(ga_instance.best_solution())  
-
-    print("best_solutions_fitness\n")
-    print(ga_instance.best_solutions_fitness)
-
-
-print("all mpi process join again then")
       

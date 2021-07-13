@@ -1,7 +1,12 @@
-Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 17:53,
+Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 17:38,
    ** Warning ** Sizing:Parameters: note Timesteps in Averaging Window entered value=[20] is less than 1 hour (i.e., 60 timesteps).
    ************* Beginning Zone Sizing Calculations
-   ** Warning ** CheckUsedConstructions: There are 121 nominally unused constructions in input.
+   ** Warning ** Weather file location will be used rather than entered (IDF) Location object.
+   **   ~~~   ** ..Location object=ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA WMO=722190
+   **   ~~~   ** ..Weather File Location=College Station Easterwood Fl TX USA TMY3 WMO#=722445
+   **   ~~~   ** ..due to location differences, Latitude difference=[3.06] degrees, Longitude difference=[11.94] degrees.
+   **   ~~~   ** ..Time Zone difference=[1.0] hour(s), Elevation difference=[69.33] percent, [217.00] meters.
+   ** Warning ** CheckUsedConstructions: There are 122 nominally unused constructions in input.
    **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;
    ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
    **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="PERIMETER_BOT_ZN_1", only 0.523 of the zone is controlled.
@@ -31,10 +36,10 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 17:53,
    ************* Beginning Plant Sizing Calculations
    ** Warning ** In calculating the design coil UA for Coil:Cooling:Water DOAS COOLING COIL
    **   ~~~   ** the coil bypass factor is unrealistically large;
-   **   ~~~   ** The initial design conditions are: Tair,in = 28.4023
-   **   ~~~   **                                    Wair,in = 1.446234E-002
+   **   ~~~   ** The initial design conditions are: Tair,in = 29.6709
+   **   ~~~   **                                    Wair,in = 1.446465E-002
    **   ~~~   **                                    Twater,in = 7.2200
-   **   ~~~   **                                    Tair,out = 11.6073
+   **   ~~~   **                                    Tair,out = 11.6371
    **   ~~~   **                                    Wair,out = 9.240000E-003
    ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name="NATURALGAS:FACILITY" - not found.
    ************* Testing Individual Branch Integrity
@@ -46,9 +51,7 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 17:53,
    ************* No node connection errors were found.
    ************* Beginning Simulation
    ************* Simulation Error Summary *************
-   ************* There are 101 unused schedules in input.
-   ************* There are 730 unused week schedules in input.
-   ************* There are 730 unused day schedules in input.
+   ************* There are 103 unused schedules in input.
    ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
    *************
    ************* ===== Final Error Summary =====
@@ -59,5 +62,5 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 17:53,
    ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Sizing Error Summary. During Sizing: 14 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 16 Warning; 0 Severe Errors; Elapsed Time=00hr 01min 50.84sec
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 15 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 17 Warning; 0 Severe Errors; Elapsed Time=00hr 01min 45.30sec

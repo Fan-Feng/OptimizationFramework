@@ -568,6 +568,70 @@ Schedule:Compact,
     Until: 24:00,            !- Field 17
     0.0;                     !- Field 18
 
+Schedule:Compact,
+    RADHEATHIGHWATERTEMP_T2, !- Name
+    TEMPERATURE,             !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: Alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    50.00;                   !- Field 4
+
+Schedule:Compact,
+    RADHEATLOWWATERTEMP_T2,  !- Name
+    TEMPERATURE,             !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: Alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    30.00;                   !- Field 4
+
+Schedule:Compact,
+    RADHEATHIGHCONTROLTEMP_T2,  !- Name
+    TEMPERATURE,             !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: Alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    19.00;                   !- Field 4
+
+Schedule:Compact,
+    RADHEATLOWCONTROLTEMP_T2,!- Name
+    TEMPERATURE,             !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: Alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    15.00;                   !- Field 4
+
+Schedule:Compact,
+    RADCOOLHIGHWATERTEMP_T2, !- Name
+    TEMPERATURE,             !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: Alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    12.00;                   !- Field 4
+
+Schedule:Compact,
+    RADCOOLLOWWATERTEMP_T2,  !- Name
+    TEMPERATURE,             !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: Alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    7.00;                    !- Field 4
+
+Schedule:Compact,
+    RADCOOLHIGHCONTROLTEMP_T2,  !- Name
+    TEMPERATURE,             !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: Alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    22.00;                   !- Field 4
+
+Schedule:Compact,
+    RADCOOLLOWCONTROLTEMP_T2,!- Name
+    TEMPERATURE,             !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: Alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    20.00;                   !- Field 4
+
 ! Schedule Office Lighting,  ASHRAE 90.1-1989, Section 13 w/addenda
 ! lighting schedules for ASHRAE90.1-STD2004, ASHRAE90.1-2007
 ! lighting schedules for ASHRAE90.1-STD2010
@@ -2310,7 +2374,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    16.00;                   !- Field 4
+    17.00;                   !- Field 4
 
 Schedule:Compact,
     RADHEATLOWCONTROLTEMP_Test,  !- Name
@@ -2318,7 +2382,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    13.00;                   !- Field 4
+    14.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLHIGHWATERTEMP,    !- Name
@@ -2366,7 +2430,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    23.00;                   !- Field 4
+    19.00;                   !- Field 4
 
 Schedule:Compact,
     HVACTemplate-Always 1,   !- Name
@@ -2681,6 +2745,61 @@ Material,
     2322,                    !- Density {kg/m3}
     832;                     !- Specific Heat {J/kg-K}
 
+Material,
+    CONCRETE - DRIED SAND AND GRAVEL 4 IN,  !- Name
+    MediumRough,             !- Roughness
+    0.1000000,               !- Thickness {m}
+    1.290000,                !- Conductivity {W/m-K}
+    2242.580,                !- Density {kg/m3}
+    830.00000,               !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.6000000,               !- Solar Absorptance
+    0.6000000;               !- Visible Absorptance
+
+Material,
+    INS - EXPANDED EXT POLYSTYRENE R12 2 IN,  !- Name
+    Rough,                   !- Roughness
+    5.0000001E-02,           !- Thickness {m}
+    2.0000000E-02,           !- Conductivity {W/m-K}
+    56.06000,                !- Density {kg/m3}
+    1210.000,                !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.5000000,               !- Solar Absorptance
+    0.5000000;               !- Visible Absorptance
+
+Material,
+    GYP1,                    !- Name
+    MediumRough,             !- Roughness
+    1.2700000E-02,           !- Thickness {m}
+    7.8450000E-01,           !- Conductivity {W/m-K}
+    1842.1221,               !- Density {kg/m3}
+    988.000,                 !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.5000000,               !- Solar Absorptance
+    0.5000000;               !- Visible Absorptance
+
+Material,
+    GYP2,                    !- Name
+    MediumRough,             !- Roughness
+    1.9050000E-02,           !- Thickness {m}
+    7.8450000E-01,           !- Conductivity {W/m-K}
+    1842.1221,               !- Density {kg/m3}
+    988.000,                 !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.5000000,               !- Solar Absorptance
+    0.5000000;               !- Visible Absorptance
+
+Material,
+    FINISH FLOORING - TILE 1 / 16 IN,  !- Name
+    Smooth,                  !- Roughness
+    1.6000000E-03,           !- Thickness {m}
+    0.1700000,               !- Conductivity {W/m-K}
+    1922.210,                !- Density {kg/m3}
+    1250.000,                !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.5000000,               !- Solar Absorptance
+    0.5000000;               !- Visible Absorptance
+
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIAL:NOMASS ===========
 
@@ -2739,7 +2858,7 @@ Material:NoMass,
 Material:NoMass,
     Nonres_Exterior_Wall_Insulation,  !- Name
     MediumSmooth,            !- Roughness
-    1.90342393712394,        !- Thermal Resistance {m2-K/W}
+    1.90342394,              !- Thermal Resistance {m2-K/W}
     0.9,                     !- Thermal Absorptance
     0.7,                     !- Solar Absorptance
     0.7;                     !- Visible Absorptance
@@ -3762,6 +3881,22 @@ MaterialProperty:PhaseChangeHysteresis,
     18,                      !- Peak Freezing Temperature {C}
     1;                       !- Low Temperature Difference of Freezing Curve {deltaC}
 
+MaterialProperty:PhaseChangeHysteresis,
+    GYP2,                    !- Name
+    10000,                   !- Latent Heat during the Entire Phase Change Process {J/kg}
+    1.5,                     !- Liquid State Thermal Conductivity {W/m-K}
+    2200,                    !- Liquid State Density {kg/m3}
+    2000,                    !- Liquid State Specific Heat {J/kg-K}
+    1,                       !- High Temperature Difference of Melting Curve {deltaC}
+    21,                      !- Peak Melting Temperature {C}
+    1,                       !- Low Temperature Difference of Melting Curve {deltaC}
+    1.8,                     !- Solid State Thermal Conductivity {W/m-K}
+    2300,                    !- Solid State Density {kg/m3}
+    2000,                    !- Solid State Specific Heat {J/kg-K}
+    1,                       !- High Temperature Difference of Freezing Curve {deltaC}
+    18,                      !- Peak Freezing Temperature {C}
+    1;                       !- Low Temperature Difference of Freezing Curve {deltaC}
+
 
 !-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION ===========
 
@@ -4625,15 +4760,27 @@ Construction:InternalSource,
 
 Construction:InternalSource,
     nonres_ext_wall_rad,     !- Name
-    3,                       !- Source Present After Layer Number
-    3,                       !- Temperature Calculation Requested After Layer Number
+    2,                       !- Source Present After Layer Number
+    2,                       !- Temperature Calculation Requested After Layer Number
     1,                       !- Dimensions for the CTF Calculation
     0.1524,                  !- Tube Spacing {m}
     0.0,                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
     F07 25mm stucco,         !- Outside Layer
     G01 16mm gypsum board,   !- Layer 2
-    Nonres_Exterior_Wall_Insulation,  !- Layer 3
-    G01 16mm gypsum board;   !- Layer 4
+    G01 16mm gypsum board;   !- Layer 3
+
+Construction:InternalSource,
+    Slab Floor with Radiant, !- Name
+    3,                       !- Source Present After Layer Number
+    3,                       !- Temperature Calculation Requested After Layer Number
+    1,                       !- Dimensions for the CTF Calculation
+    0.1524,                  !- Tube Spacing {m}
+    0.0,                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
+    CONCRETE - DRIED SAND AND GRAVEL 4 IN,  !- Outside Layer
+    INS - EXPANDED EXT POLYSTYRENE R12 2 IN,  !- Layer 2
+    GYP1,                    !- Layer 3
+    GYP2,                    !- Layer 4
+    FINISH FLOORING - TILE 1 / 16 IN;  !- Layer 5
 
 
 !-   ===========  ALL OBJECTS IN CLASS: GLOBALGEOMETRYRULES ===========
@@ -9210,7 +9357,7 @@ DesignSpecification:ZoneAirDistribution,
 
 Sizing:Parameters,
     1.0,                     !- Heating Sizing Factor
-    3,                       !- Cooling Sizing Factor
+    1,                       !- Cooling Sizing Factor
     20;                      !- Timesteps in Averaging Window
 
 
@@ -10051,14 +10198,14 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
     RADHEATLOWWATERTEMP,     !- Heating Low Water Temperature Schedule Name
-    RADHEATHIGHCONTROLTEMP,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP,   !- Heating Low Control Temperature Schedule Name
+    RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
     Peri1_Top_LoTemp_Chw_Inlet,  !- Cooling Water Inlet Node Name
     Peri1_Top_LoTemp_Chw_Outlet,  !- Cooling Water Outlet Node Name
-    RADCOOLHIGHWATERTEMP,    !- Cooling High Water Temperature Schedule Name
-    RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
-    RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
-    RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    RADCOOLHIGHWATERTEMP_Test,  !- Cooling High Water Temperature Schedule Name
+    RADCOOLLOWWATERTEMP_Test,!- Cooling Low Water Temperature Schedule Name
+    RADCOOLHIGHCONTROLTEMP_Test,  !- Cooling High Control Temperature Schedule Name
+    RADCOOLLOWCONTROLTEMP_Test,  !- Cooling Low Control Temperature Schedule Name
     Off,                     !- Condensation Control Type
     1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
@@ -12731,13 +12878,13 @@ OutputControl:Table:Style,
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
 
 Output:Variable,
-    Perimeter_top_ZN_4,      !- Key Value
-    Zone Mean Air Temperature,  !- Variable Name
+    PERI1_TOP_LOTEMP,        !- Key Value
+    Zone Radiant HVAC Cooling Rate,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Cooling Rate,  !- Variable Name
+    Perimeter_top_ZN_1,      !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 
