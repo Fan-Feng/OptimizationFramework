@@ -1,4 +1,4 @@
-Program Version:,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 18:31
+Program Version:,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 23:06
 Tabular Output Report in Format: ,Comma
 
 Building:,Medium Office
@@ -176,7 +176,7 @@ FOR:,Entire Facility
 General
 
 ,,Value
-,Program Version and Build,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 18:31
+,Program Version and Build,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 23:06
 ,RunPeriod,RUNPERIOD 1
 ,Weather File,Atlanta Hartsfield Intl Ap GA USA TMY3 WMO#=722190
 ,Latitude [deg],33.63

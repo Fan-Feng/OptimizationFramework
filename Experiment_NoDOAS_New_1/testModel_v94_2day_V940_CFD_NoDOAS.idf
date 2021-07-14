@@ -2318,7 +2318,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    13.00;                   !- Field 4
+    14.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLHIGHWATERTEMP,    !- Name
@@ -4625,15 +4625,14 @@ Construction:InternalSource,
 
 Construction:InternalSource,
     nonres_ext_wall_rad,     !- Name
-    3,                       !- Source Present After Layer Number
-    3,                       !- Temperature Calculation Requested After Layer Number
+    2,                       !- Source Present After Layer Number
+    2,                       !- Temperature Calculation Requested After Layer Number
     1,                       !- Dimensions for the CTF Calculation
     0.1524,                  !- Tube Spacing {m}
     0.0,                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
     F07 25mm stucco,         !- Outside Layer
     G01 16mm gypsum board,   !- Layer 2
-    Nonres_Exterior_Wall_Insulation,  !- Layer 3
-    G01 16mm gypsum board;   !- Layer 4
+    G01 16mm gypsum board;   !- Layer 3
 
 
 !-   ===========  ALL OBJECTS IN CLASS: GLOBALGEOMETRYRULES ===========
@@ -9210,7 +9209,7 @@ DesignSpecification:ZoneAirDistribution,
 
 Sizing:Parameters,
     1.0,                     !- Heating Sizing Factor
-    3,                       !- Cooling Sizing Factor
+    1,                       !- Cooling Sizing Factor
     20;                      !- Timesteps in Averaging Window
 
 
@@ -12731,13 +12730,13 @@ OutputControl:Table:Style,
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
 
 Output:Variable,
-    Perimeter_top_ZN_4,      !- Key Value
-    Zone Mean Air Temperature,  !- Variable Name
+    PERI1_TOP_LOTEMP,        !- Key Value
+    Zone Radiant HVAC Cooling Rate,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Cooling Rate,  !- Variable Name
+    Perimeter_top_ZN_4,      !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 

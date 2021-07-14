@@ -1,6 +1,6 @@
 import pygad
 import numpy
-
+import matplotlib.pyplot as plt
 """
 Given the following function:
     y = f(w1:w6) = w1x1 + w2x2 + w3x3 + w4x4 + w5x5 + 6wx6
@@ -40,7 +40,10 @@ ga_instance = pygad.GA(num_generations=num_generations,
 # Running the GA to optimize the parameters of the function.
 ga_instance.run()
 
+plt.plot(ga_instance.best_solutions_fitness)
+
 ga_instance.plot_result()
+
 
 # Returning the details of the best solution.
 solution, solution_fitness, solution_idx = ga_instance.best_solution(ga_instance.last_generation_fitness)
