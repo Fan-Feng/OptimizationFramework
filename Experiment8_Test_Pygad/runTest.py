@@ -33,13 +33,12 @@ with MPIPool() as pool:
     pool.workers_exit() ## Only master process will proceed
     
     num_generations = 100 # Number of generations.
-    num_parents_mating = 10 # Number of solutions to be selected as parents in the mating pool.
+    num_parents_mating = 2 # Number of solutions to be selected as parents in the mating pool.
 
     sol_per_pop = 39 # Number of solutions in the population.
-    num_genes = 10
+    num_genes = 6
 
-    num_parents_mating = 2
-    
+ 
     
     parent_selection_type = "sss"
     keep_parents = 1
