@@ -250,8 +250,8 @@ with MPIPool() as pool:
     num_parents_mating = 4
     num_genes = len(CVar_list)
 
-    init_range_low = 10
-    init_range_high = 15
+    init_range_low = 7
+    init_range_high = 12
 
     parent_selection_type = "sss"
     keep_parents = 1

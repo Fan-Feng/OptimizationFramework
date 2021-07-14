@@ -35,8 +35,16 @@ if __name__ == "__main__":
         sol_per_pop = 39 # Number of solutions in the population.
         num_genes = 10
 
+        num_parents_mating = 2
         last_fitness = 0
         
+        parent_selection_type = "sss"
+        keep_parents = 1
+
+        crossover_type = "single_point"
+
+        mutation_type = "random"
+        mutation_num_genes = 1
         
         ga_instance = PooledGA(num_generations=num_generations,
                             initial_population =  numpy.random.randint(-10,10,(20,6)),
