@@ -2358,7 +2358,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    25.00;                   !- Field 4
+    24.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLLOWCONTROLTEMP_Test,  !- Name
@@ -2366,7 +2366,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    23.00;                   !- Field 4
+    18.00;                   !- Field 4
 
 Schedule:Compact,
     HVACTemplate-Always 1,   !- Name
@@ -2680,6 +2680,69 @@ Material,
     2.31,                    !- Conductivity {W/m-K}
     2322,                    !- Density {kg/m3}
     832;                     !- Specific Heat {J/kg-K}
+
+Material,
+    G01 2mm gypsum board,    !- Name
+    MediumSmooth,            !- Roughness
+    0.002,                   !- Thickness {m}
+    0.16,                    !- Conductivity {W/m-K}
+    800,                     !- Density {kg/m3}
+    1090;                    !- Specific Heat {J/kg-K}
+
+Material,
+    CONCRETE - DRIED SAND AND GRAVEL 4 IN,  !- Name
+    MediumRough,             !- Roughness
+    0.1000000,               !- Thickness {m}
+    1.290000,                !- Conductivity {W/m-K}
+    2242.580,                !- Density {kg/m3}
+    830.00000,               !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.6000000,               !- Solar Absorptance
+    0.6000000;               !- Visible Absorptance
+
+Material,
+    GYP1,                    !- Name
+    MediumRough,             !- Roughness
+    1.2700000E-02,           !- Thickness {m}
+    7.8450000E-01,           !- Conductivity {W/m-K}
+    1842.1221,               !- Density {kg/m3}
+    988.000,                 !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.5000000,               !- Solar Absorptance
+    0.5000000;               !- Visible Absorptance
+
+Material,
+    GYP2,                    !- Name
+    MediumRough,             !- Roughness
+    1.9050000E-02,           !- Thickness {m}
+    7.8450000E-01,           !- Conductivity {W/m-K}
+    1842.1221,               !- Density {kg/m3}
+    988.000,                 !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.5000000,               !- Solar Absorptance
+    0.5000000;               !- Visible Absorptance
+
+Material,
+    INS - EXPANDED EXT POLYSTYRENE R12 2 IN,  !- Name
+    Rough,                   !- Roughness
+    5.0000001E-02,           !- Thickness {m}
+    2.0000000E-02,           !- Conductivity {W/m-K}
+    56.06000,                !- Density {kg/m3}
+    1210.000,                !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.5000000,               !- Solar Absorptance
+    0.5000000;               !- Visible Absorptance
+
+Material,
+    FINISH FLOORING - TILE 1 / 16 IN,  !- Name
+    Smooth,                  !- Roughness
+    1.6000000E-03,           !- Thickness {m}
+    0.1700000,               !- Conductivity {W/m-K}
+    1922.210,                !- Density {kg/m3}
+    1250.000,                !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.5000000,               !- Solar Absorptance
+    0.5000000;               !- Visible Absorptance
 
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIAL:NOMASS ===========
@@ -3762,6 +3825,22 @@ MaterialProperty:PhaseChangeHysteresis,
     18,                      !- Peak Freezing Temperature {C}
     1;                       !- Low Temperature Difference of Freezing Curve {deltaC}
 
+MaterialProperty:PhaseChangeHysteresis,
+    G01 2mm gypsum board,    !- Name
+    10000,                   !- Latent Heat during the Entire Phase Change Process {J/kg}
+    1.5,                     !- Liquid State Thermal Conductivity {W/m-K}
+    2200,                    !- Liquid State Density {kg/m3}
+    2000,                    !- Liquid State Specific Heat {J/kg-K}
+    1,                       !- High Temperature Difference of Melting Curve {deltaC}
+    21,                      !- Peak Melting Temperature {C}
+    1,                       !- Low Temperature Difference of Melting Curve {deltaC}
+    1.8,                     !- Solid State Thermal Conductivity {W/m-K}
+    2300,                    !- Solid State Density {kg/m3}
+    2000,                    !- Solid State Specific Heat {J/kg-K}
+    1,                       !- High Temperature Difference of Freezing Curve {deltaC}
+    18,                      !- Peak Freezing Temperature {C}
+    1;                       !- Low Temperature Difference of Freezing Curve {deltaC}
+
 
 !-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION ===========
 
@@ -4634,6 +4713,19 @@ Construction:InternalSource,
     G01 16mm gypsum board,   !- Layer 2
     G01 16mm gypsum board;   !- Layer 3
 
+Construction:InternalSource,
+    Slab Floor with Radiant, !- Name
+    4,                       !- Source Present After Layer Number
+    4,                       !- Temperature Calculation Requested After Layer Number
+    1,                       !- Dimensions for the CTF Calculation
+    0.1524,                  !- Tube Spacing {m}
+    0.0,                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
+    CONCRETE - DRIED SAND AND GRAVEL 4 IN,  !- Outside Layer
+    INS - EXPANDED EXT POLYSTYRENE R12 2 IN,  !- Layer 2
+    GYP1,                    !- Layer 3
+    GYP2,                    !- Layer 4
+    FINISH FLOORING - TILE 1 / 16 IN;  !- Layer 5
+
 
 !-   ===========  ALL OBJECTS IN CLASS: GLOBALGEOMETRYRULES ===========
 
@@ -5305,7 +5397,7 @@ BuildingSurface:Detailed,
 BuildingSurface:Detailed,
     Perimeter_bot_ZN_1_Floor,!- Name
     Floor,                   !- Surface Type
-    ext_slab_8in_with_carpet,!- Construction Name
+    Slab Floor with Radiant, !- Construction Name
     Perimeter_bot_ZN_1,      !- Zone Name
     Ground,                  !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
@@ -9729,8 +9821,8 @@ Sizing:Plant,
 Sizing:Plant,
     Chilled Water Loop Chilled Water Loop2,  !- Plant or Condenser Loop Name
     Cooling,                 !- Loop Type
-    7.22,                    !- Design Loop Exit Temperature {C}
-    6.67,                    !- Loop Design Temperature Difference {deltaC}
+    7,                       !- Design Loop Exit Temperature {C}
+    6,                       !- Loop Design Temperature Difference {deltaC}
     NonCoincident,           !- Sizing Option
     1;                       !- Zone Timesteps in Averaging Window
 
@@ -10031,36 +10123,36 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_Top_LoTemp,        !- Name
     ALWAYS_ON,               !- Availability Schedule Name
-    Perimeter_top_ZN_4,      !- Zone Name
-    Perimeter_top_ZN_4_Wall_West,  !- Surface Name or Radiant Surface Group Name
+    Perimeter_bot_ZN_1,      !- Zone Name
+    Perimeter_bot_ZN_1_Floor,!- Surface Name or Radiant Surface Group Name
     ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
     0.013,                   !- Hydronic Tubing Inside Diameter {m}
     0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    autosize,                !- Hydronic Tubing Length {m}
+    2000,                    !- Hydronic Tubing Length {m}
     0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
     MeanAirTemperature,      !- Temperature Control Type
     0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    autosize,                !- Rated Flow Rate {m3/s}
+    0.0024,                  !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
-    100,                     !- Rated Power Consumption {W}
+    600,                     !- Rated Power Consumption {W}
     0.9,                     !- Motor Efficiency
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri1_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri1_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
     RADHEATLOWWATERTEMP,     !- Heating Low Water Temperature Schedule Name
-    RADHEATHIGHCONTROLTEMP,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP,   !- Heating Low Control Temperature Schedule Name
+    RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
     Peri1_Top_LoTemp_Chw_Inlet,  !- Cooling Water Inlet Node Name
     Peri1_Top_LoTemp_Chw_Outlet,  !- Cooling Water Outlet Node Name
-    RADCOOLHIGHWATERTEMP,    !- Cooling High Water Temperature Schedule Name
-    RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
-    RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
-    RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    RADCOOLHIGHWATERTEMP_Test,  !- Cooling High Water Temperature Schedule Name
+    RADCOOLLOWWATERTEMP_Test,!- Cooling Low Water Temperature Schedule Name
+    RADCOOLHIGHCONTROLTEMP_Test,  !- Cooling High Control Temperature Schedule Name
+    RADCOOLLOWCONTROLTEMP_Test,  !- Cooling Low Control Temperature Schedule Name
     Off,                     !- Condensation Control Type
     1,                       !- Condensation Control Dewpoint Offset {C}
-    OnePerSurface,           !- Number of Circuits
+    CalculateFromCircuitLength,  !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
@@ -10136,8 +10228,8 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri4_Top_LoTemp,        !- Name
     ALWAYS_ON,               !- Availability Schedule Name
-    Perimeter_top_ZN_1,      !- Zone Name
-    Perimeter_top_ZN_1_Wall_South,  !- Surface Name or Radiant Surface Group Name
+    Perimeter_top_ZN_4,      !- Zone Name
+    Perimeter_top_ZN_4_Wall_West,  !- Surface Name or Radiant Surface Group Name
     ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
     0.013,                   !- Hydronic Tubing Inside Diameter {m}
     0.016,                   !- Hydronic Tubing Outside Diameter {m}
@@ -10311,8 +10403,8 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_Bot_LoTemp,        !- Name
     ALWAYS_ON,               !- Availability Schedule Name
-    Perimeter_bot_ZN_1,      !- Zone Name
-    Perimeter_bot_ZN_1_Wall_South,  !- Surface Name or Radiant Surface Group Name
+    Perimeter_top_ZN_1,      !- Zone Name
+    Perimeter_top_ZN_1_Wall_South,  !- Surface Name or Radiant Surface Group Name
     ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
     0.013,                   !- Hydronic Tubing Inside Diameter {m}
     0.016,                   !- Hydronic Tubing Outside Diameter {m}
@@ -10480,7 +10572,7 @@ AirTerminal:SingleDuct:VAV:NoReheat,
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri1_Bot_DOAS_AirTerminal,  !- Name
-    HVACTemplate-Always 1,   !- Availability Schedule Name
+    ALWAYS_OFF,              !- Availability Schedule Name
     Peri1_Bot_DOAS Supply Inlet,  !- Air Outlet Node Name
     Peri1_Bot_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
@@ -10577,6 +10669,15 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Constant,                !- Zone Minimum Air Flow Input Method
     1;                       !- Constant Minimum Air Flow Fraction
 
+AirTerminal:SingleDuct:VAV:NoReheat,
+    Peri4_Top_DOAS_AirTerminal,  !- Name
+    HVACTemplate-Always 1,   !- Availability Schedule Name
+    Peri4_Top_DOAS Supply Inlet,  !- Air Outlet Node Name
+    Peri4_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
+    autosize,                !- Maximum Air Flow Rate {m3/s}
+    Constant,                !- Zone Minimum Air Flow Input Method
+    1;                       !- Constant Minimum Air Flow Fraction
+
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:AIRDISTRIBUTIONUNIT ===========
 
@@ -10664,6 +10765,12 @@ ZoneHVAC:AirDistributionUnit,
     AirTerminal:SingleDuct:VAV:NoReheat,  !- Air Terminal Object Type
     Peri4_Bot_DOAS_AirTerminal;  !- Air Terminal Name
 
+ZoneHVAC:AirDistributionUnit,
+    Peri4_Top DOAS ATU,      !- Name
+    Peri4_Top_DOAS Supply Inlet,  !- Air Distribution Unit Outlet Node Name
+    AirTerminal:SingleDuct:VAV:NoReheat,  !- Air Terminal Object Type
+    Peri4_Top_DOAS_AirTerminal;  !- Air Terminal Name
+
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:EQUIPMENTLIST ===========
 
@@ -10713,7 +10820,7 @@ ZoneHVAC:EquipmentList,
     Peri1_Top_Equip,         !- Name
     SequentialLoad,          !- Load Distribution Scheme
     ZoneHVAC:LowTemperatureRadiant:ConstantFlow,  !- Zone Equipment 1 Object Type
-    Peri1_Top_LoTemp,        !- Zone Equipment 1 Name
+    Peri1_bot_LoTemp,        !- Zone Equipment 1 Name
     2,                       !- Zone Equipment 1 Cooling Sequence
     2,                       !- Zone Equipment 1 Heating or No-Load Sequence
     ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
@@ -10756,10 +10863,14 @@ ZoneHVAC:EquipmentList,
     SequentialLoad,          !- Load Distribution Scheme
     ZoneHVAC:LowTemperatureRadiant:ConstantFlow,  !- Zone Equipment 1 Object Type
     Peri4_Top_LoTemp,        !- Zone Equipment 1 Name
-    1,                       !- Zone Equipment 1 Cooling Sequence
-    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    2,                       !- Zone Equipment 1 Cooling Sequence
+    2,                       !- Zone Equipment 1 Heating or No-Load Sequence
     ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
-    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+    ,                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+    ZoneHVAC:AirDistributionUnit,  !- Zone Equipment 2 Object Type
+    Peri4_Top DOAS ATU,      !- Zone Equipment 2 Name
+    1,                       !- Zone Equipment 2 Cooling Sequence
+    1;                       !- Zone Equipment 2 Heating or No-Load Sequence
 
 ZoneHVAC:EquipmentList,
     Peri1_Mid_Equip,         !- Name
@@ -10821,15 +10932,15 @@ ZoneHVAC:EquipmentList,
     Peri1_Bot_Equip,         !- Name
     SequentialLoad,          !- Load Distribution Scheme
     ZoneHVAC:LowTemperatureRadiant:ConstantFlow,  !- Zone Equipment 1 Object Type
-    Peri1_Bot_LoTemp,        !- Zone Equipment 1 Name
-    2,                       !- Zone Equipment 1 Cooling Sequence
-    2,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    Peri1_Top_LoTemp,        !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
     ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
     ,                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
     ZoneHVAC:AirDistributionUnit,  !- Zone Equipment 2 Object Type
     Peri1_Bot DOAS ATU,      !- Zone Equipment 2 Name
-    1,                       !- Zone Equipment 2 Cooling Sequence
-    1;                       !- Zone Equipment 2 Heating or No-Load Sequence
+    2,                       !- Zone Equipment 2 Cooling Sequence
+    2;                       !- Zone Equipment 2 Heating or No-Load Sequence
 
 ZoneHVAC:EquipmentList,
     Peri2_Bot_Equip,         !- Name
@@ -11005,10 +11116,11 @@ ZoneHVAC:EquipmentConnections,
 ZoneHVAC:EquipmentConnections,
     Perimeter_top_ZN_4,      !- Zone Name
     Peri4_Top_Equip,         !- Zone Conditioning Equipment List Name
-    ,                        !- Zone Air Inlet Node or NodeList Name
+    Peri4_Top_DOAS Supply Inlet,  !- Zone Air Inlet Node or NodeList Name
     ,                        !- Zone Air Exhaust Node or NodeList Name
     Peri4_Top_ZoneNode,      !- Zone Air Node Name
-    Peri4_Top_Outlet_ZoneNode;  !- Zone Return Air Node or NodeList Name
+    Peri4_Top_Outlet_ZoneNode,  !- Zone Return Air Node or NodeList Name
+    HVACTemplate-Always 0;   !- Zone Return Air Node 1 Flow Rate Fraction Schedule Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: FAN:VARIABLEVOLUME ===========
@@ -11194,7 +11306,8 @@ AirLoopHVAC:ZoneSplitter,
     Peri4_Mid_DOAS Zone Equip Inlet,  !- Outlet 11 Node Name
     Peri1_Top_DOAS Zone Equip Inlet,  !- Outlet 12 Node Name
     Peri2_Top_DOAS Zone Equip Inlet,  !- Outlet 13 Node Name
-    Peri3_Top_DOAS Zone Equip Inlet;  !- Outlet 14 Node Name
+    Peri3_Top_DOAS Zone Equip Inlet,  !- Outlet 14 Node Name
+    Peri4_Top_DOAS Zone Equip Inlet;  !- Outlet 15 Node Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: AIRLOOPHVAC:SUPPLYPATH ===========
@@ -11224,7 +11337,8 @@ AirLoopHVAC:ZoneMixer,
     Peri4_Mid_Outlet_ZoneNode,  !- Inlet 11 Node Name
     Peri1_Top_Outlet_ZoneNode,  !- Inlet 12 Node Name
     Peri2_Top_Outlet_ZoneNode,  !- Inlet 13 Node Name
-    Peri3_Top_Outlet_ZoneNode;  !- Inlet 14 Node Name
+    Peri3_Top_Outlet_ZoneNode,  !- Inlet 14 Node Name
+    Peri4_Top_Outlet_ZoneNode;  !- Inlet 15 Node Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: AIRLOOPHVAC:RETURNPATH ===========
@@ -12735,7 +12849,7 @@ Output:Variable,
     Hourly;                  !- Reporting Frequency
 
 Output:Variable,
-    Perimeter_top_ZN_4,      !- Key Value
+    Perimeter_bot_ZN_1,      !- Key Value
     Zone Mean Air Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 

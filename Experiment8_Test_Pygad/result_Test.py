@@ -61,7 +61,7 @@ def fitness_func(x,solution_idx):
 def penalty_func(ZMAT,output_DF):
 
   ## This function could be modified in the future if necessary
-  SP_list = [26.7]*5+[25.6]+[25]+[24]*15+[26.7]*2 # [18,24]
+  SP_list = [24]*24
   ThermalComfort_range = 0.5
 
   residuals = 0
@@ -157,7 +157,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [2050,770] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
+  output_idx = [2050,773] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:

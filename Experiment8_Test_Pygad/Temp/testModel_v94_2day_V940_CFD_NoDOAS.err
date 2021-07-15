@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 23:06,
+Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.15 02:36,
    ** Warning ** Sizing:Parameters: note Timesteps in Averaging Window entered value=[20] is less than 1 hour (i.e., 60 timesteps).
    ************* Beginning Zone Sizing Calculations
    ** Warning ** CheckUsedConstructions: There are 121 nominally unused constructions in input.
@@ -31,10 +31,10 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 23:06,
    ************* Beginning Plant Sizing Calculations
    ** Warning ** In calculating the design coil UA for Coil:Cooling:Water DOAS COOLING COIL
    **   ~~~   ** the coil bypass factor is unrealistically large;
-   **   ~~~   ** The initial design conditions are: Tair,in = 28.4023
-   **   ~~~   **                                    Wair,in = 1.446234E-002
+   **   ~~~   ** The initial design conditions are: Tair,in = 30.0977
+   **   ~~~   **                                    Wair,in = 1.446543E-002
    **   ~~~   **                                    Twater,in = 7.2200
-   **   ~~~   **                                    Tair,out = 11.6073
+   **   ~~~   **                                    Tair,out = 11.6074
    **   ~~~   **                                    Wair,out = 9.240000E-003
    ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name="NATURALGAS:FACILITY" - not found.
    ************* Testing Individual Branch Integrity
@@ -46,9 +46,7 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 23:06,
    ************* No node connection errors were found.
    ************* Beginning Simulation
    ************* Simulation Error Summary *************
-   ************* There are 101 unused schedules in input.
-   ************* There are 730 unused week schedules in input.
-   ************* There are 730 unused day schedules in input.
+   ************* There are 94 unused schedules in input.
    ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
    *************
    ************* ===== Final Error Summary =====
@@ -60,4 +58,4 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.13 23:06,
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 14 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 16 Warning; 0 Severe Errors; Elapsed Time=00hr 01min 49.38sec
+   ************* EnergyPlus Completed Successfully-- 16 Warning; 0 Severe Errors; Elapsed Time=00hr 01min 44.80sec
