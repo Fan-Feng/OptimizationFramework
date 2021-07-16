@@ -2419,7 +2419,7 @@ Schedule:Compact,
 Schedule:File,
     RADCOOLLOWWATERTEMP_Test,!- Name
     Temperature,             !- Schedule Type Limits Name
-    RadInletWater_SP_schedule.csv,  !- File Name
+    C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad//Model_T4344.0_1//RadInletWater_SP_schedule.csv,           !- File Name
     1,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -2430,7 +2430,7 @@ Schedule:File,
 Schedule:File,
     RADCOOLHIGHWATERTEMP_Test,  !- Name
     Temperature,             !- Schedule Type Limits Name
-    RadInletWater_SP_schedule.csv,  !- File Name
+    C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad//Model_T4344.0_1//RadInletWater_SP_schedule.csv,           !- File Name
     2,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -12570,56 +12570,6 @@ Output:Variable,
 Output:Variable,
     Perimeter_bot_ZN_1,      !- Key Value
     Zone Mean Air Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Cooling Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Inlet Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Outlet Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    Peri1_Top_LoTemp_Chw_Inlet,  !- Key Value
-    System Node Temperature, !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    Peri1_Top_LoTemp_Chw_Outlet,  !- Key Value
-    System Node Temperature, !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Mass Flow Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Injection Mass Flow Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Recirculation Mass Flow Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    Peri2_Top_LoTemp,        !- Key Value
-    Zone Radiant HVAC Outlet Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    *,                       !- Key Value
-    Site Outdoor Air Drybulb Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 

@@ -33,7 +33,7 @@ def convert_NumOfSec_To_MonAndDay(NumOfSec):
 
   return Mon,DayValue
 
-def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
+def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay,SchFileLOC):
   '''
   Modify idf file by specifying startMon,startDay,endMon, endDay
   '''
@@ -47,6 +47,7 @@ def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
       line = line.replace("%BeginDay%",str(startDay))
       line = line.replace("%EndMon%",str(endMon))
       line = line.replace("%EndDay%",str(endDay))
+      line = line.replace("%SchFile_Loc%",SchFileLOC)
       fp.writelines(line)
     
 def fitness_func(x,solution_idx):
@@ -124,7 +125,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time)
   endMon,endDay = convert_NumOfSec_To_MonAndDay(final_time)
-  modifyIDF(Cur_WorkPath + "\\" + Eplus_FileName,Target_WorkPath+"\\"+Eplus_FileName,startMon,startDay,endMon,endDay)
+  modifyIDF(Cur_WorkPath + "\\" + Eplus_FileName,Target_WorkPath+"\\"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"\\RadInletWater_SP_schedule.csv")
 
   # write control signal to the .csv file, both historical and new
 

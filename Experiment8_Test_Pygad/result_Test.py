@@ -157,7 +157,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [2050,773] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
+  output_idx = [1716,651] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -211,11 +211,11 @@ if __name__ == "__main__":
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
-    CVar_list = [10.        , 10.        , 10.        , 10.        , 10.        ,
-        9.37010483, 10.        ,  7.91111435,  8.43056231,  8.80633784,
-        8.68930639,  8.39483428,  9.7329349 , 10.11467099, 11.95038837,
-       11.44563162, 11.90011783, 10.        , 10.        , 10.        ,
-       10.        ,  9.97401927,  9.7008135 ,  9.57739874]
+    CVar_list = [ 9.54093978, 10.        ,  9.13555358, 10.        , 10.        ,
+       10.31618328, 10.60960962,  8.798089  ,  6.66189757,  8.20695732,
+        7.63257863,  8.09140603, 11.15304277, 11.19104104, 10.11315078,
+       11.33440367, 11.85754816, 10.        , 10.77302142, 10.        ,
+       10.        , 10.        , 10.        , 10.        ]
 
     tim = start_time
     Eplus_FileName = "testModel_v94_2day_V940_CFD_NoDOAS.idf"

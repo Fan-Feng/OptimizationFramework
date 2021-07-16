@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.15 02:36,
+Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.07.16 04:58,
    ** Warning ** Sizing:Parameters: note Timesteps in Averaging Window entered value=[20] is less than 1 hour (i.e., 60 timesteps).
    ************* Beginning Zone Sizing Calculations
    ** Warning ** CheckUsedConstructions: There are 121 nominally unused constructions in input.
@@ -31,8 +31,8 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.15 02:36,
    ************* Beginning Plant Sizing Calculations
    ** Warning ** In calculating the design coil UA for Coil:Cooling:Water DOAS COOLING COIL
    **   ~~~   ** the coil bypass factor is unrealistically large;
-   **   ~~~   ** The initial design conditions are: Tair,in = 30.0977
-   **   ~~~   **                                    Wair,in = 1.446543E-002
+   **   ~~~   ** The initial design conditions are: Tair,in = 29.9967
+   **   ~~~   **                                    Wair,in = 1.446524E-002
    **   ~~~   **                                    Twater,in = 7.2200
    **   ~~~   **                                    Tair,out = 11.6074
    **   ~~~   **                                    Wair,out = 9.240000E-003
@@ -58,4 +58,4 @@ Program Version,EnergyPlus, Version 9.4.0-998c4b761e, YMD=2021.07.15 02:36,
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 14 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 16 Warning; 0 Severe Errors; Elapsed Time=00hr 01min 44.80sec
+   ************* EnergyPlus Completed Successfully-- 16 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 44.09sec
