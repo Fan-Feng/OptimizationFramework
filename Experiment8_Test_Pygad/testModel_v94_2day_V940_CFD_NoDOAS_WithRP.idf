@@ -178,7 +178,7 @@ SurfaceConvectionAlgorithm:Outside,
 !-   ===========  ALL OBJECTS IN CLASS: HEATBALANCEALGORITHM ===========
 
 HeatBalanceAlgorithm,
-    ConductionFiniteDifference;  !- Algorithm
+    ConductionTransferFunction;  !- Algorithm
 
 
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
@@ -3810,33 +3810,33 @@ WindowMaterial:GasMixture,
 !-   ===========  ALL OBJECTS IN CLASS: MATERIALPROPERTY:PHASECHANGEHYSTERESIS ===========
 
 MaterialProperty:PhaseChangeHysteresis,
-    G01 16mm gypsum board,   !- Name
+    GYP1,                    !- Name
     10000,                   !- Latent Heat during the Entire Phase Change Process {J/kg}
-    1.5,                     !- Liquid State Thermal Conductivity {W/m-K}
-    2200,                    !- Liquid State Density {kg/m3}
-    2000,                    !- Liquid State Specific Heat {J/kg-K}
+    0.7845,                  !- Liquid State Thermal Conductivity {W/m-K}
+    1842,                    !- Liquid State Density {kg/m3}
+    988,                     !- Liquid State Specific Heat {J/kg-K}
     1,                       !- High Temperature Difference of Melting Curve {deltaC}
     21,                      !- Peak Melting Temperature {C}
     1,                       !- Low Temperature Difference of Melting Curve {deltaC}
-    1.8,                     !- Solid State Thermal Conductivity {W/m-K}
-    2300,                    !- Solid State Density {kg/m3}
-    2000,                    !- Solid State Specific Heat {J/kg-K}
+    0.7845,                  !- Solid State Thermal Conductivity {W/m-K}
+    1842,                    !- Solid State Density {kg/m3}
+    988,                     !- Solid State Specific Heat {J/kg-K}
     1,                       !- High Temperature Difference of Freezing Curve {deltaC}
     18,                      !- Peak Freezing Temperature {C}
     1;                       !- Low Temperature Difference of Freezing Curve {deltaC}
 
 MaterialProperty:PhaseChangeHysteresis,
-    G01 2mm gypsum board,    !- Name
+    GYP2,                    !- Name
     10000,                   !- Latent Heat during the Entire Phase Change Process {J/kg}
-    1.5,                     !- Liquid State Thermal Conductivity {W/m-K}
-    2200,                    !- Liquid State Density {kg/m3}
-    2000,                    !- Liquid State Specific Heat {J/kg-K}
+    0.7845,                  !- Liquid State Thermal Conductivity {W/m-K}
+    1842,                    !- Liquid State Density {kg/m3}
+    988,                     !- Liquid State Specific Heat {J/kg-K}
     1,                       !- High Temperature Difference of Melting Curve {deltaC}
     21,                      !- Peak Melting Temperature {C}
     1,                       !- Low Temperature Difference of Melting Curve {deltaC}
-    1.8,                     !- Solid State Thermal Conductivity {W/m-K}
-    2300,                    !- Solid State Density {kg/m3}
-    2000,                    !- Solid State Specific Heat {J/kg-K}
+    0.7845,                  !- Solid State Thermal Conductivity {W/m-K}
+    1842,                    !- Solid State Density {kg/m3}
+    988,                     !- Solid State Specific Heat {J/kg-K}
     1,                       !- High Temperature Difference of Freezing Curve {deltaC}
     18,                      !- Peak Freezing Temperature {C}
     1;                       !- Low Temperature Difference of Freezing Curve {deltaC}
@@ -6910,29 +6910,6 @@ BuildingSurface:Detailed,
 !-   ===========  ALL OBJECTS IN CLASS: FENESTRATIONSURFACE:DETAILED ===========
 
 FenestrationSurface:Detailed,
-    Perimeter_bot_ZN_1_Wall_South_Window1,  !- Name
-    Window,                  !- Surface Type
-    Window_U_0.51_SHGC_0.25, !- Construction Name
-    Perimeter_bot_ZN_1_Wall_South,  !- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1.0000,                  !- Multiplier
-    4,                       !- Number of Vertices
-    0.000000000000,          !- Vertex 1 X-coordinate {m}
-    0.000000000000,          !- Vertex 1 Y-coordinate {m}
-    2.329300000000,          !- Vertex 1 Z-coordinate {m}
-    0.000000000000,          !- Vertex 2 X-coordinate {m}
-    0.000000000000,          !- Vertex 2 Y-coordinate {m}
-    0.954652000000,          !- Vertex 2 Z-coordinate {m}
-    15.824200000000,         !- Vertex 3 X-coordinate {m}
-    0.000000000000,          !- Vertex 3 Y-coordinate {m}
-    0.954652000000,          !- Vertex 3 Z-coordinate {m}
-    15.824200000000,         !- Vertex 4 X-coordinate {m}
-    0.000000000000,          !- Vertex 4 Y-coordinate {m}
-    2.329300000000;          !- Vertex 4 Z-coordinate {m}
-
-FenestrationSurface:Detailed,
     Perimeter_bot_ZN_1_Wall_South_Window2,  !- Name
     Window,                  !- Surface Type
     Window_U_0.51_SHGC_0.25, !- Construction Name
@@ -7461,6 +7438,29 @@ FenestrationSurface:Detailed,
     0.0000,                  !- Vertex 4 Y-coordinate {m}
     10.2541;                 !- Vertex 4 Z-coordinate {m}
 
+FenestrationSurface:Detailed,
+    Perimeter_bot_ZN_1_Wall_South_Window1,  !- Name
+    Window,                  !- Surface Type
+    Window_U_0.51_SHGC_0.25, !- Construction Name
+    Perimeter_bot_ZN_1_Wall_South,  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    AutoCalculate,           !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1.0000,                  !- Multiplier
+    4,                       !- Number of Vertices
+    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.329300000000,          !- Vertex 1 Z-coordinate {m}
+    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.954652000000,          !- Vertex 2 Z-coordinate {m}
+    15.824200000000,         !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.954652000000,          !- Vertex 3 Z-coordinate {m}
+    15.824200000000,         !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.329300000000;          !- Vertex 4 Z-coordinate {m}
+
 
 !-   ===========  ALL OBJECTS IN CLASS: INTERNALMASS ===========
 
@@ -7554,6 +7554,13 @@ InternalMass,
     InteriorFurnishings,     !- Construction Name
     Perimeter_mid_ZN_4,      !- Zone or ZoneList Name
     262.5056;                !- Surface Area {m2}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SURFACEPROPERTY:HEATTRANSFERALGORITHM ===========
+
+SurfaceProperty:HeatTransferAlgorithm,
+    Perimeter_bot_ZN_1_Floor,!- Surface Name
+    ConductionFiniteDifference;  !- Algorithm
 
 
 !-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========

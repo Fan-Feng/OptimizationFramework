@@ -1,10 +1,10 @@
   Processing Schedule Input -- Start
-not found (user input)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_NoDOAS_New_1\EPTEMP-00000001\RadInletWater_SP_schedule.csv
-not found (input file)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_NoDOAS_New_1\EPTEMP-00000001\RadInletWater_SP_schedule.csv
-found (epin)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_NoDOAS_New_1\RadInletWater_SP_schedule.csv
-not found (user input)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_NoDOAS_New_1\EPTEMP-00000001\RadInletWater_SP_schedule.csv
-not found (input file)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_NoDOAS_New_1\EPTEMP-00000001\RadInletWater_SP_schedule.csv
-found (epin)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_NoDOAS_New_1\RadInletWater_SP_schedule.csv
+not found (user input)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\EPTEMP-00000001\RadInletWater_SP_schedule.csv
+not found (input file)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\EPTEMP-00000001\RadInletWater_SP_schedule.csv
+found (epin)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\RadInletWater_SP_schedule.csv
+not found (user input)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\EPTEMP-00000001\RadInletWater_SP_schedule.csv
+not found (input file)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\EPTEMP-00000001\RadInletWater_SP_schedule.csv
+found (epin)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\RadInletWater_SP_schedule.csv
   Processing Schedule Input -- Complete
  MonthlyInputCount=          19
  sizeMonthlyInput=          25
@@ -22,13 +22,13 @@ found (epin)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project
  numTableEntry=        5871
  sizeCompSizeTableEntry=         200
  numCompSizeTableEntry=         134
- NumOfRVariable=       22690
- NumOfRVariable(Total)=       22690
+ NumOfRVariable=       19248
+ NumOfRVariable(Total)=       19248
  NumOfRVariable(Actual)=         644
  NumOfRVariable(Summed)=         534
  NumOfRVariable(Meter)=         163
- NumOfIVariable=        3326
- NumOfIVariable(Total)=        3326
+ NumOfIVariable=         882
+ NumOfIVariable(Total)=         882
  NumOfIVariable(Actual)=           0
  NumOfIVariable(Summed)=           0
  MaxRVariable=        1000

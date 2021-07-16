@@ -621,14 +621,9 @@ Number of back surfaces=5
 Number of receiving sub surfaces=5
 ....Surface=PERIMETER_BOT_ZN_1_WALL_SOUTH_DOOR1
 ....Surface=PERIMETER_BOT_ZN_1_WALL_SOUTH_DOOR2
-....Surface=PERIMETER_BOT_ZN_1_WALL_SOUTH_WINDOW1
 ....Surface=PERIMETER_BOT_ZN_1_WALL_SOUTH_WINDOW2
 ....Surface=PERIMETER_BOT_ZN_1_WALL_SOUTH_WINDOW3
-==================================
-Surface=PERIMETER_BOT_ZN_1_WALL_SOUTH_WINDOW1 is not used as Receiving Surface in calculations.
-Number of general casting surfaces=0
-Number of back surfaces=0
-Number of receiving sub surfaces=0
+....Surface=PERIMETER_BOT_ZN_1_WALL_SOUTH_WINDOW1
 ==================================
 Surface=PERIMETER_BOT_ZN_1_WALL_SOUTH_WINDOW2 is not used as Receiving Surface in calculations.
 Number of general casting surfaces=0
@@ -646,6 +641,11 @@ Number of back surfaces=0
 Number of receiving sub surfaces=0
 ==================================
 Surface=PERIMETER_BOT_ZN_1_WALL_SOUTH_DOOR2 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=PERIMETER_BOT_ZN_1_WALL_SOUTH_WINDOW1 is not used as Receiving Surface in calculations.
 Number of general casting surfaces=0
 Number of back surfaces=0
 Number of receiving sub surfaces=0
