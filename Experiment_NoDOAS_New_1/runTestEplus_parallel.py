@@ -242,8 +242,8 @@ with MPIPool() as pool:
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
     # Optimization algorithm setting
-    num_generations = 10
-    sol_per_pop = 49   # Number of individuals
+    num_generations = 30
+    sol_per_pop = 99   # Number of individuals
 
     num_parents_mating = 4
     num_genes = len(CVar_list)
