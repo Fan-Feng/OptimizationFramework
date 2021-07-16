@@ -273,7 +273,7 @@ if __name__ == "__main__":
                 mutation_num_genes=mutation_num_genes,
                 initial_population=[[10]*7+[7+2*rng.random(1)[0] for j in range(5)] + [10+2*rng.random(1)[0] for j in range(5)] +[10]*7 for i in range(sol_per_pop)]
                 )
-    with Pool(processes=1) as pool:
+    with Pool(processes=4) as pool:
 
       print("Start Optimization")
 
