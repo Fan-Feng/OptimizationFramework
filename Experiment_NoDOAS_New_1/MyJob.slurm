@@ -18,6 +18,6 @@ ml purge
 ml intel/2019a
 
 ml CMake/3.15.3-GCCcore-8.3.0
-export PATH=$SCRATCH/programs/EnergyPlus-9-4-0:$PATH
+export PATH=$SCRATCH/programs/EnergyPlus-9-5-0:$PATH
 
 mpirun python runTestEplus_parallel.py

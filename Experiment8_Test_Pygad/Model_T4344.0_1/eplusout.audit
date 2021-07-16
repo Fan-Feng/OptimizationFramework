@@ -1,12 +1,6 @@
   Processing Schedule Input -- Start
-not found (Current Working Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\EPTEMP-00000001\RadInletWater_SP_schedule.csv
-not found (IDF Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\EPTEMP-00000001\RadInletWater_SP_schedule.csv
-not found (EnergyPlus Executable Directory)"=D:\EnergyPlusV9-5-0\RadInletWater_SP_schedule.csv
-found ("epin" Environment Variable)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\RadInletWater_SP_schedule.csv
-not found (Current Working Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\EPTEMP-00000001\RadInletWater_SP_schedule.csv
-not found (IDF Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\EPTEMP-00000001\RadInletWater_SP_schedule.csv
-not found (EnergyPlus Executable Directory)"=D:\EnergyPlusV9-5-0\RadInletWater_SP_schedule.csv
-found ("epin" Environment Variable)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\RadInletWater_SP_schedule.csv
+found (Current Working Directory)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\RadInletWater_SP_schedule.csv
+found (Current Working Directory)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\RadInletWater_SP_schedule.csv
   Processing Schedule Input -- Complete
  MonthlyInputCount=           0
  sizeMonthlyInput=           0
