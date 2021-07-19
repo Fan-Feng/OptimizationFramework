@@ -271,8 +271,9 @@ with MPIPool() as pool:
                 parent_selection_type=parent_selection_type,
                 keep_parents=keep_parents,
                 crossover_type=crossover_type,
+                crossover_probability = crossover_probability,
                 mutation_type=mutation_type,
-                mutation_num_genes=mutation_num_genes,
+                mutation_probability = mutation_probability,
                 initial_population=[[10]*7+[7+2*rng.random(1)[0] for j in range(5)] + [10+2*rng.random(1)[0] for j in range(5)] +[10]*7 for i in range(sol_per_pop)]
                 )
 
