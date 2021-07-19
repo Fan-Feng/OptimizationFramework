@@ -32,7 +32,7 @@ def convert_NumOfSec_To_MonAndDay(NumOfSec):
 
   return Mon,DayValue
 
-def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
+def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay,SchFileLOC):
   '''
   Modify idf file by specifying startMon,startDay,endMon, endDay
   '''
@@ -46,6 +46,7 @@ def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
       line = line.replace("%BeginDay%",str(startDay))
       line = line.replace("%EndMon%",str(endMon))
       line = line.replace("%EndDay%",str(endDay))
+      line = line.replace("%SchFile_Loc%",SchFileLOC)
       fp.writelines(line)
     
 def fitness_func(x,solution_idx):
@@ -123,7 +124,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time)
   endMon,endDay = convert_NumOfSec_To_MonAndDay(final_time)
-  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay)
+  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
   # write control signal to the .csv file, both historical and new
 
@@ -211,11 +212,11 @@ if __name__ == "__main__":
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
-    CVar_list = [ 9.54093978, 10.        ,  9.13555358, 10.        , 10.        ,
-       10.31618328, 10.60960962,  8.798089  ,  6.66189757,  8.20695732,
-        7.63257863,  8.09140603, 11.15304277, 11.19104104, 10.11315078,
-       11.33440367, 11.85754816, 10.        , 10.77302142, 10.        ,
-       10.        , 10.        , 10.        , 10.        ]
+    CVar_list = [ 9.66666588, 10.36348568, 10.46873429, 10.        , 11.16222906,
+       10.        , 10.        ,  7.38101358,  7.97370129,  9.40617955,
+       11.95658603,  9.67724151, 13.30512976, 11.63761663,  6.40733586,
+       12.40393125, 13.73179405, 12.81111256, 13.49130869, 11.78382096,
+       10.        , 11.66064012, 10.        , 10.        ]
 
     tim = start_time
     Eplus_FileName = "testModel_v94_2day_V940_CFD_NoDOAS.idf"
