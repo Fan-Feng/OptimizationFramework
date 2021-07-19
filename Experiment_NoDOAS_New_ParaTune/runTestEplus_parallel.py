@@ -255,10 +255,10 @@ with MPIPool() as pool:
     keep_parents = 1
 
     crossover_type = "single_point"
-    crossover_probability = 0.5
+    crossover_probability = 0.9
 
     mutation_type = "random"
-    mutation_num_genes = 1
+    mutation_probability = 0.03
 
     ## 
     ga_instance = PooledGA(num_generations=num_generations,
