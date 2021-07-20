@@ -10123,10 +10123,10 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Perimeter_bot_ZN_1,      !- Zone Name
     Perimeter_bot_ZN_1_Floor,!- Surface Name or Radiant Surface Group Name
     ,                        !- Hydronic Tubing Length {m}
-    0.0024,                  !- Rated Flow Rate {m3/s}
+    0.00054682,              !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
-    600,                     !- Rated Power Consumption {W}
+    120,                     !- Rated Power Consumption {W}
     Peri1_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri1_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
