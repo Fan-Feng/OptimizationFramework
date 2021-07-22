@@ -282,7 +282,7 @@ with MPIPool() as pool:
                 mutation_type=mutation_type,
                 mutation_probability = mutation_probability,
                 gene_space = gene_space,
-                initial_population=[13]*6
+                initial_population=[[12.5 for i in range(6) for i in range(sol_per_pop)]
                 )
 
     print("Start Optimization")
