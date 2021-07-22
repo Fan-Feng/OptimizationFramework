@@ -21,8 +21,8 @@ import pandas as pd
 import pygad
 
 ## import mpi management package
-from mpipool import MPIPool
-from mpi4py import MPI
+#from mpipool import MPIPool
+#from mpi4py import MPI
 
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
@@ -36,7 +36,7 @@ def convert_NumOfSec_To_MonAndDay(NumOfSec):
 
   return Mon,DayValue
 
-def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
+def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay,SchFileLOC):
   '''
   Modify idf file by specifying startMon,startDay,endMon, endDay
   '''
@@ -50,10 +50,11 @@ def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
       line = line.replace("%BeginDay%",str(startDay))
       line = line.replace("%EndMon%",str(endMon))
       line = line.replace("%EndDay%",str(endDay))
+      line = line.replace("%SchFile_Loc%",SchFileLOC)
       fp.writelines(line)
     
 def fitness_func(x,solution_idx):
-  # run simulation
+  # run simulation, this is deprecated. 
   res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
 
   # utility rate
@@ -73,7 +74,6 @@ def penalty_func(ZMAT,output_DF):
     dtime = output_DF.iloc[i,0]
     hourOfDay = int(dtime.hour)
     residuals += max(ZMAT[i]-SP_list[hourOfDay]-ThermalComfort_range,0)
-  
   
   return residuals
 
@@ -127,17 +127,18 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time)
   endMon,endDay = convert_NumOfSec_To_MonAndDay(final_time)
-  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay)
+  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
   # write control signal to the .csv file, both historical and new
-
   shutil.copyfile(Cur_WorkPath + "//RadInletWater_SP_schedule.csv",Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
-  #print(start_idx,end_idx,X_sp_log,CVar_list,X_sp)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
+  Aval_Status = [int(xi>15) for xi in X_sp]
+  Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
+
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
   ## Step 2. Run EnergyPlus model
@@ -161,7 +162,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [2050,770] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
+  output_idx = [1716,651] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -210,8 +211,8 @@ class PooledGA(pygad.GA):
         
 
 # run optimization 
-with MPIPool() as pool:
-    pool.workers_exit() ## Only master process will proceed
+#with MPIPool() as pool:
+    #pool.workers_exit() ## Only master process will proceed
     
     # simulation setup
     start_time= 60*60*24*181 
@@ -244,8 +245,8 @@ with MPIPool() as pool:
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
     # Optimization algorithm setting
-    num_generations = 10
-    sol_per_pop = 50   # Number of individuals
+    num_generations = 200
+    sol_per_pop = 99   # Number of individuals
 
     num_parents_mating = 4
     num_genes = len(CVar_list)
@@ -257,10 +258,12 @@ with MPIPool() as pool:
     keep_parents = 1
 
     crossover_type = "single_point"
+    crossover_probability = 0.9
 
     mutation_type = "random"
-    mutation_num_genes = 1
+    mutation_probability = 0.03
 
+    run_prediction(CVar_list,0,hyperParam)
     ## 
     ga_instance = PooledGA(num_generations=num_generations,
                 num_parents_mating=num_parents_mating,
@@ -272,9 +275,10 @@ with MPIPool() as pool:
                 parent_selection_type=parent_selection_type,
                 keep_parents=keep_parents,
                 crossover_type=crossover_type,
+                crossover_probability = crossover_probability,
                 mutation_type=mutation_type,
-                mutation_num_genes=mutation_num_genes,
-                initial_population=[[12]*7+[10+2*rng.random(1)[0] for j in range(5)] + [13+2*rng.random(1)[0] for j in range(5)] +[12]*7 for i in range(sol_per_pop)]
+                mutation_probability = mutation_probability,
+                initial_population=[[10]*7+[7+2*rng.random(1)[0] for j in range(5)] + [10+2*rng.random(1)[0] for j in range(5)] +[10]*7 for i in range(sol_per_pop)]
                 )
 
     print("Start Optimization")

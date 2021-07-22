@@ -127,7 +127,7 @@
 ! This model uses a file schedule object(from .csv file) to define the setpoints, and this .csv file
 !  is then modified in our optimization program.
 Version,
-    9.5;                     !- Version Identifier
+    9.4;                     !- Version Identifier
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SIMULATIONCONTROL ===========
@@ -178,7 +178,7 @@ SurfaceConvectionAlgorithm:Outside,
 !-   ===========  ALL OBJECTS IN CLASS: HEATBALANCEALGORITHM ===========
 
 HeatBalanceAlgorithm,
-    ConductionTransferFunction;  !- Algorithm
+    ConductionFiniteDifference;  !- Algorithm
 
 
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
@@ -263,11 +263,11 @@ SizingPeriod:DesignDay,
 
 RunPeriod,
     RUNPERIOD 1,             !- Name
-    7,                       !- Begin Month
-    1,                       !- Begin Day of Month
+    %BeginMon%,              !- Begin Month
+    %BeginDay%,              !- Begin Day of Month
     ,                        !- Begin Year
-    7,                       !- End Month
-    2,                       !- End Day of Month
+    %EndMon%,                !- End Month
+    %EndDay%,                !- End Day of Month
     ,                        !- End Year
     Sunday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
@@ -339,6 +339,14 @@ RunPeriodControl:SpecialDays,
     4th Thursday in November,!- Start Date
     1,                       !- Duration {days}
     Holiday;                 !- Special Day Type
+
+
+!-   ===========  ALL OBJECTS IN CLASS: RUNPERIODCONTROL:DAYLIGHTSAVINGTIME ===========
+
+! Daylight Saving Period in US
+RunPeriodControl:DaylightSavingTime,
+    2nd Sunday in March,     !- Start Date
+    1st Sunday in November;  !- End Date
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:BUILDINGSURFACE ===========
@@ -2294,7 +2302,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    19.00;                   !- Field 4
+    21.00;                   !- Field 4
 
 Schedule:Compact,
     RADHEATLOWCONTROLTEMP,   !- Name
@@ -2302,23 +2310,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    17.00;                   !- Field 4
-
-Schedule:Compact,
-    RADHEATHIGHCONTROLTEMP_Test,  !- Name
-    TEMPERATURE,             !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Alldays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    16.00;                   !- Field 4
-
-Schedule:Compact,
-    RADHEATLOWCONTROLTEMP_Test,  !- Name
-    TEMPERATURE,             !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Alldays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    14.00;                   !- Field 4
+    15.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLHIGHWATERTEMP,    !- Name
@@ -2326,7 +2318,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    12.00;                   !- Field 4
+    15.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLLOWWATERTEMP,     !- Name
@@ -2334,7 +2326,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    7.00;                    !- Field 4
+    10.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLHIGHCONTROLTEMP,  !- Name
@@ -2342,7 +2334,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    25.00;                   !- Field 4
+    26.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLLOWCONTROLTEMP,   !- Name
@@ -2350,23 +2342,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    23.00;                   !- Field 4
-
-Schedule:Compact,
-    RADCOOLHIGHCONTROLTEMP_Test,  !- Name
-    TEMPERATURE,             !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Alldays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    24.00;                   !- Field 4
-
-Schedule:Compact,
-    RADCOOLLOWCONTROLTEMP_Test,  !- Name
-    TEMPERATURE,             !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Alldays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    18.00;                   !- Field 4
+    22.00;                   !- Field 4
 
 Schedule:Compact,
     HVACTemplate-Always 1,   !- Name
@@ -2424,8 +2400,7 @@ Schedule:File,
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
     Comma,                   !- Column Separator
-    No,                      !- Interpolate to Timestep
-    60;                      !- Minutes per Item
+    No;                      !- Interpolate to Timestep
 
 Schedule:File,
     RADCOOLHIGHWATERTEMP_Test,  !- Name
@@ -2435,19 +2410,7 @@ Schedule:File,
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
     Comma,                   !- Column Separator
-    No,                      !- Interpolate to Timestep
-    60;                      !- Minutes per Item
-
-Schedule:File,
-    Rad_AvailabilityManager, !- Name
-    On/Off,                  !- Schedule Type Limits Name
-    RadInletWater_SP_schedule.csv,  !- File Name
-    3,                       !- Column Number
-    1,                       !- Rows to Skip at Top
-    8760,                    !- Number of Hours of Data
-    Comma,                   !- Column Separator
-    No,                      !- Interpolate to Timestep
-    60;                      !- Minutes per Item
+    No;                      !- Interpolate to Timestep
 
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIAL ===========
@@ -2691,69 +2654,6 @@ Material,
     2.31,                    !- Conductivity {W/m-K}
     2322,                    !- Density {kg/m3}
     832;                     !- Specific Heat {J/kg-K}
-
-Material,
-    G01 2mm gypsum board,    !- Name
-    MediumSmooth,            !- Roughness
-    0.002,                   !- Thickness {m}
-    0.16,                    !- Conductivity {W/m-K}
-    800,                     !- Density {kg/m3}
-    1090;                    !- Specific Heat {J/kg-K}
-
-Material,
-    CONCRETE - DRIED SAND AND GRAVEL 4 IN,  !- Name
-    MediumRough,             !- Roughness
-    0.1000000,               !- Thickness {m}
-    1.290000,                !- Conductivity {W/m-K}
-    2242.580,                !- Density {kg/m3}
-    830.00000,               !- Specific Heat {J/kg-K}
-    0.9000000,               !- Thermal Absorptance
-    0.6000000,               !- Solar Absorptance
-    0.6000000;               !- Visible Absorptance
-
-Material,
-    GYP1,                    !- Name
-    MediumRough,             !- Roughness
-    1.2700000E-02,           !- Thickness {m}
-    7.8450000E-01,           !- Conductivity {W/m-K}
-    1842.1221,               !- Density {kg/m3}
-    988.000,                 !- Specific Heat {J/kg-K}
-    0.9000000,               !- Thermal Absorptance
-    0.5000000,               !- Solar Absorptance
-    0.5000000;               !- Visible Absorptance
-
-Material,
-    GYP2,                    !- Name
-    MediumRough,             !- Roughness
-    1.9050000E-02,           !- Thickness {m}
-    7.8450000E-01,           !- Conductivity {W/m-K}
-    1842.1221,               !- Density {kg/m3}
-    988.000,                 !- Specific Heat {J/kg-K}
-    0.9000000,               !- Thermal Absorptance
-    0.5000000,               !- Solar Absorptance
-    0.5000000;               !- Visible Absorptance
-
-Material,
-    INS - EXPANDED EXT POLYSTYRENE R12 2 IN,  !- Name
-    Rough,                   !- Roughness
-    5.0000001E-02,           !- Thickness {m}
-    2.0000000E-02,           !- Conductivity {W/m-K}
-    56.06000,                !- Density {kg/m3}
-    1210.000,                !- Specific Heat {J/kg-K}
-    0.9000000,               !- Thermal Absorptance
-    0.5000000,               !- Solar Absorptance
-    0.5000000;               !- Visible Absorptance
-
-Material,
-    FINISH FLOORING - TILE 1 / 16 IN,  !- Name
-    Smooth,                  !- Roughness
-    1.6000000E-03,           !- Thickness {m}
-    0.1700000,               !- Conductivity {W/m-K}
-    1922.210,                !- Density {kg/m3}
-    1250.000,                !- Specific Heat {J/kg-K}
-    0.9000000,               !- Thermal Absorptance
-    0.5000000,               !- Solar Absorptance
-    0.5000000;               !- Visible Absorptance
 
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIAL:NOMASS ===========
@@ -3821,35 +3721,19 @@ WindowMaterial:GasMixture,
 !-   ===========  ALL OBJECTS IN CLASS: MATERIALPROPERTY:PHASECHANGEHYSTERESIS ===========
 
 MaterialProperty:PhaseChangeHysteresis,
-    GYP1,                    !- Name
+    G01 16mm gypsum board,   !- Name
     10000,                   !- Latent Heat during the Entire Phase Change Process {J/kg}
-    0.7845,                  !- Liquid State Thermal Conductivity {W/m-K}
-    1842,                    !- Liquid State Density {kg/m3}
-    988,                     !- Liquid State Specific Heat {J/kg-K}
+    1.5,                     !- Liquid State Thermal Conductivity {W/m-K}
+    2200,                    !- Liquid State Density {kg/m3}
+    2000,                    !- Liquid State Specific Heat {J/kg-K}
     1,                       !- High Temperature Difference of Melting Curve {deltaC}
-    21,                      !- Peak Melting Temperature {C}
+    23,                      !- Peak Melting Temperature {C}
     1,                       !- Low Temperature Difference of Melting Curve {deltaC}
-    0.7845,                  !- Solid State Thermal Conductivity {W/m-K}
-    1842,                    !- Solid State Density {kg/m3}
-    988,                     !- Solid State Specific Heat {J/kg-K}
+    1.8,                     !- Solid State Thermal Conductivity {W/m-K}
+    2300,                    !- Solid State Density {kg/m3}
+    2000,                    !- Solid State Specific Heat {J/kg-K}
     1,                       !- High Temperature Difference of Freezing Curve {deltaC}
-    18,                      !- Peak Freezing Temperature {C}
-    1;                       !- Low Temperature Difference of Freezing Curve {deltaC}
-
-MaterialProperty:PhaseChangeHysteresis,
-    GYP2,                    !- Name
-    10000,                   !- Latent Heat during the Entire Phase Change Process {J/kg}
-    0.7845,                  !- Liquid State Thermal Conductivity {W/m-K}
-    1842,                    !- Liquid State Density {kg/m3}
-    988,                     !- Liquid State Specific Heat {J/kg-K}
-    1,                       !- High Temperature Difference of Melting Curve {deltaC}
-    21,                      !- Peak Melting Temperature {C}
-    1,                       !- Low Temperature Difference of Melting Curve {deltaC}
-    0.7845,                  !- Solid State Thermal Conductivity {W/m-K}
-    1842,                    !- Solid State Density {kg/m3}
-    988,                     !- Solid State Specific Heat {J/kg-K}
-    1,                       !- High Temperature Difference of Freezing Curve {deltaC}
-    18,                      !- Peak Freezing Temperature {C}
+    20,                      !- Peak Freezing Temperature {C}
     1;                       !- Low Temperature Difference of Freezing Curve {deltaC}
 
 
@@ -4688,70 +4572,42 @@ Construction,
     DropCeiling,             !- Name
     AC02 Acoustic Ceiling;   !- Outside Layer
 
-Construction,
+
+!-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION:INTERNALSOURCE ===========
+
+Construction:InternalSource,
     int_slab_floor_rad,      !- Name
+    1,                       !- Source Present After Layer Number
+    1,                       !- Temperature Calculation Requested After Layer Number
+    1,                       !- Dimensions for the CTF Calculation
+    0.1524,                  !- Tube Spacing {m}
+    0.0,                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
     70mm Normalweight concrete floor,  !- Outside Layer
     30mm Normalweight concrete floor,  !- Layer 2
     CP02 CARPET PAD;         !- Layer 3
 
-Construction,
+Construction:InternalSource,
     ext_slab_8in_with_carpet_rad,  !- Name
+    1,                       !- Source Present After Layer Number
+    1,                       !- Temperature Calculation Requested After Layer Number
+    1,                       !- Dimensions for the CTF Calculation
+    0.1524,                  !- Tube Spacing {m}
+    0.0,                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
     170mm Normalweight concrete floor,  !- Outside Layer
     30mm Normalweight concrete floor,  !- Layer 2
     CP02 CARPET PAD;         !- Layer 3
 
-Construction,
+Construction:InternalSource,
     nonres_ext_wall_rad,     !- Name
+    3,                       !- Source Present After Layer Number
+    3,                       !- Temperature Calculation Requested After Layer Number
+    1,                       !- Dimensions for the CTF Calculation
+    0.1524,                  !- Tube Spacing {m}
+    0.0,                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
     F07 25mm stucco,         !- Outside Layer
     G01 16mm gypsum board,   !- Layer 2
-    G01 16mm gypsum board;   !- Layer 3
-
-Construction,
-    Slab Floor with Radiant, !- Name
-    CONCRETE - DRIED SAND AND GRAVEL 4 IN,  !- Outside Layer
-    INS - EXPANDED EXT POLYSTYRENE R12 2 IN,  !- Layer 2
-    GYP1,                    !- Layer 3
-    GYP2,                    !- Layer 4
-    FINISH FLOORING - TILE 1 / 16 IN;  !- Layer 5
-
-
-!-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTIONPROPERTY:INTERNALHEATSOURCE ===========
-
-ConstructionProperty:InternalHeatSource,
-    int_slab_floor_rad Heat Source,  !- Name
-    int_slab_floor_rad,      !- Construction Name
-    1,                       !- Thermal Source Present After Layer Number
-    1,                       !- Temperature Calculation Requested After Layer Number
-    1,                       !- Dimensions for the CTF Calculation
-    0.1524,                  !- Tube Spacing {m}
-    0.0;                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
-
-ConstructionProperty:InternalHeatSource,
-    ext_slab_8in_with_carpet_rad Heat Source,  !- Name
-    ext_slab_8in_with_carpet_rad,  !- Construction Name
-    1,                       !- Thermal Source Present After Layer Number
-    1,                       !- Temperature Calculation Requested After Layer Number
-    1,                       !- Dimensions for the CTF Calculation
-    0.1524,                  !- Tube Spacing {m}
-    0.0;                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
-
-ConstructionProperty:InternalHeatSource,
-    nonres_ext_wall_rad Heat Source,  !- Name
-    nonres_ext_wall_rad,     !- Construction Name
-    2,                       !- Thermal Source Present After Layer Number
-    2,                       !- Temperature Calculation Requested After Layer Number
-    1,                       !- Dimensions for the CTF Calculation
-    0.1524,                  !- Tube Spacing {m}
-    0.0;                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
-
-ConstructionProperty:InternalHeatSource,
-    Slab Floor with Radiant Heat Source,  !- Name
-    Slab Floor with Radiant, !- Construction Name
-    4,                       !- Thermal Source Present After Layer Number
-    4,                       !- Temperature Calculation Requested After Layer Number
-    1,                       !- Dimensions for the CTF Calculation
-    0.1524,                  !- Tube Spacing {m}
-    0.0;                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
+    Nonres_Exterior_Wall_Insulation,  !- Layer 3
+    G01 16mm gypsum board;   !- Layer 4
 
 
 !-   ===========  ALL OBJECTS IN CLASS: GLOBALGEOMETRYRULES ===========
@@ -5424,7 +5280,7 @@ BuildingSurface:Detailed,
 BuildingSurface:Detailed,
     Perimeter_bot_ZN_1_Floor,!- Name
     Floor,                   !- Surface Type
-    Slab Floor with Radiant, !- Construction Name
+    ext_slab_8in_with_carpet,!- Construction Name
     Perimeter_bot_ZN_1,      !- Zone Name
     Ground,                  !- Outside Boundary Condition
     ,                        !- Outside Boundary Condition Object
@@ -6937,6 +6793,29 @@ BuildingSurface:Detailed,
 !-   ===========  ALL OBJECTS IN CLASS: FENESTRATIONSURFACE:DETAILED ===========
 
 FenestrationSurface:Detailed,
+    Perimeter_bot_ZN_1_Wall_South_Window1,  !- Name
+    Window,                  !- Surface Type
+    Window_U_0.51_SHGC_0.25, !- Construction Name
+    Perimeter_bot_ZN_1_Wall_South,  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    AutoCalculate,           !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1.0000,                  !- Multiplier
+    4,                       !- Number of Vertices
+    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.329300000000,          !- Vertex 1 Z-coordinate {m}
+    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.954652000000,          !- Vertex 2 Z-coordinate {m}
+    15.824200000000,         !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.954652000000,          !- Vertex 3 Z-coordinate {m}
+    15.824200000000,         !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.329300000000;          !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
     Perimeter_bot_ZN_1_Wall_South_Window2,  !- Name
     Window,                  !- Surface Type
     Window_U_0.51_SHGC_0.25, !- Construction Name
@@ -7465,29 +7344,6 @@ FenestrationSurface:Detailed,
     0.0000,                  !- Vertex 4 Y-coordinate {m}
     10.2541;                 !- Vertex 4 Z-coordinate {m}
 
-FenestrationSurface:Detailed,
-    Perimeter_bot_ZN_1_Wall_South_Window1,  !- Name
-    Window,                  !- Surface Type
-    Window_U_0.51_SHGC_0.25, !- Construction Name
-    Perimeter_bot_ZN_1_Wall_South,  !- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1.0000,                  !- Multiplier
-    4,                       !- Number of Vertices
-    0.000000000000,          !- Vertex 1 X-coordinate {m}
-    0.000000000000,          !- Vertex 1 Y-coordinate {m}
-    2.329300000000,          !- Vertex 1 Z-coordinate {m}
-    0.000000000000,          !- Vertex 2 X-coordinate {m}
-    0.000000000000,          !- Vertex 2 Y-coordinate {m}
-    0.954652000000,          !- Vertex 2 Z-coordinate {m}
-    15.824200000000,         !- Vertex 3 X-coordinate {m}
-    0.000000000000,          !- Vertex 3 Y-coordinate {m}
-    0.954652000000,          !- Vertex 3 Z-coordinate {m}
-    15.824200000000,         !- Vertex 4 X-coordinate {m}
-    0.000000000000,          !- Vertex 4 Y-coordinate {m}
-    2.329300000000;          !- Vertex 4 Z-coordinate {m}
-
 
 !-   ===========  ALL OBJECTS IN CLASS: INTERNALMASS ===========
 
@@ -7581,13 +7437,6 @@ InternalMass,
     InteriorFurnishings,     !- Construction Name
     Perimeter_mid_ZN_4,      !- Zone or ZoneList Name
     262.5056;                !- Surface Area {m2}
-
-
-!-   ===========  ALL OBJECTS IN CLASS: SURFACEPROPERTY:HEATTRANSFERALGORITHM ===========
-
-SurfaceProperty:HeatTransferAlgorithm,
-    Perimeter_bot_ZN_1_Floor,!- Surface Name
-    ConductionFiniteDifference;  !- Algorithm
 
 
 !-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========
@@ -9103,7 +8952,7 @@ DesignSpecification:OutdoorAir,
     SZ DSOA Perimeter_top_ZN_4,  !- Name
     Flow/Area,               !- Outdoor Air Method
     ,                        !- Outdoor Air Flow per Person {m3/s-person}
-    0.000131773,             !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+    0.000431773,             !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
     0.0;                     !- Outdoor Air Flow per Zone {m3/s}
 
 DesignSpecification:OutdoorAir,
@@ -9335,7 +9184,7 @@ DesignSpecification:ZoneAirDistribution,
 
 Sizing:Parameters,
     1.0,                     !- Heating Sizing Factor
-    1,                       !- Cooling Sizing Factor
+    1.0,                     !- Cooling Sizing Factor
     20;                      !- Timesteps in Averaging Window
 
 
@@ -9852,14 +9701,6 @@ Sizing:Plant,
     NonCoincident,           !- Sizing Option
     1;                       !- Zone Timesteps in Averaging Window
 
-Sizing:Plant,
-    Chilled Water Loop Chilled Water Loop2,  !- Plant or Condenser Loop Name
-    Cooling,                 !- Loop Type
-    7,                       !- Design Loop Exit Temperature {C}
-    6,                       !- Loop Design Temperature Difference {deltaC}
-    NonCoincident,           !- Sizing Option
-    1;                       !- Zone Timesteps in Averaging Window
-
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONECONTROL:THERMOSTAT ===========
 
@@ -10051,15 +9892,22 @@ ThermostatSetpoint:DualSetpoint,
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Core_Bot_LoTemp,         !- Name
-    Core_Bot_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Core_bottom,             !- Zone Name
     Core_bot_ZN_5_Floor,     !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Core_Bot Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Core_Bot Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10072,20 +9920,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Core_Mid_LoTemp,         !- Name
-    Core_Mid_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Core_mid,                !- Zone Name
     Core_mid_ZN_5_Floor,     !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Core_Mid Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Core_Mid Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10098,20 +9955,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Core_Top_LoTemp,         !- Name
-    Core_Top_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Core_top,                !- Zone Name
     Core_top_ZN_5_Floor,     !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Core_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Core_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10124,46 +9990,64 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_Top_LoTemp,        !- Name
-    Peri1_Top_LoTemp Design Object,  !- Design Object
-    Rad_AvailabilityManager, !- Availability Schedule Name
-    Perimeter_bot_ZN_1,      !- Zone Name
-    Perimeter_bot_ZN_1_Floor,!- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
-    0.00054682,              !- Rated Flow Rate {m3/s}
-    ,                        !- Pump Flow Rate Schedule Name
-    179352,                  !- Rated Pump Head {Pa}
-    120,                     !- Rated Power Consumption {W}
-    Peri1_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
-    Peri1_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
-    RADHEATLOWWATERTEMP,     !- Heating Low Water Temperature Schedule Name
-    RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
-    Peri1_Top_LoTemp_Chw_Inlet,  !- Cooling Water Inlet Node Name
-    Peri1_Top_LoTemp_Chw_Outlet,  !- Cooling Water Outlet Node Name
-    RADCOOLHIGHWATERTEMP_Test,  !- Cooling High Water Temperature Schedule Name
-    RADCOOLLOWWATERTEMP_Test,!- Cooling Low Water Temperature Schedule Name
-    RADCOOLHIGHCONTROLTEMP_Test,  !- Cooling High Control Temperature Schedule Name
-    RADCOOLLOWCONTROLTEMP_Test,  !- Cooling Low Control Temperature Schedule Name
-    CalculateFromCircuitLength,  !- Number of Circuits
-    106.7;                   !- Circuit Length {m}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
-    Peri2_Top_LoTemp,        !- Name
-    Peri2_Top_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
-    Perimeter_top_ZN_2,      !- Zone Name
-    Perimeter_top_ZN_2_Wall_East,  !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    Perimeter_top_ZN_1,      !- Zone Name
+    Perimeter_top_ZN_1_Wall_South,  !- Surface Name or Radiant Surface Group Name
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
+    Peri1_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
+    Peri1_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
+    RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
+    RADHEATLOWWATERTEMP,     !- Heating Low Water Temperature Schedule Name
+    RADHEATHIGHCONTROLTEMP,  !- Heating High Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP,   !- Heating Low Control Temperature Schedule Name
+    Peri1_Top_LoTemp_Chw_Inlet,  !- Cooling Water Inlet Node Name
+    Peri1_Top_LoTemp_Chw_Outlet,  !- Cooling Water Outlet Node Name
+    RADCOOLHIGHWATERTEMP_Test,  !- Cooling High Water Temperature Schedule Name
+    RADCOOLLOWWATERTEMP_Test,!- Cooling Low Water Temperature Schedule Name
+    RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
+    RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
+    OnePerSurface,           !- Number of Circuits
+    106.7;                   !- Circuit Length {m}
+
+ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
+    Peri2_Top_LoTemp,        !- Name
+    ALWAYS_ON,               !- Availability Schedule Name
+    Perimeter_top_ZN_2,      !- Zone Name
+    Perimeter_top_ZN_2_Wall_East,  !- Surface Name or Radiant Surface Group Name
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
+    autosize,                !- Rated Flow Rate {m3/s}
+    ,                        !- Pump Flow Rate Schedule Name
+    179352,                  !- Rated Pump Head {Pa}
+    100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri2_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri2_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10176,20 +10060,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri3_Top_LoTemp,        !- Name
-    Peri3_Top_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_top_ZN_3,      !- Zone Name
     Perimeter_top_ZN_3_Wall_North,  !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri3_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri3_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10202,20 +10095,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri4_Top_LoTemp,        !- Name
-    Peri4_Top_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_top_ZN_4,      !- Zone Name
     Perimeter_top_ZN_4_Wall_West,  !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri4_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri4_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10228,20 +10130,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_mid_LoTemp,        !- Name
-    Peri1_mid_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_mid_ZN_1,      !- Zone Name
     Perimeter_mid_ZN_1_Wall_South,  !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri1_Mid Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri1_Mid Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10254,20 +10165,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri2_mid_LoTemp,        !- Name
-    Peri2_mid_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_mid_ZN_2,      !- Zone Name
     Perimeter_mid_ZN_2_Wall_East,  !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri2_Mid Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri2_Mid Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10280,20 +10200,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri3_Mid_LoTemp,        !- Name
-    Peri3_Mid_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_mid_ZN_3,      !- Zone Name
     Perimeter_mid_ZN_3_Wall_North,  !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri3_Mid Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri3_Mid Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10306,20 +10235,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri4_Mid_LoTemp,        !- Name
-    Peri4_Mid_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_mid_ZN_4,      !- Zone Name
     Perimeter_mid_ZN_4_Wall_West,  !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri4_Mid Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri4_Mid Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10332,20 +10270,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_Bot_LoTemp,        !- Name
-    Peri1_Bot_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
-    Perimeter_top_ZN_1,      !- Zone Name
-    Perimeter_top_ZN_1_Wall_South,  !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    Perimeter_bot_ZN_1,      !- Zone Name
+    Perimeter_bot_ZN_1_Wall_South,  !- Surface Name or Radiant Surface Group Name
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri1_Bot Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri1_Bot Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10358,20 +10305,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri2_Bot_LoTemp,        !- Name
-    Peri2_Bot_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_bot_ZN_2,      !- Zone Name
     Perimeter_bot_ZN_2_Wall_East,  !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri2_Bot Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri2_Bot Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10384,20 +10340,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri3_Bot_LoTemp,        !- Name
-    Peri3_Bot_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_bot_ZN_3,      !- Zone Name
     Perimeter_bot_ZN_3_Wall_North,  !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri3_Bot Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri3_Bot Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10410,20 +10375,29 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri4_Bot_LoTemp,        !- Name
-    Peri4_Bot_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_bot_ZN_4,      !- Zone Name
     Perimeter_bot_ZN_4_Wall_West,  !- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
+    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
+    0.016,                   !- Hydronic Tubing Outside Diameter {m}
+    autosize,                !- Hydronic Tubing Length {m}
+    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
+    MeanAirTemperature,      !- Temperature Control Type
+    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri4_Bot Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri4_Bot Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -10436,206 +10410,10 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
-
-
-!-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:LOWTEMPERATURERADIANT:CONSTANTFLOW:DESIGN ===========
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Core_Bot_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Core_Mid_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Core_Top_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri1_Top_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri2_Top_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri3_Top_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri4_Top_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri1_mid_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri2_mid_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri3_Mid_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri4_Mid_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri1_Bot_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri2_Bot_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri3_Bot_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri4_Bot_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: AIRTERMINAL:SINGLEDUCT:VAV:NOREHEAT ===========
@@ -10647,7 +10425,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Core_Bot_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Core_Top_DOAS_AirTerminal,  !- Name
@@ -10656,7 +10435,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Core_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Core_Mid_DOAS_AirTerminal,  !- Name
@@ -10665,16 +10445,18 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Core_Mid_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri1_Bot_DOAS_AirTerminal,  !- Name
-    ALWAYS_OFF,              !- Availability Schedule Name
+    HVACTemplate-Always 1,   !- Availability Schedule Name
     Peri1_Bot_DOAS Supply Inlet,  !- Air Outlet Node Name
     Peri1_Bot_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri2_Bot_DOAS_AirTerminal,  !- Name
@@ -10683,7 +10465,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Peri2_Bot_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri3_Bot_DOAS_AirTerminal,  !- Name
@@ -10692,7 +10475,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Peri3_Bot_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri4_Bot_DOAS_AirTerminal,  !- Name
@@ -10701,7 +10485,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Peri4_Bot_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri1_Mid_DOAS_AirTerminal,  !- Name
@@ -10710,7 +10495,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Peri1_Mid_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri2_Mid_DOAS_AirTerminal,  !- Name
@@ -10719,7 +10505,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Peri2_Mid_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri3_Mid_DOAS_AirTerminal,  !- Name
@@ -10728,7 +10515,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Peri3_Mid_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri4_Mid_DOAS_AirTerminal,  !- Name
@@ -10737,7 +10525,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Peri4_Mid_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri1_Top_DOAS_AirTerminal,  !- Name
@@ -10746,7 +10535,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Peri1_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri2_Top_DOAS_AirTerminal,  !- Name
@@ -10755,7 +10545,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Peri2_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri3_Top_DOAS_AirTerminal,  !- Name
@@ -10764,7 +10555,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Peri3_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri4_Top_DOAS_AirTerminal,  !- Name
@@ -10773,7 +10565,8 @@ AirTerminal:SingleDuct:VAV:NoReheat,
     Peri4_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
     Constant,                !- Zone Minimum Air Flow Input Method
-    1;                       !- Constant Minimum Air Flow Fraction
+    autosize,                !- Constant Minimum Air Flow Fraction
+    autosize;                !- Fixed Minimum Air Flow Rate {m3/s}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:AIRDISTRIBUTIONUNIT ===========
@@ -10813,6 +10606,12 @@ ZoneHVAC:AirDistributionUnit,
     Peri3_Top_DOAS Supply Inlet,  !- Air Distribution Unit Outlet Node Name
     AirTerminal:SingleDuct:VAV:NoReheat,  !- Air Terminal Object Type
     Peri3_Top_DOAS_AirTerminal;  !- Air Terminal Name
+
+ZoneHVAC:AirDistributionUnit,
+    Peri4_Top DOAS ATU,      !- Name
+    Peri4_Top_DOAS Supply Inlet,  !- Air Distribution Unit Outlet Node Name
+    AirTerminal:SingleDuct:VAV:NoReheat,  !- Air Terminal Object Type
+    Peri4_Top_DOAS_AirTerminal;  !- Air Terminal Name
 
 ZoneHVAC:AirDistributionUnit,
     Peri1_Mid DOAS ATU,      !- Name
@@ -10861,12 +10660,6 @@ ZoneHVAC:AirDistributionUnit,
     Peri4_Bot_DOAS Supply Inlet,  !- Air Distribution Unit Outlet Node Name
     AirTerminal:SingleDuct:VAV:NoReheat,  !- Air Terminal Object Type
     Peri4_Bot_DOAS_AirTerminal;  !- Air Terminal Name
-
-ZoneHVAC:AirDistributionUnit,
-    Peri4_Top DOAS ATU,      !- Name
-    Peri4_Top_DOAS Supply Inlet,  !- Air Distribution Unit Outlet Node Name
-    AirTerminal:SingleDuct:VAV:NoReheat,  !- Air Terminal Object Type
-    Peri4_Top_DOAS_AirTerminal;  !- Air Terminal Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:EQUIPMENTLIST ===========
@@ -10917,7 +10710,7 @@ ZoneHVAC:EquipmentList,
     Peri1_Top_Equip,         !- Name
     SequentialLoad,          !- Load Distribution Scheme
     ZoneHVAC:LowTemperatureRadiant:ConstantFlow,  !- Zone Equipment 1 Object Type
-    Peri1_bot_LoTemp,        !- Zone Equipment 1 Name
+    Peri1_Top_LoTemp,        !- Zone Equipment 1 Name
     2,                       !- Zone Equipment 1 Cooling Sequence
     2,                       !- Zone Equipment 1 Heating or No-Load Sequence
     ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
@@ -11029,15 +10822,15 @@ ZoneHVAC:EquipmentList,
     Peri1_Bot_Equip,         !- Name
     SequentialLoad,          !- Load Distribution Scheme
     ZoneHVAC:LowTemperatureRadiant:ConstantFlow,  !- Zone Equipment 1 Object Type
-    Peri1_Top_LoTemp,        !- Zone Equipment 1 Name
-    1,                       !- Zone Equipment 1 Cooling Sequence
-    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    Peri1_Bot_LoTemp,        !- Zone Equipment 1 Name
+    2,                       !- Zone Equipment 1 Cooling Sequence
+    2,                       !- Zone Equipment 1 Heating or No-Load Sequence
     ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
     ,                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
     ZoneHVAC:AirDistributionUnit,  !- Zone Equipment 2 Object Type
     Peri1_Bot DOAS ATU,      !- Zone Equipment 2 Name
-    2,                       !- Zone Equipment 2 Cooling Sequence
-    2;                       !- Zone Equipment 2 Heating or No-Load Sequence
+    1,                       !- Zone Equipment 2 Cooling Sequence
+    1;                       !- Zone Equipment 2 Heating or No-Load Sequence
 
 ZoneHVAC:EquipmentList,
     Peri2_Bot_Equip,         !- Name
@@ -11139,6 +10932,15 @@ ZoneHVAC:EquipmentConnections,
     HVACTemplate-Always 0;   !- Zone Return Air Node 1 Flow Rate Fraction Schedule Name
 
 ZoneHVAC:EquipmentConnections,
+    Perimeter_top_ZN_4,      !- Zone Name
+    Peri4_Top_Equip,         !- Zone Conditioning Equipment List Name
+    Peri4_Top_DOAS Supply Inlet,  !- Zone Air Inlet Node or NodeList Name
+    ,                        !- Zone Air Exhaust Node or NodeList Name
+    Peri4_Top_ZoneNode,      !- Zone Air Node Name
+    Peri4_Top_Outlet_ZoneNode,  !- Zone Return Air Node or NodeList Name
+    HVACTemplate-Always 0;   !- Zone Return Air Node 1 Flow Rate Fraction Schedule Name
+
+ZoneHVAC:EquipmentConnections,
     Perimeter_bot_ZN_1,      !- Zone Name
     Peri1_Bot_Equip,         !- Zone Conditioning Equipment List Name
     Peri1_Bot_DOAS Supply Inlet,  !- Zone Air Inlet Node or NodeList Name
@@ -11208,15 +11010,6 @@ ZoneHVAC:EquipmentConnections,
     ,                        !- Zone Air Exhaust Node or NodeList Name
     Peri4_Mid_ZoneNode,      !- Zone Air Node Name
     Peri4_Mid_Outlet_ZoneNode,  !- Zone Return Air Node or NodeList Name
-    HVACTemplate-Always 0;   !- Zone Return Air Node 1 Flow Rate Fraction Schedule Name
-
-ZoneHVAC:EquipmentConnections,
-    Perimeter_top_ZN_4,      !- Zone Name
-    Peri4_Top_Equip,         !- Zone Conditioning Equipment List Name
-    Peri4_Top_DOAS Supply Inlet,  !- Zone Air Inlet Node or NodeList Name
-    ,                        !- Zone Air Exhaust Node or NodeList Name
-    Peri4_Top_ZoneNode,      !- Zone Air Node Name
-    Peri4_Top_Outlet_ZoneNode,  !- Zone Return Air Node or NodeList Name
     HVACTemplate-Always 0;   !- Zone Return Air Node 1 Flow Rate Fraction Schedule Name
 
 
@@ -11458,28 +11251,12 @@ Branch,
     Chilled Water Loop ChW Supply Bypass Outlet;  !- Component 1 Outlet Node Name
 
 Branch,
-    Chilled Water Loop ChW Supply Bypass Branch2,  !- Name
-    ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
-    Chilled Water Loop ChW Supply Side Bypass Pipe2,  !- Component 1 Name
-    Chilled Water Loop ChW Supply Bypass Inlet2,  !- Component 1 Inlet Node Name
-    Chilled Water Loop ChW Supply Bypass Outlet2;  !- Component 1 Outlet Node Name
-
-Branch,
     Chilled Water Loop ChW Supply Inlet Branch,  !- Name
     ,                        !- Pressure Drop Curve Name
     Pump:ConstantSpeed,      !- Component 1 Object Type
     Chilled Water Loop ChW Supply Pump,  !- Component 1 Name
     Chilled Water Loop ChW Supply Inlet,  !- Component 1 Inlet Node Name
     Chilled Water Loop ChW Pump Outlet;  !- Component 1 Outlet Node Name
-
-Branch,
-    Chilled Water Loop ChW Supply Inlet Branch2,  !- Name
-    ,                        !- Pressure Drop Curve Name
-    Pump:ConstantSpeed,      !- Component 1 Object Type
-    Chilled Water Loop ChW Supply Pump2,  !- Component 1 Name
-    Chilled Water Loop ChW Supply Inlet2,  !- Component 1 Inlet Node Name
-    Chilled Water Loop ChW Pump Outlet2;  !- Component 1 Outlet Node Name
 
 Branch,
     Chilled Water Loop ChW Supply Outlet Branch,  !- Name
@@ -11490,28 +11267,12 @@ Branch,
     Chilled Water Loop ChW Supply Outlet;  !- Component 1 Outlet Node Name
 
 Branch,
-    Chilled Water Loop ChW Supply Outlet Branch2,  !- Name
-    ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
-    Chilled Water Loop ChW Supply Outlet Pipe2,  !- Component 1 Name
-    Chilled Water Loop ChW Supply Outlet Pipe Inlet2,  !- Component 1 Inlet Node Name
-    Chilled Water Loop ChW Supply Outlet2;  !- Component 1 Outlet Node Name
-
-Branch,
     Chilled Water Loop ChW Demand Inlet Branch,  !- Name
     ,                        !- Pressure Drop Curve Name
     Pipe:Adiabatic,          !- Component 1 Object Type
     Chilled Water Loop ChW Demand Inlet Pipe,  !- Component 1 Name
     Chilled Water Loop ChW Demand Inlet,  !- Component 1 Inlet Node Name
     Chilled Water Loop ChW Demand Inlet Pipe Outlet;  !- Component 1 Outlet Node Name
-
-Branch,
-    Chilled Water Loop ChW Demand Inlet Branch2,  !- Name
-    ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
-    Chilled Water Loop ChW Demand Inlet Pipe2,  !- Component 1 Name
-    Chilled Water Loop ChW Demand Inlet2,  !- Component 1 Inlet Node Name
-    Chilled Water Loop ChW Demand Inlet Pipe Outlet2;  !- Component 1 Outlet Node Name
 
 Branch,
     Chilled Water Loop ChW Demand Bypass Branch,  !- Name
@@ -11522,28 +11283,12 @@ Branch,
     Chilled Water Loop ChW Demand Bypass Outlet;  !- Component 1 Outlet Node Name
 
 Branch,
-    Chilled Water Loop ChW Demand Bypass Branch2,  !- Name
-    ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
-    Chilled Water Loop ChW Demand Side Bypass Pipe2,  !- Component 1 Name
-    Chilled Water Loop ChW Demand Bypass Inlet2,  !- Component 1 Inlet Node Name
-    Chilled Water Loop ChW Demand Bypass Outlet2;  !- Component 1 Outlet Node Name
-
-Branch,
     Chilled Water Loop ChW Demand Outlet Branch,  !- Name
     ,                        !- Pressure Drop Curve Name
     Pipe:Adiabatic,          !- Component 1 Object Type
     Chilled Water Loop ChW Demand Outlet Pipe,  !- Component 1 Name
     Chilled Water Loop ChW Demand Outlet Pipe Inlet,  !- Component 1 Inlet Node Name
     Chilled Water Loop ChW Demand Outlet;  !- Component 1 Outlet Node Name
-
-Branch,
-    Chilled Water Loop ChW Demand Outlet Branch2,  !- Name
-    ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
-    Chilled Water Loop ChW Demand Outlet Pipe2,  !- Component 1 Name
-    Chilled Water Loop ChW Demand Outlet Pipe Inlet2,  !- Component 1 Inlet Node Name
-    Chilled Water Loop ChW Demand Outlet2;  !- Component 1 Outlet Node Name
 
 Branch,
     Core_Bot_LoTemp_Branch,  !- Name
@@ -11672,14 +11417,6 @@ Branch,
     PurchasedCooling,        !- Component 1 Name
     Purchased Cooling Inlet Node,  !- Component 1 Inlet Node Name
     Purchased Cooling Outlet Node;  !- Component 1 Outlet Node Name
-
-Branch,
-    Main Chiller ChW Branch2,!- Name
-    ,                        !- Pressure Drop Curve Name
-    DistrictCooling,         !- Component 1 Object Type
-    PurchasedCooling2,       !- Component 1 Name
-    Purchased Cooling Inlet Node2,  !- Component 1 Inlet Node Name
-    Purchased Cooling Outlet Node2;  !- Component 1 Outlet Node Name
 
 Branch,
     Main Boiler HW Branch,   !- Name
@@ -11909,20 +11646,21 @@ BranchList,
     Core_Bot_LoTemp_Branch,  !- Branch 2 Name
     Core_Mid_LoTemp_Branch,  !- Branch 3 Name
     Core_Top_LoTemp_Branch,  !- Branch 4 Name
-    Peri2_Top_LoTemp_Branch, !- Branch 5 Name
-    Peri3_Top_LoTemp_Branch, !- Branch 6 Name
-    Peri4_Top_LoTemp_Branch, !- Branch 7 Name
-    Peri1_Mid_LoTemp_Branch, !- Branch 8 Name
-    Peri2_Mid_LoTemp_Branch, !- Branch 9 Name
-    Peri3_Mid_LoTemp_Branch, !- Branch 10 Name
-    Peri4_Mid_LoTemp_Branch, !- Branch 11 Name
-    Peri1_Bot_LoTemp_Branch, !- Branch 12 Name
-    Peri2_Bot_LoTemp_Branch, !- Branch 13 Name
-    Peri3_Bot_LoTemp_Branch, !- Branch 14 Name
-    Peri4_Bot_LoTemp_Branch, !- Branch 15 Name
-    DOAS Cooling Coil ChW Branch,  !- Branch 16 Name
-    Chilled Water Loop ChW Demand Bypass Branch,  !- Branch 17 Name
-    Chilled Water Loop ChW Demand Outlet Branch;  !- Branch 18 Name
+    Peri1_Top_LoTemp_Branch, !- Branch 5 Name
+    Peri2_Top_LoTemp_Branch, !- Branch 6 Name
+    Peri3_Top_LoTemp_Branch, !- Branch 7 Name
+    Peri4_Top_LoTemp_Branch, !- Branch 8 Name
+    Peri1_Mid_LoTemp_Branch, !- Branch 9 Name
+    Peri2_Mid_LoTemp_Branch, !- Branch 10 Name
+    Peri3_Mid_LoTemp_Branch, !- Branch 11 Name
+    Peri4_Mid_LoTemp_Branch, !- Branch 12 Name
+    Peri1_Bot_LoTemp_Branch, !- Branch 13 Name
+    Peri2_Bot_LoTemp_Branch, !- Branch 14 Name
+    Peri3_Bot_LoTemp_Branch, !- Branch 15 Name
+    Peri4_Bot_LoTemp_Branch, !- Branch 16 Name
+    DOAS Cooling Coil ChW Branch,  !- Branch 17 Name
+    Chilled Water Loop ChW Demand Bypass Branch,  !- Branch 18 Name
+    Chilled Water Loop ChW Demand Outlet Branch;  !- Branch 19 Name
 
 BranchList,
     Hot Water Loop HW Supply Side Branches,  !- Name
@@ -11957,20 +11695,6 @@ BranchList,
     DOAS Branches,           !- Name
     DOAS Main Branch;        !- Branch 1 Name
 
-BranchList,
-    Chilled Water Loop ChW Supply Side Branches2,  !- Name
-    Chilled Water Loop ChW Supply Inlet Branch2,  !- Branch 1 Name
-    Main Chiller ChW Branch2,!- Branch 2 Name
-    Chilled Water Loop ChW Supply Bypass Branch2,  !- Branch 3 Name
-    Chilled Water Loop ChW Supply Outlet Branch2;  !- Branch 4 Name
-
-BranchList,
-    Chilled Water Loop ChW Demand Side Branches2,  !- Name
-    Chilled Water Loop ChW Demand Inlet Branch2,  !- Branch 1 Name
-    Peri1_Top_LoTemp_Branch, !- Branch 2 Name
-    Chilled Water Loop ChW Demand Bypass Branch2,  !- Branch 3 Name
-    Chilled Water Loop ChW Demand Outlet Branch2;  !- Branch 4 Name
-
 
 !-   ===========  ALL OBJECTS IN CLASS: CONNECTOR:SPLITTER ===========
 
@@ -11987,24 +11711,19 @@ Connector:Splitter,
     Core_Bot_LoTemp_Branch,  !- Outlet Branch 2 Name
     Core_Mid_LoTemp_Branch,  !- Outlet Branch 3 Name
     Core_Top_LoTemp_Branch,  !- Outlet Branch 4 Name
-    Peri2_Top_LoTemp_Branch, !- Outlet Branch 5 Name
-    Peri3_Top_LoTemp_Branch, !- Outlet Branch 6 Name
-    Peri4_Top_LoTemp_Branch, !- Outlet Branch 7 Name
-    Peri1_Mid_LoTemp_Branch, !- Outlet Branch 8 Name
-    Peri2_Mid_LoTemp_Branch, !- Outlet Branch 9 Name
-    Peri3_Mid_LoTemp_Branch, !- Outlet Branch 10 Name
-    Peri4_Mid_LoTemp_Branch, !- Outlet Branch 11 Name
-    Peri1_Bot_LoTemp_Branch, !- Outlet Branch 12 Name
-    Peri2_Bot_LoTemp_Branch, !- Outlet Branch 13 Name
-    Peri3_Bot_LoTemp_Branch, !- Outlet Branch 14 Name
-    Peri4_Bot_LoTemp_Branch, !- Outlet Branch 15 Name
-    DOAS Cooling Coil ChW Branch;  !- Outlet Branch 16 Name
-
-Connector:Splitter,
-    Chilled Water Loop ChW Demand Splitter2,  !- Name
-    Chilled Water Loop ChW Demand Inlet Branch2,  !- Inlet Branch Name
-    Chilled Water Loop ChW Demand Bypass Branch2,  !- Outlet Branch 1 Name
-    Peri1_Top_LoTemp_Branch; !- Outlet Branch 2 Name
+    Peri1_Top_LoTemp_Branch, !- Outlet Branch 5 Name
+    Peri2_Top_LoTemp_Branch, !- Outlet Branch 6 Name
+    Peri3_Top_LoTemp_Branch, !- Outlet Branch 7 Name
+    Peri4_Top_LoTemp_Branch, !- Outlet Branch 8 Name
+    Peri1_Mid_LoTemp_Branch, !- Outlet Branch 9 Name
+    Peri2_Mid_LoTemp_Branch, !- Outlet Branch 10 Name
+    Peri3_Mid_LoTemp_Branch, !- Outlet Branch 11 Name
+    Peri4_Mid_LoTemp_Branch, !- Outlet Branch 12 Name
+    Peri1_Bot_LoTemp_Branch, !- Outlet Branch 13 Name
+    Peri2_Bot_LoTemp_Branch, !- Outlet Branch 14 Name
+    Peri3_Bot_LoTemp_Branch, !- Outlet Branch 15 Name
+    Peri4_Bot_LoTemp_Branch, !- Outlet Branch 16 Name
+    DOAS Cooling Coil ChW Branch;  !- Outlet Branch 17 Name
 
 Connector:Splitter,
     Hot Water Loop HW Supply Splitter,  !- Name
@@ -12033,12 +11752,6 @@ Connector:Splitter,
     Peri3_Top Radiant Branch,!- Outlet Branch 16 Name
     DOAS Heating Coil HW Branch;  !- Outlet Branch 17 Name
 
-Connector:Splitter,
-    Chilled Water Loop ChW Supply Splitter2,  !- Name
-    Chilled Water Loop ChW Supply Inlet Branch2,  !- Inlet Branch Name
-    Chilled Water Loop ChW Supply Bypass Branch2,  !- Outlet Branch 1 Name
-    Main Chiller ChW Branch2;!- Outlet Branch 2 Name
-
 
 !-   ===========  ALL OBJECTS IN CLASS: CONNECTOR:MIXER ===========
 
@@ -12055,18 +11768,19 @@ Connector:Mixer,
     Core_Bot_LoTemp_Branch,  !- Inlet Branch 2 Name
     Core_Mid_LoTemp_Branch,  !- Inlet Branch 3 Name
     Core_Top_LoTemp_Branch,  !- Inlet Branch 4 Name
-    Peri2_Top_LoTemp_Branch, !- Inlet Branch 5 Name
-    Peri3_Top_LoTemp_Branch, !- Inlet Branch 6 Name
-    Peri4_Top_LoTemp_Branch, !- Inlet Branch 7 Name
-    Peri1_Mid_LoTemp_Branch, !- Inlet Branch 8 Name
-    Peri2_Mid_LoTemp_Branch, !- Inlet Branch 9 Name
-    Peri3_Mid_LoTemp_Branch, !- Inlet Branch 10 Name
-    Peri4_Mid_LoTemp_Branch, !- Inlet Branch 11 Name
-    Peri1_Bot_LoTemp_Branch, !- Inlet Branch 12 Name
-    Peri2_Bot_LoTemp_Branch, !- Inlet Branch 13 Name
-    Peri3_Bot_LoTemp_Branch, !- Inlet Branch 14 Name
-    Peri4_Bot_LoTemp_Branch, !- Inlet Branch 15 Name
-    DOAS Cooling Coil ChW Branch;  !- Inlet Branch 16 Name
+    Peri1_Top_LoTemp_Branch, !- Inlet Branch 5 Name
+    Peri2_Top_LoTemp_Branch, !- Inlet Branch 6 Name
+    Peri3_Top_LoTemp_Branch, !- Inlet Branch 7 Name
+    Peri4_Top_LoTemp_Branch, !- Inlet Branch 8 Name
+    Peri1_Mid_LoTemp_Branch, !- Inlet Branch 9 Name
+    Peri2_Mid_LoTemp_Branch, !- Inlet Branch 10 Name
+    Peri3_Mid_LoTemp_Branch, !- Inlet Branch 11 Name
+    Peri4_Mid_LoTemp_Branch, !- Inlet Branch 12 Name
+    Peri1_Bot_LoTemp_Branch, !- Inlet Branch 13 Name
+    Peri2_Bot_LoTemp_Branch, !- Inlet Branch 14 Name
+    Peri3_Bot_LoTemp_Branch, !- Inlet Branch 15 Name
+    Peri4_Bot_LoTemp_Branch, !- Inlet Branch 16 Name
+    DOAS Cooling Coil ChW Branch;  !- Inlet Branch 17 Name
 
 Connector:Mixer,
     Hot Water Loop HW Supply Mixer,  !- Name
@@ -12094,18 +11808,6 @@ Connector:Mixer,
     Peri3_Bot Radiant Branch,!- Inlet Branch 15 Name
     Peri4_Bot Radiant Branch,!- Inlet Branch 16 Name
     DOAS Heating Coil HW Branch;  !- Inlet Branch 17 Name
-
-Connector:Mixer,
-    Chilled Water Loop ChW Demand Mixer2,  !- Name
-    Chilled Water Loop ChW Demand Outlet Branch2,  !- Outlet Branch Name
-    Chilled Water Loop ChW Demand Bypass Branch2,  !- Inlet Branch 1 Name
-    Peri1_Top_LoTemp_Branch; !- Inlet Branch 2 Name
-
-Connector:Mixer,
-    Chilled Water Loop ChW Supply Mixer2,  !- Name
-    Chilled Water Loop ChW Supply Outlet Branch2,  !- Outlet Branch Name
-    Chilled Water Loop ChW Supply Bypass Branch2,  !- Inlet Branch 1 Name
-    Main Chiller ChW Branch2;!- Inlet Branch 2 Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: CONNECTORLIST ===========
@@ -12138,20 +11840,6 @@ ConnectorList,
     Connector:Mixer,         !- Connector 2 Object Type
     Hot Water Loop HW Demand Mixer;  !- Connector 2 Name
 
-ConnectorList,
-    Chilled Water Loop ChW Supply Side Connectors2,  !- Name
-    Connector:Splitter,      !- Connector 1 Object Type
-    Chilled Water Loop ChW Supply Splitter2,  !- Connector 1 Name
-    Connector:Mixer,         !- Connector 2 Object Type
-    Chilled Water Loop ChW Supply Mixer2;  !- Connector 2 Name
-
-ConnectorList,
-    Chilled Water Loop ChW Demand Side Connectors2,  !- Name
-    Connector:Splitter,      !- Connector 1 Object Type
-    Chilled Water Loop ChW Demand Splitter2,  !- Connector 1 Name
-    Connector:Mixer,         !- Connector 2 Object Type
-    Chilled Water Loop ChW Demand Mixer2;  !- Connector 2 Name
-
 
 !-   ===========  ALL OBJECTS IN CLASS: NODELIST ===========
 
@@ -12174,19 +11862,9 @@ Pipe:Adiabatic,
     Chilled Water Loop ChW Supply Bypass Outlet;  !- Outlet Node Name
 
 Pipe:Adiabatic,
-    Chilled Water Loop ChW Supply Side Bypass Pipe2,  !- Name
-    Chilled Water Loop ChW Supply Bypass Inlet2,  !- Inlet Node Name
-    Chilled Water Loop ChW Supply Bypass Outlet2;  !- Outlet Node Name
-
-Pipe:Adiabatic,
     Chilled Water Loop ChW Supply Outlet Pipe,  !- Name
     Chilled Water Loop ChW Supply Outlet Pipe Inlet,  !- Inlet Node Name
     Chilled Water Loop ChW Supply Outlet;  !- Outlet Node Name
-
-Pipe:Adiabatic,
-    Chilled Water Loop ChW Supply Outlet Pipe2,  !- Name
-    Chilled Water Loop ChW Supply Outlet Pipe Inlet2,  !- Inlet Node Name
-    Chilled Water Loop ChW Supply Outlet2;  !- Outlet Node Name
 
 Pipe:Adiabatic,
     Chilled Water Loop ChW Demand Inlet Pipe,  !- Name
@@ -12194,29 +11872,14 @@ Pipe:Adiabatic,
     Chilled Water Loop ChW Demand Inlet Pipe Outlet;  !- Outlet Node Name
 
 Pipe:Adiabatic,
-    Chilled Water Loop ChW Demand Inlet Pipe2,  !- Name
-    Chilled Water Loop ChW Demand Inlet2,  !- Inlet Node Name
-    Chilled Water Loop ChW Demand Inlet Pipe Outlet2;  !- Outlet Node Name
-
-Pipe:Adiabatic,
     Chilled Water Loop ChW Demand Side Bypass Pipe,  !- Name
     Chilled Water Loop ChW Demand Bypass Inlet,  !- Inlet Node Name
     Chilled Water Loop ChW Demand Bypass Outlet;  !- Outlet Node Name
 
 Pipe:Adiabatic,
-    Chilled Water Loop ChW Demand Side Bypass Pipe2,  !- Name
-    Chilled Water Loop ChW Demand Bypass Inlet2,  !- Inlet Node Name
-    Chilled Water Loop ChW Demand Bypass Outlet2;  !- Outlet Node Name
-
-Pipe:Adiabatic,
     Chilled Water Loop ChW Demand Outlet Pipe,  !- Name
     Chilled Water Loop ChW Demand Outlet Pipe Inlet,  !- Inlet Node Name
     Chilled Water Loop ChW Demand Outlet;  !- Outlet Node Name
-
-Pipe:Adiabatic,
-    Chilled Water Loop ChW Demand Outlet Pipe2,  !- Name
-    Chilled Water Loop ChW Demand Outlet Pipe Inlet2,  !- Inlet Node Name
-    Chilled Water Loop ChW Demand Outlet2;  !- Outlet Node Name
 
 Pipe:Adiabatic,
     Hot Water Loop HW Supply Side Bypass Pipe,  !- Name
@@ -12268,17 +11931,6 @@ Pump:ConstantSpeed,
     0,                       !- Fraction of Motor Inefficiencies to Fluid Stream
     INTERMITTENT;            !- Pump Control Type
 
-Pump:ConstantSpeed,
-    Chilled Water Loop ChW Supply Pump2,  !- Name
-    Chilled Water Loop ChW Supply Inlet2,  !- Inlet Node Name
-    Chilled Water Loop ChW Pump Outlet2,  !- Outlet Node Name
-    autosize,                !- Design Flow Rate {m3/s}
-    179352,                  !- Design Pump Head {Pa}
-    autosize,                !- Design Power Consumption {W}
-    0.9,                     !- Motor Efficiency
-    0,                       !- Fraction of Motor Inefficiencies to Fluid Stream
-    INTERMITTENT;            !- Pump Control Type
-
 
 !-   ===========  ALL OBJECTS IN CLASS: DISTRICTCOOLING ===========
 
@@ -12286,12 +11938,6 @@ DistrictCooling,
     PurchasedCooling,        !- Name
     Purchased Cooling Inlet Node,  !- Chilled Water Inlet Node Name
     Purchased Cooling Outlet Node,  !- Chilled Water Outlet Node Name
-    autosize;                !- Nominal Capacity {W}
-
-DistrictCooling,
-    PurchasedCooling2,       !- Name
-    Purchased Cooling Inlet Node2,  !- Chilled Water Inlet Node Name
-    Purchased Cooling Outlet Node2,  !- Chilled Water Outlet Node Name
     autosize;                !- Nominal Capacity {W}
 
 
@@ -12353,30 +11999,6 @@ PlantLoop,
     ,                        !- Availability Manager List Name
     SingleSetpoint;          !- Plant Loop Demand Calculation Scheme
 
-PlantLoop,
-    Chilled Water Loop Chilled Water Loop2,  !- Name
-    Water,                   !- Fluid Type
-    ,                        !- User Defined Fluid Type
-    Chilled Water Loop Chiller Operation2,  !- Plant Equipment Operation Scheme Name
-    Chilled Water Loop ChW Supply Outlet2,  !- Loop Temperature Setpoint Node Name
-    98,                      !- Maximum Loop Temperature {C}
-    1,                       !- Minimum Loop Temperature {C}
-    autosize,                !- Maximum Loop Flow Rate {m3/s}
-    0,                       !- Minimum Loop Flow Rate {m3/s}
-    autosize,                !- Plant Loop Volume {m3}
-    Chilled Water Loop ChW Supply Inlet2,  !- Plant Side Inlet Node Name
-    Chilled Water Loop ChW Supply Outlet2,  !- Plant Side Outlet Node Name
-    Chilled Water Loop ChW Supply Side Branches2,  !- Plant Side Branch List Name
-    Chilled Water Loop ChW Supply Side Connectors2,  !- Plant Side Connector List Name
-    Chilled Water Loop ChW Demand Inlet2,  !- Demand Side Inlet Node Name
-    Chilled Water Loop ChW Demand Outlet2,  !- Demand Side Outlet Node Name
-    Chilled Water Loop ChW Demand Side Branches2,  !- Demand Side Branch List Name
-    Chilled Water Loop ChW Demand Side Connectors2,  !- Demand Side Connector List Name
-    SequentialLoad,          !- Load Distribution Scheme
-    ,                        !- Availability Manager List Name
-    SingleSetpoint,          !- Plant Loop Demand Calculation Scheme
-    None;                    !- Common Pipe Simulation
-
 
 !-   ===========  ALL OBJECTS IN CLASS: PLANTEQUIPMENTLIST ===========
 
@@ -12384,11 +12006,6 @@ PlantEquipmentList,
     Chilled Water Loop All Chillers,  !- Name
     DistrictCooling,         !- Equipment 1 Object Type
     PurchasedCooling;        !- Equipment 1 Name
-
-PlantEquipmentList,
-    Chilled Water Loop All Chillers2,  !- Name
-    DistrictCooling,         !- Equipment 1 Object Type
-    PurchasedCooling2;       !- Equipment 1 Name
 
 PlantEquipmentList,
     Hot Water Loop All Equipment,  !- Name
@@ -12403,12 +12020,6 @@ PlantEquipmentOperation:CoolingLoad,
     0,                       !- Load Range 1 Lower Limit {W}
     1000000000000000,        !- Load Range 1 Upper Limit {W}
     Chilled Water Loop All Chillers;  !- Range 1 Equipment List Name
-
-PlantEquipmentOperation:CoolingLoad,
-    Chilled Water Loop Chiller Operation All Hours2,  !- Name
-    0,                       !- Load Range 1 Lower Limit {W}
-    1000000000000000,        !- Load Range 1 Upper Limit {W}
-    Chilled Water Loop All Chillers2;  !- Range 1 Equipment List Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: PLANTEQUIPMENTOPERATION:HEATINGLOAD ===========
@@ -12426,12 +12037,6 @@ PlantEquipmentOperationSchemes,
     Chilled Water Loop Chiller Operation,  !- Name
     PlantEquipmentOperation:CoolingLoad,  !- Control Scheme 1 Object Type
     Chilled Water Loop Chiller Operation All Hours,  !- Control Scheme 1 Name
-    HVACTemplate-Always 1;   !- Control Scheme 1 Schedule Name
-
-PlantEquipmentOperationSchemes,
-    Chilled Water Loop Chiller Operation2,  !- Name
-    PlantEquipmentOperation:CoolingLoad,  !- Control Scheme 1 Object Type
-    Chilled Water Loop Chiller Operation All Hours2,  !- Control Scheme 1 Name
     HVACTemplate-Always 1;   !- Control Scheme 1 Schedule Name
 
 PlantEquipmentOperationSchemes,
@@ -12493,15 +12098,6 @@ SetpointManager:OutdoorAirReset,
     12.8,                    !- Setpoint at Outdoor High Temperature {C}
     26.7,                    !- Outdoor High Temperature {C}
     DOAS Supply Fan Outlet;  !- Setpoint Node or NodeList Name
-
-SetpointManager:OutdoorAirReset,
-    Chilled Water Loop ChW Temp Manager2,  !- Name
-    Temperature,             !- Control Variable
-    12.2,                    !- Setpoint at Outdoor Low Temperature {C}
-    15.6,                    !- Outdoor Low Temperature {C}
-    6.7,                     !- Setpoint at Outdoor High Temperature {C}
-    26.7,                    !- Outdoor High Temperature {C}
-    Chilled Water Loop ChW Supply Outlet2;  !- Setpoint Node or NodeList Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SETPOINTMANAGER:MIXEDAIR ===========
@@ -12565,6 +12161,373 @@ Output:Table:SummaryReports,
     EnvelopeSummary;         !- Report 5 Name
 
 
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:TABLE:MONTHLY ===========
+
+Output:Table:Monthly,
+    Monthly Indoor Temp,     !- Name
+    2,                       !- Digits After Decimal
+    Zone Mean Air Temperature,  !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    Site Outdoor Air Drybulb Temperature,  !- Variable or Meter 2 Name
+    SumOrAverage;            !- Aggregation Type for Variable or Meter 2
+
+Output:Table:Monthly,
+    Outdoor Air Summary,     !- Name
+    3,                       !- Digits After Decimal
+    Zone People Occupant Count,  !- Variable or Meter 1 Name
+    HoursNonZero,            !- Aggregation Type for Variable or Meter 1
+    Zone People Occupant Count,  !- Variable or Meter 2 Name
+    SumOrAverageDuringHoursShown,  !- Aggregation Type for Variable or Meter 2
+    Zone Mechanical Ventilation Air Changes per Hour,  !- Variable or Meter 3 Name
+    SumOrAverageDuringHoursShown,  !- Aggregation Type for Variable or Meter 3
+    Zone Infiltration Air Change Rate,  !- Variable or Meter 4 Name
+    SumOrAverageDuringHoursShown;  !- Aggregation Type for Variable or Meter 4
+
+Output:Table:Monthly,
+    Ventilation Load Components,  !- Name
+    3,                       !- Digits After Decimal
+    Zone Mechanical Ventilation No Load Heat Removal Energy,  !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    Zone Mechanical Ventilation Cooling Load Increase Energy,  !- Variable or Meter 2 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 2
+    Zone Mechanical Ventilation Cooling Load Increase Due to Overheating Energy,  !- Variable or Meter 3 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 3
+    Zone Mechanical Ventilation Cooling Load Decrease Energy,  !- Variable or Meter 4 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 4
+    Zone Mechanical Ventilation No Load Heat Addition Energy,  !- Variable or Meter 5 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 5
+    Zone Mechanical Ventilation Heating Load Increase Energy,  !- Variable or Meter 6 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 6
+    Zone Mechanical Ventilation Heating Load Increase Due to Overcooling Energy,  !- Variable or Meter 7 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 7
+    Zone Mechanical Ventilation Heating Load Decrease Energy,  !- Variable or Meter 8 Name
+    SumOrAverage;            !- Aggregation Type for Variable or Meter 8
+
+Output:Table:Monthly,
+    Overall HVAC Air System Loads,  !- Name
+    3,                       !- Digits After Decimal
+    Air System Total Heating Energy,  !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    Air System Total Cooling Energy,  !- Variable or Meter 2 Name
+    SumOrAverage;            !- Aggregation Type for Variable or Meter 2
+
+Output:Table:Monthly,
+    Overall HVAC System Energy,  !- Name
+    3,                       !- Digits After Decimal
+    Electricity:HVAC,        !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    Heating:NaturalGas,      !- Variable or Meter 2 Name
+    SumOrAverage;            !- Aggregation Type for Variable or Meter 2
+
+Output:Table:Monthly,
+    Components of Peak Electrical Demand,  !- Name
+    3,                       !- Digits After Decimal
+    Electricity:Facility,    !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    Electricity:Facility,    !- Variable or Meter 2 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 2
+    InteriorLights:Electricity,  !- Variable or Meter 3 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 3
+    InteriorEquipment:Electricity,  !- Variable or Meter 4 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 4
+    Fans:Electricity,        !- Variable or Meter 5 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 5
+    Heating:Electricity,     !- Variable or Meter 6 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 6
+    Cooling:Electricity,     !- Variable or Meter 7 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 7
+    ExteriorLights:Electricity,  !- Variable or Meter 8 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 8
+    Pumps:Electricity,       !- Variable or Meter 9 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 9
+    HeatRejection:Electricity,  !- Variable or Meter 10 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 10
+    ExteriorEquipment:Electricity,  !- Variable or Meter 11 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 11
+    Humidification:Electricity,  !- Variable or Meter 12 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 12
+    HeatRecovery:Electricity,!- Variable or Meter 13 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 13
+    WaterSystems:Electricity,!- Variable or Meter 14 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 14
+    Refrigeration:Electricity,  !- Variable or Meter 15 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 15
+    Generators:Electricity,  !- Variable or Meter 16 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 16
+    ElectricityProduced:Facility,  !- Variable or Meter 17 Name
+    ValueWhenMaximumOrMinimum;  !- Aggregation Type for Variable or Meter 17
+
+Output:Table:Monthly,
+    Components of Peak Net Electrical Demand,  !- Name
+    3,                       !- Digits After Decimal
+    ElectricityNet:Facility, !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    ElectricityNet:Facility, !- Variable or Meter 2 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 2
+    InteriorLights:Electricity,  !- Variable or Meter 3 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 3
+    InteriorEquipment:Electricity,  !- Variable or Meter 4 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 4
+    Fans:Electricity,        !- Variable or Meter 5 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 5
+    Heating:Electricity,     !- Variable or Meter 6 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 6
+    Cooling:Electricity,     !- Variable or Meter 7 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 7
+    ExteriorLights:Electricity,  !- Variable or Meter 8 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 8
+    Pumps:Electricity,       !- Variable or Meter 9 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 9
+    HeatRejection:Electricity,  !- Variable or Meter 10 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 10
+    ExteriorEquipment:Electricity,  !- Variable or Meter 11 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 11
+    Humidification:Electricity,  !- Variable or Meter 12 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 12
+    HeatRecovery:Electricity,!- Variable or Meter 13 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 13
+    WaterSystems:Electricity,!- Variable or Meter 14 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 14
+    Refrigeration:Electricity,  !- Variable or Meter 15 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 15
+    Generators:Electricity,  !- Variable or Meter 16 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 16
+    ElectricityProduced:Facility,  !- Variable or Meter 17 Name
+    ValueWhenMaximumOrMinimum;  !- Aggregation Type for Variable or Meter 17
+
+Output:Table:Monthly,
+    Setpoints Not Met With Temperatures,  !- Name
+    2,                       !- Digits After Decimal
+    Zone Heating Setpoint Not Met Time,  !- Variable or Meter 1 Name
+    HoursNonZero,            !- Aggregation Type for Variable or Meter 1
+    Zone Mean Air Temperature,  !- Variable or Meter 2 Name
+    SumOrAverageDuringHoursShown,  !- Aggregation Type for Variable or Meter 2
+    Zone Heating Setpoint Not Met While Occupied Time,  !- Variable or Meter 3 Name
+    HoursNonZero,            !- Aggregation Type for Variable or Meter 3
+    Zone Mean Air Temperature,  !- Variable or Meter 4 Name
+    SumOrAverageDuringHoursShown,  !- Aggregation Type for Variable or Meter 4
+    Zone Cooling Setpoint Not Met Time,  !- Variable or Meter 5 Name
+    HoursNonZero,            !- Aggregation Type for Variable or Meter 5
+    Zone Mean Air Temperature,  !- Variable or Meter 6 Name
+    SumOrAverageDuringHoursShown,  !- Aggregation Type for Variable or Meter 6
+    Zone Cooling Setpoint Not Met While Occupied Time,  !- Variable or Meter 7 Name
+    HoursNonZero,            !- Aggregation Type for Variable or Meter 7
+    Zone Mean Air Temperature,  !- Variable or Meter 8 Name
+    SumOrAverageDuringHoursShown;  !- Aggregation Type for Variable or Meter 8
+
+Output:Table:Monthly,
+    Comfort Report - Simple 55,  !- Name
+    2,                       !- Digits After Decimal
+    Zone Thermal Comfort ASHRAE 55 Simple Model Summer Clothes Not Comfortable Time,  !- Variable or Meter 1 Name
+    HoursNonZero,            !- Aggregation Type for Variable or Meter 1
+    Zone Mean Air Temperature,  !- Variable or Meter 2 Name
+    SumOrAverageDuringHoursShown,  !- Aggregation Type for Variable or Meter 2
+    Zone Thermal Comfort ASHRAE 55 Simple Model Winter Clothes Not Comfortable Time,  !- Variable or Meter 3 Name
+    HoursNonZero,            !- Aggregation Type for Variable or Meter 3
+    Zone Mean Air Temperature,  !- Variable or Meter 4 Name
+    SumOrAverageDuringHoursShown,  !- Aggregation Type for Variable or Meter 4
+    Zone Thermal Comfort ASHRAE 55 Simple Model Summer or Winter Clothes Not Comfortable Time,  !- Variable or Meter 5 Name
+    HoursNonZero,            !- Aggregation Type for Variable or Meter 5
+    Zone Mean Air Temperature,  !- Variable or Meter 6 Name
+    SumOrAverageDuringHoursShown;  !- Aggregation Type for Variable or Meter 6
+
+Output:Table:Monthly,
+    Building Loads - Cooling,!- Name
+    2,                       !- Digits After Decimal
+    Zone Air System Sensible Cooling Energy,  !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    Zone Air System Sensible Cooling Rate,  !- Variable or Meter 2 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 2
+    Site Outdoor Air Drybulb Temperature,  !- Variable or Meter 3 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 3
+    Site Outdoor Air Wetbulb Temperature,  !- Variable or Meter 4 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 4
+    Zone Total Internal Latent Gain Energy,  !- Variable or Meter 5 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 5
+    Zone Total Internal Latent Gain Energy,  !- Variable or Meter 6 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 6
+    Site Outdoor Air Drybulb Temperature,  !- Variable or Meter 7 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 7
+    Site Outdoor Air Wetbulb Temperature,  !- Variable or Meter 8 Name
+    ValueWhenMaximumOrMinimum;  !- Aggregation Type for Variable or Meter 8
+
+Output:Table:Monthly,
+    Building Loads - Heating,!- Name
+    2,                       !- Digits After Decimal
+    Zone Air System Sensible Heating Energy,  !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    Zone Air System Sensible Heating Rate,  !- Variable or Meter 2 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 2
+    Site Outdoor Air Drybulb Temperature,  !- Variable or Meter 3 Name
+    ValueWhenMaximumOrMinimum;  !- Aggregation Type for Variable or Meter 3
+
+Output:Table:Monthly,
+    Building Loads - Electric,  !- Name
+    2,                       !- Digits After Decimal
+    Zone Lights Electricity Energy,  !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    Zone Lights Electricity Energy,  !- Variable or Meter 2 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 2
+    Zone Electric Equipment Electricity Energy,  !- Variable or Meter 3 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 3
+    Zone Electric Equipment Electricity Energy,  !- Variable or Meter 4 Name
+    Maximum;                 !- Aggregation Type for Variable or Meter 4
+
+Output:Table:Monthly,
+    Space Loads,             !- Name
+    2,                       !- Digits After Decimal
+    Zone People Total Heating Energy,  !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    Zone Lights Total Heating Energy,  !- Variable or Meter 2 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 2
+    Zone Electric Equipment Total Heating Energy,  !- Variable or Meter 3 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 3
+    Zone Infiltration Sensible Heat Gain Energy,  !- Variable or Meter 4 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 4
+    Zone Infiltration Sensible Heat Loss Energy,  !- Variable or Meter 5 Name
+    SumOrAverage;            !- Aggregation Type for Variable or Meter 5
+
+Output:Table:Monthly,
+    Energy Consumption - Electricity & Natural Gas,  !- Name
+    2,                       !- Digits After Decimal
+    Electricity:Building,    !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    Electricity:Building,    !- Variable or Meter 2 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 2
+    NaturalGas:Building,     !- Variable or Meter 3 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 3
+    NaturalGas:Building,     !- Variable or Meter 4 Name
+    Maximum;                 !- Aggregation Type for Variable or Meter 4
+
+Output:Table:Monthly,
+    Building Energy Performance - Electricity,  !- Name
+    2,                       !- Digits After Decimal
+    InteriorLights:Electricity,  !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    TaskLights:InteriorLights:Electricity,  !- Variable or Meter 2 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 2
+    ExteriorLights:Electricity,  !- Variable or Meter 3 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 3
+    General:InteriorEquipment:Electricity,  !- Variable or Meter 4 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 4
+    ExteriorEquipment:Electricity,  !- Variable or Meter 5 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 5
+    Fans:Electricity,        !- Variable or Meter 6 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 6
+    Pumps:Electricity,       !- Variable or Meter 7 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 7
+    Heating:Electricity,     !- Variable or Meter 8 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 8
+    Cooling:Electricity,     !- Variable or Meter 9 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 9
+    HeatRejection:Electricity,  !- Variable or Meter 10 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 10
+    Humidifier:Electricity,  !- Variable or Meter 11 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 11
+    HeatRecovery:Electricity,!- Variable or Meter 12 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 12
+    WaterSystems:Electricity,!- Variable or Meter 13 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 13
+    Cogeneration:Electricity,!- Variable or Meter 14 Name
+    SumOrAverage;            !- Aggregation Type for Variable or Meter 14
+
+Output:Table:Monthly,
+    Building Energy Performance - Natural Gas,  !- Name
+    2,                       !- Digits After Decimal
+    InteriorEquipment:NaturalGas,  !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    ExteriorEquipment:NaturalGas,  !- Variable or Meter 2 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 2
+    Heating:NaturalGas,      !- Variable or Meter 3 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 3
+    Cooling:NaturalGas,      !- Variable or Meter 4 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 4
+    WaterSystems:NaturalGas, !- Variable or Meter 5 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 5
+    Cogeneration:NaturalGas, !- Variable or Meter 6 Name
+    SumOrAverage;            !- Aggregation Type for Variable or Meter 6
+
+Output:Table:Monthly,
+    Peak Energy End-Use - Electricity Part 1,  !- Name
+    2,                       !- Digits After Decimal
+    InteriorLights:Electricity,  !- Variable or Meter 1 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 1
+    TaskLights:InteriorLights:Electricity,  !- Variable or Meter 2 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 2
+    ExteriorLights:Electricity,  !- Variable or Meter 3 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 3
+    General:InteriorEquipment:Electricity,  !- Variable or Meter 4 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 4
+    ExteriorEquipment:Electricity,  !- Variable or Meter 5 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 5
+    Fans:Electricity,        !- Variable or Meter 6 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 6
+    Pumps:Electricity,       !- Variable or Meter 7 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 7
+    Heating:Electricity,     !- Variable or Meter 8 Name
+    Maximum;                 !- Aggregation Type for Variable or Meter 8
+
+Output:Table:Monthly,
+    Peak Electrical Demand,  !- Name
+    3,                       !- Digits After Decimal
+    Electricity:Facility,    !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    Electricity:Facility,    !- Variable or Meter 2 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 2
+    InteriorLights:Electricity,  !- Variable or Meter 3 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 3
+    InteriorEquipment:Electricity,  !- Variable or Meter 4 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 4
+    Fans:Electricity,        !- Variable or Meter 5 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 5
+    Heating:Electricity,     !- Variable or Meter 6 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 6
+    Cooling:Electricity,     !- Variable or Meter 7 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 7
+    ExteriorLights:Electricity,  !- Variable or Meter 8 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 8
+    Pumps:Electricity,       !- Variable or Meter 9 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 9
+    HeatRejection:Electricity,  !- Variable or Meter 10 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 10
+    ExteriorEquipment:Electricity,  !- Variable or Meter 11 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 11
+    Humidification:Electricity,  !- Variable or Meter 12 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 12
+    HeatRecovery:Electricity,!- Variable or Meter 13 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 13
+    WaterSystems:Electricity,!- Variable or Meter 14 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 14
+    Refrigeration:Electricity,  !- Variable or Meter 15 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 15
+    Generators:Electricity,  !- Variable or Meter 16 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 16
+    ElectricityProduced:Facility,  !- Variable or Meter 17 Name
+    ValueWhenMaximumOrMinimum;  !- Aggregation Type for Variable or Meter 17
+
+Output:Table:Monthly,
+    Peak Gas Demand,         !- Name
+    3,                       !- Digits After Decimal
+    NaturalGas:Facility,     !- Variable or Meter 1 Name
+    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+    NaturalGas:Facility,     !- Variable or Meter 2 Name
+    Maximum,                 !- Aggregation Type for Variable or Meter 2
+    NaturalGas:HVAC,         !- Variable or Meter 3 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 3
+    InteriorEquipment:NaturalGas,  !- Variable or Meter 4 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 4
+    MiscPlugGas:InteriorEquipment:NaturalGas,  !- Variable or Meter 5 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 5
+    NaturalGas:Plant,        !- Variable or Meter 6 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 6
+    WaterSystems:NaturalGas, !- Variable or Meter 7 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 7
+    Water Heater:WaterSystems:NaturalGas,  !- Variable or Meter 8 Name
+    ValueWhenMaximumOrMinimum,  !- Aggregation Type for Variable or Meter 8
+    Heating:NaturalGas,      !- Variable or Meter 9 Name
+    ValueWhenMaximumOrMinimum;  !- Aggregation Type for Variable or Meter 9
+
+
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUTCONTROL:TABLE:STYLE ===========
 
 OutputControl:Table:Style,
@@ -12579,58 +12542,8 @@ Output:Variable,
     Hourly;                  !- Reporting Frequency
 
 Output:Variable,
-    Perimeter_bot_ZN_1,      !- Key Value
+    Perimeter_top_ZN_1,      !- Key Value
     Zone Mean Air Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Cooling Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Inlet Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Outlet Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    Peri1_Top_LoTemp_Chw_Inlet,  !- Key Value
-    System Node Temperature, !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    Peri1_Top_LoTemp_Chw_Outlet,  !- Key Value
-    System Node Temperature, !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Mass Flow Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Injection Mass Flow Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Recirculation Mass Flow Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    Peri2_Top_LoTemp,        !- Key Value
-    Zone Radiant HVAC Outlet Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    *,                       !- Key Value
-    Site Outdoor Air Drybulb Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 

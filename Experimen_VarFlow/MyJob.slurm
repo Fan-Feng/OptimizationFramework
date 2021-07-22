@@ -5,8 +5,8 @@
   
 ##NECESSARY JOB SPECIFICATIONS
 #SBATCH --job-name=JobExample1     #Set the job name to "JobExample1"
-#SBATCH --time=4:00:00            #Set the wall clock limit to 1hr and 30min
-#SBATCH --ntasks=200                #Request 400 task
+#SBATCH --time=5:00:00            #Set the wall clock limit to 1hr and 30min
+#SBATCH --ntasks=500                #Request 400 task
 #SBATCH --ntasks-per-node=20        #Request 10 task/core per node
 #SBATCH --mem=20480M                #Request 204800MB (20GB) per node
 #SBATCH --output=Example1Out.%j    #Send stdout/err to "Example1Out.[jobID]"

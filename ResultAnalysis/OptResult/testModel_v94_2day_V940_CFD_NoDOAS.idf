@@ -2438,6 +2438,17 @@ Schedule:File,
     No,                      !- Interpolate to Timestep
     60;                      !- Minutes per Item
 
+Schedule:File,
+    Rad_AvailabilityManager, !- Name
+    On/Off,                  !- Schedule Type Limits Name
+    RadInletWater_SP_schedule.csv,  !- File Name
+    3,                       !- Column Number
+    1,                       !- Rows to Skip at Top
+    8760,                    !- Number of Hours of Data
+    Comma,                   !- Column Separator
+    No,                      !- Interpolate to Timestep
+    60;                      !- Minutes per Item
+
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIAL ===========
 
@@ -10119,7 +10130,7 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_Top_LoTemp,        !- Name
     Peri1_Top_LoTemp Design Object,  !- Design Object
-    ALWAYS_ON,               !- Availability Schedule Name
+    Rad_AvailabilityManager, !- Availability Schedule Name
     Perimeter_bot_ZN_1,      !- Zone Name
     Perimeter_bot_ZN_1_Floor,!- Surface Name or Radiant Surface Group Name
     ,                        !- Hydronic Tubing Length {m}

@@ -136,9 +136,6 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
-  Aval_Status = [int(xi>15) for xi in X_sp]
-  Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
-
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
   ## Step 2. Run EnergyPlus model
@@ -245,8 +242,8 @@ with MPIPool() as pool:
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
     # Optimization algorithm setting
-    num_generations = 100
-    sol_per_pop = 199   # Number of individuals
+    num_generations = 30
+    sol_per_pop = 499   # Number of individuals
 
     num_parents_mating = 4
     num_genes = len(CVar_list)
@@ -258,12 +255,9 @@ with MPIPool() as pool:
     keep_parents = 1
 
     crossover_type = "single_point"
-    crossover_probability = 0.9
 
     mutation_type = "random"
-    mutation_probability = 0.03
-
-    gene_space = [{'low': 7, 'high': 16}]*24
+    mutation_num_genes = 1
 
     ## 
     ga_instance = PooledGA(num_generations=num_generations,
@@ -276,10 +270,8 @@ with MPIPool() as pool:
                 parent_selection_type=parent_selection_type,
                 keep_parents=keep_parents,
                 crossover_type=crossover_type,
-                crossover_probability = crossover_probability,
                 mutation_type=mutation_type,
-                mutation_probability = mutation_probability,
-                gene_space = gene_space,
+                mutation_num_genes=mutation_num_genes,
                 initial_population=[[10]*7+[7+2*rng.random(1)[0] for j in range(5)] + [10+2*rng.random(1)[0] for j in range(5)] +[10]*7 for i in range(sol_per_pop)]
                 )
 
