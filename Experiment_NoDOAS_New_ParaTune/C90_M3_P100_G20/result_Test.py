@@ -20,10 +20,6 @@ import pandas as pd
 # Import optimization package
 import pygad
 
-## import mpi management package
-from mpipool import MPIPool
-from mpi4py import MPI
-
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
   Convert NumOfSec to Month/Day
@@ -36,7 +32,7 @@ def convert_NumOfSec_To_MonAndDay(NumOfSec):
 
   return Mon,DayValue
 
-def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay,SchFileLOC):
+def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
   '''
   Modify idf file by specifying startMon,startDay,endMon, endDay
   '''
@@ -50,11 +46,10 @@ def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay,SchFileLOC):
       line = line.replace("%BeginDay%",str(startDay))
       line = line.replace("%EndMon%",str(endMon))
       line = line.replace("%EndDay%",str(endDay))
-      line = line.replace("%SchFile_Loc%",SchFileLOC)
       fp.writelines(line)
     
 def fitness_func(x,solution_idx):
-  # run simulation, this is deprecated. 
+  # run simulation
   res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
 
   # utility rate
@@ -74,6 +69,7 @@ def penalty_func(ZMAT,output_DF):
     dtime = output_DF.iloc[i,0]
     hourOfDay = int(dtime.hour)
     residuals += max(ZMAT[i]-SP_list[hourOfDay]-ThermalComfort_range,0)
+  
   
   return residuals
 
@@ -127,18 +123,17 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time)
   endMon,endDay = convert_NumOfSec_To_MonAndDay(final_time)
-  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"//RadInletWater_SP_schedule.csv")
+  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay)
 
   # write control signal to the .csv file, both historical and new
+
   shutil.copyfile(Cur_WorkPath + "//RadInletWater_SP_schedule.csv",Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
+  #print(start_idx,end_idx,X_sp_log,CVar_list,X_sp)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
-  Aval_Status = [int(xi>15) for xi in X_sp]
-  Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
-
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
   ## Step 2. Run EnergyPlus model
@@ -162,7 +157,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [1716,651] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
+  output_idx = [2050,769] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -200,19 +195,8 @@ def read_result(filename):
   data = pd.DataFrame(data)
   return data
 
-class PooledGA(pygad.GA):
-
-    def cal_pop_fitness(self):
-        global pool,hyperParam
-        pop_fitness = pool.starmap(fitness_wrapper, [(individual,i,hyperParam) for i,individual in enumerate(self.population)])
-        #print(pop_fitness)
-        pop_fitness = np.array(pop_fitness)
-        return pop_fitness
         
-
-# run optimization 
-with MPIPool() as pool:
-    pool.workers_exit() ## Only master process will proceed
+if __name__ == "__main__":
     
     # simulation setup
     start_time= 60*60*24*181 
@@ -227,8 +211,11 @@ with MPIPool() as pool:
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
-    CVar_list = rng.random(pred_horizon['length'])
-    CVar_list = [CVar*5+12 for CVar in CVar_list]
+    CVar_list = [12.26905854, 11.19416852, 12.        , 12.62012595, 12.        ,
+       12.        , 11.67012618, 10.05023484, 11.80511804, 11.42037926,
+       11.54331445, 11.12009822, 14.63653437, 15.12788325, 14.95038837,
+       14.25714764, 14.92531136, 12.        , 12.        , 12.9200882 ,
+       12.        , 12.        , 12.        , 12.        ]
 
     tim = start_time
     Eplus_FileName = "testModel_v94_2day_V940_CFD_NoDOAS.idf"
@@ -244,57 +231,7 @@ with MPIPool() as pool:
     hyperParam["Eplus_timestep"] = Eplus_timestep
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
+    res = fitness_wrapper(CVar_list,1,hyperParam)
+    print(1)
 
-
-    num_parents_mating = 4
-    num_genes = len(CVar_list)
-
-    init_range_low = 7
-    init_range_high = 12
-
-    parent_selection_type = "sss"
-    keep_parents = 1
-
-    # Optimization algorithm setting
-    num_generations = 100
-    sol_per_pop = 199   # Number of individuals
-
-    crossover_type = "single_point"
-    crossover_probability = 0.9
-
-    mutation_type = "random"
-    mutation_probability = 0.03
-
-    gene_space = [{'low': 7, 'high': 16}]*24
-
-    ## 
-    ga_instance = PooledGA(num_generations=num_generations,
-                num_parents_mating=num_parents_mating,
-                fitness_func=fitness_func, # Actually this is not used.
-                sol_per_pop=sol_per_pop,
-                num_genes=num_genes,
-                init_range_low=init_range_low,
-                init_range_high=init_range_high,
-                parent_selection_type=parent_selection_type,
-                keep_parents=keep_parents,
-                crossover_type=crossover_type,
-                crossover_probability = crossover_probability,
-                mutation_type=mutation_type,
-                mutation_probability = mutation_probability,
-                gene_space = gene_space,
-                initial_population=[[10]*7+[7+2*rng.random(1)[0] for j in range(5)] + [10+2*rng.random(1)[0] for j in range(5)] +[10]*7 for i in range(sol_per_pop)]
-                )
-
-    print("Start Optimization")
-
-    ga_instance.run()
-
-    print("Op completed")
-    print(ga_instance.best_solution())  
-
-    print("best_solutions_fitness\n")
-    print(ga_instance.best_solutions_fitness)
-
-
-print("all mpi process join again then")
       
