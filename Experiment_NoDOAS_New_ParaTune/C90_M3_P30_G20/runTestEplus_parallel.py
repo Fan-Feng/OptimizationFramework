@@ -136,7 +136,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
-  Aval_Status = [int(xi>15) for xi in X_sp]
+  Aval_Status = [int(xi<=15) for xi in X_sp]
   Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
 
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
@@ -256,7 +256,7 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 50
+    num_generations = 30
     sol_per_pop = 29   # Number of individuals
 
     crossover_type = "single_point"

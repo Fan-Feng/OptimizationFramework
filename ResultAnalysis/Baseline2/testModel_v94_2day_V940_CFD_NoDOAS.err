@@ -1,12 +1,6 @@
-Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.07.22 00:02,
+Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.07.22 02:07,
    ** Warning ** Sizing:Parameters: note Timesteps in Averaging Window entered value=[20] is less than 1 hour (i.e., 60 timesteps).
    ************* Beginning Zone Sizing Calculations
-   ** Warning ** ProcessScheduleInput: Schedule:File="RADCOOLLOWWATERTEMP_TEST" 1 records had errors - these values are set to 0.
-   **   ~~~   ** Use Output:Diagnostics,DisplayExtraWarnings; to see individual records in error.
-   ** Warning ** ProcessScheduleInput: Schedule:File="RADCOOLHIGHWATERTEMP_TEST" 1 records had errors - these values are set to 0.
-   **   ~~~   ** Use Output:Diagnostics,DisplayExtraWarnings; to see individual records in error.
-   ** Warning ** ProcessScheduleInput: Schedule:File="RAD_AVAILABILITYMANAGER" 1 records had errors - these values are set to 0.
-   **   ~~~   ** Use Output:Diagnostics,DisplayExtraWarnings; to see individual records in error.
    ** Warning ** CheckUsedConstructions: There are 121 nominally unused constructions in input.
    **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;
    ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
@@ -63,5 +57,5 @@ Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.07.22 00:02,
    ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Sizing Error Summary. During Sizing: 17 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 19 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 54.04sec
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 14 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 16 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 52.84sec

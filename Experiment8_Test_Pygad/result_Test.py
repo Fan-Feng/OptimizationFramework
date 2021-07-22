@@ -50,7 +50,7 @@ def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay,SchFileLOC):
       fp.writelines(line)
     
 def fitness_func(x,solution_idx):
-  # run simulation
+  # run simulation, this is deprecated. 
   res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
 
   # utility rate
@@ -62,7 +62,7 @@ def fitness_func(x,solution_idx):
 def penalty_func(ZMAT,output_DF):
 
   ## This function could be modified in the future if necessary
-  SP_list = [24]*24
+  SP_list = [26.7]*5+[25.6]+[25]+[24]*15+[26.7]*2 # [18,24]
   ThermalComfort_range = 0.5
 
   residuals = 0
@@ -70,7 +70,6 @@ def penalty_func(ZMAT,output_DF):
     dtime = output_DF.iloc[i,0]
     hourOfDay = int(dtime.hour)
     residuals += max(ZMAT[i]-SP_list[hourOfDay]-ThermalComfort_range,0)
-  
   
   return residuals
 
@@ -127,14 +126,15 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
   # write control signal to the .csv file, both historical and new
-
   shutil.copyfile(Cur_WorkPath + "//RadInletWater_SP_schedule.csv",Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
-  #print(start_idx,end_idx,X_sp_log,CVar_list,X_sp)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
+  Aval_Status = [int(xi>15) for xi in X_sp]
+  Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
+
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
   ## Step 2. Run EnergyPlus model
@@ -196,7 +196,16 @@ def read_result(filename):
   data = pd.DataFrame(data)
   return data
 
+class PooledGA(pygad.GA):
+
+    def cal_pop_fitness(self):
+        global pool,hyperParam
+        pop_fitness = pool.starmap(fitness_wrapper, [(individual,i,hyperParam) for i,individual in enumerate(self.population)])
+        #print(pop_fitness)
+        pop_fitness = np.array(pop_fitness)
+        return pop_fitness
         
+   
 if __name__ == "__main__":
     
     # simulation setup
@@ -212,11 +221,11 @@ if __name__ == "__main__":
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
-    CVar_list = [ 9.66666588, 10.36348568, 10.46873429, 10.        , 11.16222906,
-       10.        , 10.        ,  7.38101358,  7.97370129,  9.40617955,
-       11.95658603,  9.67724151, 13.30512976, 11.63761663,  6.40733586,
-       12.40393125, 13.73179405, 12.81111256, 13.49130869, 11.78382096,
-       10.        , 11.66064012, 10.        , 10.        ]
+    CVar_list = [14.83918863, 10.        , 15.20016146, 10.        , 10.        ,
+       15.54132064,  9.06126413, 15.48596736,  7.69862852,  7.55005219,
+       15.02669506, 15.46835481, 13.58451376, 15.5172432 , 10.32491448,
+       10.70950438,  7.20246395, 10.        , 14.30850934, 13.21016866,
+       10.        , 10.        ,  9.43694415, 12.65137135]
 
     tim = start_time
     Eplus_FileName = "testModel_v94_2day_V940_CFD_NoDOAS.idf"
