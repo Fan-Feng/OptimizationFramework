@@ -32,7 +32,7 @@ def convert_NumOfSec_To_MonAndDay(NumOfSec):
 
   return Mon,DayValue
 
-def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay,SchFileLOC):
+def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
   '''
   Modify idf file by specifying startMon,startDay,endMon, endDay
   '''
@@ -46,11 +46,10 @@ def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay,SchFileLOC):
       line = line.replace("%BeginDay%",str(startDay))
       line = line.replace("%EndMon%",str(endMon))
       line = line.replace("%EndDay%",str(endDay))
-      line = line.replace("%SchFile_Loc%",SchFileLOC)
       fp.writelines(line)
     
 def fitness_func(x,solution_idx):
-  # run simulation, this is deprecated. 
+  # run simulation
   res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
 
   # utility rate
@@ -70,6 +69,7 @@ def penalty_func(ZMAT,output_DF):
     dtime = output_DF.iloc[i,0]
     hourOfDay = int(dtime.hour)
     residuals += max(ZMAT[i]-SP_list[hourOfDay]-ThermalComfort_range,0)
+  
   
   return residuals
 
@@ -123,18 +123,17 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time)
   endMon,endDay = convert_NumOfSec_To_MonAndDay(final_time)
-  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"//RadInletWater_SP_schedule.csv")
+  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay)
 
   # write control signal to the .csv file, both historical and new
+
   shutil.copyfile(Cur_WorkPath + "//RadInletWater_SP_schedule.csv",Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
+  #print(start_idx,end_idx,X_sp_log,CVar_list,X_sp)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
-  Aval_Status = [int(xi<=15) for xi in X_sp]
-  Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
-
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
   ## Step 2. Run EnergyPlus model
@@ -158,7 +157,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [1716,651] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
+  output_idx = [2050,769] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -196,16 +195,7 @@ def read_result(filename):
   data = pd.DataFrame(data)
   return data
 
-class PooledGA(pygad.GA):
-
-    def cal_pop_fitness(self):
-        global pool,hyperParam
-        pop_fitness = pool.starmap(fitness_wrapper, [(individual,i,hyperParam) for i,individual in enumerate(self.population)])
-        #print(pop_fitness)
-        pop_fitness = np.array(pop_fitness)
-        return pop_fitness
         
-   
 if __name__ == "__main__":
     
     # simulation setup
@@ -221,11 +211,11 @@ if __name__ == "__main__":
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
-    CVar_list = [13.05645972, 14.93910534, 13.04671086, 10.98132829, 10.        ,
-       10.        , 12.50619688, 14.82319528, 15.59557134, 14.85263381,
-       14.47887202, 12.60621462, 11.91992251,  7.17007117, 13.23765567,
-       15.44499751, 13.57965136, 15.49235842, 15.72430511, 15.46657064,
-       15.17032067, 15.01598293, 15.84036571, 14.94786877]
+    CVar_list = [12.26905854, 11.19416852, 12.        , 12.62012595, 12.        ,
+       12.        , 11.67012618, 10.05023484, 11.80511804, 11.42037926,
+       11.54331445, 11.12009822, 14.63653437, 15.12788325, 14.95038837,
+       14.25714764, 14.92531136, 12.        , 12.        , 12.9200882 ,
+       12.        , 12.        , 12.        , 12.        ]
 
     tim = start_time
     Eplus_FileName = "testModel_v94_2day_V940_CFD_NoDOAS.idf"
