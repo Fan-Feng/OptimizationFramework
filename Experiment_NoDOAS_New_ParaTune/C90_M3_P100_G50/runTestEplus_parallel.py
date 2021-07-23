@@ -265,7 +265,7 @@ with MPIPool() as pool:
     mutation_type = "random"
     mutation_probability = 0.03
 
-    gene_space = [{'low': 7, 'high': 16}]*24
+    gene_space = [{'low': 7, 'high': 13}]*24
 
     ## 
     ga_instance = PooledGA(num_generations=num_generations,

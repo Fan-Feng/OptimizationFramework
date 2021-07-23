@@ -263,13 +263,13 @@ SizingPeriod:DesignDay,
 
 RunPeriod,
     RUNPERIOD 1,             !- Name
-    7,                       !- Begin Month
-    1,                       !- Begin Day of Month
+    7,              !- Begin Month
+    1,              !- Begin Day of Month
     ,                        !- Begin Year
-    7,                       !- End Month
-    2,                       !- End Day of Month
+    7,                !- End Month
+    2,                !- End Day of Month
     ,                        !- End Year
-    Sunday,                  !- Day of Week for Start Day
+    Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
     No,                      !- Apply Weekend Holiday Rule
@@ -2419,7 +2419,7 @@ Schedule:Compact,
 Schedule:File,
     RADCOOLLOWWATERTEMP_Test,!- Name
     Temperature,             !- Schedule Type Limits Name
-    RadInletWater_SP_schedule.csv,  !- File Name
+    C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad//Model_T4344.0_1//RadInletWater_SP_schedule.csv,           !- File Name
     1,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -2430,8 +2430,19 @@ Schedule:File,
 Schedule:File,
     RADCOOLHIGHWATERTEMP_Test,  !- Name
     Temperature,             !- Schedule Type Limits Name
-    RadInletWater_SP_schedule.csv,  !- File Name
+    C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad//Model_T4344.0_1//RadInletWater_SP_schedule.csv,           !- File Name
     2,                       !- Column Number
+    1,                       !- Rows to Skip at Top
+    8760,                    !- Number of Hours of Data
+    Comma,                   !- Column Separator
+    No,                      !- Interpolate to Timestep
+    60;                      !- Minutes per Item
+
+Schedule:File,
+    Rad_AvailabilityManager, !- Name
+    On/Off,                  !- Schedule Type Limits Name
+    C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad//Model_T4344.0_1//RadInletWater_SP_schedule.csv,           !- File Name
+    3,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
     Comma,                   !- Column Separator
@@ -10119,14 +10130,14 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_Top_LoTemp,        !- Name
     Peri1_Top_LoTemp Design Object,  !- Design Object
-    ALWAYS_ON,               !- Availability Schedule Name
+    Rad_AvailabilityManager, !- Availability Schedule Name
     Perimeter_bot_ZN_1,      !- Zone Name
     Perimeter_bot_ZN_1_Floor,!- Surface Name or Radiant Surface Group Name
     ,                        !- Hydronic Tubing Length {m}
-    0.0024,                  !- Rated Flow Rate {m3/s}
+    0.00054682,              !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
-    600,                     !- Rated Power Consumption {W}
+    120,                     !- Rated Power Consumption {W}
     Peri1_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri1_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -12570,56 +12581,6 @@ Output:Variable,
 Output:Variable,
     Perimeter_bot_ZN_1,      !- Key Value
     Zone Mean Air Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Cooling Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Inlet Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Outlet Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    Peri1_Top_LoTemp_Chw_Inlet,  !- Key Value
-    System Node Temperature, !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    Peri1_Top_LoTemp_Chw_Outlet,  !- Key Value
-    System Node Temperature, !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Mass Flow Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Injection Mass Flow Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    PERI1_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Recirculation Mass Flow Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    Peri2_Top_LoTemp,        !- Key Value
-    Zone Radiant HVAC Outlet Temperature,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    *,                       !- Key Value
-    Site Outdoor Air Drybulb Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 
