@@ -32,7 +32,7 @@ def convert_NumOfSec_To_MonAndDay(NumOfSec):
 
   return Mon,DayValue
 
-def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
+def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay,SchFileLOC):
   '''
   Modify idf file by specifying startMon,startDay,endMon, endDay
   '''
@@ -46,10 +46,11 @@ def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay):
       line = line.replace("%BeginDay%",str(startDay))
       line = line.replace("%EndMon%",str(endMon))
       line = line.replace("%EndDay%",str(endDay))
+      line = line.replace("%SchFile_Loc%",SchFileLOC)
       fp.writelines(line)
     
 def fitness_func(x,solution_idx):
-  # run simulation
+  # run simulation, this is deprecated. 
   res = run_prediction(tim,x,CVar_timestep,X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
 
   # utility rate
@@ -69,7 +70,6 @@ def penalty_func(ZMAT,output_DF):
     dtime = output_DF.iloc[i,0]
     hourOfDay = int(dtime.hour)
     residuals += max(ZMAT[i]-SP_list[hourOfDay]-ThermalComfort_range,0)
-  
   
   return residuals
 
@@ -123,17 +123,18 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time)
   endMon,endDay = convert_NumOfSec_To_MonAndDay(final_time)
-  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay)
+  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
   # write control signal to the .csv file, both historical and new
-
   shutil.copyfile(Cur_WorkPath + "//RadInletWater_SP_schedule.csv",Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
-  #print(start_idx,end_idx,X_sp_log,CVar_list,X_sp)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
+  Aval_Status = [int(xi<=12) for xi in X_sp]
+  Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
+
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
   ## Step 2. Run EnergyPlus model
@@ -157,7 +158,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [2050,769] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
+  output_idx = [1716,651] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -194,13 +195,12 @@ def read_result(filename):
 
   data = pd.DataFrame(data)
   return data
-
-        
+   
 if __name__ == "__main__":
     
     # simulation setup
-    start_time= 60*60*24*181 
-    final_time= 60*60*24*188
+    start_time= 60*60*24*201 
+    final_time= 60*60*24*208
     Eplus_timestep = 60
 
     # setup for MPC
@@ -211,11 +211,11 @@ if __name__ == "__main__":
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
-    CVar_list = [12.26905854, 11.19416852, 12.        , 12.62012595, 12.        ,
-       12.        , 11.67012618, 10.05023484, 11.80511804, 11.42037926,
-       11.54331445, 11.12009822, 14.63653437, 15.12788325, 14.95038837,
-       14.25714764, 14.92531136, 12.        , 12.        , 12.9200882 ,
-       12.        , 12.        , 12.        , 12.        ]
+    CVar_list = [ 9.35852036, 11.9754792 , 11.53330869, 11.67079197,  7.00081376,
+        7.08575072, 12.08506729, 12.83199349, 11.98675001, 11.94515355,
+       12.05700271, 12.5559556 , 12.86850055, 12.43916888, 12.57422685,
+       12.61109635, 12.77330857, 12.86207652, 12.00706014, 12.50886138,
+       12.89107403, 12.47258374, 12.92129057, 11.79345203]
 
     tim = start_time
     Eplus_FileName = "testModel_v94_2day_V940_CFD_NoDOAS.idf"

@@ -67,7 +67,7 @@ def penalty_func(ZMAT,output_DF):
 
   ## This function could be modified in the future if necessary
   SP_list = [26.7]*5+[25.6]+[25]+[24]*15+[26.7]*2 # [18,24]
-  ThermalComfort_range = 0.5
+  ThermalComfort_range = 1
 
   residuals = 0
   for i in range(output_DF.shape[0]):
@@ -250,13 +250,13 @@ with MPIPool() as pool:
     num_genes = len(CVar_list)
 
     init_range_low = 7
-    init_range_high = 12
+    init_range_high = 13
 
     parent_selection_type = "sss"
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 20
+    num_generations = 30
     sol_per_pop = 99   # Number of individuals
 
     crossover_type = "single_point"
