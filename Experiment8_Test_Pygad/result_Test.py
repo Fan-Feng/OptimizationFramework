@@ -132,7 +132,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
-  Aval_Status = [int(xi<=15) for xi in X_sp]
+  Aval_Status = [int(xi<=12) for xi in X_sp]
   Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
 
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
@@ -221,11 +221,11 @@ if __name__ == "__main__":
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
-    CVar_list = [15.8927901 , 15.41918805, 15.62152341, 15.72347152,  8.18305464,
-        7.47371455, 14.96459257, 15.74815954, 14.72688345, 14.20465456,
-       13.65315938, 13.12855564,  7.78534301,  7.65504407,  7.01402497,
-       12.96756565, 15.78562879, 14.68249379, 14.88340981, 14.95565342,
-        9.38113836, 15.40997884, 14.97048296, 14.9990471 ]
+    CVar_list = [ 9.35852036, 11.9754792 , 11.53330869, 11.67079197,  7.00081376,
+        7.08575072, 12.08506729, 12.83199349, 11.98675001, 11.94515355,
+       12.05700271, 12.5559556 , 12.86850055, 12.43916888, 12.57422685,
+       12.61109635, 12.77330857, 12.86207652, 12.00706014, 12.50886138,
+       12.89107403, 12.47258374, 12.92129057, 11.79345203]
 
     tim = start_time
     Eplus_FileName = "testModel_v94_2day_V940_CFD_NoDOAS.idf"
