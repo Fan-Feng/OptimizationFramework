@@ -67,7 +67,7 @@ def penalty_func(ZMAT,output_DF):
 
   ## This function could be modified in the future if necessary
   SP_list = [26.7]*5+[25.6]+[25]+[24]*15+[26.7]*2 # [18,24]
-  ThermalComfort_range = 0.5
+  ThermalComfort_range = 1
 
   residuals = 0
   for i in range(output_DF.shape[0]):
