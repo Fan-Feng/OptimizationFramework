@@ -20,6 +20,10 @@ import pandas as pd
 # Import optimization package
 import pygad
 
+## import mpi management package
+from mpipool import MPIPool
+from mpi4py import MPI
+
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
   Convert NumOfSec to Month/Day
@@ -205,8 +209,10 @@ class PooledGA(pygad.GA):
         pop_fitness = np.array(pop_fitness)
         return pop_fitness
         
-   
-if __name__ == "__main__":
+
+# run optimization 
+with MPIPool() as pool:
+    pool.workers_exit() ## Only master process will proceed
     
     # simulation setup
     start_time= 60*60*24*201 
@@ -221,11 +227,8 @@ if __name__ == "__main__":
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
-    CVar_list = [ 9.35852036, 11.9754792 , 11.53330869, 11.67079197,  7.00081376,
-        7.08575072, 12.08506729, 12.83199349, 11.98675001, 11.94515355,
-       12.05700271, 12.5559556 , 12.86850055, 12.43916888, 12.57422685,
-       12.61109635, 12.77330857, 12.86207652, 12.00706014, 12.50886138,
-       12.89107403, 12.47258374, 12.92129057, 11.79345203]
+    CVar_list = rng.random(pred_horizon['length'])
+    CVar_list = [CVar*5+12 for CVar in CVar_list]
 
     tim = start_time
     Eplus_FileName = "testModel_v94_2day_V940_CFD_NoDOAS.idf"
@@ -241,7 +244,57 @@ if __name__ == "__main__":
     hyperParam["Eplus_timestep"] = Eplus_timestep
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
-    res = fitness_wrapper(CVar_list,1,hyperParam)
-    print(1)
 
+
+    num_parents_mating = 4
+    num_genes = len(CVar_list)
+
+    init_range_low = 7
+    init_range_high = 12
+
+    parent_selection_type = "sss"
+    keep_parents = 1
+
+    # Optimization algorithm setting
+    num_generations = 50
+    sol_per_pop = 99   # Number of individuals
+
+    crossover_type = "single_point"
+    crossover_probability = 0.9
+
+    mutation_type = "random"
+    mutation_probability = 0.03
+
+    gene_space = [{'low': 7, 'high': 16}]*24
+
+    ## 
+    ga_instance = PooledGA(num_generations=num_generations,
+                num_parents_mating=num_parents_mating,
+                fitness_func=fitness_func, # Actually this is not used.
+                sol_per_pop=sol_per_pop,
+                num_genes=num_genes,
+                init_range_low=init_range_low,
+                init_range_high=init_range_high,
+                parent_selection_type=parent_selection_type,
+                keep_parents=keep_parents,
+                crossover_type=crossover_type,
+                crossover_probability = crossover_probability,
+                mutation_type=mutation_type,
+                mutation_probability = mutation_probability,
+                gene_space = gene_space,
+                initial_population=[[10]*7+[7+2*rng.random(1)[0] for j in range(5)] + [10+2*rng.random(1)[0] for j in range(5)] +[10]*7 for i in range(sol_per_pop)]
+                )
+
+    print("Start Optimization")
+
+    ga_instance.run()
+
+    print("Op completed")
+    print(ga_instance.best_solution())  
+
+    print("best_solutions_fitness\n")
+    print(ga_instance.best_solutions_fitness)
+
+
+print("all mpi process join again then")
       

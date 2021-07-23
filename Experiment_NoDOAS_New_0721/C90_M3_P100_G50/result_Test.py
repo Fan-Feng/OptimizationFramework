@@ -195,16 +195,6 @@ def read_result(filename):
 
   data = pd.DataFrame(data)
   return data
-
-class PooledGA(pygad.GA):
-
-    def cal_pop_fitness(self):
-        global pool,hyperParam
-        pop_fitness = pool.starmap(fitness_wrapper, [(individual,i,hyperParam) for i,individual in enumerate(self.population)])
-        #print(pop_fitness)
-        pop_fitness = np.array(pop_fitness)
-        return pop_fitness
-        
    
 if __name__ == "__main__":
     
