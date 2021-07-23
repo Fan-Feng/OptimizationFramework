@@ -20,6 +20,10 @@ import pandas as pd
 # Import optimization package
 import pygad
 
+## import mpi management package
+from mpipool import MPIPool
+from mpi4py import MPI
+
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
   Convert NumOfSec to Month/Day
@@ -132,7 +136,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
-  Aval_Status = [int(xi<=15) for xi in X_sp]
+  Aval_Status = [int(xi<=12) for xi in X_sp]
   Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
 
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
@@ -205,8 +209,10 @@ class PooledGA(pygad.GA):
         pop_fitness = np.array(pop_fitness)
         return pop_fitness
         
-   
-if __name__ == "__main__":
+
+# run optimization 
+with MPIPool() as pool:
+    pool.workers_exit() ## Only master process will proceed
     
     # simulation setup
     start_time= 60*60*24*181 
@@ -221,11 +227,8 @@ if __name__ == "__main__":
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
-    CVar_list = [15.8927901 , 15.41918805, 15.62152341, 15.72347152,  8.18305464,
-        7.47371455, 14.96459257, 15.74815954, 14.72688345, 14.20465456,
-       13.65315938, 13.12855564,  7.78534301,  7.65504407,  7.01402497,
-       12.96756565, 15.78562879, 14.68249379, 14.88340981, 14.95565342,
-        9.38113836, 15.40997884, 14.97048296, 14.9990471 ]
+    CVar_list = rng.random(pred_horizon['length'])
+    CVar_list = [CVar*5+12 for CVar in CVar_list]
 
     tim = start_time
     Eplus_FileName = "testModel_v94_2day_V940_CFD_NoDOAS.idf"
@@ -241,7 +244,57 @@ if __name__ == "__main__":
     hyperParam["Eplus_timestep"] = Eplus_timestep
     hyperParam["Eplus_FileName"] = Eplus_FileName
         
-    res = fitness_wrapper(CVar_list,1,hyperParam)
-    print(1)
 
+
+    num_parents_mating = 4
+    num_genes = len(CVar_list)
+
+    init_range_low = 7
+    init_range_high = 12
+
+    parent_selection_type = "sss"
+    keep_parents = 1
+
+    # Optimization algorithm setting
+    num_generations = 100
+    sol_per_pop = 99   # Number of individuals
+
+    crossover_type = "single_point"
+    crossover_probability = 0.9
+
+    mutation_type = "random"
+    mutation_probability = 0.03
+
+    gene_space = [{'low': 7, 'high': 13}]*24
+
+    ## 
+    ga_instance = PooledGA(num_generations=num_generations,
+                num_parents_mating=num_parents_mating,
+                fitness_func=fitness_func, # Actually this is not used.
+                sol_per_pop=sol_per_pop,
+                num_genes=num_genes,
+                init_range_low=init_range_low,
+                init_range_high=init_range_high,
+                parent_selection_type=parent_selection_type,
+                keep_parents=keep_parents,
+                crossover_type=crossover_type,
+                crossover_probability = crossover_probability,
+                mutation_type=mutation_type,
+                mutation_probability = mutation_probability,
+                gene_space = gene_space,
+                initial_population=[[10]*7+[7+2*rng.random(1)[0] for j in range(5)] + [10+2*rng.random(1)[0] for j in range(5)] +[10]*7 for i in range(sol_per_pop)]
+                )
+
+    print("Start Optimization")
+
+    ga_instance.run()
+
+    print("Op completed")
+    print(ga_instance.best_solution())  
+
+    print("best_solutions_fitness\n")
+    print(ga_instance.best_solutions_fitness)
+
+
+print("all mpi process join again then")
       
