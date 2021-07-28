@@ -1,0 +1,8 @@
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Path to model description file is C:\Users\fengf\AppData\Local\Temp\JModelica.org\jm_tmp43hm60re\modelDescription.xml.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: The FMU modelIdentifier is _fmu_export_variable.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: The FMU modelGUID is 5e2664f109a2fbd583564a05e6b85fcd.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Slave Model is instantiated.
+

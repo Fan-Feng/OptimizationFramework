@@ -1,0 +1,96 @@
+FMIL: module = FMILIB, log level = 4: Loading 'win64' binary with 'default' platform types
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: The Resource location of FMU with instance name Model is file:///C:/Users/terra/AppData/Local/Temp/JModelica.org/jm_tmpg2qzbndk/resources.
+
+FMIL: module = Model, log level = 3: [warning][FMU status:Warning] fmi2Instantiate: Argument loggingOn is set to 1
+. This is not supported. loggingOn will default to '0'.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] The current working directory is G:\SensorImpactFramework\EnergyPlusFMU
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Path to fmuUnzipLocation is not ///C:/Users/terra/AppData/Local/Temp/JModelica.org/jm_tmpg2qzbndk.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Path to fmuUnzipLocation is not //C:/Users/terra/AppData/Local/Temp/JModelica.org/jm_tmpg2qzbndk.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Path to fmuUnzipLocation is not /C:/Users/terra/AppData/Local/Temp/JModelica.org/jm_tmpg2qzbndk.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Path to fmuUnzipLocation C:/Users/terra/AppData/Local/Temp/JModelica.org/jm_tmpg2qzbndk\
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Path to fmuResourceLocation C:/Users/terra/AppData/Local/Temp/JModelica.org/jm_tmpg2qzbndk\resources\
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Command executes to copy content of resources folder: xcopy "C:\Users\terra\AppData\Local\Temp\JModelica.org\jm_tmpg2qzbndk\resources\"variables.cfg "G:\SensorImpactFramework\EnergyPlusFMU\Output_EPExport_Model\" /Y /I
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Instantiation of Model succeded.
+
+FMIL: module = FMI2XML, log level = 3: fmi2_xml_get_default_experiment_tolerance: returning default value, since no attribute was defined in modelDescription
+FMIL: module = Model, log level = 3: [warning][FMU status:Warning] fmi2SetupExperiment: The StopTimeDefined parameter is set to 0. This is not valid. EnergyPlus FMU requires a stop time and will use the stop time 31536000.000000 which is provided.
+
+FMIL: module = Model, log level = 3: [warning][FMU status:Warning] fmi2SetupExperiment: The toleranceDefined parameter is set to 1. However, EnergyPlus FMU won't use the tolerance 0.000100 which is provided.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2EnterInitializationMode: The sockfd is 3172.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2EnterInitializationMode: The port number is 65048.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2EnterInitializationMode: This hostname is DESKTOP-5GHFNAG.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2EnterInitializationMode: TCPServer Server waiting for clients on port: 65048.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2EnterInitializationMode: The number of input variables is 1.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2EnterInitializationMode: The number of output variables is 1.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Get input file from resource folder C:\Users\terra\AppData\Local\Temp\JModelica.org\jm_tmpg2qzbndk\resources\.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Searching for following pattern .idf
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Found matching file ASHRAE901_OfficeMedium_STD2016_NewYorkOccCou_HVAC_9_3_Bias_EMS_FMUVariable.idf.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] done searching pattern .idf
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Get input file from resource folder C:\Users\terra\AppData\Local\Temp\JModelica.org\jm_tmpg2qzbndk\resources\.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Searching for following pattern .epw
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Found matching file USA_NY_New.York-J.F.Kennedy.Intl.AP.744860_TMY3.epw.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] done searching pattern .epw
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Get input file from resource folder C:\Users\terra\AppData\Local\Temp\JModelica.org\jm_tmpg2qzbndk\resources\.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Searching for following pattern .idd
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Read directory and search for *.idf, *.epw, or *.idd file.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Found matching file Energy+.idd.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] done searching pattern .idd
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] This version uses the **energyplus** command line interface to  call the EnergyPlus executable. **RunEPlus.bat** and **runenergyplus** , which were used in earlier versions, were deprecated as of August 2015.
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2EnterInitializationMode: The connection has been accepted.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2EnterInitializationMode: Slave Model is initialized.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Terminate: fmiFreeInstanceSlave must be called to free the FMU instance.
+

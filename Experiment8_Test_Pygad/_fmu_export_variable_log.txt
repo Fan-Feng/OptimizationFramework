@@ -1,0 +1,28 @@
+FMIL: module = FMILIB, log level = 4: Loading 'win64' binary with 'default' platform types
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: The Resource location of FMU with instance name Model is file:///C:/Users/fengf/AppData/Local/Temp/JModelica.org/jm_tmp43hm60re/resources.
+
+FMIL: module = Model, log level = 3: [warning][FMU status:Warning] fmi2Instantiate: Argument loggingOn is set to 1
+. This is not supported. loggingOn will default to '0'.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] The current working directory is C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad
+
+FMIL: module = Model, log level = 3: [warning][FMU status:Warning] fmi2Instantiate: The fmuOutput directory C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\Output_EPExport_Model exists. It will now be deleted.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] This is the output folder C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\Output_EPExport_Model
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] This is the command to be executed to delete existing directory rmdir /S /Q "C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\Output_EPExport_Model"
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Path to fmuUnzipLocation is not ///C:/Users/fengf/AppData/Local/Temp/JModelica.org/jm_tmp43hm60re.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Path to fmuUnzipLocation is not //C:/Users/fengf/AppData/Local/Temp/JModelica.org/jm_tmp43hm60re.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Path to fmuUnzipLocation is not /C:/Users/fengf/AppData/Local/Temp/JModelica.org/jm_tmp43hm60re.
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Path to fmuUnzipLocation C:/Users/fengf/AppData/Local/Temp/JModelica.org/jm_tmp43hm60re\
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Path to fmuResourceLocation C:/Users/fengf/AppData/Local/Temp/JModelica.org/jm_tmp43hm60re\resources\
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] Command executes to copy content of resources folder: xcopy "C:\Users\fengf\AppData\Local\Temp\JModelica.org\jm_tmp43hm60re\resources\"variables.cfg "C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad\Output_EPExport_Model\" /Y /I
+
+FMIL: module = Model, log level = 4: [ok][FMU status:OK] fmi2Instantiate: Instantiation of Model succeded.
+

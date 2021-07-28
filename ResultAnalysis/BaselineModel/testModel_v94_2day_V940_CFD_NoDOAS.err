@@ -1,6 +1,11 @@
-Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.07.22 14:16,
+Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.07.26 22:26,
    ** Warning ** Sizing:Parameters: note Timesteps in Averaging Window entered value=[20] is less than 1 hour (i.e., 60 timesteps).
    ************* Beginning Zone Sizing Calculations
+   ** Warning ** Weather file location will be used rather than entered (IDF) Location object.
+   **   ~~~   ** ..Location object=ATLANTA-HARTSFIELD.JACKSON.INTL.AP_GA_USA WMO=722190
+   **   ~~~   ** ..Weather File Location=Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300
+   **   ~~~   ** ..due to location differences, Latitude difference=[8.34] degrees, Longitude difference=[3.49] degrees.
+   **   ~~~   ** ..Time Zone difference=[1.0] hour(s), Elevation difference=[35.78] percent, [112.00] meters.
    ** Warning ** CheckUsedConstructions: There are 121 nominally unused constructions in input.
    **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;
    ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
@@ -31,10 +36,10 @@ Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.07.22 14:16,
    ************* Beginning Plant Sizing Calculations
    ** Warning ** In calculating the design coil UA for Coil:Cooling:Water DOAS COOLING COIL
    **   ~~~   ** the coil bypass factor is unrealistically large;
-   **   ~~~   ** The initial design conditions are: Tair,in = 29.9967
-   **   ~~~   **                                    Wair,in = 1.446524E-002
+   **   ~~~   ** The initial design conditions are: Tair,in = 29.9443
+   **   ~~~   **                                    Wair,in = 1.446515E-002
    **   ~~~   **                                    Twater,in = 7.2200
-   **   ~~~   **                                    Tair,out = 11.6074
+   **   ~~~   **                                    Tair,out = 11.6225
    **   ~~~   **                                    Wair,out = 9.240000E-003
    ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name="NATURALGAS:FACILITY" - not found.
    ************* Testing Individual Branch Integrity
@@ -57,5 +62,5 @@ Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.07.22 14:16,
    ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Sizing Error Summary. During Sizing: 14 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 16 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 44.08sec
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 15 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 17 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 46.68sec

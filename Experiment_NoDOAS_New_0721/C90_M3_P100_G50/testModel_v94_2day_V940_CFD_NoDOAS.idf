@@ -7586,7 +7586,7 @@ InternalMass,
 !-   ===========  ALL OBJECTS IN CLASS: SURFACEPROPERTY:HEATTRANSFERALGORITHM ===========
 
 SurfaceProperty:HeatTransferAlgorithm,
-    Perimeter_bot_ZN_1_Floor,!- Surface Name
+    Perimeter_top_ZN_1_Floor,!- Surface Name
     ConductionFiniteDifference;  !- Algorithm
 
 
