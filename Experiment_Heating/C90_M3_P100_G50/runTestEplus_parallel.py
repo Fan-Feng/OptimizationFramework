@@ -162,7 +162,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [1747,675] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
+  output_idx = [1748,675] # This is ID for Zone Radiant HVAC Heating Rate,Zone Mean Air
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
