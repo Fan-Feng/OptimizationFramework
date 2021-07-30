@@ -150,13 +150,13 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   # .
   output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
   tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-  Heating_Rate = list(output_DF.iloc[tim_idx+48:end_idx+48,2])  # because of two design days start from 48.
-  ZMAT = list(output_DF.iloc[tim_idx+48:end_idx+48,3])  # because of two design days start from 48.
+  Heating_Rate = list(output_DF.iloc[tim_idx:end_idx,2])  # because of two design days start from 48.
+  ZMAT = list(output_DF.iloc[tim_idx:end_idx,3])  # because of two design days start from 48.
 
 
   ## Step 4. Remove temporary files
   shutil.rmtree(Target_WorkPath)
-  return Heating_Rate,ZMAT,output_DF.iloc[tim_idx+48:end_idx+48,:]
+  return Heating_Rate,ZMAT,output_DF.iloc[tim_idx:end_idx,:]
 
 def read_result(filename):
   import datetime
