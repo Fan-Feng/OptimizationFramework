@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.07.28 01:46
+Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.08.04 18:57
 ! <Version>, Version ID
  Version, 9.5
 ! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
@@ -374,208 +374,209 @@ Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
  Sky Daylight Factors,Overcast Sky,01/21,PERIMETER_MID_ZN_4,PERIMETER_MID_ZN_4_WALL_WEST_WINDOW,PERIMETER_MID_ZN_4_DAYLREFPT1,6.5888E-002
  Sky Daylight Factors,Overcast Sky,01/21,PERIMETER_MID_ZN_4,PERIMETER_MID_ZN_4_WALL_WEST_WINDOW,PERIMETER_MID_ZN_4_DAYLREFPT2,3.4752E-002
 ! <Zone Sizing Information>, Zone Name, Load Type, Calc Des Load {W}, User Des Load {W}, Calc Des Air Flow Rate {m3/s}, User Des Air Flow Rate {m3/s}, Design Day Name, Date/Time of Peak, Temperature at Peak {C}, Humidity Ratio at Peak {kgWater/kgDryAir}, Floor Area {m2}, # Occupants, Calc Outdoor Air Flow Rate {m3/s}, Calc DOAS Heat Addition Rate {W}
- Zone Sizing Information, CORE_BOTTOM, Cooling, 51340.93264, 51340.93264, 3.73234, 3.73234, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:00:00, 26.62400, 1.41098E-002, 983.53657, 52.93867, 0.42466, 0.00000
- Zone Sizing Information, CORE_BOTTOM, Heating, 12460.68055, 12460.68055, 0.52943, 0.52943, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
- Zone Sizing Information, CORE_MID, Cooling, 31231.89716, 31231.89716, 2.27956, 2.27956, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:06:00, 26.76460, 1.41101E-002, 983.53657, 52.93867, 0.42466, 0.00000
- Zone Sizing Information, CORE_MID, Heating, 14462.25559, 14462.25559, 0.61557, 0.61557, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
- Zone Sizing Information, CORE_TOP, Cooling, 31441.83820, 31441.83820, 2.29489, 2.29489, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:06:00, 26.76460, 1.41101E-002, 983.53657, 52.93867, 0.42466, 0.00000
- Zone Sizing Information, CORE_TOP, Heating, 25024.50196, 25024.50196, 1.06994, 1.06994, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_3, Cooling, 8559.53027, 8559.53027, 0.62475, 0.62475, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 14:39:00, 32.10000, 1.41196E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_3, Heating, 11523.85904, 11523.85904, 0.49425, 0.49425, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_2, Cooling, 10406.04422, 10406.04422, 0.75953, 0.75953, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 09:48:00, 29.03640, 1.41141E-002, 131.26219, 7.06516, 5.66755E-002, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_2, Heating, 7491.46587, 7491.46587, 0.32132, 0.32132, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_1, Cooling, 12411.38305, 12411.38305, 0.90589, 0.90589, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 13:36:00, 31.95200, 1.41194E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_1, Heating, 11455.18043, 11455.18043, 0.49130, 0.49130, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_4, Cooling, 10866.69622, 10866.69622, 0.79315, 0.79315, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 17:06:00, 30.99000, 1.41176E-002, 131.25358, 7.06470, 5.66718E-002, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_4, Heating, 7569.51236, 7569.51236, 0.32468, 0.32468, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_3, Cooling, 7970.93830, 7970.93830, 0.57901, 0.57901, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:00:00, 26.62400, 1.41098E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_3, Heating, 8907.36534, 8907.36534, 0.38174, 0.38174, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_2, Cooling, 10341.76697, 10341.76697, 0.75483, 0.75483, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 09:36:00, 28.78480, 1.41137E-002, 131.26219, 7.06516, 5.66755E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_2, Heating, 5832.52131, 5832.52131, 0.24999, 0.24999, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_1, Cooling, 11612.27656, 11612.27656, 0.84756, 0.84756, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 13:27:00, 31.89650, 1.41193E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_1, Heating, 8878.13078, 8878.13078, 0.38048, 0.38048, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_4, Cooling, 10368.67395, 10368.67395, 0.75679, 0.75679, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 17:12:00, 30.91600, 1.41175E-002, 131.25358, 7.06470, 5.66718E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_4, Heating, 5902.86004, 5902.86004, 0.25302, 0.25302, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_3, Cooling, 7837.20881, 7837.20881, 0.56927, 0.56927, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:00:00, 26.62400, 1.41098E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_3, Heating, 9399.22732, 9399.22732, 0.40290, 0.40290, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_2, Cooling, 10168.91915, 10168.91915, 0.74222, 0.74222, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 09:36:00, 28.78480, 1.41137E-002, 131.26219, 7.06516, 5.66755E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_2, Heating, 6158.33106, 6158.33106, 0.26401, 0.26401, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_1, Cooling, 11377.99613, 11377.99613, 0.83047, 0.83047, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 13:27:00, 31.89650, 1.41193E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_1, Heating, 9356.09174, 9356.09174, 0.40104, 0.40104, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_4, Cooling, 10218.02671, 10218.02671, 0.74580, 0.74580, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 17:12:00, 30.91600, 1.41175E-002, 131.25358, 7.06470, 5.66718E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_4, Heating, 6233.46570, 6233.46570, 0.26724, 0.26724, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
+ Zone Sizing Information, CORE_BOTTOM, Cooling, 51341.78145, 51341.78145, 3.73240, 3.73240, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:00:00, 26.62400, 1.41098E-002, 983.53657, 52.93867, 0.42466, 0.00000
+ Zone Sizing Information, CORE_BOTTOM, Heating, 12463.07389, 12463.07389, 0.52953, 0.52953, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
+ Zone Sizing Information, CORE_MID, Cooling, 31250.68405, 31250.68405, 2.28093, 2.28093, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:06:00, 26.76460, 1.41101E-002, 983.53657, 52.93867, 0.42466, 0.00000
+ Zone Sizing Information, CORE_MID, Heating, 14499.33689, 14499.33689, 0.61717, 0.61717, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
+ Zone Sizing Information, CORE_TOP, Cooling, 31446.51860, 31446.51860, 2.29523, 2.29523, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:06:00, 26.76460, 1.41101E-002, 983.53657, 52.93867, 0.42466, 0.00000
+ Zone Sizing Information, CORE_TOP, Heating, 25030.40922, 25030.40922, 1.07019, 1.07019, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_3, Cooling, 8560.22858, 8560.22858, 0.62480, 0.62480, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 14:39:00, 32.10000, 1.41196E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_3, Heating, 11524.91398, 11524.91398, 0.49430, 0.49430, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_2, Cooling, 10407.29864, 10407.29864, 0.75962, 0.75962, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 09:48:00, 29.03640, 1.41141E-002, 131.26219, 7.06516, 5.66755E-002, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_2, Heating, 7493.56834, 7493.56834, 0.32141, 0.32141, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_1, Cooling, 12412.24013, 12412.24013, 0.90596, 0.90596, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 13:36:00, 31.95200, 1.41194E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_1, Heating, 11456.23495, 11456.23495, 0.49135, 0.49135, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_4, Cooling, 10867.23834, 10867.23834, 0.79319, 0.79319, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 17:06:00, 30.99000, 1.41176E-002, 131.25358, 7.06470, 5.66718E-002, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_4, Heating, 7570.18354, 7570.18354, 0.32471, 0.32471, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_3, Cooling, 7971.11247, 7971.11247, 0.57903, 0.57903, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:00:00, 26.62400, 1.41098E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_3, Heating, 8907.79737, 8907.79737, 0.38176, 0.38176, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_2, Cooling, 10341.88539, 10341.88539, 0.75484, 0.75484, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 09:36:00, 28.78480, 1.41137E-002, 131.26219, 7.06516, 5.66755E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_2, Heating, 5832.79148, 5832.79148, 0.25000, 0.25000, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_1, Cooling, 11612.43015, 11612.43015, 0.84757, 0.84757, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 13:27:00, 31.89650, 1.41193E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_1, Heating, 8878.55195, 8878.55195, 0.38050, 0.38050, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_4, Cooling, 10368.76889, 10368.76889, 0.75680, 0.75680, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 17:12:00, 30.91600, 1.41175E-002, 131.25358, 7.06470, 5.66718E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_4, Heating, 5903.12743, 5903.12743, 0.25303, 0.25303, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_3, Cooling, 7841.12215, 7841.12215, 0.56956, 0.56956, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:00:00, 26.62400, 1.41098E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_3, Heating, 9406.55137, 9406.55137, 0.40321, 0.40321, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_2, Cooling, 10171.47715, 10171.47715, 0.74240, 0.74240, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 09:36:00, 28.78480, 1.41137E-002, 131.26219, 7.06516, 5.66755E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_2, Heating, 6162.91616, 6162.91616, 0.26420, 0.26420, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_1, Cooling, 11382.01124, 11382.01124, 0.83076, 0.83076, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 13:27:00, 31.89650, 1.41193E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_1, Heating, 9363.35295, 9363.35295, 0.40135, 0.40135, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_4, Cooling, 10220.78182, 10220.78182, 0.74600, 0.74600, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 17:12:00, 30.91600, 1.41175E-002, 131.25358, 7.06470, 5.66718E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_4, Heating, 6238.04227, 6238.04227, 0.26744, 0.26744, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
 ! <System Sizing Information>, System Name, Load Type, Peak Load Kind, User Design Capacity, Calc Des Air Flow Rate [m3/s], User Des Air Flow Rate [m3/s], Design Day Name, Date/Time of Peak
- System Sizing Information, DOAS, Cooling, Sensible, 326054.45, 17.21606, 17.21606, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 00:00:00
- System Sizing Information, DOAS, Heating, Sensible, 177815.35, 6.44691, 6.44691, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00
+ System Sizing Information, DOAS, Cooling, Sensible, 326109.83, 17.21909, 17.21909, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 00:00:00
+ System Sizing Information, DOAS, Heating, Sensible, 177904.82, 6.45015, 6.45015, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00
 ! <Component Sizing Information>, Component Type, Component Name, Input Field Description, Value
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_BOT_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 3.73234
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_BOT_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 3.73240
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_BOT_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.20080
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_BOT_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_BOT_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 3.73234
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORE_BOT_LOTEMP, Design Size Maximum Water Flow [m3/s], 1.83378E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_BOT_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 3.73240
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORE_BOT_LOTEMP, Design Size Maximum Water Flow [m3/s], 1.83381E-003
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORE_BOT_LOTEMP, Design Size Hydronic Tubing Length [m], 6453.65205
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_MID_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 2.27956
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_MID_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.32877
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_MID_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 2.28093
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_MID_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.32857
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_MID_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_MID_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 2.27956
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORE_MID_LOTEMP, Design Size Maximum Water Flow [m3/s], 1.11553E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_MID_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 2.28093
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORE_MID_LOTEMP, Design Size Maximum Water Flow [m3/s], 1.11620E-003
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORE_MID_LOTEMP, Design Size Hydronic Tubing Length [m], 6453.65205
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_TOP_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 2.29489
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_TOP_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.32658
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_TOP_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 2.29523
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_TOP_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.32653
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_TOP_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_TOP_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 2.29489
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORE_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 1.12303E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_TOP_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 2.29523
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORE_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 1.12320E-003
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORE_TOP_LOTEMP, Design Size Hydronic Tubing Length [m], 6453.65205
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.05727E-004
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.05752E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_TOP_LOTEMP, User-Specified Maximum Water Flow [m3/s], 2.15245E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_TOP_LOTEMP, Design Size Hydronic Tubing Length [m], 1360.48649
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_TOP_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.62475
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_TOP_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.25289
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_TOP_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.62480
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_TOP_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.25287
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_TOP_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_TOP_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.62475
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_TOP_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.75953
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_TOP_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.13169
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_TOP_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.62480
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_TOP_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.75962
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_TOP_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.13167
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_TOP_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_TOP_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.75953
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI2_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.71680E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_TOP_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.75962
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI2_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.71725E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI2_TOP_LOTEMP, Design Size Hydronic Tubing Length [m], 861.30049
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_TOP_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.90589
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_TOP_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.17440
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_TOP_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.90596
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_TOP_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.17439
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_TOP_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_TOP_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.90589
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI1_BOT_LOTEMP, Design Size Maximum Water Flow [m3/s], 4.43306E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_TOP_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.90596
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI1_BOT_LOTEMP, Design Size Maximum Water Flow [m3/s], 4.43336E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI1_BOT_LOTEMP, Design Size Hydronic Tubing Length [m], 1360.48649
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_TOP_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.79315
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_TOP_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.12610
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_TOP_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.79319
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_TOP_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.12609
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_TOP_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_TOP_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.79315
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI4_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.88133E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_TOP_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.79319
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI4_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.88153E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI4_TOP_LOTEMP, Design Size Hydronic Tubing Length [m], 861.24399
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_BOT_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.57901
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_BOT_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.57903
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_BOT_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.27286
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_BOT_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_BOT_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.57901
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_BOT_LOTEMP, Design Size Maximum Water Flow [m3/s], 2.84703E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_BOT_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.57903
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_BOT_LOTEMP, Design Size Maximum Water Flow [m3/s], 2.84710E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_BOT_LOTEMP, Design Size Hydronic Tubing Length [m], 1360.48649
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_BOT_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.75483
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_BOT_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.75484
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_BOT_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.13251
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_BOT_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_BOT_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.75483
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI2_BOT_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.69384E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_BOT_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.75484
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI2_BOT_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.69388E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI2_BOT_LOTEMP, Design Size Hydronic Tubing Length [m], 861.30049
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_BOT_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.84756
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_BOT_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.18641
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_BOT_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.84757
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_BOT_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.18640
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_BOT_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_BOT_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.84756
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI1_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 4.61079E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_BOT_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.84757
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI1_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 4.61085E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI1_TOP_LOTEMP, Design Size Hydronic Tubing Length [m], 1360.48649
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_BOT_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.75679
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_BOT_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.75680
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_BOT_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.13216
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_BOT_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_BOT_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.75679
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI4_BOT_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.70345E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_BOT_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.75680
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI4_BOT_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.70348E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI4_BOT_LOTEMP, Design Size Hydronic Tubing Length [m], 861.24399
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_MID_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.56927
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_MID_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.27753
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_MID_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.56956
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_MID_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.27739
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_MID_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_MID_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.56927
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_MID_LOTEMP, Design Size Maximum Water Flow [m3/s], 2.79927E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_MID_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.56956
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_MID_LOTEMP, Design Size Maximum Water Flow [m3/s], 2.80067E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_MID_LOTEMP, Design Size Hydronic Tubing Length [m], 1360.48649
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_MID_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.74222
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_MID_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.13476
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_MID_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.74240
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_MID_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.13473
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_MID_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_MID_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.74222
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI2_MID_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.63210E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI2_MID_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.74240
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI2_MID_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.63302E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI2_MID_LOTEMP, Design Size Hydronic Tubing Length [m], 861.30049
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_MID_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.83047
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_MID_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.19024
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_MID_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.83076
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_MID_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.19018
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_MID_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_MID_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.83047
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI1_MID_LOTEMP, Design Size Maximum Water Flow [m3/s], 4.06396E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI1_MID_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.83076
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI1_MID_LOTEMP, Design Size Maximum Water Flow [m3/s], 4.06539E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI1_MID_LOTEMP, Design Size Hydronic Tubing Length [m], 1360.48649
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_MID_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.74580
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_MID_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.13410
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_MID_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.74600
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_MID_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.13407
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_MID_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
- Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_MID_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.74580
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI4_MID_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.64964E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI4_MID_DOAS_AIRTERMINAL, Design Size Minimum Air Flow Rate [m3/s], 0.74600
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI4_MID_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.65063E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI4_MID_LOTEMP, Design Size Hydronic Tubing Length [m], 861.24399
- Component Sizing Information, AirLoopHVAC, DOAS, Sum of Air Terminal Maximum Heating Flow Rates [m3/s], 17.21606
- Component Sizing Information, AirLoopHVAC, DOAS, Sum of Air Terminal Minimum Heating Flow Rates [m3/s], 17.21606
- Component Sizing Information, AirLoopHVAC, DOAS, Sum of Air Terminal Maximum Flow Rates [m3/s], 17.21606
- Component Sizing Information, AirLoopHVAC, DOAS, Adjusted Heating Design Air Flow Rate [m3/s], 17.21606
- Component Sizing Information, AirLoopHVAC, DOAS, Adjusted Cooling Design Air Flow Rate [m3/s], 17.21606
- Component Sizing Information, AirLoopHVAC, DOAS, Adjusted Main Design Air Flow Rate [m3/s], 17.21606
+ Component Sizing Information, AirLoopHVAC, DOAS, Sum of Air Terminal Maximum Heating Flow Rates [m3/s], 17.21909
+ Component Sizing Information, AirLoopHVAC, DOAS, Sum of Air Terminal Minimum Heating Flow Rates [m3/s], 17.21909
+ Component Sizing Information, AirLoopHVAC, DOAS, Sum of Air Terminal Maximum Flow Rates [m3/s], 17.21909
+ Component Sizing Information, AirLoopHVAC, DOAS, Adjusted Heating Design Air Flow Rate [m3/s], 17.21909
+ Component Sizing Information, AirLoopHVAC, DOAS, Adjusted Cooling Design Air Flow Rate [m3/s], 17.21909
+ Component Sizing Information, AirLoopHVAC, DOAS, Adjusted Main Design Air Flow Rate [m3/s], 17.21909
  Component Sizing Information, AirLoopHVAC, DOAS, User Heating Air Flow Ratio [], 1.00000
  Component Sizing Information, AirLoopHVAC, DOAS, Calculated Heating Air Flow Ratio [], 1.00000
- Component Sizing Information, AirLoopHVAC, DOAS, Design Supply Air Flow Rate [m3/s], 17.21606
- Component Sizing Information, Controller:OutdoorAir, DOAS OA CONTROLLER, Maximum Outdoor Air Flow Rate [m3/s], 17.21606
+ Component Sizing Information, AirLoopHVAC, DOAS, Design Supply Air Flow Rate [m3/s], 17.21909
+ Component Sizing Information, Controller:OutdoorAir, DOAS OA CONTROLLER, Maximum Outdoor Air Flow Rate [m3/s], 17.21909
  Component Sizing Information, Controller:OutdoorAir, DOAS OA CONTROLLER, Minimum Outdoor Air Flow Rate [m3/s], 2.15117
- Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Inlet Air Temperature [C], 28.52440
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Inlet Air Temperature [C], 28.52431
  Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Inlet Water Temperature [C], 7.22000
  Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Outlet Air Temperature [C], 11.64406
  Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Inlet Air Humidity Ratio [kgWater/kgDryAir], 1.41132E-002
  Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Outlet Air Humidity Ratio [kgWater/kgDryAir], 9.24000E-003
- Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Coil Load [W], 612827.61446
- Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Water Flow Rate [m3/s], 2.18888E-002
- Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Air Flow Rate [m3/s], 17.21606
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Coil Load [W], 612933.32457
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Water Flow Rate [m3/s], 2.18926E-002
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Air Flow Rate [m3/s], 17.21909
 ! <Water Cooling Coil Capacity Information>,Component Type,Name,Nominal Total Capacity {W},Nominal Sensible Capacity {W},Nominal Latent Capacity {W},Nominal Sensible Heat Ratio, Nominal Coil UA Value {W/C}, Nominal Coil Surface Area {m2}
-Water Cooling Coil Capacity Information,Coil:Cooling:Water,DOAS COOLING COIL,508147.61,334972.70,173174.92,0.66,57365.69,581.83
- Component Sizing Information, Coil:Heating:Water, DOAS HEATING COIL, Design Size Rated Capacity [W], 474844.59932
- Component Sizing Information, Coil:Heating:Water, DOAS HEATING COIL, Design Size Maximum Water Flow Rate [m3/s], 1.04911E-002
- Component Sizing Information, Coil:Heating:Water, DOAS HEATING COIL, Design Size U-Factor Times Area Value [W/K], 6466.57515
+Water Cooling Coil Capacity Information,Coil:Cooling:Water,DOAS COOLING COIL,508236.46,335031.36,173205.11,0.66,57375.73,581.94
+ Component Sizing Information, Coil:Heating:Water, DOAS HEATING COIL, Design Size Rated Capacity [W], 474928.03004
+ Component Sizing Information, Coil:Heating:Water, DOAS HEATING COIL, Design Size Maximum Water Flow Rate [m3/s], 1.04930E-002
+ Component Sizing Information, Coil:Heating:Water, DOAS HEATING COIL, Design Size U-Factor Times Area Value [W/K], 6467.71134
 ! <Water Heating Coil Capacity Information>,Component Type,Name,Nominal Total Capacity {W}
-Water Heating Coil Capacity Information,Coil:Heating:Water,DOAS HEATING COIL,336805.59
- Component Sizing Information, Fan:VariableVolume, DOAS SUPPLY FAN, Design Size Maximum Flow Rate [m3/s], 17.21606
- Component Sizing Information, Controller:WaterCoil, DOAS COOLING COIL CONTROLLER, Maximum Actuated Flow [m3/s], 2.18888E-002
- Component Sizing Information, Controller:WaterCoil, DOAS COOLING COIL CONTROLLER, Controller Convergence Tolerance, 2.17550E-005
- Component Sizing Information, Controller:WaterCoil, DOAS HEATING COIL CONTROLLER, Maximum Actuated Flow [m3/s], 1.04911E-002
- Component Sizing Information, Controller:WaterCoil, DOAS HEATING COIL CONTROLLER, Controller Convergence Tolerance, 4.53899E-005
- Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Maximum Loop Flow Rate [m3/s], 2.98184E-002
- Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Plant Loop Volume [m3], 3.57821
- Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Flow Rate [m3/s], 2.98184E-002
- Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Power Consumption [W], 7618.22281
- Component Sizing Information, DistrictCooling, PURCHASEDCOOLING, Design Size Nominal Capacity [W], 834836.22278
- Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP, Maximum Loop Flow Rate [m3/s], 1.86666E-002
- Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP, Plant Loop Volume [m3], 2.23999
- Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP, Design Flow Rate [m3/s], 1.86666E-002
- Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP, Design Power Consumption [W], 4769.07136
- Component Sizing Information, DistrictHeating, PURCHASED HEATING, Design Size Nominal Capacity [W], 861882.94333
- Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP2, Maximum Loop Flow Rate [m3/s], 4.61079E-004
- Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP2, Plant Loop Volume [m3], 5.53295E-002
- Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP2, Design Flow Rate [m3/s], 4.61079E-004
- Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP2, Design Power Consumption [W], 117.79974
- Component Sizing Information, DistrictCooling, PURCHASEDCOOLING2, Design Size Nominal Capacity [W], 11612.27656
+Water Heating Coil Capacity Information,Coil:Heating:Water,DOAS HEATING COIL,336864.77
+ Component Sizing Information, Fan:VariableVolume, DOAS SUPPLY FAN, Design Size Maximum Flow Rate [m3/s], 17.21909
+ Component Sizing Information, Controller:WaterCoil, DOAS COOLING COIL CONTROLLER, Maximum Actuated Flow [m3/s], 2.18926E-002
+ Component Sizing Information, Controller:WaterCoil, DOAS COOLING COIL CONTROLLER, Controller Convergence Tolerance, 2.17512E-005
+ Component Sizing Information, Controller:WaterCoil, DOAS HEATING COIL CONTROLLER, Maximum Actuated Flow [m3/s], 1.04930E-002
+ Component Sizing Information, Controller:WaterCoil, DOAS HEATING COIL CONTROLLER, Controller Convergence Tolerance, 4.53819E-005
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Maximum Loop Flow Rate [m3/s], 2.98236E-002
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Plant Loop Volume [m3], 3.57884
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Flow Rate [m3/s], 2.98236E-002
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Power Consumption [W], 7619.55794
+ Component Sizing Information, DistrictCooling, PURCHASEDCOOLING, Design Size Nominal Capacity [W], 834982.53172
+ Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP, Maximum Loop Flow Rate [m3/s], 1.86699E-002
+ Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP, Plant Loop Volume [m3], 2.24039
+ Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP, Design Flow Rate [m3/s], 1.86699E-002
+ Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP, Design Power Consumption [W], 4769.91434
+ Component Sizing Information, DistrictHeating, PURCHASED HEATING, Design Size Nominal Capacity [W], 862035.28929
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP2, Maximum Loop Flow Rate [m3/s], 4.61085E-004
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP2, Plant Loop Volume [m3], 5.53302E-002
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP2, Design Flow Rate [m3/s], 4.61085E-004
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP2, Design Power Consumption [W], 117.80130
+ Component Sizing Information, DistrictCooling, PURCHASEDCOOLING2, Design Size Nominal Capacity [W], 11612.43015
  Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP2, Maximum Loop Flow Rate [m3/s], 2.15245E-004
  Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP2, Plant Loop Volume [m3], 2.58294E-002
  Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP2, Design Flow Rate [m3/s], 2.15245E-004
  Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP2, Design Power Consumption [W], 54.99234
- Component Sizing Information, DistrictHeating, PURCHASED HEATING2, Design Size Nominal Capacity [W], 9938.40405
+ Component Sizing Information, Boiler:HotWater, BOILER_RADSYS, Design Size Nominal Capacity [W], 9742.33567
+ Component Sizing Information, Boiler:HotWater, BOILER_RADSYS, Design Size Design Water Flow Rate [m3/s], 2.15245E-004
 ! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values, Sky Temperature Model
 ! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
 ! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
 ! <Environment:WarmupDays>, NumberofWarmupDays
-Environment,RUNPERIOD 1,WeatherFileRunPeriod,01/20/2014,01/21/2014,Monday,2,Use RunPeriod Specified Day,No,No,No,Yes,Yes,Clark and Allen
-Environment:Daylight Saving,Yes,InputFile,03/09,11/02
-Environment:Special Days,NEW YEARS DAY,Holiday,InputFile,01/01,  1Environment:Special Days,VETERANS DAY,Holiday,InputFile,11/11,  1Environment:Special Days,CHRISTMAS,Holiday,InputFile,12/25,  1Environment:Special Days,INDEPENDENCE DAY,Holiday,InputFile,07/04,  1Environment:Special Days,MLK DAY,Holiday,InputFile,01/20,  1Environment:Special Days,PRESIDENTS DAY,Holiday,InputFile,02/17,  1Environment:Special Days,MEMORIAL DAY,Holiday,InputFile,05/26,  1Environment:Special Days,LABOR DAY,Holiday,InputFile,09/01,  1Environment:Special Days,COLUMBUS DAY,Holiday,InputFile,10/13,  1Environment:Special Days,THANKSGIVING,Holiday,InputFile,11/27,  1Environment:WarmupDays,  6
+Environment,RUNPERIOD 1,WeatherFileRunPeriod,01/21/2013,01/22/2013,Monday,2,Use RunPeriod Specified Day,No,No,No,Yes,Yes,Clark and Allen
+Environment:Daylight Saving,Yes,InputFile,03/10,11/03
+Environment:Special Days,NEW YEARS DAY,Holiday,InputFile,01/01,  1Environment:Special Days,VETERANS DAY,Holiday,InputFile,11/11,  1Environment:Special Days,CHRISTMAS,Holiday,InputFile,12/25,  1Environment:Special Days,INDEPENDENCE DAY,Holiday,InputFile,07/04,  1Environment:Special Days,MLK DAY,Holiday,InputFile,01/21,  1Environment:Special Days,PRESIDENTS DAY,Holiday,InputFile,02/18,  1Environment:Special Days,MEMORIAL DAY,Holiday,InputFile,05/27,  1Environment:Special Days,LABOR DAY,Holiday,InputFile,09/02,  1Environment:Special Days,COLUMBUS DAY,Holiday,InputFile,10/14,  1Environment:Special Days,THANKSGIVING,Holiday,InputFile,11/28,  1Environment:WarmupDays,  6
 ! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
- Warmup Convergence Information,CORE_BOTTOM,RunPeriod: RUNPERIOD 1,9.0635766582E-004,1.8511080510E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,TOPFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,1.0670455736E-002,7.5916696919E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,MIDFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,3.1930094426E-003,2.7724784932E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,FIRSTFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,2.7215260862E-003,2.2831454431E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,CORE_MID,RunPeriod: RUNPERIOD 1,8.6608705614E-004,1.8456086567E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,CORE_TOP,RunPeriod: RUNPERIOD 1,4.0196278609E-003,3.1331971487E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_3,RunPeriod: RUNPERIOD 1,1.0713988302E-002,9.5649823495E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_2,RunPeriod: RUNPERIOD 1,3.2635764336E-002,2.0863122381E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_1,RunPeriod: RUNPERIOD 1,2.6101467264E-002,1.7103582692E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_4,RunPeriod: RUNPERIOD 1,3.3202114279E-002,2.1080553699E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_3,RunPeriod: RUNPERIOD 1,1.5686483670E-002,1.1247596073E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_2,RunPeriod: RUNPERIOD 1,2.2659913288E-002,1.8722779427E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_1,RunPeriod: RUNPERIOD 1,2.0246475095E-002,1.5020665402E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_4,RunPeriod: RUNPERIOD 1,2.3807227821E-002,1.9266557703E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_3,RunPeriod: RUNPERIOD 1,1.6552981523E-002,1.1328175746E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_2,RunPeriod: RUNPERIOD 1,2.5639385147E-002,1.9807780777E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_1,RunPeriod: RUNPERIOD 1,2.0824163747E-002,1.5063024569E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_4,RunPeriod: RUNPERIOD 1,2.6016675384E-002,1.9374873028E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CORE_BOTTOM,RunPeriod: RUNPERIOD 1,1.0627400286E-003,1.8555409363E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,TOPFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,1.0294361874E-002,7.6955585224E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,MIDFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,4.1681927249E-003,2.7479990885E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,FIRSTFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,2.9657168836E-003,2.3317952947E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CORE_MID,RunPeriod: RUNPERIOD 1,8.6668059889E-004,1.8529969358E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CORE_TOP,RunPeriod: RUNPERIOD 1,3.3186472446E-003,2.4928208950E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_TOP_ZN_3,RunPeriod: RUNPERIOD 1,7.2398472831E-003,5.7704828563E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_TOP_ZN_2,RunPeriod: RUNPERIOD 1,2.5699382755E-002,2.0027040038E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_TOP_ZN_1,RunPeriod: RUNPERIOD 1,2.3385534433E-002,1.7805392814E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_TOP_ZN_4,RunPeriod: RUNPERIOD 1,2.7620992678E-002,2.1397452430E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_BOT_ZN_3,RunPeriod: RUNPERIOD 1,1.4211545573E-002,1.0375063411E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_BOT_ZN_2,RunPeriod: RUNPERIOD 1,1.7963974012E-002,1.6031239969E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_BOT_ZN_1,RunPeriod: RUNPERIOD 1,1.6606669396E-002,1.2610574784E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_BOT_ZN_4,RunPeriod: RUNPERIOD 1,1.7361661911E-002,1.5431620495E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_MID_ZN_3,RunPeriod: RUNPERIOD 1,1.3716295256E-002,1.0105954969E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_MID_ZN_2,RunPeriod: RUNPERIOD 1,1.8902600751E-002,1.6477356157E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_MID_ZN_1,RunPeriod: RUNPERIOD 1,1.6333597437E-002,1.1920078924E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_MID_ZN_4,RunPeriod: RUNPERIOD 1,1.8889284548E-002,1.6700481521E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
 ! <ConductionFiniteDifference Numerical Parameters>, Starting Relaxation Factor, Final Relaxation Factor
 ConductionFiniteDifference Numerical Parameters, 1.000, 1.000
 ! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims

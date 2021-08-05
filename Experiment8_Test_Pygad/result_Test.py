@@ -75,14 +75,17 @@ def penalty_func(ZMAT,output_DF):
 
 def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
-  cooling_rate, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
+  Heating_rate, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
 
   # utility rate, read from an external file
   uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2  # Summer, workday. Replaced later. 
   
-  alpha = 10**20 ## This value should be adjusted.. 
+  alpha = 10**20 ## 
 
-  total_Cost = - sum([x*uRate[i] for i,x in enumerate(cooling_rate)]) - alpha * penalty_func(ZMAT,output_DF)
+  # Total electricity rate = E_{RadSys_Pump} + E_{Boiler} +E_{Plant pump}
+  PowerConsumption = output_DF.iloc[:,4:].apply(sum, axis = 1)
+
+  total_Cost = - sum([x*uRate[i] for i,x in enumerate(PowerConsumption)]) - alpha * penalty_func(ZMAT,output_DF)
 
   return total_Cost
 
@@ -132,7 +135,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
-  Aval_Status = [int(xi<=12) for xi in X_sp]
+  Aval_Status = [int(xi>=30) for xi in X_sp]
   Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
 
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
@@ -146,19 +149,18 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   # .
   output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
   tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-  cooling_Rate = list(output_DF.iloc[tim_idx+48:end_idx+48,2])  # because of two design days start from 48.
-  ZMAT = list(output_DF.iloc[tim_idx+48:end_idx+48,3])  # because of two design days start from 48.
-
+  ZMAT = list(output_DF.iloc[tim_idx:end_idx,2]) 
+  Heating_Rate = list(output_DF.iloc[tim_idx:end_idx,3])  
 
   ## Step 4. Remove temporary files
   shutil.rmtree(Target_WorkPath)
-  return cooling_Rate,ZMAT,output_DF.iloc[tim_idx+48:end_idx+48,:]
+  return Heating_Rate,ZMAT,output_DF.iloc[tim_idx:end_idx,:]
 
 def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [1716,651] # This is ID for Zone Radiant HVAC Cooling Rate,Zone Mean Air
+  output_idx = [675,1748,1753,1991,2033] # Indices for  ZMAT, heating rate, RadSyste Pump E_Rate(w), Boiler E_Rate, Plant Pump E_rate(w)
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -228,7 +230,7 @@ if __name__ == "__main__":
        12.44610586, 12.736759  , 12.94986873, 12.80770589]
 
     tim = start_time
-    Eplus_FileName = "testModel_v94_2day_V940_CFD_NoDOAS.idf"
+    Eplus_FileName = "MediumOff_NewYork.idf"
 
 
     #prepare hyper parameter

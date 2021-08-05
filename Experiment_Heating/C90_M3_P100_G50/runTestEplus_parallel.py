@@ -84,9 +84,12 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # utility rate, read from an external file
   uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2  # Summer, workday. Replaced later. 
   
-  alpha = 10**20 ## This value should be adjusted.. 
+  alpha = 10**20 ## 
 
-  total_Cost = - sum([x*uRate[i] for i,x in enumerate(Heating_rate)]) - alpha * penalty_func(ZMAT,output_DF)
+  # Total electricity rate = E_{RadSys_Pump} + E_{Boiler} +E_{Plant pump}
+  PowerConsumption = output_DF.iloc[:,4:].apply(sum, axis = 1)
+
+  total_Cost = - sum([x*uRate[i] for i,x in enumerate(PowerConsumption)]) - alpha * penalty_func(ZMAT,output_DF)
 
   return total_Cost
 
@@ -150,9 +153,8 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   # .
   output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
   tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-  Heating_Rate = list(output_DF.iloc[tim_idx:end_idx,2])  # because of two design days start from 48.
-  ZMAT = list(output_DF.iloc[tim_idx:end_idx,3])  # because of two design days start from 48.
-
+  ZMAT = list(output_DF.iloc[tim_idx:end_idx,2]) 
+  Heating_Rate = list(output_DF.iloc[tim_idx:end_idx,3])  
 
   ## Step 4. Remove temporary files
   shutil.rmtree(Target_WorkPath)
@@ -162,7 +164,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [1748,675] # This is ID for Zone Radiant HVAC Heating Rate,Zone Mean Air
+  output_idx = [675,1748,1753,1991,2033] # Indices for  ZMAT, heating rate, RadSyste Pump E_Rate(w), Boiler E_Rate, Plant Pump E_rate(w)
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
