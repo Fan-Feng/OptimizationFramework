@@ -69,11 +69,12 @@ def penalty_func(ZMAT,output_DF):
   SP_list = [15.6]*5+[17.6]+[19.6]+[21]*15+[15.6]*2 # [18,24]
   ThermalComfort_range = 1
 
+  CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(tim)
   residuals = 0
   for i in range(output_DF.shape[0]):
     dtime = output_DF.iloc[i,0]
     hourOfDay = int(dtime.hour)
-    residuals += max(SP_list[hourOfDay]-ThermalComfort_range-ZMAT[i],0)
+    residuals += max(SP_list[HourOfDay]-ThermalComfort_range-ZMAT[i],0)
   
   return residuals
 
@@ -97,7 +98,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
     print(curHour,"PowerCom:",PowerConsumption)
     total_Cost = total_Cost + (uRate[curHour])*PowerConsumption.iloc[i]
 
-  total_Cost = - total_Cost - alpha * penalty_func(ZMAT,output_DF)
+  total_Cost = - total_Cost - alpha * penalty_func(ZMAT,output_DF,tim)
 
   return total_Cost
 
@@ -304,11 +305,12 @@ with MPIPool() as pool:
     ga_instance.run()
     print("Op completed")
     SP_cur = ga_instance.best_solution()[0][0]
+    X_sp_log.append(SP_cur)
     # proceed to next timestep
     tim = tim + pred_horizon['timestep']
     if tim>= final_time:
       break
-    X_sp_log.append(SP_cur)
+    
     
   print("all mpi process join again then")
       
