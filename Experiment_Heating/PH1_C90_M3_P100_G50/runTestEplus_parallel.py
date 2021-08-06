@@ -91,7 +91,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # Total electricity rate = E_{RadSys_Pump} + E_{Boiler} +E_{Plant pump}
   PowerConsumption = output_DF.iloc[:,4:].apply(sum, axis = 1)
   total_Cost = 0
-  CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(start_time)
+  CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(tim)
   for i in range(PH):
     curHour = (HourOfDay + i)%24
     total_Cost = total_Cost + (uRate(curHour))*PowerConsumption[i]
