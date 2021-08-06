@@ -94,7 +94,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(tim)
   for i in range(PH):
     curHour = (HourOfDay + i)%24
-    total_Cost = total_Cost + (uRate(curHour))*PowerConsumption[i]
+    total_Cost = total_Cost + (uRate[curHour])*PowerConsumption[i]
 
   total_Cost = - total_Cost - alpha * penalty_func(ZMAT,output_DF)
 
@@ -264,59 +264,59 @@ def run_Optimization(hyperParam):
 
 class PooledGA(pygad.GA):
 
-    def cal_pop_fitness(self):
-        global pool,hyperParam
-        pop_fitness = pool.starmap(fitness_wrapper, [(individual,i,hyperParam) for i,individual in enumerate(self.population)])
-        #print(pop_fitness)
-        pop_fitness = np.array(pop_fitness)
-        return pop_fitness
+  def cal_pop_fitness(self):
+    global pool,hyperParam
+    pop_fitness = pool.starmap(fitness_wrapper, [(individual,i,hyperParam) for i,individual in enumerate(self.population)])
+    #print(pop_fitness)
+    pop_fitness = np.array(pop_fitness)
+    return pop_fitness
         
 
 # run optimization 
 with MPIPool() as pool:
-    pool.workers_exit() ## Only master process will proceed
-    
-    # simulation setup
-    start_time= 60*60*24*20 
-    final_time= 60*60*24*21
-    Eplus_timestep = 60*3 # 3 min
+  pool.workers_exit() ## Only master process will proceed
+  
+  # simulation setup
+  start_time= 60*60*24*20 
+  final_time= 60*60*24*21
+  Eplus_timestep = 60*3 # 3 min
 
-    # setup for MPC
-    pred_horizon = {"length":1,"timestep":3600}
+  # setup for MPC
+  pred_horizon = {"length":1,"timestep":3600}
 
-    #### run optimization
-    X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
+  #### run optimization
+  X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
 
-    Eplus_FileName = "MediumOff_NewYork.idf"
-
-
-    #prepare hyper parameter
-    hyperParam  ={}
-    hyperParam["CVar_timestep"] =  pred_horizon['timestep'] 
-    hyperParam["PH"] = pred_horizon['length'] 
-    hyperParam["start_time"] = start_time 
-    hyperParam["final_time"] = final_time 
-    hyperParam["Eplus_timestep"] = Eplus_timestep
-    hyperParam["Eplus_FileName"] = Eplus_FileName
-
-    
-    ##
-    tim = start_time
-    while True:
-      #
-      hyperParam["tim"] = tim
-      hyperParam["X_sp_log"] = X_sp_log
-
-      # Do optimization
-      SP_cur = run_Optimization(hyperParam)
-
-      # proceed to next timestep
-      tim = tim + pred_horizon['timestep']
-      if tim>= final_time:
-        break
-      X_sp_log.append(SP_cur)
-      print(X_sp_log)
+  Eplus_FileName = "MediumOff_NewYork.idf"
 
 
-print("all mpi process join again then")
+  #prepare hyper parameter
+  hyperParam  ={}
+  hyperParam["CVar_timestep"] =  pred_horizon['timestep'] 
+  hyperParam["PH"] = pred_horizon['length'] 
+  hyperParam["start_time"] = start_time 
+  hyperParam["final_time"] = final_time 
+  hyperParam["Eplus_timestep"] = Eplus_timestep
+  hyperParam["Eplus_FileName"] = Eplus_FileName
+
+  
+  ##
+  tim = start_time
+  while True:
+    #
+    hyperParam["tim"] = tim
+    hyperParam["X_sp_log"] = X_sp_log
+
+    # Do optimization
+    SP_cur = run_Optimization(hyperParam)
+
+    # proceed to next timestep
+    tim = tim + pred_horizon['timestep']
+    if tim>= final_time:
+      break
+    X_sp_log.append(SP_cur)
+    print(X_sp_log)
+
+
+  print("all mpi process join again then")
       
