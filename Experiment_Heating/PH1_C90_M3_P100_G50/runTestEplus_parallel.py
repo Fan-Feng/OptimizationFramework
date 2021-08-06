@@ -207,15 +207,18 @@ def read_result(filename):
 
   data = pd.DataFrame(data)
   return data
+
 def run_Optimization(hyperParam):
+  ## At each time step, this function will implement an optimization.. \
+
+
   rng = random.default_rng(1234)
   CVar_list = rng.random(pred_horizon['length'])
   CVar_list = [CVar*5+12 for CVar in CVar_list]
 
-
-  ## At each time step, this function will implement an optimization.. \
+  # Parameter for GA 
   num_parents_mating = 4
-  num_genes = len(hyperParam["PH"])
+  num_genes = hyperParam["PH"]
 
   init_range_low = 25
   init_range_high = 50
