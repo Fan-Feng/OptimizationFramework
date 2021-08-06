@@ -70,11 +70,13 @@ def penalty_func(ZMAT,output_DF,tim):
   ThermalComfort_range = 1
 
   CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(tim)
+  if tim >20:
+    print(HourOfDay, ZMAT)
   residuals = 0
   for i in range(output_DF.shape[0]):
     dtime = output_DF.iloc[i,0]
     hourOfDay = int(dtime.hour)
-    residuals += max(SP_list[HourOfDay]-ThermalComfort_range-ZMAT[i],0)
+    residuals += max(SP_list[HourOfDay+i]-ThermalComfort_range-ZMAT[i],0)
   
   return residuals
 
@@ -261,7 +263,7 @@ with MPIPool() as pool:
     hyperParam["X_sp_log"] = X_sp_log
 
     # Do optimization
-    print(X_sp_log,tim)
+    
     #SP_cur = run_Optimization(hyperParam)
 
     ## At each time step, this function will implement an optimization.. \
@@ -275,7 +277,7 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 10
+    num_generations = 5
     sol_per_pop = 49   # Number of individuals
 
     crossover_type = "single_point"
@@ -306,6 +308,7 @@ with MPIPool() as pool:
     print("Op completed")
     SP_cur = ga_instance.best_solution()[0][0]
     X_sp_log.append(SP_cur)
+    print(X_sp_log,tim)
     # proceed to next timestep
     tim = tim + pred_horizon['timestep']
     if tim>= final_time:
