@@ -68,15 +68,13 @@ def penalty_func(ZMAT,output_DF,tim):
   ## This function could be modified in the future if necessary
   SP_list = [15.6]*5+[17.6]+[19.6]+[21]*15+[15.6]*2 # [18,24]
   ThermalComfort_range = 1
-
-  CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(tim)
-  if tim >20:
-    print(HourOfDay, ZMAT)
   residuals = 0
   for i in range(output_DF.shape[0]):
     dtime = output_DF.iloc[i,0]
     hourOfDay = int(dtime.hour)
-    residuals += max(SP_list[HourOfDay+i]-ThermalComfort_range-ZMAT[i],0)
+    if ZMAT[i] <20:
+      print(hourOfDay,SP_list[hourOfDay],ZMAT[i])
+    residuals += max(SP_list[hourOfDay]-ThermalComfort_range-ZMAT[i],0)
   
   return residuals
 
@@ -277,7 +275,7 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 5
+    num_generations = 3
     sol_per_pop = 49   # Number of individuals
 
     crossover_type = "single_point"
