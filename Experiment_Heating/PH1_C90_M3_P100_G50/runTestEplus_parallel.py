@@ -235,7 +235,7 @@ def run_Optimization(hyperParam):
   mutation_type = "random"
   mutation_probability = 0.03
 
-  gene_space = [{'low': 25, 'high': 50}]*24
+  gene_space = [{'low': 25, 'high': 50}]*hyperParam['PH']
 
   hyperParam = hyperParam
 
