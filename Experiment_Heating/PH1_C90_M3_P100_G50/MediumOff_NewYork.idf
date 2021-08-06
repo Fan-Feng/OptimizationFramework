@@ -11933,5 +11933,3 @@ Output:Variable,
     PERI3_TOP_LOTEMP,        !- Key Value
     Zone Radiant HVAC Pump Electricity Rate,  !- Variable Name
     Hourly;                  !- Reporting Frequency
-
-Output:Variable,*,Zone Radiant HVAC Inlet Temperature,hourly; !- HVAC Average [C]
