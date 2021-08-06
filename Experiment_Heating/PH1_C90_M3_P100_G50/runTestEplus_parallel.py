@@ -94,6 +94,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(tim)
   for i in range(PH):
     curHour = (HourOfDay + i)%24
+    print(curHour,"PowerCom",PowerConsumption)
     total_Cost = total_Cost + (uRate[curHour])*PowerConsumption[i]
 
   total_Cost = - total_Cost - alpha * penalty_func(ZMAT,output_DF)
