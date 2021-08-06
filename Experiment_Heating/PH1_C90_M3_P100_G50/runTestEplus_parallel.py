@@ -53,6 +53,15 @@ def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay,SchFileLOC):
       line = line.replace("%SchFile_Loc%",SchFileLOC)
       fp.writelines(line)
   
+def fitness_func(x,solution_idx):
+  # run simulation, this is deprecated. 
+  res = run_prediction(tim,x,[1],X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
+
+  # utility rate
+  uRate = [0.5,0.5,0.6,0.7,1,1]
+
+  total_Cost = sum([x*uRate[i] for i,x in enumerate(res)])
+  return total_Cost
 
 def penalty_func(ZMAT,output_DF):
 
@@ -296,22 +305,14 @@ with MPIPool() as pool:
       hyperParam["X_sp_log"] = X_sp_log
 
       # Do optimization
-      SP_cur = run_prediction(hyperParam)
+      SP_cur = run_Optimization(hyperParam)
 
       # proceed to next timestep
       tim = tim + pred_horizon['timestep']
       if tim>= final_time:
         break
       X_sp_log.append(SP_cur)
-
-
-
-      
-
-    
-
-    print("best_solutions_fitness\n")
-    print(ga_instance.best_solutions_fitness)
+      print(X_sp_log)
 
 
 print("all mpi process join again then")
