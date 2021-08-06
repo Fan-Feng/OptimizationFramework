@@ -165,7 +165,7 @@
 !    Core_ZN_SWH_flow = 3.57511e-06
 ! specify overhang_pf for 1891 codes
 Version,
-    9.5;                     !- Version Identifier
+    9.3;                     !- Version Identifier
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SIMULATIONCONTROL ===========
@@ -175,9 +175,7 @@ SimulationControl,
     Yes,                     !- Do System Sizing Calculation
     Yes,                     !- Do Plant Sizing Calculation
     No,                      !- Run Simulation for Sizing Periods
-    YES,                     !- Run Simulation for Weather File Run Periods
-    No,                      !- Do HVAC Sizing Simulation for Sizing Periods
-    1;                       !- Maximum Number of HVAC Sizing Simulation Passes
+    YES;                     !- Run Simulation for Weather File Run Periods
 
 
 !-   ===========  ALL OBJECTS IN CLASS: BUILDING ===========
@@ -3155,7 +3153,7 @@ Schedule:Compact,
 Schedule:File,
     RADHEATLOWWATERTEMP_Test,!- Name
     Temperature,             !- Schedule Type Limits Name
-    %SchFile_Loc%,           !- File Name
+    RadInletWater_SP_schedule.csv,           !- File Name
     1,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -3165,7 +3163,7 @@ Schedule:File,
 Schedule:File,
     RADHEATHIGHWATERTEMP_Test,  !- Name
     Temperature,             !- Schedule Type Limits Name
-    %SchFile_Loc%,           !- File Name
+    RadInletWater_SP_schedule.csv,           !- File Name
     2,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -3175,7 +3173,7 @@ Schedule:File,
 Schedule:File,
     RADSysAvail_Test,        !- Name
     On/Off,                  !- Schedule Type Limits Name
-    %SchFile_Loc%,           !- File Name
+    RadInletWater_SP_schedule.csv,           !- File Name
     3,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -3636,14 +3634,12 @@ Construction,
 Construction,
     res_roof,                !- Name
     F13 Built-up roofing,    !- Outside Layer
-    Res_Roof_Insulation,     !- Layer 2
-    F08 Metal surface;       !- Layer 3
+    Res_Roof_Insulation;
 
 Construction,
     semiheated_roof,         !- Name
     F13 Built-up roofing,    !- Outside Layer
-    Semiheated_Roof_Insulation,  !- Layer 2
-    F08 Metal surface;       !- Layer 3
+    Semiheated_Roof_Insulation;
 
 Construction,
     nonres_ext_wall,         !- Name
@@ -3706,22 +3702,6 @@ Construction,
     Window_U_0.42_SHGC_0.4,  !- Name
     Glazing Layer;           !- Outside Layer
 
-Construction,
-    Slab Floor with Radiant, !- Name
-    CONCRETE - DRIED SAND AND GRAVEL 4 IN,  !- Outside Layer
-    INS - EXPANDED EXT POLYSTYRENE R12 2 IN,  !- Layer 2
-    GYP1,                    !- Layer 3
-    GYP2,                    !- Layer 4
-    FINISH FLOORING - TILE 1 / 16 IN;  !- Layer 5
-
-Construction,
-    Slab Floor with Radiant Reverse,  !- Name
-    FINISH FLOORING - TILE 1 / 16 IN,  !- Outside Layer
-    GYP2,                    !- Layer 2
-    GYP1,                    !- Layer 3
-    INS - EXPANDED EXT POLYSTYRENE R12 2 IN,  !- Layer 4
-    CONCRETE - DRIED SAND AND GRAVEL 4 IN;  !- Layer 5
-
 
 !-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION:FFACTORGROUNDFLOOR ===========
 
@@ -3756,25 +3736,32 @@ Construction:FfactorGroundFloor,
     0;                       !- PerimeterExposed {m}
 
 
-!-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTIONPROPERTY:INTERNALHEATSOURCE ===========
+!-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION:INTERNALSOURCE ===========
 
-ConstructionProperty:InternalHeatSource,
-    Slab Floor with Radiant Heat Source,  !- Name
-    Slab Floor with Radiant, !- Construction Name
-    4,                       !- Thermal Source Present After Layer Number
+!{- Outside Layer
+Construction:InternalSource,
+    Slab Floor with Radiant, !- Name
+    4,                       !- Source Present After Layer Number
     4,                       !- Temperature Calculation Requested After Layer Number
     1,                       !- Dimensions for the CTF Calculation
     0.1524,                  !- Tube Spacing {m}
-    0.0;                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
+    CONCRETE - DRIED SAND AND GRAVEL 4 IN,  !- Outside Layer
+    INS - EXPANDED EXT POLYSTYRENE R12 2 IN,  !- Layer 2
+    GYP1,                    !- Layer 3
+    GYP2,                    !- Layer 4
+    FINISH FLOORING - TILE 1 / 16 IN;  !- Layer 5
 
-ConstructionProperty:InternalHeatSource,
-    Slab Floor with Radiant  Reverse Heat Source,  !- Name
-    Slab Floor with Radiant Reverse,  !- Construction Name
-    1,                       !- Thermal Source Present After Layer Number
+Construction:InternalSource,
+    Slab Floor with Radiant Reverse,  !- Name
+    1,                       !- Source Present After Layer Number
     1,                       !- Temperature Calculation Requested After Layer Number
     1,                       !- Dimensions for the CTF Calculation
     0.1524,                  !- Tube Spacing {m}
-    0.0;                     !- Two-Dimensional Temperature Calculation Position {dimensionless}
+    FINISH FLOORING - TILE 1 / 16 IN,  !- Outside Layer
+    GYP2,                    !- Layer 2
+    GYP1,                    !- Layer 3
+    INS - EXPANDED EXT POLYSTYRENE R12 2 IN,  !- Layer 4
+    CONCRETE - DRIED SAND AND GRAVEL 4 IN;  !- Layer 5
 
 
 !-   ===========  ALL OBJECTS IN CLASS: GLOBALGEOMETRYRULES ===========
@@ -9187,15 +9174,18 @@ ThermostatSetpoint:DualSetpoint,
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Core_Bot_LoTemp,         !- Name
-    Core_Bot_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Core_bottom,             !- Zone Name
     Core_bot_ZN_5_Floor,     !- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Core_Bot Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Core_Bot Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9208,20 +9198,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Core_Mid_LoTemp,         !- Name
-    Core_Mid_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Core_mid,                !- Zone Name
     Core_mid_ZN_5_Floor,     !- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Core_Mid Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Core_Mid Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9234,20 +9229,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Core_Top_LoTemp,         !- Name
-    Core_Top_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Core_top,                !- Zone Name
     Core_top_ZN_5_Floor,     !- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Core_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Core_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9260,20 +9260,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_Top_LoTemp,        !- Name
-    Peri1_Top_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_top_ZN_1,      !- Zone Name
     Perimeter_top_ZN_1_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     120,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri1_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri1_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9286,20 +9291,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri2_Top_LoTemp,        !- Name
-    Peri2_Top_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_top_ZN_2,      !- Zone Name
     Perimeter_top_ZN_2_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri2_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri2_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9312,20 +9322,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri3_Top_LoTemp,        !- Name
-    Peri3_Top_LoTemp Design Object,  !- Design Object
     RADSysAvail_Test,        !- Availability Schedule Name
     Perimeter_top_ZN_3,      !- Zone Name
     Perimeter_top_ZN_3_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     0.000215245,             !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     60,                      !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri3_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri3_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
@@ -9338,20 +9353,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                     !- Condensation Control Dewpoint Offset {C}
     CalculateFromCircuitLength,  !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri4_Top_LoTemp,        !- Name
-    Peri4_Top_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_top_ZN_4,      !- Zone Name
     Perimeter_top_ZN_4_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri4_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri4_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9364,20 +9384,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_mid_LoTemp,        !- Name
-    Peri1_mid_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_mid_ZN_1,      !- Zone Name
     Perimeter_mid_ZN_1_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri1_Mid Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri1_Mid Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9390,20 +9415,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri2_mid_LoTemp,        !- Name
-    Peri2_mid_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_mid_ZN_2,      !- Zone Name
     Perimeter_mid_ZN_2_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri2_Mid Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri2_Mid Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9416,20 +9446,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri3_Mid_LoTemp,        !- Name
-    Peri3_Mid_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_mid_ZN_3,      !- Zone Name
     Perimeter_mid_ZN_3_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri3_Mid Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri3_Mid Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9442,20 +9477,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri4_Mid_LoTemp,        !- Name
-    Peri4_Mid_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_mid_ZN_4,      !- Zone Name
     Perimeter_mid_ZN_4_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri4_Mid Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri4_Mid Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9468,20 +9508,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_Bot_LoTemp,        !- Name
-    Peri1_Bot_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_bot_ZN_1,      !- Zone Name
     Perimeter_bot_ZN_1_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri1_Bot Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri1_Bot Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9494,20 +9539,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri2_Bot_LoTemp,        !- Name
-    Peri2_Bot_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_bot_ZN_2,      !- Zone Name
     Perimeter_bot_ZN_2_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri2_Bot Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri2_Bot Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9520,20 +9570,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri3_Bot_LoTemp,        !- Name
-    Peri3_Bot_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_bot_ZN_3,      !- Zone Name
     Perimeter_bot_ZN_3_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri3_Bot Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri3_Bot Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9546,20 +9601,25 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri4_Bot_LoTemp,        !- Name
-    Peri4_Bot_LoTemp Design Object,  !- Design Object
     ALWAYS_ON,               !- Availability Schedule Name
     Perimeter_bot_ZN_4,      !- Zone Name
     Perimeter_bot_ZN_4_Floor,!- Surface Name or Radiant Surface Group Name
+    0.013,                   !- Hydronic Tubing Inside Diameter {m}
     ,                        !- Hydronic Tubing Length {m}
+    MeanAirTemperature,      !- Temperature Control Type
     autosize,                !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
+    0.9,                     !- Motor Efficiency
+    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri4_Bot Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri4_Bot Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
@@ -9572,206 +9632,10 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
     RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
     RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
+    Off,                     !- Condensation Control Type
+    1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
     106.7;                   !- Circuit Length {m}
-
-
-!-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:LOWTEMPERATURERADIANT:CONSTANTFLOW:DESIGN ===========
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Core_Bot_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Core_Mid_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Core_Top_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri1_Top_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri2_Top_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri3_Top_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri4_Top_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri1_mid_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri2_mid_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri3_Mid_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri4_Mid_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri1_Bot_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri2_Bot_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri3_Bot_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
-
-ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design,
-    Peri4_Bot_LoTemp Design Object,  !- Name
-    ConvectionOnly,          !- Fluid to Radiant Surface Heat Transfer Model
-    0.013,                   !- Hydronic Tubing Inside Diameter {m}
-    0.016,                   !- Hydronic Tubing Outside Diameter {m}
-    0.35,                    !- Hydronic Tubing Conductivity {W/m-K}
-    MeanAirTemperature,      !- Temperature Control Type
-    0.8,                     !- Running Mean Outdoor Dry-Bulb Temperature Weighting Factor
-    0.9,                     !- Motor Efficiency
-    ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
-    Off,                     !- Condensation Control Type
-    1;                       !- Condensation Control Dewpoint Offset {C}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: AIRTERMINAL:SINGLEDUCT:VAV:NOREHEAT ===========
@@ -11921,17 +11785,16 @@ Output:Variable,
 
 Output:Variable,
     *,                       !- Key Value
-    Boiler Electricity Rate, !- Variable Name
+    Boiler Electric Power, !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 Output:Variable,
     HOT WATER LOOP HW SUPPLY PUMP2,  !- Key Value
-    Pump Electricity Rate,   !- Variable Name
+    Pump Electric Power,   !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 Output:Variable,
     PERI3_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Pump Electricity Rate,  !- Variable Name
+    Zone Radiant HVAC Pump Electric Power,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-Output:Variable,*,Zone Radiant HVAC Inlet Temperature,hourly; !- HVAC Average [C]
