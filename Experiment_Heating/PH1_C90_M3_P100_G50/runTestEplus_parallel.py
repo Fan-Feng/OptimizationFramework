@@ -226,7 +226,7 @@ def run_Optimization(hyperParam):
   keep_parents = 1
 
   # Optimization algorithm setting
-  num_generations = 50
+  num_generations = 10
   sol_per_pop = 49   # Number of individuals
 
   crossover_type = "single_point"
@@ -308,6 +308,7 @@ with MPIPool() as pool:
     hyperParam["X_sp_log"] = X_sp_log
 
     # Do optimization
+    print(X_sp_log,tim)
     SP_cur = run_Optimization(hyperParam)
 
     # proceed to next timestep
@@ -315,7 +316,8 @@ with MPIPool() as pool:
     if tim>= final_time:
       break
     X_sp_log.append(SP_cur)
-    print(X_sp_log)
+    
+
 
 
   print("all mpi process join again then")
