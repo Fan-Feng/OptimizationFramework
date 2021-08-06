@@ -210,56 +210,7 @@ def read_result(filename):
   return data
 
 def run_Optimization(hyperParam):
-  ## At each time step, this function will implement an optimization.. \
 
-
-  rng = random.default_rng(1234)
-  CVar_list = rng.random(pred_horizon['length'])
-  CVar_list = [CVar*5+12 for CVar in CVar_list]
-
-  # Parameter for GA 
-  num_parents_mating = 4
-  num_genes = hyperParam["PH"]
-
-  init_range_low = 25
-  init_range_high = 50
-  parent_selection_type = "sss"
-  keep_parents = 1
-
-  # Optimization algorithm setting
-  num_generations = 10
-  sol_per_pop = 49   # Number of individuals
-
-  crossover_type = "single_point"
-  crossover_probability = 0.9
-
-  mutation_type = "random"
-  mutation_probability = 0.03
-
-  gene_space = [{'low': 25, 'high': 50}]*hyperParam['PH']
-
-  hyperParam = hyperParam
-
-  ga_instance = PooledGA(num_generations=num_generations,
-                  num_parents_mating=num_parents_mating,
-                  fitness_func=fitness_func, # Actually this is not used.
-                  sol_per_pop=sol_per_pop,
-                  num_genes=num_genes,
-                  init_range_low=init_range_low,
-                  init_range_high=init_range_high,
-                  parent_selection_type=parent_selection_type,
-                  keep_parents=keep_parents,
-                  crossover_type=crossover_type,
-                  crossover_probability = crossover_probability,
-                  mutation_type=mutation_type,
-                  mutation_probability = mutation_probability,
-                  gene_space = gene_space
-                  )
-  print("Start Optimization")
-  ga_instance.run()
-  print("Op completed")
-
-  print(ga_instance.best_solution())  
 
   return ga_instance.best_solution()[0][0]
 
@@ -310,16 +261,54 @@ with MPIPool() as pool:
 
     # Do optimization
     print(X_sp_log,tim)
-    SP_cur = run_Optimization(hyperParam)
+    #SP_cur = run_Optimization(hyperParam)
 
+    ## At each time step, this function will implement an optimization.. \
+    # Parameter for GA 
+    num_parents_mating = 4
+    num_genes = hyperParam["PH"]
+
+    init_range_low = 25
+    init_range_high = 50
+    parent_selection_type = "sss"
+    keep_parents = 1
+
+    # Optimization algorithm setting
+    num_generations = 10
+    sol_per_pop = 49   # Number of individuals
+
+    crossover_type = "single_point"
+    crossover_probability = 0.9
+
+    mutation_type = "random"
+    mutation_probability = 0.03
+
+    gene_space = [{'low': 25, 'high': 50}]*hyperParam['PH']
+
+    ga_instance = PooledGA(num_generations=num_generations,
+                    num_parents_mating=num_parents_mating,
+                    fitness_func=fitness_func, # Actually this is not used.
+                    sol_per_pop=sol_per_pop,
+                    num_genes=num_genes,
+                    init_range_low=init_range_low,
+                    init_range_high=init_range_high,
+                    parent_selection_type=parent_selection_type,
+                    keep_parents=keep_parents,
+                    crossover_type=crossover_type,
+                    crossover_probability = crossover_probability,
+                    mutation_type=mutation_type,
+                    mutation_probability = mutation_probability,
+                    gene_space = gene_space
+                    )
+    print("Start Optimization")
+    ga_instance.run()
+    print("Op completed")
+    SP_cur = ga_instance.best_solution()[0][0]
     # proceed to next timestep
     tim = tim + pred_horizon['timestep']
     if tim>= final_time:
       break
     X_sp_log.append(SP_cur)
     
-
-
-
   print("all mpi process join again then")
       

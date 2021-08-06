@@ -227,7 +227,7 @@ def run_Optimization(hyperParam):
   keep_parents = 1
 
   # Optimization algorithm setting
-  num_generations = 10
+  num_generations = 50
   sol_per_pop = 49   # Number of individuals
 
   crossover_type = "single_point"
