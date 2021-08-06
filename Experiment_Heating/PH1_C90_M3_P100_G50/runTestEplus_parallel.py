@@ -63,7 +63,7 @@ def fitness_func(x,solution_idx):
   total_Cost = sum([x*uRate[i] for i,x in enumerate(res)])
   return total_Cost
 
-def penalty_func(ZMAT,output_DF):
+def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
   SP_list = [15.6]*5+[17.6]+[19.6]+[21]*15+[15.6]*2 # [18,24]
@@ -95,7 +95,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(tim)
   for i in range(PH):
     curHour = (HourOfDay + i)%24
-    print(curHour,"PowerCom:",PowerConsumption)
+    #print(curHour,"PowerCom:",PowerConsumption)
     total_Cost = total_Cost + (uRate[curHour])*PowerConsumption.iloc[i]
 
   total_Cost = - total_Cost - alpha * penalty_func(ZMAT,output_DF,tim)
