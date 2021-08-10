@@ -73,6 +73,8 @@ def penalty_func(ZMAT,output_DF):
   for i in range(output_DF.shape[0]):
     dtime = output_DF.iloc[i,0]
     hourOfDay = int(dtime.hour)
+    if SP_list[hourOfDay] > 19:
+      print(hourOfDay,output_DF)
     residuals += max(SP_list[hourOfDay]-ThermalComfort_range-ZMAT[i],0)
   
   return residuals
