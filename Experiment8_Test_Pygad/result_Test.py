@@ -124,7 +124,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   os.makedirs(Target_WorkPath)
 
-  startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time)
+  startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time-86400)
   endMon,endDay = convert_NumOfSec_To_MonAndDay(final_time)
   modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
@@ -149,12 +149,12 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   # .
   output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
   tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-  ZMAT = list(output_DF.iloc[tim_idx:end_idx,2]) 
-  Heating_Rate = list(output_DF.iloc[tim_idx:end_idx,3])  
+  ZMAT = list(output_DF.iloc[tim_idx+24:end_idx+24,2]) 
+  Heating_Rate = list(output_DF.iloc[tim_idx+24:end_idx+24,3])  
 
   ## Step 4. Remove temporary files
   shutil.rmtree(Target_WorkPath)
-  return Heating_Rate,ZMAT,output_DF.iloc[tim_idx:end_idx,:]
+  return Heating_Rate,ZMAT,output_DF.iloc[tim_idx+24:end_idx+24,:]
 
 def read_result(filename):
   import datetime
@@ -211,9 +211,9 @@ class PooledGA(pygad.GA):
 if __name__ == "__main__":
     
     # simulation setup
-    start_time= 60*60*24*181 
-    final_time= 60*60*24*188
-    Eplus_timestep = 60
+    start_time= 60*60*24*20 
+    final_time= 60*60*24*22
+    Eplus_timestep = 60*3
 
     # setup for MPC
     pred_horizon = {"length":24,"timestep":3600}
@@ -223,11 +223,7 @@ if __name__ == "__main__":
     CVar_timestep = pred_horizon['timestep']
 
     rng = random.default_rng(1234)
-    CVar_list =[11.076515  , 10.97659639, 12.4786118 , 11.78287937, 12.90922044,
-       12.84534838, 12.45437773, 12.13824483, 12.61101093, 11.32841373,
-       12.74163769, 12.05754239, 12.05992233, 12.7918644 , 12.70712473,
-       12.02976693, 12.04667449, 12.69289392, 12.84652153, 12.86646743,
-       12.44610586, 12.736759  , 12.94986873, 12.80770589]
+    CVar_list =[26.56866004235357, 26.1142749699519, 25.128681727002625, 28.29020814430932, 27.22280451951607, 26.96770343089291, 26.61815253714335, 45.88750287271675, 25.46692659692371, 27.229118625170788, 26.55860911601132, 26.6783123932435, 25.61692958507151, 29.46345937420333, 25.00788340528842, 27.392466643254977, 27.137976172041785, 30.071710952874177, 30.895022396373864, 30.416056538164195, 30.075900088844556, 34.36243086990126, 28.097457409436867, 28.65938046698191]
 
     tim = start_time
     Eplus_FileName = "MediumOff_NewYork.idf"

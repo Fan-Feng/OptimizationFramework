@@ -73,7 +73,7 @@ def penalty_func(ZMAT,output_DF,tim):
     dtime = output_DF.iloc[i,0]
     hourOfDay = int(dtime.hour)
     if SP_list[hourOfDay] >20:
-      print(hourOfDay,SP_list[hourOfDay],ZMAT[i])
+      a=0
     residuals += max(SP_list[hourOfDay]-ThermalComfort_range-ZMAT[i],0)
   
   return residuals
@@ -137,7 +137,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   os.makedirs(Target_WorkPath)
 
-  startMon,startDay,HourofDay = convert_NumOfSec_To_MonAndDay(start_time)
+  startMon,startDay,HourofDay = convert_NumOfSec_To_MonAndDay(start_time-86400)  # Add one day before the start time as warmup day.
   endMon,endDay,HourofDay = convert_NumOfSec_To_MonAndDay(final_time)
   modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
@@ -161,12 +161,12 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   ## Step 3. After completion, retrieve results
   output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
   tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-  ZMAT = list(output_DF.iloc[tim_idx:end_idx,2]) 
-  Heating_Rate = list(output_DF.iloc[tim_idx:end_idx,3])  
+  ZMAT = list(output_DF.iloc[tim_idx+24:end_idx+24,2]) 
+  Heating_Rate = list(output_DF.iloc[tim_idx+24:end_idx+24,3])   # One warmup day
 
   ## Step 4. Remove temporary files
   shutil.rmtree(Target_WorkPath)
-  return Heating_Rate,ZMAT,output_DF.iloc[tim_idx:end_idx,:]
+  return Heating_Rate,ZMAT,output_DF.iloc[tim_idx+24:end_idx+24,:]
 
 def read_result(filename):
   import datetime
@@ -209,11 +209,6 @@ def read_result(filename):
 
   data = pd.DataFrame(data)
   return data
-
-def run_Optimization(hyperParam):
-
-
-  return ga_instance.best_solution()[0][0]
 
 class PooledGA(pygad.GA):
 
@@ -275,7 +270,7 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 10
+    num_generations = 3
     sol_per_pop = 49   # Number of individuals
 
     crossover_type = "single_point"

@@ -121,7 +121,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   os.makedirs(Target_WorkPath)
 
-  startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time)
+  startMon,startDay = convert_NumOfSec_To_MonAndDay(start_time-86400)
   endMon,endDay = convert_NumOfSec_To_MonAndDay(final_time)
   modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
@@ -146,19 +146,19 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   # .
   output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
   tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-  Heating_Rate = list(output_DF.iloc[tim_idx:end_idx,2])  #
-  ZMAT = list(output_DF.iloc[tim_idx:end_idx,3])  # because of two design days start from 48.
+  Heating_Rate = list(output_DF.iloc[tim_idx+24:end_idx+24,2])  #
+  ZMAT = list(output_DF.iloc[tim_idx+24:end_idx+24,3])  # because of two design days start from 48.
 
 
   ## Step 4. Remove temporary files
   shutil.rmtree(Target_WorkPath)
-  return Heating_Rate,ZMAT,output_DF.iloc[tim_idx+48:end_idx+48,:]
+  return Heating_Rate,ZMAT,output_DF.iloc[tim_idx+24:end_idx+24,:]
 
 def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [1748,675] # This is ID for Zone Radiant HVAC Heating Rate,Zone Mean Air
+  output_idx = [675,1748,1753,1991,2033] # Indices for  ZMAT, heating rate, RadSyste Pump E_Rate(w), Boiler E_Rate, Plant Pump E_rate(w)
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:

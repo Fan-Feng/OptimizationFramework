@@ -307,11 +307,11 @@ SizingPeriod:DesignDay,
 
 RunPeriod,
     RUNPERIOD 1,             !- Name
-    %BeginMon%,              !- Begin Month
-    %BeginDay%,              !- Begin Day of Month
+    1,              !- Begin Month
+    20,              !- Begin Day of Month
     ,                        !- Begin Year
-    %EndMon%,                !- End Month
-    %EndDay%,                !- End Day of Month
+    1,                !- End Month
+    22,                !- End Day of Month
     ,                        !- End Year
     Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
@@ -3155,7 +3155,7 @@ Schedule:Compact,
 Schedule:File,
     RADHEATLOWWATERTEMP_Test,!- Name
     Temperature,             !- Schedule Type Limits Name
-    %SchFile_Loc%,           !- File Name
+    C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad//Model_T480.0_1//RadInletWater_SP_schedule.csv,  !- File Name
     1,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -3165,7 +3165,7 @@ Schedule:File,
 Schedule:File,
     RADHEATHIGHWATERTEMP_Test,  !- Name
     Temperature,             !- Schedule Type Limits Name
-    %SchFile_Loc%,           !- File Name
+    C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad//Model_T480.0_1//RadInletWater_SP_schedule.csv,  !- File Name
     2,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -3175,7 +3175,7 @@ Schedule:File,
 Schedule:File,
     RADSysAvail_Test,        !- Name
     On/Off,                  !- Schedule Type Limits Name
-    %SchFile_Loc%,           !- File Name
+    C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment8_Test_Pygad//Model_T480.0_1//RadInletWater_SP_schedule.csv,  !- File Name
     3,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -11933,3 +11933,4 @@ Output:Variable,
     PERI3_TOP_LOTEMP,        !- Key Value
     Zone Radiant HVAC Pump Electricity Rate,  !- Variable Name
     Hourly;                  !- Reporting Frequency
+
