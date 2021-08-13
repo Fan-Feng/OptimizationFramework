@@ -80,26 +80,26 @@ def penalty_func(ZMAT,output_DF,tim):
 
 def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
-  Heating_rate, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
-
+  Sim_Status,Heating_rate, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
   # utility rate, read from an external file
   uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2  # Summer, workday. Replaced later. 
   
   alpha = 10**20 ## 
+  if Sim_Status:
+    tim = hyperParam["tim"]
+    PH = hyperParam["PH"]
+    # Total electricity rate = E_{RadSys_Pump} + E_{Boiler} +E_{Plant pump}
+    PowerConsumption = output_DF.iloc[:,4:].apply(sum, axis = 1)
+    total_Cost = 0
+    CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(tim)
+    for i in range(PH):
+      curHour = (HourOfDay + i)%24
+      #print(curHour,"PowerCom:",PowerConsumption)
+      total_Cost = total_Cost + (uRate[curHour])*PowerConsumption.iloc[i]
 
-  tim = hyperParam["tim"]
-  PH = hyperParam["PH"]
-  # Total electricity rate = E_{RadSys_Pump} + E_{Boiler} +E_{Plant pump}
-  PowerConsumption = output_DF.iloc[:,4:].apply(sum, axis = 1)
-  total_Cost = 0
-  CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(tim)
-  for i in range(PH):
-    curHour = (HourOfDay + i)%24
-    #print(curHour,"PowerCom:",PowerConsumption)
-    total_Cost = total_Cost + (uRate[curHour])*PowerConsumption.iloc[i]
-
-  total_Cost = - total_Cost - alpha * penalty_func(ZMAT,output_DF,tim)
-
+    total_Cost = - total_Cost - alpha * penalty_func(ZMAT,output_DF,tim)
+  else:
+    total_Cost = -alpha
   return total_Cost
 
 def run_prediction(CVar_list, solution_idx,hyperParam):
@@ -156,17 +156,39 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   ## Step 2. Run EnergyPlus model
    #srun --time 30 --mem-per-cpu 2048 -n 1 energyplus -w USA_CO_Golden-NREL.724666_TMY3.epw 1ZoneUncontrolled.idf
   argument = ["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]
+  print("============EPlus Sim Start==================/n")
   sp.call(argument)
+  print("============EPlus Sim End====================/n")
   
   ## Step 3. After completion, retrieve results
-  output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
-  tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-  ZMAT = list(output_DF.iloc[tim_idx+24:end_idx+24,2]) 
-  Heating_Rate = list(output_DF.iloc[tim_idx+24:end_idx+24,3])   # One warmup day
+  Sim_Status = check_SimulationStatus(Target_WorkPath+"\\" + "eplusout.err")
+  print(Sim_Status)
+  if Sim_Status:
+    output_DF = read_result(Target_WorkPath+"\\" + "eplusout.eso")
+    tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
+    ZMAT = list(output_DF.iloc[tim_idx+24:end_idx+24,2]) 
+    Heating_Rate = list(output_DF.iloc[tim_idx+24:end_idx+24,3])   # One warmup day
 
-  ## Step 4. Remove temporary files
-  shutil.rmtree(Target_WorkPath)
-  return Heating_Rate,ZMAT,output_DF.iloc[tim_idx+24:end_idx+24,:]
+    ## Step 4. Remove temporary files
+    shutil.rmtree(Target_WorkPath)
+    return Sim_Status, Heating_Rate,ZMAT,output_DF.iloc[tim_idx+24:end_idx+24,:]
+  else:
+
+    output_DF, ZMAT, Heating_Rate = -1,-1,-1
+    ## Step 4. Remove temporary files
+    shutil.rmtree(Target_WorkPath)
+    return Sim_Status, Heating_Rate,ZMAT,output_DF
+
+def check_SimulationStatus(fileName):
+  with open(fileName,'r') as fp:
+    lines = fp.readlines()
+    LastLine = lines[-1]
+    print(LastLine)
+  if LastLine.find('Successfully')>-1:
+    Sim_Status = True
+  else:
+    Sim_Status = False
+  return Sim_Status
 
 def read_result(filename):
   import datetime
@@ -277,7 +299,7 @@ with MPIPool() as pool:
     crossover_probability = 0.9
 
     mutation_type = "random"
-    mutation_probability = 0.03
+    mutation_probability = 0.2
 
     gene_space = [{'low': 25, 'high': 50}]*hyperParam['PH']
 
