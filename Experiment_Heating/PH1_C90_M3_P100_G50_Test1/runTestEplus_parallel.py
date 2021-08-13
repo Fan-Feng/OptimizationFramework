@@ -233,7 +233,7 @@ with MPIPool() as pool:
   pred_horizon = {"length":1,"timestep":3600}
 
   #### run optimization
-  X_sp_log = [25.98205638,25.34427404,26.68441256,29.27676888,27.11210878,27.69670572,28.55949938,41.83445648,39.0887736,45.00319274]  # This trend variable is used to store all setpoints from start_time 
+  X_sp_log = [25.98205638,25.34427404,26.68441256,29.27676888,27.11210878,27.69670572,28.55949938,41.83445648,39.0887736]  # This trend variable is used to store all setpoints from start_time 
 
 
   Eplus_FileName = "MediumOff_NewYork.idf"
@@ -250,7 +250,7 @@ with MPIPool() as pool:
 
   
   ##
-  tim = start_time+3600*10
+  tim = start_time+3600*9
 
   hyperParam["tim"] = tim
   hyperParam["X_sp_log"] = X_sp_log
