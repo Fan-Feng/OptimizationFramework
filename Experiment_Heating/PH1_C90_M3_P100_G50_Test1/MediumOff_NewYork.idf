@@ -9321,11 +9321,11 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADSysAvail_Test,        !- Availability Schedule Name
     Perimeter_top_ZN_3,      !- Zone Name
     Perimeter_top_ZN_3_Floor,!- Surface Name or Radiant Surface Group Name
-    ,                        !- Hydronic Tubing Length {m}
-    0.000215245,             !- Rated Flow Rate {m3/s}
+    1360.5,                  !- Hydronic Tubing Length {m}
+    0.000405245,             !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
-    60,                      !- Rated Power Consumption {W}
+    85,                      !- Rated Power Consumption {W}
     Peri3_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri3_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
     RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
@@ -11933,3 +11933,4 @@ Output:Variable,
     PERI3_TOP_LOTEMP,        !- Key Value
     Zone Radiant HVAC Pump Electricity Rate,  !- Variable Name
     Hourly;                  !- Reporting Frequency
+
