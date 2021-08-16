@@ -161,10 +161,10 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   print("============EPlus Sim End====================/n")
   
   ## Step 3. After completion, retrieve results
-  Sim_Status = check_SimulationStatus(Target_WorkPath+"\\" + "eplusout.err")
+  Sim_Status = check_SimulationStatus(Target_WorkPath+"//" + "eplusout.err")
   print(Sim_Status)
   if Sim_Status:
-    output_DF = read_result(Target_WorkPath+"\\" + "eplusout.eso")
+    output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
     tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
     ZMAT = list(output_DF.iloc[tim_idx+24:end_idx+24,2]) 
     Heating_Rate = list(output_DF.iloc[tim_idx+24:end_idx+24,3])   # One warmup day
