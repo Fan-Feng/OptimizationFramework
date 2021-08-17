@@ -63,44 +63,43 @@ def fitness_func(x,solution_idx):
   total_Cost = sum([x*uRate[i] for i,x in enumerate(res)])
   return total_Cost
 
-def penalty_func(ZMAT,output_DF):
+def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
   SP_list = [15.6]*5+[17.6]+[19.6]+[21]*15+[15.6]*2 # [18,24]
   ThermalComfort_range = 1
-
   residuals = 0
   for i in range(output_DF.shape[0]):
     dtime = output_DF.iloc[i,0]
     hourOfDay = int(dtime.hour)
-    if SP_list[hourOfDay] > 19:
-      print(hourOfDay,output_DF)
+    if SP_list[hourOfDay] >20:
+      a=0
     residuals += max(SP_list[hourOfDay]-ThermalComfort_range-ZMAT[i],0)
   
   return residuals
 
 def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
-  Heating_rate, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
-
+  Sim_Status,Heating_rate, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
   # utility rate, read from an external file
   uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2  # Summer, workday. Replaced later. 
   
   alpha = 10**20 ## 
+  if Sim_Status:
+    tim = hyperParam["tim"]
+    PH = hyperParam["PH"]
+    # Total electricity rate = E_{RadSys_Pump} + E_{Boiler} +E_{Plant pump}
+    PowerConsumption = output_DF.iloc[:,4:].apply(sum, axis = 1)
+    total_Cost = 0
+    CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(tim)
+    for i in range(PH):
+      curHour = (HourOfDay + i)%24
+      #print(curHour,"PowerCom:",PowerConsumption)
+      total_Cost = total_Cost + (uRate[curHour])*PowerConsumption.iloc[i]
 
-  tim = hyperParam["tim"]
-  PH = hyperParam["PH"]
-  # Total electricity rate = E_{RadSys_Pump} + E_{Boiler} +E_{Plant pump}
-  PowerConsumption = output_DF.iloc[:,4:].apply(sum, axis = 1)
-  total_Cost = 0
-  CurMon,CurDay,HourOfDay = convert_NumOfSec_To_MonAndDay(tim)
-  for i in range(PH):
-    curHour = (HourOfDay + i)%24
-    print(curHour,"PowerCom:",PowerConsumption)
-    total_Cost = total_Cost + (uRate[curHour])*PowerConsumption.iloc[i]
-
-  total_Cost = - total_Cost - alpha * penalty_func(ZMAT,output_DF)
-
+    total_Cost = - total_Cost - alpha * penalty_func(ZMAT,output_DF,tim)
+  else:
+    total_Cost = -alpha
   return total_Cost
 
 def run_prediction(CVar_list, solution_idx,hyperParam):
@@ -138,7 +137,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   os.makedirs(Target_WorkPath)
 
-  startMon,startDay,HourofDay = convert_NumOfSec_To_MonAndDay(start_time)
+  startMon,startDay,HourofDay = convert_NumOfSec_To_MonAndDay(start_time-86400)  # Add one day before the start time as warmup day.
   endMon,endDay,HourofDay = convert_NumOfSec_To_MonAndDay(final_time)
   modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
@@ -157,17 +156,39 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   ## Step 2. Run EnergyPlus model
    #srun --time 30 --mem-per-cpu 2048 -n 1 energyplus -w USA_CO_Golden-NREL.724666_TMY3.epw 1ZoneUncontrolled.idf
   argument = ["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]
+  print("============EPlus Sim Start==================/n")
   sp.call(argument)
+  print("============EPlus Sim End====================/n")
   
   ## Step 3. After completion, retrieve results
-  output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
-  tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-  ZMAT = list(output_DF.iloc[tim_idx:end_idx,2]) 
-  Heating_Rate = list(output_DF.iloc[tim_idx:end_idx,3])  
+  Sim_Status = check_SimulationStatus(Target_WorkPath+"//" + "eplusout.err")
+  print(Sim_Status)
+  if Sim_Status:
+    output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
+    tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
+    ZMAT = list(output_DF.iloc[tim_idx+24:end_idx+24,2]) 
+    Heating_Rate = list(output_DF.iloc[tim_idx+24:end_idx+24,3])   # One warmup day
 
-  ## Step 4. Remove temporary files
-  shutil.rmtree(Target_WorkPath)
-  return Heating_Rate,ZMAT,output_DF.iloc[tim_idx:end_idx,:]
+    ## Step 4. Remove temporary files
+    shutil.rmtree(Target_WorkPath)
+    return Sim_Status, Heating_Rate,ZMAT,output_DF.iloc[tim_idx+24:end_idx+24,:]
+  else:
+
+    output_DF, ZMAT, Heating_Rate = -1,-1,-1
+    ## Step 4. Remove temporary files
+    shutil.rmtree(Target_WorkPath)
+    return Sim_Status, Heating_Rate,ZMAT,output_DF
+
+def check_SimulationStatus(fileName):
+  with open(fileName,'r') as fp:
+    lines = fp.readlines()
+    LastLine = lines[-1]
+    print(LastLine)
+  if LastLine.find('Successfully')>-1:
+    Sim_Status = True
+  else:
+    Sim_Status = False
+  return Sim_Status
 
 def read_result(filename):
   import datetime
@@ -210,60 +231,6 @@ def read_result(filename):
 
   data = pd.DataFrame(data)
   return data
-
-def run_Optimization(hyperParam):
-  ## At each time step, this function will implement an optimization.. \
-
-
-  rng = random.default_rng(1234)
-  CVar_list = rng.random(pred_horizon['length'])
-  CVar_list = [CVar*5+12 for CVar in CVar_list]
-
-  # Parameter for GA 
-  num_parents_mating = 4
-  num_genes = hyperParam["PH"]
-
-  init_range_low = 25
-  init_range_high = 50
-  parent_selection_type = "sss"
-  keep_parents = 1
-
-  # Optimization algorithm setting
-  num_generations = 50
-  sol_per_pop = 49   # Number of individuals
-
-  crossover_type = "single_point"
-  crossover_probability = 0.9
-
-  mutation_type = "random"
-  mutation_probability = 0.03
-
-  gene_space = [{'low': 25, 'high': 50}]*hyperParam['PH']
-
-  hyperParam = hyperParam
-
-  ga_instance = PooledGA(num_generations=num_generations,
-                  num_parents_mating=num_parents_mating,
-                  fitness_func=fitness_func, # Actually this is not used.
-                  sol_per_pop=sol_per_pop,
-                  num_genes=num_genes,
-                  init_range_low=init_range_low,
-                  init_range_high=init_range_high,
-                  parent_selection_type=parent_selection_type,
-                  keep_parents=keep_parents,
-                  crossover_type=crossover_type,
-                  crossover_probability = crossover_probability,
-                  mutation_type=mutation_type,
-                  mutation_probability = mutation_probability,
-                  gene_space = gene_space
-                  )
-  print("Start Optimization")
-  ga_instance.run()
-  print("Op completed")
-
-  print(ga_instance.best_solution())  
-
-  return ga_instance.best_solution()[0][0]
 
 class PooledGA(pygad.GA):
 
@@ -311,17 +278,57 @@ with MPIPool() as pool:
     hyperParam["X_sp_log"] = X_sp_log
 
     # Do optimization
-    print(X_sp_log,tim)
-    SP_cur = run_Optimization(hyperParam)
+    
+    #SP_cur = run_Optimization(hyperParam)
 
+    ## At each time step, this function will implement an optimization.. \
+    # Parameter for GA 
+    num_parents_mating = 4
+    num_genes = hyperParam["PH"]
+
+    init_range_low = 25
+    init_range_high = 50
+    parent_selection_type = "sss"
+    keep_parents = 1
+
+    # Optimization algorithm setting
+    num_generations = 10
+    sol_per_pop = 49   # Number of individuals
+
+    crossover_type = "single_point"
+    crossover_probability = 0.9
+
+    mutation_type = "random"
+    mutation_probability = 0.2
+
+    gene_space = [{'low': 25, 'high': 50}]*hyperParam['PH']
+
+    ga_instance = PooledGA(num_generations=num_generations,
+                    num_parents_mating=num_parents_mating,
+                    fitness_func=fitness_func, # Actually this is not used.
+                    sol_per_pop=sol_per_pop,
+                    num_genes=num_genes,
+                    init_range_low=init_range_low,
+                    init_range_high=init_range_high,
+                    parent_selection_type=parent_selection_type,
+                    keep_parents=keep_parents,
+                    crossover_type=crossover_type,
+                    crossover_probability = crossover_probability,
+                    mutation_type=mutation_type,
+                    mutation_probability = mutation_probability,
+                    gene_space = gene_space
+                    )
+    print("Start Optimization")
+    ga_instance.run()
+    print("Op completed")
+    SP_cur = ga_instance.best_solution()[0][0]
+    X_sp_log.append(SP_cur)
+    print(X_sp_log,tim)
     # proceed to next timestep
     tim = tim + pred_horizon['timestep']
     if tim>= final_time:
       break
-    X_sp_log.append(SP_cur)
     
-
-
-
+    
   print("all mpi process join again then")
       
