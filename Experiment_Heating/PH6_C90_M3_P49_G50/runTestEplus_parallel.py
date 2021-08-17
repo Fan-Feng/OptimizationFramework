@@ -285,7 +285,7 @@ with MPIPool() as pool:
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
-  pred_horizon = {"length":1,"timestep":3600}
+  pred_horizon = {"length":6,"timestep":3600}
 
   #### run optimization
   X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
