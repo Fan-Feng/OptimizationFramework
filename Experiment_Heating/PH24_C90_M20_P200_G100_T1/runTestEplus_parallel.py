@@ -323,7 +323,7 @@ with MPIPool() as pool:
     print("Op completed")
     SP_cur = ga_instance.best_solution()[0][0]
     X_sp_log.append(SP_cur)
-    print(ga_instance.best_solution(),tim)
+    print(ga_instance.best_solution())  
     break
     # proceed to next timestep
     tim = tim + pred_horizon['timestep']
