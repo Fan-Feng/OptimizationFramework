@@ -323,12 +323,8 @@ with MPIPool() as pool:
     print("Op completed")
     SP_cur = ga_instance.best_solution()[0][0]
     X_sp_log.append(SP_cur)
-    print(ga_instance.best_solution())  
+    print(ga_instance.best_solution()[0])  
     break
-    # proceed to next timestep
-    tim = tim + pred_horizon['timestep']
-    if tim>= final_time:
-      break
     
     
   print("all mpi process join again then")
