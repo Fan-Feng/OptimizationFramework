@@ -292,7 +292,7 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 10
+    num_generations = 5
     sol_per_pop = 19   # Number of individuals
 
     crossover_type = "single_point"
@@ -325,7 +325,6 @@ with MPIPool() as pool:
     X_sp_log.append(SP_cur)
     print(ga_instance.best_solution()[0])  
     break
-    
     
   print("all mpi process join again then")
       
