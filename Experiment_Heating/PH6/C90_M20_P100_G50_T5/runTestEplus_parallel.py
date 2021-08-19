@@ -280,17 +280,16 @@ with MPIPool() as pool:
 
     ## At each time step, this function will implement an optimization.. \
     # Parameter for GA 
-    num_parents_mating = 4
+    num_parents_mating = 40
     num_genes = hyperParam["PH"]
 
     init_range_low = 25
     init_range_high = 50
     parent_selection_type = "sss"
-    keep_parents = 1
-
+  
     # Optimization algorithm setting
-    num_generations = 50
-    sol_per_pop = 99   # Number of individuals
+    num_generations = 30
+    sol_per_pop = 29   # Number of individuals
 
     crossover_type = "single_point"
     crossover_probability = 0.9
@@ -308,7 +307,6 @@ with MPIPool() as pool:
                     init_range_low=init_range_low,
                     init_range_high=init_range_high,
                     parent_selection_type=parent_selection_type,
-                    keep_parents=keep_parents,
                     crossover_type=crossover_type,
                     crossover_probability = crossover_probability,
                     mutation_type=mutation_type,
@@ -320,6 +318,9 @@ with MPIPool() as pool:
     print("Op completed")
     SP_cur = ga_instance.best_solution()[0][0]
     print(ga_instance.best_solution()[0])  
+
+    print("best_solutions_fitness\n")
+    print(ga_instance.best_solutions_fitness)
     break
     
   print("all mpi process join again then")
