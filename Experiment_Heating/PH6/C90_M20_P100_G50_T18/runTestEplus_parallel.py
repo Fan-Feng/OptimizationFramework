@@ -156,13 +156,11 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   ## Step 2. Run EnergyPlus model
    #srun --time 30 --mem-per-cpu 2048 -n 1 energyplus -w USA_CO_Golden-NREL.724666_TMY3.epw 1ZoneUncontrolled.idf
   argument = ["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]
-  print("============EPlus Sim Start==================/n")
   sp.call(argument)
-  print("============EPlus Sim End====================/n")
-  
+
   ## Step 3. After completion, retrieve results
   Sim_Status = check_SimulationStatus(Target_WorkPath+"//" + "eplusout.err")
-  print(Sim_Status)
+  #print(Sim_Status)
   if Sim_Status:
     output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
     tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
@@ -183,7 +181,6 @@ def check_SimulationStatus(fileName):
   with open(fileName,'r') as fp:
     lines = fp.readlines()
     LastLine = lines[-1]
-    print(LastLine)
   if LastLine.find('Successfully')>-1:
     Sim_Status = True
   else:
@@ -271,7 +268,7 @@ with MPIPool() as pool:
 
   
   ##
-  tim = start_time + 3600*17
+  tim = start_time
   while True:
     #
     hyperParam["tim"] = tim
