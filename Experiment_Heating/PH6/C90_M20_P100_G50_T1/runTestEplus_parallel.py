@@ -271,7 +271,7 @@ with MPIPool() as pool:
 
   
   ##
-  tim = start_time + 3600
+  tim = start_time
   while True:
     #
     hyperParam["tim"] = tim
