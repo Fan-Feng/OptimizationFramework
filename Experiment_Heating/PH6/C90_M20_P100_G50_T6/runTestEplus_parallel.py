@@ -145,7 +145,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   shutil.copyfile(Cur_WorkPath + "//RadInletWater_SP_schedule.csv",Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
-  start_idx,end_idx = int(start_time/3600),int(time_end/3600)
+  start_idx,end_idx = int(tim/3600),int(time_end/3600)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
   Aval_Status = [int(xi>=30) for xi in X_sp]
@@ -268,7 +268,7 @@ with MPIPool() as pool:
 
   
   ##
-  tim = start_time
+  tim = start_time + 3600 *5
   while True:
     #
     hyperParam["tim"] = tim
