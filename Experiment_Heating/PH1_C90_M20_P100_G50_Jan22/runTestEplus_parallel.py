@@ -66,7 +66,7 @@ def fitness_func(x,solution_idx):
 def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
-  SP_list = [15.6]*5+[17.6]+[19.6]+[21]*15+[15.6]*2 # [18,24]
+  SP_list = [15.6]*5+[17.6]+[19.6]*16+[15.6]*2 # [18,24]
   ThermalComfort_range = 1
   residuals = 0
   for i in range(output_DF.shape[0]):
@@ -156,9 +156,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   ## Step 2. Run EnergyPlus model
    #srun --time 30 --mem-per-cpu 2048 -n 1 energyplus -w USA_CO_Golden-NREL.724666_TMY3.epw 1ZoneUncontrolled.idf
   argument = ["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]
-  print("============EPlus Sim Start==================/n")
   sp.call(argument)
-  print("============EPlus Sim End====================/n")
   
   ## Step 3. After completion, retrieve results
   Sim_Status = check_SimulationStatus(Target_WorkPath+"//" + "eplusout.err")
@@ -183,7 +181,6 @@ def check_SimulationStatus(fileName):
   with open(fileName,'r') as fp:
     lines = fp.readlines()
     LastLine = lines[-1]
-    print(LastLine)
   if LastLine.find('Successfully')>-1:
     Sim_Status = True
   else:
@@ -247,8 +244,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*20 
-  final_time= 60*60*24*21
+  start_time= 60*60*24*21 
+  final_time= 60*60*24*22
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
@@ -283,12 +280,12 @@ with MPIPool() as pool:
 
     ## At each time step, this function will implement an optimization.. \
     # Parameter for GA 
-    num_parents_mating = 4
+    num_parents_mating = 24
     num_genes = hyperParam["PH"]
 
     init_range_low = 25
     init_range_high = 50
-    parent_selection_type = "sss"
+    parent_selection_type = "tournament"
     keep_parents = 1
 
     # Optimization algorithm setting
