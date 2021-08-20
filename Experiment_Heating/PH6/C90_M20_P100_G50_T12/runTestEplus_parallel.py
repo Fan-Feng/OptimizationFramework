@@ -66,7 +66,7 @@ def fitness_func(x,solution_idx):
 def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
-  SP_list = [15.6]*5+[17.6]+[19.6]+[21]*15+[15.6]*2 # [18,24]
+  SP_list = [15.6]*5+[17.6]+[19.6]*16+[15.6]*2 # [18,24]
   ThermalComfort_range = 1
   residuals = 0
   for i in range(output_DF.shape[0]):
@@ -157,7 +157,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
    #srun --time 30 --mem-per-cpu 2048 -n 1 energyplus -w USA_CO_Golden-NREL.724666_TMY3.epw 1ZoneUncontrolled.idf
   argument = ["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]
   sp.call(argument)
-
+  
   ## Step 3. After completion, retrieve results
   Sim_Status = check_SimulationStatus(Target_WorkPath+"//" + "eplusout.err")
   #print(Sim_Status)
@@ -268,10 +268,10 @@ with MPIPool() as pool:
 
   
   ##
-  tim = start_time + 3600 * 11
+  tim = start_time
   while True:
     #
-    hyperParam["tim"] = tim
+    hyperParam["tim"] = tim + 3600 * 11
     hyperParam["X_sp_log"] = X_sp_log
 
     # Do optimization
@@ -280,16 +280,16 @@ with MPIPool() as pool:
 
     ## At each time step, this function will implement an optimization.. \
     # Parameter for GA 
-    num_parents_mating = 4
+    num_parents_mating = 24
     num_genes = hyperParam["PH"]
 
     init_range_low = 25
     init_range_high = 50
-    parent_selection_type = "sss"
+    parent_selection_type = "tournament"
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 50
+    num_generations = 30
     sol_per_pop = 99   # Number of individuals
 
     crossover_type = "single_point"
@@ -320,7 +320,11 @@ with MPIPool() as pool:
     print("Op completed")
     SP_cur = ga_instance.best_solution()[0][0]
     print(ga_instance.best_solution()[0])  
+
+    print("best_solutions_fitness\n")
+    print(ga_instance.best_solutions_fitness)
     break
+    
     
   print("all mpi process join again then")
       
