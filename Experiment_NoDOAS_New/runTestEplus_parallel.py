@@ -284,5 +284,8 @@ with MPIPool() as pool:
     print("Op completed")
     print(ga_instance.best_solution())  
 
+    print("best_solutions_fitness\n")
+    print(ga_instance.best_solutions_fitness)
+
 print("all mpi process join again then")
       
