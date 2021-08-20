@@ -285,7 +285,7 @@ with MPIPool() as pool:
 
     init_range_low = 25
     init_range_high = 50
-    parent_selection_type = "sss"
+    parent_selection_type = "rank"
   
     # Optimization algorithm setting
     num_generations = 30

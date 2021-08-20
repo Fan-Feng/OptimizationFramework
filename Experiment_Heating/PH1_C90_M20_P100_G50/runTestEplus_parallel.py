@@ -66,7 +66,7 @@ def fitness_func(x,solution_idx):
 def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
-  SP_list = [15.6]*5+[17.6]+[19.6]+[21]*15+[15.6]*2 # [18,24]
+  SP_list = [15.6]*5+[17.6]+[19.6]*16+[15.6]*2 # [18,24]
   ThermalComfort_range = 1
   residuals = 0
   for i in range(output_DF.shape[0]):
