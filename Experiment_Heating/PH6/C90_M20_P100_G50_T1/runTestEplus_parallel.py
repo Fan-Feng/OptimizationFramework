@@ -66,7 +66,7 @@ def fitness_func(x,solution_idx):
 def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
-  SP_list = [15.6]*5+[17.6]+[19.6]+[21]*15+[15.6]*2 # [18,24]
+  SP_list = [15.6]*5+[17.6]+[19.6]*16+[15.6]*2 # [18,24]
   ThermalComfort_range = 1
   residuals = 0
   for i in range(output_DF.shape[0]):
@@ -145,7 +145,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   shutil.copyfile(Cur_WorkPath + "//RadInletWater_SP_schedule.csv",Target_WorkPath+"//RadInletWater_SP_schedule.csv")
 
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
-  start_idx,end_idx = int(start_time/3600),int(time_end/3600)
+  start_idx,end_idx = int(tim/3600),int(time_end/3600)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
   Aval_Status = [int(xi>=30) for xi in X_sp]
@@ -157,7 +157,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
    #srun --time 30 --mem-per-cpu 2048 -n 1 energyplus -w USA_CO_Golden-NREL.724666_TMY3.epw 1ZoneUncontrolled.idf
   argument = ["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]
   sp.call(argument)
-
+  
   ## Step 3. After completion, retrieve results
   Sim_Status = check_SimulationStatus(Target_WorkPath+"//" + "eplusout.err")
   #print(Sim_Status)
@@ -280,16 +280,16 @@ with MPIPool() as pool:
 
     ## At each time step, this function will implement an optimization.. \
     # Parameter for GA 
-    num_parents_mating = 4
+    num_parents_mating = 24
     num_genes = hyperParam["PH"]
 
     init_range_low = 25
     init_range_high = 50
-    parent_selection_type = "sss"
+    parent_selection_type = "tournament"
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 50
+    num_generations = 30
     sol_per_pop = 99   # Number of individuals
 
     crossover_type = "single_point"
@@ -321,6 +321,7 @@ with MPIPool() as pool:
     SP_cur = ga_instance.best_solution()[0][0]
     print(ga_instance.best_solution()[0])  
     break
+    
     
   print("all mpi process join again then")
       
