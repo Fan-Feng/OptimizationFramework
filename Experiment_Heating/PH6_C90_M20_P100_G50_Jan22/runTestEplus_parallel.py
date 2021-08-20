@@ -249,7 +249,7 @@ with MPIPool() as pool:
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
-  pred_horizon = {"length":1,"timestep":3600}
+  pred_horizon = {"length":6,"timestep":3600}
 
   #### run optimization
   X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
@@ -289,8 +289,8 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 10
-    sol_per_pop = 49   # Number of individuals
+    num_generations = 50
+    sol_per_pop = 199   # Number of individuals
 
     crossover_type = "single_point"
     crossover_probability = 0.9
