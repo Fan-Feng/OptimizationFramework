@@ -320,6 +320,9 @@ with MPIPool() as pool:
     print("Op completed")
     SP_cur = ga_instance.best_solution()[0][0]
     print(ga_instance.best_solution()[0])  
+
+    print("best_solutions_fitness\n")
+    print(ga_instance.best_solutions_fitness)
     break
     
     
