@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.08.04 18:57
+Program Version,EnergyPlus, Version 9.5.0-de239b2e5f, YMD=2021.08.23 01:01
 ! <Version>, Version ID
  Version, 9.5
 ! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
@@ -375,38 +375,38 @@ Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
  Sky Daylight Factors,Overcast Sky,01/21,PERIMETER_MID_ZN_4,PERIMETER_MID_ZN_4_WALL_WEST_WINDOW,PERIMETER_MID_ZN_4_DAYLREFPT2,3.4752E-002
 ! <Zone Sizing Information>, Zone Name, Load Type, Calc Des Load {W}, User Des Load {W}, Calc Des Air Flow Rate {m3/s}, User Des Air Flow Rate {m3/s}, Design Day Name, Date/Time of Peak, Temperature at Peak {C}, Humidity Ratio at Peak {kgWater/kgDryAir}, Floor Area {m2}, # Occupants, Calc Outdoor Air Flow Rate {m3/s}, Calc DOAS Heat Addition Rate {W}
  Zone Sizing Information, CORE_BOTTOM, Cooling, 51341.78145, 51341.78145, 3.73240, 3.73240, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:00:00, 26.62400, 1.41098E-002, 983.53657, 52.93867, 0.42466, 0.00000
- Zone Sizing Information, CORE_BOTTOM, Heating, 12463.07389, 12463.07389, 0.52953, 0.52953, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
+ Zone Sizing Information, CORE_BOTTOM, Heating, 10315.61717, 10315.61717, 0.40481, 0.42466, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
  Zone Sizing Information, CORE_MID, Cooling, 31250.68405, 31250.68405, 2.28093, 2.28093, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:06:00, 26.76460, 1.41101E-002, 983.53657, 52.93867, 0.42466, 0.00000
- Zone Sizing Information, CORE_MID, Heating, 14499.33689, 14499.33689, 0.61717, 0.61717, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
+ Zone Sizing Information, CORE_MID, Heating, 13369.12918, 13369.12918, 0.52392, 0.52392, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
  Zone Sizing Information, CORE_TOP, Cooling, 31446.51860, 31446.51860, 2.29523, 2.29523, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:06:00, 26.76460, 1.41101E-002, 983.53657, 52.93867, 0.42466, 0.00000
- Zone Sizing Information, CORE_TOP, Heating, 25030.40922, 25030.40922, 1.07019, 1.07019, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
+ Zone Sizing Information, CORE_TOP, Heating, 24488.59365, 24488.59365, 0.96925, 0.96925, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 983.53657, 52.93867, 0.42466, 0.00000
  Zone Sizing Information, PERIMETER_TOP_ZN_3, Cooling, 8560.22858, 8560.22858, 0.62480, 0.62480, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 14:39:00, 32.10000, 1.41196E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_3, Heating, 11524.91398, 11524.91398, 0.49430, 0.49430, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_3, Heating, 10953.81540, 10953.81540, 0.43618, 0.43618, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
  Zone Sizing Information, PERIMETER_TOP_ZN_2, Cooling, 10407.29864, 10407.29864, 0.75962, 0.75962, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 09:48:00, 29.03640, 1.41141E-002, 131.26219, 7.06516, 5.66755E-002, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_2, Heating, 7493.56834, 7493.56834, 0.32141, 0.32141, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_2, Heating, 7118.45908, 7118.45908, 0.28350, 0.28350, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
  Zone Sizing Information, PERIMETER_TOP_ZN_1, Cooling, 12412.24013, 12412.24013, 0.90596, 0.90596, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 13:36:00, 31.95200, 1.41194E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_1, Heating, 11456.23495, 11456.23495, 0.49135, 0.49135, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_1, Heating, 10882.74704, 10882.74704, 0.43333, 0.43333, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
  Zone Sizing Information, PERIMETER_TOP_ZN_4, Cooling, 10867.23834, 10867.23834, 0.79319, 0.79319, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 17:06:00, 30.99000, 1.41176E-002, 131.25358, 7.06470, 5.66718E-002, 0.00000
- Zone Sizing Information, PERIMETER_TOP_ZN_4, Heating, 7570.18354, 7570.18354, 0.32471, 0.32471, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
+ Zone Sizing Information, PERIMETER_TOP_ZN_4, Heating, 7191.61343, 7191.61343, 0.28643, 0.28643, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
  Zone Sizing Information, PERIMETER_BOT_ZN_3, Cooling, 7971.11247, 7971.11247, 0.57903, 0.57903, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:00:00, 26.62400, 1.41098E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_3, Heating, 8907.79737, 8907.79737, 0.38176, 0.38176, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_3, Heating, 8215.10747, 8215.10747, 0.32654, 0.32654, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
  Zone Sizing Information, PERIMETER_BOT_ZN_2, Cooling, 10341.88539, 10341.88539, 0.75484, 0.75484, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 09:36:00, 28.78480, 1.41137E-002, 131.26219, 7.06516, 5.66755E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_2, Heating, 5832.79148, 5832.79148, 0.25000, 0.25000, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_2, Heating, 5391.86766, 5391.86766, 0.21438, 0.21438, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
  Zone Sizing Information, PERIMETER_BOT_ZN_1, Cooling, 11612.43015, 11612.43015, 0.84757, 0.84757, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 13:27:00, 31.89650, 1.41193E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_1, Heating, 8878.55195, 8878.55195, 0.38050, 0.38050, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_1, Heating, 8202.20335, 8202.20335, 0.32602, 0.32602, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
  Zone Sizing Information, PERIMETER_BOT_ZN_4, Cooling, 10368.76889, 10368.76889, 0.75680, 0.75680, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 17:12:00, 30.91600, 1.41175E-002, 131.25358, 7.06470, 5.66718E-002, 0.00000
- Zone Sizing Information, PERIMETER_BOT_ZN_4, Heating, 5903.12743, 5903.12743, 0.25303, 0.25303, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
+ Zone Sizing Information, PERIMETER_BOT_ZN_4, Heating, 5457.34350, 5457.34350, 0.21700, 0.21700, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
  Zone Sizing Information, PERIMETER_MID_ZN_3, Cooling, 7841.12215, 7841.12215, 0.56956, 0.56956, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 08:00:00, 26.62400, 1.41098E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_3, Heating, 9406.55137, 9406.55137, 0.40321, 0.40321, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_3, Heating, 8818.90025, 8818.90025, 0.35072, 0.35072, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
  Zone Sizing Information, PERIMETER_MID_ZN_2, Cooling, 10171.47715, 10171.47715, 0.74240, 0.74240, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 09:36:00, 28.78480, 1.41137E-002, 131.26219, 7.06516, 5.66755E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_2, Heating, 6162.91616, 6162.91616, 0.26420, 0.26420, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_2, Heating, 5786.80244, 5786.80244, 0.23019, 0.23019, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 131.26219, 7.06516, 5.66755E-002, 0.00000
  Zone Sizing Information, PERIMETER_MID_ZN_1, Cooling, 11382.01124, 11382.01124, 0.83076, 0.83076, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 13:27:00, 31.89650, 1.41193E-002, 207.33814, 11.15994, 8.95230E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_1, Heating, 9363.35295, 9363.35295, 0.40135, 0.40135, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_1, Heating, 8783.81202, 8783.81202, 0.34932, 0.34932, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 207.33814, 11.15994, 8.95230E-002, 0.00000
  Zone Sizing Information, PERIMETER_MID_ZN_4, Cooling, 10220.78182, 10220.78182, 0.74600, 0.74600, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 17:12:00, 30.91600, 1.41175E-002, 131.25358, 7.06470, 5.66718E-002, 0.00000
- Zone Sizing Information, PERIMETER_MID_ZN_4, Heating, 6238.04227, 6238.04227, 0.26744, 0.26744, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
+ Zone Sizing Information, PERIMETER_MID_ZN_4, Heating, 5858.64453, 5858.64453, 0.23307, 0.23307, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.70000, 1.50390E-003, 131.25358, 7.06470, 5.66718E-002, 0.00000
 ! <System Sizing Information>, System Name, Load Type, Peak Load Kind, User Design Capacity, Calc Des Air Flow Rate [m3/s], User Des Air Flow Rate [m3/s], Design Day Name, Date/Time of Peak
  System Sizing Information, DOAS, Cooling, Sensible, 326109.83, 17.21909, 17.21909, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 00:00:00
- System Sizing Information, DOAS, Heating, Sensible, 177904.82, 6.45015, 6.45015, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 08:00:00
+ System Sizing Information, DOAS, Heating, Sensible, 154581.45, 5.60454, 5.60454, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:00:00
 ! <Component Sizing Information>, Component Type, Component Name, Input Field Description, Value
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_BOT_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 3.73240
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORE_BOT_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.20080
@@ -427,8 +427,9 @@ Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORE_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 1.12320E-003
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORE_TOP_LOTEMP, Design Size Hydronic Tubing Length [m], 6453.65205
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_TOP_LOTEMP, Design Size Maximum Water Flow [m3/s], 3.05752E-004
- Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_TOP_LOTEMP, User-Specified Maximum Water Flow [m3/s], 2.15245E-004
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_TOP_LOTEMP, User-Specified Maximum Water Flow [m3/s], 3.05750E-004
  Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_TOP_LOTEMP, Design Size Hydronic Tubing Length [m], 1360.48649
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, PERI3_TOP_LOTEMP, User-Specified Hydronic Tubing Length [m], 1360.50000
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_TOP_DOAS_AIRTERMINAL, Design Size Maximum Air Flow Rate [m3/s], 0.62480
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_TOP_DOAS_AIRTERMINAL, Design Size Constant Minimum Air Flow Fraction, 0.25287
  Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, PERI3_TOP_DOAS_AIRTERMINAL, User-Specified Constant Minimum Air Flow Fraction, 1.00000
@@ -530,11 +531,11 @@ Water Heating Coil Capacity Information,Coil:Heating:Water,DOAS HEATING COIL,336
  Component Sizing Information, Controller:WaterCoil, DOAS COOLING COIL CONTROLLER, Controller Convergence Tolerance, 2.17512E-005
  Component Sizing Information, Controller:WaterCoil, DOAS HEATING COIL CONTROLLER, Maximum Actuated Flow [m3/s], 1.04930E-002
  Component Sizing Information, Controller:WaterCoil, DOAS HEATING COIL CONTROLLER, Controller Convergence Tolerance, 4.53819E-005
- Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Maximum Loop Flow Rate [m3/s], 2.98236E-002
- Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Plant Loop Volume [m3], 3.57884
- Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Flow Rate [m3/s], 2.98236E-002
- Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Power Consumption [W], 7619.55794
- Component Sizing Information, DistrictCooling, PURCHASEDCOOLING, Design Size Nominal Capacity [W], 834982.53172
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Maximum Loop Flow Rate [m3/s], 2.99141E-002
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP, Plant Loop Volume [m3], 3.58970
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Flow Rate [m3/s], 2.99141E-002
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP, Design Power Consumption [W], 7642.68080
+ Component Sizing Information, DistrictCooling, PURCHASEDCOOLING, Design Size Nominal Capacity [W], 837516.43071
  Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP, Maximum Loop Flow Rate [m3/s], 1.86699E-002
  Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP, Plant Loop Volume [m3], 2.24039
  Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP, Design Flow Rate [m3/s], 1.86699E-002
@@ -545,38 +546,38 @@ Water Heating Coil Capacity Information,Coil:Heating:Water,DOAS HEATING COIL,336
  Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP2, Design Flow Rate [m3/s], 4.61085E-004
  Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP2, Design Power Consumption [W], 117.80130
  Component Sizing Information, DistrictCooling, PURCHASEDCOOLING2, Design Size Nominal Capacity [W], 11612.43015
- Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP2, Maximum Loop Flow Rate [m3/s], 2.15245E-004
- Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP2, Plant Loop Volume [m3], 2.58294E-002
- Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP2, Design Flow Rate [m3/s], 2.15245E-004
- Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP2, Design Power Consumption [W], 54.99234
- Component Sizing Information, Boiler:HotWater, BOILER_RADSYS, Design Size Nominal Capacity [W], 9742.33567
- Component Sizing Information, Boiler:HotWater, BOILER_RADSYS, Design Size Design Water Flow Rate [m3/s], 2.15245E-004
+ Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP2, Maximum Loop Flow Rate [m3/s], 3.05750E-004
+ Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP2, Plant Loop Volume [m3], 3.66900E-002
+ Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP2, Design Flow Rate [m3/s], 3.05750E-004
+ Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP2, Design Power Consumption [W], 78.11521
+ Component Sizing Information, Boiler:HotWater, BOILER_RADSYS, Design Size Nominal Capacity [W], 13838.73787
+ Component Sizing Information, Boiler:HotWater, BOILER_RADSYS, Design Size Design Water Flow Rate [m3/s], 3.05750E-004
 ! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values, Sky Temperature Model
 ! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
 ! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
 ! <Environment:WarmupDays>, NumberofWarmupDays
-Environment,RUNPERIOD 1,WeatherFileRunPeriod,01/21/2013,01/22/2013,Monday,2,Use RunPeriod Specified Day,No,No,No,Yes,Yes,Clark and Allen
-Environment:Daylight Saving,Yes,InputFile,03/10,11/03
-Environment:Special Days,NEW YEARS DAY,Holiday,InputFile,01/01,  1Environment:Special Days,VETERANS DAY,Holiday,InputFile,11/11,  1Environment:Special Days,CHRISTMAS,Holiday,InputFile,12/25,  1Environment:Special Days,INDEPENDENCE DAY,Holiday,InputFile,07/04,  1Environment:Special Days,MLK DAY,Holiday,InputFile,01/21,  1Environment:Special Days,PRESIDENTS DAY,Holiday,InputFile,02/18,  1Environment:Special Days,MEMORIAL DAY,Holiday,InputFile,05/27,  1Environment:Special Days,LABOR DAY,Holiday,InputFile,09/02,  1Environment:Special Days,COLUMBUS DAY,Holiday,InputFile,10/14,  1Environment:Special Days,THANKSGIVING,Holiday,InputFile,11/28,  1Environment:WarmupDays,  6
+Environment,RUNPERIOD 1,WeatherFileRunPeriod,01/20/2014,01/22/2014,Monday,3,Use RunPeriod Specified Day,No,No,No,Yes,Yes,Clark and Allen
+Environment:Daylight Saving,Yes,InputFile,03/09,11/02
+Environment:Special Days,NEW YEARS DAY,Holiday,InputFile,01/01,  1Environment:Special Days,VETERANS DAY,Holiday,InputFile,11/11,  1Environment:Special Days,CHRISTMAS,Holiday,InputFile,12/25,  1Environment:Special Days,INDEPENDENCE DAY,Holiday,InputFile,07/04,  1Environment:Special Days,MLK DAY,Holiday,InputFile,01/20,  1Environment:Special Days,PRESIDENTS DAY,Holiday,InputFile,02/17,  1Environment:Special Days,MEMORIAL DAY,Holiday,InputFile,05/26,  1Environment:Special Days,LABOR DAY,Holiday,InputFile,09/01,  1Environment:Special Days,COLUMBUS DAY,Holiday,InputFile,10/13,  1Environment:Special Days,THANKSGIVING,Holiday,InputFile,11/27,  1Environment:WarmupDays,  6
 ! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
- Warmup Convergence Information,CORE_BOTTOM,RunPeriod: RUNPERIOD 1,1.0627400286E-003,1.8555409363E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,TOPFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,1.0294361874E-002,7.6955585224E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,MIDFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,4.1681927249E-003,2.7479990885E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,FIRSTFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,2.9657168836E-003,2.3317952947E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,CORE_MID,RunPeriod: RUNPERIOD 1,8.6668059889E-004,1.8529969358E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,CORE_TOP,RunPeriod: RUNPERIOD 1,3.3186472446E-003,2.4928208950E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_3,RunPeriod: RUNPERIOD 1,7.2398472831E-003,5.7704828563E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_2,RunPeriod: RUNPERIOD 1,2.5699382755E-002,2.0027040038E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_1,RunPeriod: RUNPERIOD 1,2.3385534433E-002,1.7805392814E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_TOP_ZN_4,RunPeriod: RUNPERIOD 1,2.7620992678E-002,2.1397452430E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_3,RunPeriod: RUNPERIOD 1,1.4211545573E-002,1.0375063411E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_2,RunPeriod: RUNPERIOD 1,1.7963974012E-002,1.6031239969E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_1,RunPeriod: RUNPERIOD 1,1.6606669396E-002,1.2610574784E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_BOT_ZN_4,RunPeriod: RUNPERIOD 1,1.7361661911E-002,1.5431620495E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_3,RunPeriod: RUNPERIOD 1,1.3716295256E-002,1.0105954969E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_2,RunPeriod: RUNPERIOD 1,1.8902600751E-002,1.6477356157E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_1,RunPeriod: RUNPERIOD 1,1.6333597437E-002,1.1920078924E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,PERIMETER_MID_ZN_4,RunPeriod: RUNPERIOD 1,1.8889284548E-002,1.6700481521E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CORE_BOTTOM,RunPeriod: RUNPERIOD 1,8.9736266584E-004,1.8529304358E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,TOPFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,1.0766545404E-002,7.5322991546E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,MIDFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,3.9494647839E-003,3.0637589970E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,FIRSTFLOOR_PLENUM,RunPeriod: RUNPERIOD 1,2.7071059037E-003,2.2853079202E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CORE_MID,RunPeriod: RUNPERIOD 1,6.9747926775E-004,1.8324541684E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CORE_TOP,RunPeriod: RUNPERIOD 1,3.5593471439E-003,2.9732199929E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_TOP_ZN_3,RunPeriod: RUNPERIOD 1,7.5652174712E-003,4.7977202063E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_TOP_ZN_2,RunPeriod: RUNPERIOD 1,3.0937311587E-002,2.0720480328E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_TOP_ZN_1,RunPeriod: RUNPERIOD 1,2.5787155621E-002,1.7170061879E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_TOP_ZN_4,RunPeriod: RUNPERIOD 1,3.2896623454E-002,2.1312910078E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_BOT_ZN_3,RunPeriod: RUNPERIOD 1,1.5621127476E-002,1.1381917201E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_BOT_ZN_2,RunPeriod: RUNPERIOD 1,2.2684990575E-002,1.8633747658E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_BOT_ZN_1,RunPeriod: RUNPERIOD 1,2.0272847310E-002,1.5184218267E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_BOT_ZN_4,RunPeriod: RUNPERIOD 1,2.3652053961E-002,1.9274278066E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_MID_ZN_3,RunPeriod: RUNPERIOD 1,1.5119007546E-002,1.1026192834E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_MID_ZN_2,RunPeriod: RUNPERIOD 1,2.2601972697E-002,1.8705002903E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_MID_ZN_1,RunPeriod: RUNPERIOD 1,1.9277224283E-002,1.4279592824E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PERIMETER_MID_ZN_4,RunPeriod: RUNPERIOD 1,2.3476866118E-002,1.8961533468E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
 ! <ConductionFiniteDifference Numerical Parameters>, Starting Relaxation Factor, Final Relaxation Factor
 ConductionFiniteDifference Numerical Parameters, 1.000, 1.000
 ! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims

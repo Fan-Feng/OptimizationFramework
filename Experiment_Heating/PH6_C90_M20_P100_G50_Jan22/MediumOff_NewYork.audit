@@ -1,16 +1,16 @@
   Processing Schedule Input -- Start
-not found (Current Working Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\C90_M3_P100_G50\EPTEMP-00000001\RadInletWater_SP_schedule.csv
-not found (IDF Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\C90_M3_P100_G50\EPTEMP-00000001\RadInletWater_SP_schedule.csv
+not found (Current Working Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\PH6_C90_M20_P100_G50_Jan22\EPTEMP-00000001\RadInletWater_SP_schedule.csv
+not found (IDF Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\PH6_C90_M20_P100_G50_Jan22\EPTEMP-00000001\RadInletWater_SP_schedule.csv
 not found (EnergyPlus Executable Directory)"=D:\EnergyPlusV9-5-0\RadInletWater_SP_schedule.csv
-found ("epin" Environment Variable)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\C90_M3_P100_G50\RadInletWater_SP_schedule.csv
-not found (Current Working Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\C90_M3_P100_G50\EPTEMP-00000001\RadInletWater_SP_schedule.csv
-not found (IDF Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\C90_M3_P100_G50\EPTEMP-00000001\RadInletWater_SP_schedule.csv
+found ("epin" Environment Variable)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\PH6_C90_M20_P100_G50_Jan22\RadInletWater_SP_schedule.csv
+not found (Current Working Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\PH6_C90_M20_P100_G50_Jan22\EPTEMP-00000001\RadInletWater_SP_schedule.csv
+not found (IDF Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\PH6_C90_M20_P100_G50_Jan22\EPTEMP-00000001\RadInletWater_SP_schedule.csv
 not found (EnergyPlus Executable Directory)"=D:\EnergyPlusV9-5-0\RadInletWater_SP_schedule.csv
-found ("epin" Environment Variable)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\C90_M3_P100_G50\RadInletWater_SP_schedule.csv
-not found (Current Working Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\C90_M3_P100_G50\EPTEMP-00000001\RadInletWater_SP_schedule.csv
-not found (IDF Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\C90_M3_P100_G50\EPTEMP-00000001\RadInletWater_SP_schedule.csv
+found ("epin" Environment Variable)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\PH6_C90_M20_P100_G50_Jan22\RadInletWater_SP_schedule.csv
+not found (Current Working Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\PH6_C90_M20_P100_G50_Jan22\EPTEMP-00000001\RadInletWater_SP_schedule.csv
+not found (IDF Directory)"=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\PH6_C90_M20_P100_G50_Jan22\EPTEMP-00000001\RadInletWater_SP_schedule.csv
 not found (EnergyPlus Executable Directory)"=D:\EnergyPlusV9-5-0\RadInletWater_SP_schedule.csv
-found ("epin" Environment Variable)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\C90_M3_P100_G50\RadInletWater_SP_schedule.csv
+found ("epin" Environment Variable)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU\1_projects\DOE project\Model\OptimizationFramework\GithubRepo\OptimizationFramework\Experiment_Heating\PH6_C90_M20_P100_G50_Jan22\RadInletWater_SP_schedule.csv
   Processing Schedule Input -- Complete
  MonthlyInputCount=           0
  sizeMonthlyInput=           0
@@ -27,7 +27,7 @@ found ("epin" Environment Variable)=C:\Users\fengf\OneDrive - tongji.edu.cn\TAMU
  sizeTableEntry=        6400
  numTableEntry=        5671
  sizeCompSizeTableEntry=         200
- numCompSizeTableEntry=         139
+ numCompSizeTableEntry=         140
  NumOfRVariable=       19751
  NumOfRVariable(Total)=       19751
  NumOfRVariable(Actual)=         171
