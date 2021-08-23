@@ -160,7 +160,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   
   ## Step 3. After completion, retrieve results
   Sim_Status = check_SimulationStatus(Target_WorkPath+"//" + "eplusout.err")
-  print(Sim_Status)
+  #print(Sim_Status)
   if Sim_Status:
     output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
     tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
@@ -244,7 +244,7 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*21 
+  start_time= 60*60*24*20 
   final_time= 60*60*24*22
   Eplus_timestep = 60*3 # 3 min
 
@@ -268,10 +268,10 @@ with MPIPool() as pool:
 
   
   ##
-  tim = start_time
+  tim = start_time +86400
   while True:
     #
-    hyperParam["tim"] = tim
+    hyperParam["tim"] = tim 
     hyperParam["X_sp_log"] = X_sp_log
 
     # Do optimization
@@ -289,8 +289,8 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 50
-    sol_per_pop = 199   # Number of individuals
+    num_generations = 30
+    sol_per_pop = 99   # Number of individuals
 
     crossover_type = "single_point"
     crossover_probability = 0.9
