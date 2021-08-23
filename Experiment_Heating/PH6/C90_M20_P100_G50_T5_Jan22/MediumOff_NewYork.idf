@@ -307,8 +307,8 @@ SizingPeriod:DesignDay,
 
 RunPeriod,
     RUNPERIOD 1,             !- Name
-    %BeginMon%,              !- Begin Month
-    %BeginDay%,              !- Begin Day of Month
+    1,              !- Begin Month
+    20,              !- Begin Day of Month
     ,                        !- Begin Year
     %EndMon%,                !- End Month
     %EndDay%,                !- End Day of Month
