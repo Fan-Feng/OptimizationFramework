@@ -268,10 +268,10 @@ with MPIPool() as pool:
 
   
   ##
-  tim = start_time
+  tim = start_time + 86400
   while True:
     #
-    hyperParam["tim"] = tim+86400
+    hyperParam["tim"] = tim
     hyperParam["X_sp_log"] = X_sp_log
 
     # Do optimization
