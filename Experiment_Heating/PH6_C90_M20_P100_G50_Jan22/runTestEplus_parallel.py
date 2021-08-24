@@ -146,11 +146,11 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
-  Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
-  Input_DF.iloc[start_idx:end_idx,1] = X_sp
-  Aval_Status = [int(xi>=30) for xi in X_sp]
-  Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
-
+  for i,idx in enumerate(range(start_idx,end_idx)):
+    if X_sp>0:
+      Input_DF.iloc[idx,0] = X_sp[i]
+      Input_DF.iloc[idx,1] = X_sp[i]
+      Input_DF.iloc[idx,2] = int(X_sp[i]>30)
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
   ## Step 2. Run EnergyPlus model
@@ -244,7 +244,7 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*21 
+  start_time= 60*60*24*20 
   final_time= 60*60*24*22
   Eplus_timestep = 60*3 # 3 min
 
@@ -252,7 +252,7 @@ with MPIPool() as pool:
   pred_horizon = {"length":6,"timestep":3600}
 
   #### run optimization
-  X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
+  X_sp_log = [-1]*24  # This trend variable is used to store all setpoints from start_time 
 
   Eplus_FileName = "MediumOff_NewYork.idf"
 
@@ -268,7 +268,7 @@ with MPIPool() as pool:
 
   
   ##
-  tim = start_time
+  tim = start_time + 86400
   while True:
     #
     hyperParam["tim"] = tim 
