@@ -244,7 +244,7 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*20 
+  start_time= 60*60*24*21 
   final_time= 60*60*24*22
   Eplus_timestep = 60*3 # 3 min
 
@@ -271,7 +271,7 @@ with MPIPool() as pool:
   tim = start_time
   while True:
     #
-    hyperParam["tim"] = tim + 86400 + 3600 * 4
+    hyperParam["tim"] = tim + 3600 * 4
     hyperParam["X_sp_log"] = X_sp_log
 
     # Do optimization
@@ -289,8 +289,8 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 50
-    sol_per_pop = 199   # Number of individuals
+    num_generations = 30
+    sol_per_pop = 99   # Number of individuals
 
     crossover_type = "single_point"
     crossover_probability = 0.9
