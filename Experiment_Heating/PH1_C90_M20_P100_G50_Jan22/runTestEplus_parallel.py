@@ -147,7 +147,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
   for i,idx in enumerate(range(start_idx,end_idx)):
-    if X_sp>0:
+    if X_sp[i]>0:
       Input_DF.iloc[idx,0] = X_sp[i]
       Input_DF.iloc[idx,1] = X_sp[i]
       Input_DF.iloc[idx,2] = int(X_sp[i]>30)
