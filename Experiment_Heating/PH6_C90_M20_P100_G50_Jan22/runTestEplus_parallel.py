@@ -147,10 +147,11 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
   for i,idx in enumerate(range(start_idx,end_idx)):
-    if X_sp>0:
+    if X_sp[i]>0:
       Input_DF.iloc[idx,0] = X_sp[i]
       Input_DF.iloc[idx,1] = X_sp[i]
       Input_DF.iloc[idx,2] = int(X_sp[i]>30)
+
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
 
   ## Step 2. Run EnergyPlus model
@@ -160,7 +161,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   
   ## Step 3. After completion, retrieve results
   Sim_Status = check_SimulationStatus(Target_WorkPath+"//" + "eplusout.err")
-  #print(Sim_Status)
+  print(Sim_Status)
   if Sim_Status:
     output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
     tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
@@ -271,7 +272,7 @@ with MPIPool() as pool:
   tim = start_time + 86400
   while True:
     #
-    hyperParam["tim"] = tim 
+    hyperParam["tim"] = tim
     hyperParam["X_sp_log"] = X_sp_log
 
     # Do optimization
@@ -280,7 +281,7 @@ with MPIPool() as pool:
 
     ## At each time step, this function will implement an optimization.. \
     # Parameter for GA 
-    num_parents_mating = 24
+    num_parents_mating = 49
     num_genes = hyperParam["PH"]
 
     init_range_low = 25
