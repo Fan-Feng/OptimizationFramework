@@ -275,33 +275,6 @@ SizingPeriod:DesignDay,
     ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
     0.00;                    !- Sky Clearness
 
-SizingPeriod:DesignDay,
-    New.York-John.F.Kennedy.Intl.AP_NY_USA Ann Clg .4% Condns DB=>MWB,  !- Name
-    7,                       !- Month
-    21,                      !- Day of Month
-    SummerDesignDay,         !- Day Type
-    32.1,                    !- Maximum Dry-Bulb Temperature {C}
-    7.4,                     !- Daily Dry-Bulb Temperature Range {deltaC}
-    DefaultMultipliers,      !- Dry-Bulb Temperature Range Modifier Type
-    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
-    Wetbulb,                 !- Humidity Condition Type
-    23.1,                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
-    ,                        !- Humidity Condition Day Schedule Name
-    ,                        !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
-    ,                        !- Enthalpy at Maximum Dry-Bulb {J/kg}
-    ,                        !- Daily Wet-Bulb Temperature Range {deltaC}
-    101241.,                 !- Barometric Pressure {Pa}
-    5.6,                     !- Wind Speed {m/s}
-    230,                     !- Wind Direction {deg}
-    No,                      !- Rain Indicator
-    No,                      !- Snow Indicator
-    No,                      !- Daylight Saving Time Indicator
-    ASHRAETau,               !- Solar Model Indicator
-    ,                        !- Beam Solar Day Schedule Name
-    ,                        !- Diffuse Solar Day Schedule Name
-    0.541,                   !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
-    1.800;                   !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
-
 
 !-   ===========  ALL OBJECTS IN CLASS: RUNPERIOD ===========
 
