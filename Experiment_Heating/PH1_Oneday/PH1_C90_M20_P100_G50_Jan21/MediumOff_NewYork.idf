@@ -307,11 +307,11 @@ SizingPeriod:DesignDay,
 
 RunPeriod,
     RUNPERIOD 1,             !- Name
-    %BeginMon%,              !- Begin Month
-    %BeginDay%,              !- Begin Day of Month
+    %BeginMon%,                       !- Begin Month
+    %BeginDay%,                      !- Begin Day of Month
     ,                        !- Begin Year
-    %EndMon%,                !- End Month
-    %EndDay%,                !- End Day of Month
+    %EndMon%,                       !- End Month
+    %EndDay%,                      !- End Day of Month
     ,                        !- End Year
     Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
@@ -3149,7 +3149,7 @@ Schedule:Compact,
 Schedule:File,
     RADHEATLOWWATERTEMP_Test,!- Name
     Temperature,             !- Schedule Type Limits Name
-    %SchFile_Loc%,           !- File Name
+    %SchFile_Loc%,  !- File Name
     1,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -3159,7 +3159,7 @@ Schedule:File,
 Schedule:File,
     RADHEATHIGHWATERTEMP_Test,  !- Name
     Temperature,             !- Schedule Type Limits Name
-    %SchFile_Loc%,           !- File Name
+    %SchFile_Loc%,  !- File Name
     2,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -3169,7 +3169,7 @@ Schedule:File,
 Schedule:File,
     RADSysAvail_Test,        !- Name
     On/Off,                  !- Schedule Type Limits Name
-    %SchFile_Loc%,           !- File Name
+    %SchFile_Loc%,  !- File Name
     3,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -3755,7 +3755,7 @@ Construction:FfactorGroundFloor,
 ConstructionProperty:InternalHeatSource,
     Slab Floor with Radiant Heat Source,  !- Name
     Slab Floor with Radiant, !- Construction Name
-    4,                       !- Thermal Source Present After Layer Number
+    3,                       !- Thermal Source Present After Layer Number
     4,                       !- Temperature Calculation Requested After Layer Number
     1,                       !- Dimensions for the CTF Calculation
     0.1524,                  !- Tube Spacing {m}
@@ -3764,7 +3764,7 @@ ConstructionProperty:InternalHeatSource,
 ConstructionProperty:InternalHeatSource,
     Slab Floor with Radiant  Reverse Heat Source,  !- Name
     Slab Floor with Radiant Reverse,  !- Construction Name
-    1,                       !- Thermal Source Present After Layer Number
+    2,                       !- Thermal Source Present After Layer Number
     1,                       !- Temperature Calculation Requested After Layer Number
     1,                       !- Dimensions for the CTF Calculation
     0.1524,                  !- Tube Spacing {m}
@@ -9315,8 +9315,8 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     RADSysAvail_Test,        !- Availability Schedule Name
     Perimeter_top_ZN_3,      !- Zone Name
     Perimeter_top_ZN_3_Floor,!- Surface Name or Radiant Surface Group Name
-    1360.5,                  !- Hydronic Tubing Length {m}
-    0.00030575,              !- Rated Flow Rate {m3/s}
+    1360,                    !- Hydronic Tubing Length {m}
+    0.000292088,             !- Rated Flow Rate {m3/s}
     ,                        !- Pump Flow Rate Schedule Name
     179352,                  !- Rated Pump Head {Pa}
     100,                     !- Rated Power Consumption {W}
