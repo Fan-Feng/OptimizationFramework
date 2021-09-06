@@ -84,7 +84,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # utility rate, read from an external file
   uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2  # Summer, workday. Replaced later. 
   
-  alpha = 10**20 ## 
+  alpha = 10**9 ## 
   if Sim_Status:
     tim = hyperParam["tim"]
     PH = hyperParam["PH"]

@@ -1,28 +1,10 @@
-'''
-A python script for implement a MPC framework
-
-Simulation model: EnergyPlus
-Optimization algorithm: pygad
-
-Author: ffeng@tamu.edu 
-'''
-
-import os, sys, shutil
+import datetime,shutil
+from numpy import random
+import numpy as np
+import os
+import pandas as pd
 import subprocess as sp
 
-import time,datetime
-from multiprocessing import Pool
-
-import numpy as np
-import numpy.random as random
-import pandas as pd
-
-# Import optimization package
-import pygad
-
-## import mpi management package
-from mpipool import MPIPool
-from mpi4py import MPI
 
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
@@ -130,7 +112,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   ##Step 1. make a copy of the base Eplus model with specific start time and end time
   Cur_WorkPath =  os.getcwd()
-  Target_WorkPath = Cur_WorkPath + '//Model_T{}_{}'.format(tim/3600,solution_idx)
+  Target_WorkPath = Cur_WorkPath + '\\Model_T{}_{}'.format(tim/3600,solution_idx)
 
   if (os.path.exists(Target_WorkPath)):# delete the workpath
     shutil.rmtree(Target_WorkPath)
@@ -139,12 +121,12 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
 
   startMon,startDay,HourofDay = convert_NumOfSec_To_MonAndDay(start_time-86400)  # Add one day before the start time as warmup day.
   endMon,endDay,HourofDay = convert_NumOfSec_To_MonAndDay(final_time)
-  modifyIDF(Cur_WorkPath + "//" + Eplus_FileName,Target_WorkPath+"//"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"//RadInletWater_SP_schedule.csv")
+  modifyIDF(Cur_WorkPath + "\\" + Eplus_FileName,Target_WorkPath+"\\"+Eplus_FileName,startMon,startDay,endMon,endDay,Target_WorkPath+"\\RadInletWater_SP_schedule.csv")
 
   # write control signal to the .csv file, both historical and new
-  shutil.copyfile(Cur_WorkPath + "//RadInletWater_SP_schedule.csv",Target_WorkPath+"//RadInletWater_SP_schedule.csv")
+  shutil.copyfile(Cur_WorkPath + "\\RadInletWater_SP_schedule.csv",Target_WorkPath+"\\RadInletWater_SP_schedule.csv")
 
-  Input_DF = pd.read_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv")
+  Input_DF = pd.read_csv(Target_WorkPath+"\\RadInletWater_SP_schedule.csv")
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
   for i,idx in enumerate(range(start_idx,end_idx)):
     if X_sp[i]>0:
@@ -152,18 +134,18 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
       Input_DF.iloc[idx,1] = X_sp[i]
       Input_DF.iloc[idx,2] = int(X_sp[i]>30)
 
-  Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
+  Input_DF.to_csv(Target_WorkPath+"\\RadInletWater_SP_schedule.csv",index = False)
 
   ## Step 2. Run EnergyPlus model
    #srun --time 30 --mem-per-cpu 2048 -n 1 energyplus -w USA_CO_Golden-NREL.724666_TMY3.epw 1ZoneUncontrolled.idf
-  argument = ["energyplus", "-w",Cur_WorkPath + "//in.epw","-d",Target_WorkPath,Target_WorkPath+"//"+Eplus_FileName]
+  argument = ["energyplus", "-w",Cur_WorkPath + "\\in.epw","-d",Target_WorkPath,Target_WorkPath+"\\"+Eplus_FileName]
   sp.call(argument)
   
   ## Step 3. After completion, retrieve results
-  Sim_Status = check_SimulationStatus(Target_WorkPath+"//" + "eplusout.err")
+  Sim_Status = check_SimulationStatus(Target_WorkPath+"\\" + "eplusout.err")
   print(Sim_Status)
   if Sim_Status:
-    output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
+    output_DF = read_result(Target_WorkPath+"\\" + "eplusout.eso")
     tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
     ZMAT = list(output_DF.iloc[tim_idx+24:end_idx+24,2]) 
     Heating_Rate = list(output_DF.iloc[tim_idx+24:end_idx+24,3])   # One warmup day
@@ -230,103 +212,41 @@ def read_result(filename):
   data = pd.DataFrame(data)
   return data
 
-class PooledGA(pygad.GA):
+if __name__ == "__main__":
+    
+    # simulation setup
+    start_time= 60*60*24*20 
+    final_time= 60*60*24*24
+    Eplus_timestep = 60*3
 
-  def cal_pop_fitness(self):
-    global pool,hyperParam
-    pop_fitness = pool.starmap(fitness_wrapper, [(individual,i,hyperParam) for i,individual in enumerate(self.population)])
-    #print(pop_fitness)
-    pop_fitness = np.array(pop_fitness)
-    return pop_fitness
-        
+    # setup for MPC
+    pred_horizon = {"length":24,"timestep":3600}
 
-# run optimization 
-with MPIPool() as pool:
-  pool.workers_exit() ## Only master process will proceed
-  
-  # simulation setup
-  start_time= 60*60*24*20 
-  final_time= 60*60*24*23
-  Eplus_timestep = 60*3 # 3 min
+    #### run optimization
+    X_sp_log = [-1]*72  # This trend variable is used to store all setpoints from start_time 
+    CVar_timestep = pred_horizon['timestep']
 
-  # setup for MPC
-  pred_horizon = {"length":1,"timestep":3600}
+    rng = random.default_rng(1234)
+    CVar_list = [25.081476132088387, 29.740662184024576, 27.68554972623069, 26.511228043210654, 
+    25.84064456621681, 28.446718427975863, 27.316575868681127, 44.45605687312188, 26.1526397365662, 
+    26.093019414159222, 29.259457042732823, 28.709442306384826, 25.739424954928158, 26.165326297044157, 
+    28.12456672127432, 25.367700067893217, 29.752066782773973, 39.665751882065962, 39.010697226069556, 
+    39.763559629860847, 33.727798016715244, 28.85383136485696, 29.965574929489577, 27.4509258402405]
 
-  #### run optimization
-  X_sp_log = [-1]*48  # This trend variable is used to store all setpoints from start_time 
-
-  Eplus_FileName = "MediumOff_NewYork.idf"
+    tim = start_time +86400*3
+    Eplus_FileName = "MediumOff_NewYork.idf"
 
 
-  #prepare hyper parameter
-  hyperParam  ={}
-  hyperParam["CVar_timestep"] =  pred_horizon['timestep'] 
-  hyperParam["PH"] = pred_horizon['length'] 
-  hyperParam["start_time"] = start_time 
-  hyperParam["final_time"] = final_time 
-  hyperParam["Eplus_timestep"] = Eplus_timestep
-  hyperParam["Eplus_FileName"] = Eplus_FileName
-
-  
-  ##
-  tim = start_time + 86400 * 2
-  while True:
-    #
+    #prepare hyper parameter
+    hyperParam  ={}
     hyperParam["tim"] = tim
-    hyperParam["X_sp_log"] = X_sp_log
-
-    # Do optimization
-    
-    #SP_cur = run_Optimization(hyperParam)
-
-    ## At each time step, this function will implement an optimization.. \
-    # Parameter for GA 
-    num_parents_mating = 14
-    num_genes = hyperParam["PH"]
-
-    init_range_low = 25
-    init_range_high = 50
-    parent_selection_type = "tournament"
-    keep_parents = 1
-
-    # Optimization algorithm setting
-    num_generations = 15
-    sol_per_pop = 29   # Number of individuals
-
-    crossover_type = "single_point"
-    crossover_probability = 0.9
-
-    mutation_type = "random"
-    mutation_probability = 0.2
-
-    gene_space = [{'low': 25, 'high': 50}]*hyperParam['PH']
-
-    ga_instance = PooledGA(num_generations=num_generations,
-                    num_parents_mating=num_parents_mating,
-                    fitness_func=fitness_func, # Actually this is not used.
-                    sol_per_pop=sol_per_pop,
-                    num_genes=num_genes,
-                    init_range_low=init_range_low,
-                    init_range_high=init_range_high,
-                    parent_selection_type=parent_selection_type,
-                    keep_parents=keep_parents,
-                    crossover_type=crossover_type,
-                    crossover_probability = crossover_probability,
-                    mutation_type=mutation_type,
-                    mutation_probability = mutation_probability,
-                    gene_space = gene_space
-                    )
-    print("Start Optimization")
-    ga_instance.run()
-    print("Op completed")
-    SP_cur = ga_instance.best_solution()[0][0]
-    X_sp_log.append(SP_cur)
-    print(X_sp_log,tim)
-    # proceed to next timestep
-    tim = tim + pred_horizon['timestep']
-    if tim>= final_time:
-      break
-    
-    
-  print("all mpi process join again then")
-      
+    hyperParam["PH"] = pred_horizon["length"]
+    hyperParam["CVar_timestep"] =  CVar_timestep 
+    hyperParam["X_sp_log"] = X_sp_log 
+    hyperParam["start_time"] = start_time 
+    hyperParam["final_time"] = final_time 
+    hyperParam["Eplus_timestep"] = Eplus_timestep
+    hyperParam["Eplus_FileName"] = Eplus_FileName
+        
+    res = fitness_wrapper(CVar_list,1,hyperParam)
+    print(1)
