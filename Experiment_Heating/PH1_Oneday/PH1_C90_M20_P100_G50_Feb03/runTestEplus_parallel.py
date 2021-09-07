@@ -245,8 +245,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*20 
-  final_time= 60*60*24*23
+  start_time= 60*60*24*31 
+  final_time= 60*60*24*34
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
