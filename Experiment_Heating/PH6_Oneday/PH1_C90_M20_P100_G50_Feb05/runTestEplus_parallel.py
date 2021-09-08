@@ -281,7 +281,7 @@ with MPIPool() as pool:
 
     ## At each time step, this function will implement an optimization.. \
     # Parameter for GA 
-    num_parents_mating = 14
+    num_parents_mating = 20
     num_genes = hyperParam["PH"]
 
     init_range_low = 25
@@ -290,8 +290,8 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 15
-    sol_per_pop = 29   # Number of individuals
+    num_generations = 30
+    sol_per_pop = 49   # Number of individuals
 
     crossover_type = "single_point"
     crossover_probability = 0.9
