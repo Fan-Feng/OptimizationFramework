@@ -290,8 +290,8 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 15
-    sol_per_pop = 29   # Number of individuals
+    num_generations = 20
+    sol_per_pop = 39   # Number of individuals
 
     crossover_type = "single_point"
     crossover_probability = 0.9
