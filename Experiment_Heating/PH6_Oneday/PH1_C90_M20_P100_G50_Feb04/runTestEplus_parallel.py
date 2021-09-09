@@ -321,7 +321,8 @@ with MPIPool() as pool:
     print("Op completed")
     SP_cur = ga_instance.best_solution()[0][0]
     X_sp_log.append(SP_cur)
-    print(X_sp_log,tim)
+    fitnessValue = run_prediction([SP_cur],0,hyerParam)
+    print(X_sp_log,tim,fitnessValue)
     # proceed to next timestep
     tim = tim + pred_horizon['timestep']
     if tim>= final_time:
