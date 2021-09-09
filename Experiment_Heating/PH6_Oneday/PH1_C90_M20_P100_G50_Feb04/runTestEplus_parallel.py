@@ -281,7 +281,7 @@ with MPIPool() as pool:
 
     ## At each time step, this function will implement an optimization.. \
     # Parameter for GA 
-    num_parents_mating = 14
+    num_parents_mating = 20
     num_genes = hyperParam["PH"]
 
     init_range_low = 25
@@ -325,6 +325,7 @@ with MPIPool() as pool:
     # proceed to next timestep
     tim = tim + pred_horizon['timestep']
     if tim>= final_time:
+      print(tim)
       break
     
     
