@@ -290,8 +290,8 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 30
-    sol_per_pop = 49   # Number of individuals
+    num_generations = 10
+    sol_per_pop = 19   # Number of individuals
 
     crossover_type = "single_point"
     crossover_probability = 0.9
@@ -321,7 +321,7 @@ with MPIPool() as pool:
     print("Op completed")
     SP_cur = ga_instance.best_solution()[0][0]
     X_sp_log.append(SP_cur)
-    fitnessValue = run_prediction([SP_cur],0,hyerParam)
+    fitnessValue = run_prediction([SP_cur],0,hyperParam)
     print(X_sp_log,tim,fitnessValue)
     # proceed to next timestep
     tim = tim + pred_horizon['timestep']
