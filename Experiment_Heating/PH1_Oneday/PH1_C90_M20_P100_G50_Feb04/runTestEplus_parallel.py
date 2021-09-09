@@ -246,7 +246,7 @@ with MPIPool() as pool:
   
   # simulation setup
   start_time= 60*60*24*31 
-  final_time= 60*60*24*34
+  final_time= 60*60*24*35
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
@@ -291,7 +291,7 @@ with MPIPool() as pool:
 
     # Optimization algorithm setting
     num_generations = 15
-    sol_per_pop = 20   # Number of individuals
+    sol_per_pop = 29   # Number of individuals
 
     crossover_type = "single_point"
     crossover_probability = 0.9

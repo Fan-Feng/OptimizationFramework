@@ -245,8 +245,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*20 
-  final_time= 60*60*24*24
+  start_time= 60*60*24*31 
+  final_time= 60*60*24*35
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
@@ -281,7 +281,7 @@ with MPIPool() as pool:
 
     ## At each time step, this function will implement an optimization.. \
     # Parameter for GA 
-    num_parents_mating = 20
+    num_parents_mating = 14
     num_genes = hyperParam["PH"]
 
     init_range_low = 25
@@ -290,8 +290,8 @@ with MPIPool() as pool:
     keep_parents = 1
 
     # Optimization algorithm setting
-    num_generations = 10
-    sol_per_pop = 19   # Number of individuals
+    num_generations = 30
+    sol_per_pop = 49   # Number of individuals
 
     crossover_type = "single_point"
     crossover_probability = 0.9
@@ -321,8 +321,7 @@ with MPIPool() as pool:
     print("Op completed")
     SP_cur = ga_instance.best_solution()[0][0]
     X_sp_log.append(SP_cur)
-    fitnessValue = run_prediction([SP_cur],0,hyperParam)
-    print(X_sp_log,tim,fitnessValue)
+    print(X_sp_log,tim)
     # proceed to next timestep
     tim = tim + pred_horizon['timestep']
     if tim>= final_time:
