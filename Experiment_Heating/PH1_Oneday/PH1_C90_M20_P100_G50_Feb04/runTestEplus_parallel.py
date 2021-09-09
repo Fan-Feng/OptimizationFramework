@@ -325,6 +325,7 @@ with MPIPool() as pool:
     # proceed to next timestep
     tim = tim + pred_horizon['timestep']
     if tim>= final_time:
+      print(tim)
       break
     
     
