@@ -194,7 +194,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx = [675,676,677,678,679,1737,1743,1749,1756,1762,1995,2037] # Indices for  
+  output_idx =   output_idx = [675,676,677,678,679,1741,1747,1753,1760,1766,1999,2041] # Indices for  
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
