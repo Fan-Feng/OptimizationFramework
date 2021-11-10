@@ -167,7 +167,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   if Sim_Status:
     output_DF = read_result(Target_WorkPath+"//" + "eplusout.eso")
     tim_idx,end_idx = int((tim-start_time)/3600),int((time_end-start_time)/3600)
-    ZMAT = list(output_DF.iloc[tim_idx+24:end_idx+24,2:7]) 
+    ZMAT = output_DF.iloc[tim_idx+24:end_idx+24,2:7]
     
     ## Step 4. Remove temporary files
     shutil.rmtree(Target_WorkPath)
