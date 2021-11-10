@@ -170,13 +170,13 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
     ZMAT = list(output_DF.iloc[tim_idx+24:end_idx+24,2:7]) 
     
     ## Step 4. Remove temporary files
-    #shutil.rmtree(Target_WorkPath)
+    shutil.rmtree(Target_WorkPath)
     return Sim_Status, ZMAT,output_DF.iloc[tim_idx+24:end_idx+24,:]
   else:
 
     output_DF, ZMAT, Heating_Rate = -1,-1,-1
     ## Step 4. Remove temporary files
-    #shutil.rmtree(Target_WorkPath)
+    shutil.rmtree(Target_WorkPath)
     return Sim_Status, Heating_Rate,ZMAT,output_DF
 
 def check_SimulationStatus(fileName):
