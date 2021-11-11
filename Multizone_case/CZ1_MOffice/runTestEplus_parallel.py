@@ -67,7 +67,7 @@ def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
   SP_list = [15.6]*5+[17.6]+[19.6]*16+[15.6]*2 # [18,24]
-  ThermalComfort_range = 1
+  ThermalComfort_range = 0.5
   residuals = 0
   for j in range(5):
     for i in range(output_DF.shape[0]):
@@ -83,8 +83,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
   Sim_Status, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
   # utility rate, read from an external file
-  uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2  # Summer, workday. Replaced later. 
-  
+  uRate = [3.462]*6+[10.378]*4+[5.842]*7+[10.378]*3+[5.842]*2+[3.462]*2  
   alpha = 10**20 ## 
   if Sim_Status:
     tim = hyperParam["tim"]
@@ -106,7 +105,6 @@ def fitness_wrapper(x,solution_idx,hyperParam):
 def run_prediction(CVar_list, solution_idx,hyperParam):
   # This function runs the EPlus model over prediction horizon at "tim", and the control variable
   # is overridden by CVar_list.
-  # Because get_state and set_state are not supported, then we need to run the EPlus from beginning everytime. 
 
   ## Step 0. Pre-process inputs for the models. 
   tim = hyperParam["tim"]
@@ -240,7 +238,6 @@ class PooledGA(pygad.GA):
     #print(pop_fitness)
     pop_fitness = np.array(pop_fitness)
     return pop_fitness
-        
 
 # run optimization 
 with MPIPool() as pool:
