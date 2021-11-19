@@ -44,7 +44,7 @@
 !Laboratory.  https://www.energycodes.gov/sites/default/files/documents/BECP_Energy_Cost_Savings_STD2010_May2011_v00.pdf.
 !
 !
-! WeatherFile:  USA_NY_New.York-John.F.Kennedy.Intl.AP.744860_TMY3.epw
+! WeatherFile:  USA_FL_Tampa-MacDill.AFB.747880_TMY3.epw
 ! BEGIN ECONOMIZER MAP
 ! Economizer Name, DX COIL Name
 ! PACU_VAV_bot_OA_Controller, PACU_VAV_bot_CoolC DXCoil
@@ -52,36 +52,36 @@
 ! PACU_VAV_top_OA_Controller, PACU_VAV_top_CoolC DXCoil
 ! END ECONOMIZER MAP
 ! GPARM parameters as input:
-!    Case = ASHRAE901_OfficeMedium_STD2013_NewYork
+!    Case = ASHRAE901_OfficeMedium_STD2019_Tampa
 !    SelectedCase =
 !    annual_run = yes
-!    slab_gtp = National_OfficeMedium_ASHRAE901_STD2013_Zone4A_nonres_NY-NewYork-NY.gtp
-!    basement_tempt = OfficeMedium_STD2007_Baltimore_bsmt.idf
-!    avg_oa_tempt_ip = 54.44
-!    maxdiff_oa_tempt_ip = 45.36
+!    slab_gtp = National_OfficeMedium_ASHRAE901_STD2016_Zone2A_nonres_FL-Tampa-FL.gtp
+!    basement_tempt = OfficeMedium_STD2007_Houston_bsmt.idf
+!    avg_oa_tempt_ip = 71.33
+!    maxdiff_oa_tempt_ip = 25.74
 !    ext_wall_type = SteelFramedWall
-!    nonres_ext_wall_ufactor = 0.363408832
+!    nonres_ext_wall_ufactor = 0.476974092
 !    roof_type = LightweightRoof
-!    nonres_roof_ufactor = 0.181704416
-!    roof_emissivity = 0.9
-!    roof_solar_absorp = 0.7
+!    nonres_roof_ufactor = 0.221452257
+!    roof_emissivity = 0.75
+!    roof_solar_absorp = 0.45
 !    nonres_window =
 !    economizer = DifferentialDryBulb
 !    skip_economizer_control = No
 !    sidelighting_control = yes_AY
-!    LPD_office = 8.826406542
+!    LPD_office = 6.888902667
 !    exterior_lights_watts = 0
 !    exterior_lights_watts_a = 519.2
-!    exterior_lights_watts_b = 7402.3
-!    avg_oa_tempt = 12.46666667
-!    maxdiff_oa_tempt = 25.2
+!    exterior_lights_watts_b = 375.7
+!    avg_oa_tempt = 21.85
+!    maxdiff_oa_tempt = 14.3
 !    infil = 0.00056896
 !    oa_flow_per_area = 0.000431773
-!    SAT_reset_switch = Yes
-!    SAT_reset_T = 15.6
-!    door_infil = 0.678659786
-!    frac_ofpk = 0.131
-!    damper_sched = MinOA_MotorizedDamper_Sched
+!    SAT_reset_switch = No
+!    SAT_reset_T =
+!    door_infil = 1.04300287
+!    frac_ofpk = 0.144
+!    damper_sched = MinOA_Sched
 !    economizer_lockout = LockoutWithHeating
 !    heating_damper_act = Normal
 !    add_ck_pacu_vav_bot = Yes
@@ -108,7 +108,7 @@
 !    BLDG_ELEVATORS_LIGHTS_FAN_SCH = ELEV_LIGHT_FAN_SCH_ADD_DF
 !    BLDG_ELEVATORS_LIGHTS_FAN_POWER = 125
 !    BLDG_EQUIP_SCH = BLDG_EQUIP_SCH_ADV
-!    addendum_cd = yes
+!    addendum_cd = 2016AS
 !    pv_generator = no
 !    pv_surface_area = 0
 !    STD189_overhang = no
@@ -120,14 +120,14 @@
 !    PACU_VAV_top_ERV = No
 !    LTG_SCH_SET = LTG_SET_STD2013
 !    transformer_size = 45000
-!    transformer_eff = 0.977
-!    PACU_VAV_bot_ERV_power = 907.48425
-!    PACU_VAV_mid_ERV_power = 907.48425
-!    PACU_VAV_top_ERV_power = 907.48425
+!    transformer_eff = 0.984
+!    PACU_VAV_bot_ERV_power = 736.00175
+!    PACU_VAV_mid_ERV_power = 736.00175
+!    PACU_VAV_top_ERV_power = 736.00175
 !    OA_BASED_OPTIMUM_START_EMS = yes
 !    OPTIMUM_START_SF_DEPENDENT_EMS = no
 !    wwr = 0.33
-!    pipe_heat_loss = 2003.43
+!    pipe_heat_loss = 1886.44
 !    skip_EMSprogram = yes
 !    HtgSetP_Sch_PACU_VAV_bot = HTGSETP_SCH_YES_OPTIMUM
 !    HtgSetP_Sch_PACU_VAV_mid = HTGSETP_SCH_YES_OPTIMUM
@@ -135,33 +135,33 @@
 !    ClgSetP_Sch_PACU_VAV_bot = CLGSETP_SCH_YES_OPTIMUM
 !    ClgSetP_Sch_PACU_VAV_mid = CLGSETP_SCH_YES_OPTIMUM
 !    ClgSetP_Sch_PACU_VAV_top = CLGSETP_SCH_YES_OPTIMUM
-!    Wfile_TMY3 = USA_NY_New.York-John.F.Kennedy.Intl.AP.744860_TMY3.epw
+!    Wfile_TMY3 = USA_FL_Tampa-MacDill.AFB.747880_TMY3.epw
 !    loadProfile = No
 !    receptacle_ctrl_occ_reduction_frac = 0.95308699
 !    receptacle_ctrl_unocc_reduction_frac = 0.769184602
 !    SHW_Pump_Head = 29891
-!    CodeName = DOE.determination2013_ASHRAE90.1_STD2013
-!    CZ_City_Old = Baltimore
-!    CZ_Label = 4A
-!    exterior_lights_watts_c = 0
-!    Addendum_AH = No
-!    LPD_Ctrl = 0
-!    con_swingdoor_r = 0.352236703
-!    office_standby_mode =
-!    nonres_window_u_factor = 0.42
-!    nonres_window_shgc = 0.4
+!    CodeName = ASHRAE90.1_STD2019
+!    CZ_City_Old = Houston
+!    CZ_Label = 2A
+!    exterior_lights_watts_c = 4341.6
+!    Addendum_AH = Yes
+!    LPD_Ctrl = 0.02
+!    con_swingdoor_r = 0.475963827
+!    office_standby_mode = Yes
+!    nonres_window_u_factor = 0.46
+!    nonres_window_shgc = 0.25
 !    nonresLSG = 1.1
 !    AnalysisPurpose = ProgressIndicator
 !    AnalysisCodeName = ASHRAE901
-!    AnalysisCodeYear = 2013
+!    AnalysisCodeYear = 2019
 !    AnalysisAmendment = NoneAmend
 !    AnalysisPrototype = OfficeMedium
 !    AnalysisScope = National
 !    AnalysisState = National
-!    AnalysisClimateZone = 4A
-!    AnalysisCity = USA_NY_NewYork
-!    var_Ffactor_IP = 0.52
-!    var_Cfactor_IP = 0.119
+!    AnalysisClimateZone = 2A
+!    AnalysisCity = USA_FL_Tampa
+!    var_Ffactor_IP = 0.73
+!    var_Cfactor_IP = 1.14
 !    Core_ZN_SWH_flow = 3.57511e-06
 ! specify overhang_pf for 1891 codes
 Version,
@@ -232,37 +232,61 @@ ConvergenceLimits,
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
 
-! Site:Location and design-day objects created by:
-! ../../_p.bin/ddy2idf /projects/bigsim/weather/EnergyPlus/tmy3.new/all/USA_NY_New.York-John.F.Kennedy.Intl.AP.744860_TMY3.ddy
-!
 Site:Location,
-    New.York-John.F.Kennedy.Intl.AP_NY_USA WMO=744860,  !- Name
-    40.66,                   !- Latitude {deg}
-    -73.80,                  !- Longitude {deg}
-    -5.00,                   !- Time Zone {hr}
-    7.00;                    !- Elevation {m}
+    Houston Bush Intercontinental_TX_USA Design_Conditions,  !- Name
+    30.00,                   !- Latitude {deg}
+    -95.37,                  !- Longitude {deg}
+    -6.00,                   !- Time Zone {hr}
+    29.00;                   !- Elevation {m}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SIZINGPERIOD:DESIGNDAY ===========
 
 SizingPeriod:DesignDay,
-    New.York-John.F.Kennedy.Intl.AP_NY_USA Ann Htg 99.6% Condns DB,  !- Name
-    1,                       !- Month
+    Houston Bush Intercontinental Ann Clg .4% Condns DB=>MWB,  !- Name
+    7,                       !- Month
     21,                      !- Day of Month
-    WinterDesignDay,         !- Day Type
-    -10.7,                   !- Maximum Dry-Bulb Temperature {C}
-    0.0,                     !- Daily Dry-Bulb Temperature Range {deltaC}
+    SummerDesignDay,         !- Day Type
+    36,                      !- Maximum Dry-Bulb Temperature {C}
+    10.1,                    !- Daily Dry-Bulb Temperature Range {deltaC}
     DefaultMultipliers,      !- Dry-Bulb Temperature Range Modifier Type
     ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
     Wetbulb,                 !- Humidity Condition Type
-    -10.7,                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+    24.8,                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
     ,                        !- Humidity Condition Day Schedule Name
     ,                        !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
     ,                        !- Enthalpy at Maximum Dry-Bulb {J/kg}
     ,                        !- Daily Wet-Bulb Temperature Range {deltaC}
-    101241.,                 !- Barometric Pressure {Pa}
-    7.5,                     !- Wind Speed {m/s}
-    320,                     !- Wind Direction {deg}
+    100977.,                 !- Barometric Pressure {Pa}
+    3.5,                     !- Wind Speed {m/s}
+    170,                     !- Wind Direction {deg}
+    No,                      !- Rain Indicator
+    No,                      !- Snow Indicator
+    No,                      !- Daylight Saving Time Indicator
+    ASHRAETau,               !- Solar Model Indicator
+    ,                        !- Beam Solar Day Schedule Name
+    ,                        !- Diffuse Solar Day Schedule Name
+    0.499,                   !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+    1.970;                   !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+
+SizingPeriod:DesignDay,
+    Houston Bush Intercontinental Ann Htg 99.6% Condns DB,  !- Name
+    1,                       !- Month
+    21,                      !- Day of Month
+    WinterDesignDay,         !- Day Type
+    -1.6,                    !- Maximum Dry-Bulb Temperature {C}
+    0.0,                     !- Daily Dry-Bulb Temperature Range {deltaC}
+    DefaultMultipliers,      !- Dry-Bulb Temperature Range Modifier Type
+    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
+    Wetbulb,                 !- Humidity Condition Type
+    -1.6,                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+    ,                        !- Humidity Condition Day Schedule Name
+    ,                        !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+    ,                        !- Enthalpy at Maximum Dry-Bulb {J/kg}
+    ,                        !- Daily Wet-Bulb Temperature Range {deltaC}
+    100977.,                 !- Barometric Pressure {Pa}
+    2.8,                     !- Wind Speed {m/s}
+    0,                       !- Wind Direction {deg}
     No,                      !- Rain Indicator
     No,                      !- Snow Indicator
     No,                      !- Daylight Saving Time Indicator
@@ -273,40 +297,13 @@ SizingPeriod:DesignDay,
     ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
     0.00;                    !- Sky Clearness
 
-SizingPeriod:DesignDay,
-    New.York-John.F.Kennedy.Intl.AP_NY_USA Ann Clg .4% Condns DB=>MWB,  !- Name
-    7,                       !- Month
-    21,                      !- Day of Month
-    SummerDesignDay,         !- Day Type
-    32.1,                    !- Maximum Dry-Bulb Temperature {C}
-    7.4,                     !- Daily Dry-Bulb Temperature Range {deltaC}
-    DefaultMultipliers,      !- Dry-Bulb Temperature Range Modifier Type
-    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
-    Wetbulb,                 !- Humidity Condition Type
-    23.1,                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
-    ,                        !- Humidity Condition Day Schedule Name
-    ,                        !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
-    ,                        !- Enthalpy at Maximum Dry-Bulb {J/kg}
-    ,                        !- Daily Wet-Bulb Temperature Range {deltaC}
-    101241.,                 !- Barometric Pressure {Pa}
-    5.6,                     !- Wind Speed {m/s}
-    230,                     !- Wind Direction {deg}
-    No,                      !- Rain Indicator
-    No,                      !- Snow Indicator
-    No,                      !- Daylight Saving Time Indicator
-    ASHRAETau,               !- Solar Model Indicator
-    ,                        !- Beam Solar Day Schedule Name
-    ,                        !- Diffuse Solar Day Schedule Name
-    0.541,                   !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
-    1.800;                   !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
-
 
 !-   ===========  ALL OBJECTS IN CLASS: RUNPERIOD ===========
 
 RunPeriod,
     RUNPERIOD 1,             !- Name
     %BeginMon%,                       !- Begin Month
-    %BeginDay%,                     !- Begin Day of Month
+    %BeginDay%,                      !- Begin Day of Month
     ,                        !- Begin Year
     %EndMon%,                       !- End Month
     %EndDay%,                      !- End Day of Month
@@ -382,13 +379,6 @@ RunPeriodControl:SpecialDays,
     Holiday;                 !- Special Day Type
 
 
-!-   ===========  ALL OBJECTS IN CLASS: RUNPERIODCONTROL:DAYLIGHTSAVINGTIME ===========
-
-RunPeriodControl:DaylightSavingTime,
-    2nd Sunday in March,     !- Start Date
-    1st Sunday in November;  !- End Date
-
-
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:BUILDINGSURFACE ===========
 
 Site:GroundTemperature:BuildingSurface,
@@ -409,18 +399,18 @@ Site:GroundTemperature:BuildingSurface,
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:FCFACTORMETHOD ===========
 
 Site:GroundTemperature:FCfactorMethod,
-    14.0,                    !- January Ground Temperature {C}
-    7.3,                     !- February Ground Temperature {C}
-    3.3,                     !- March Ground Temperature {C}
-    1.2,                     !- April Ground Temperature {C}
-    -0.2,                    !- May Ground Temperature {C}
-    5.6,                     !- June Ground Temperature {C}
-    10.9,                    !- July Ground Temperature {C}
-    16.1,                    !- August Ground Temperature {C}
-    21.7,                    !- September Ground Temperature {C}
-    25.0,                    !- October Ground Temperature {C}
-    24.8,                    !- November Ground Temperature {C}
-    19.9;                    !- December Ground Temperature {C}
+    24.2,                    !- January Ground Temperature {C}
+    18.9,                    !- February Ground Temperature {C}
+    15.7,                    !- March Ground Temperature {C}
+    13.6,                    !- April Ground Temperature {C}
+    15.5,                    !- May Ground Temperature {C}
+    17.1,                    !- June Ground Temperature {C}
+    21.2,                    !- July Ground Temperature {C}
+    26.9,                    !- August Ground Temperature {C}
+    27.6,                    !- September Ground Temperature {C}
+    27.9,                    !- October Ground Temperature {C}
+    27.4,                    !- November Ground Temperature {C}
+    26.2;                    !- December Ground Temperature {C}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:WATERMAINSTEMPERATURE ===========
@@ -428,8 +418,8 @@ Site:GroundTemperature:FCfactorMethod,
 Site:WaterMainsTemperature,
     Correlation,             !- Calculation Method
     ,                        !- Temperature Schedule Name
-    12.4666666666667,        !- Annual Average Outdoor Air Temperature {C}
-    25.2;                    !- Maximum Difference In Monthly Average Outdoor Air Temperatures {deltaC}
+    21.85,                   !- Annual Average Outdoor Air Temperature {C}
+    14.3;                    !- Maximum Difference In Monthly Average Outdoor Air Temperatures {deltaC}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULETYPELIMITS ===========
@@ -2798,105 +2788,105 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Weekdays,           !- Field 2
     Until: 01:00,            !- Field 3
-    0.2,                     !- Field 4
+    0.144,                   !- Field 4
     Until: 02:00,            !- Field 5
-    0.2,                     !- Field 6
+    0.144,                   !- Field 6
     Until: 03:00,            !- Field 7
-    0.2,                     !- Field 8
+    0.144,                   !- Field 8
     Until: 04:00,            !- Field 9
-    0.2,                     !- Field 10
+    0.144,                   !- Field 10
     Until: 05:00,            !- Field 11
-    0.2,                     !- Field 12
+    0.144,                   !- Field 12
     Until: 06:00,            !- Field 13
-    0.2,                     !- Field 14
+    0.144,                   !- Field 14
     Until: 07:00,            !- Field 15
-    0.2,                     !- Field 16
+    0.144,                   !- Field 16
     Until: 08:00,            !- Field 17
-    0.2,                     !- Field 18
+    0.144,                   !- Field 18
     Until: 09:00,            !- Field 19
-    0.2,                     !- Field 20
+    0.144,                   !- Field 20
     Until: 10:00,            !- Field 21
-    0.2,                     !- Field 22
+    0.144,                   !- Field 22
     Until: 11:00,            !- Field 23
     0.01,                    !- Field 24
     Until: 12:00,            !- Field 25
-    0.2,                     !- Field 26
+    0.144,                   !- Field 26
     Until: 13:00,            !- Field 27
     0.01,                    !- Field 28
     Until: 14:00,            !- Field 29
-    0.2,                     !- Field 30
+    0.144,                   !- Field 30
     Until: 15:00,            !- Field 31
     0.01,                    !- Field 32
     Until: 16:00,            !- Field 33
-    0.2,                     !- Field 34
+    0.144,                   !- Field 34
     Until: 17:00,            !- Field 35
-    0.2,                     !- Field 36
+    0.144,                   !- Field 36
     Until: 18:00,            !- Field 37
-    0.2,                     !- Field 38
+    0.144,                   !- Field 38
     Until: 19:00,            !- Field 39
-    0.2,                     !- Field 40
+    0.144,                   !- Field 40
     Until: 20:00,            !- Field 41
-    0.2,                     !- Field 42
+    0.144,                   !- Field 42
     Until: 21:00,            !- Field 43
-    0.2,                     !- Field 44
+    0.144,                   !- Field 44
     Until: 22:00,            !- Field 45
-    0.2,                     !- Field 46
+    0.144,                   !- Field 46
     Until: 23:00,            !- Field 47
-    0.2,                     !- Field 48
+    0.144,                   !- Field 48
     Until: 24:00,            !- Field 49
-    0.2,                     !- Field 50
+    0.144,                   !- Field 50
     For: Saturday,           !- Field 51
     Until: 01:00,            !- Field 52
-    0.2,                     !- Field 53
+    0.144,                   !- Field 53
     Until: 02:00,            !- Field 54
-    0.2,                     !- Field 55
+    0.144,                   !- Field 55
     Until: 03:00,            !- Field 56
-    0.2,                     !- Field 57
+    0.144,                   !- Field 57
     Until: 04:00,            !- Field 58
-    0.2,                     !- Field 59
+    0.144,                   !- Field 59
     Until: 05:00,            !- Field 60
-    0.2,                     !- Field 61
+    0.144,                   !- Field 61
     Until: 06:00,            !- Field 62
-    0.2,                     !- Field 63
+    0.144,                   !- Field 63
     Until: 07:00,            !- Field 64
-    0.2,                     !- Field 65
+    0.144,                   !- Field 65
     Until: 08:00,            !- Field 66
-    0.2,                     !- Field 67
+    0.144,                   !- Field 67
     Until: 09:00,            !- Field 68
-    0.2,                     !- Field 69
+    0.144,                   !- Field 69
     Until: 10:00,            !- Field 70
-    0.2,                     !- Field 71
+    0.144,                   !- Field 71
     Until: 11:00,            !- Field 72
     0.01,                    !- Field 73
     Until: 12:00,            !- Field 74
-    0.2,                     !- Field 75
+    0.144,                   !- Field 75
     Until: 13:00,            !- Field 76
     0.01,                    !- Field 77
     Until: 14:00,            !- Field 78
-    0.2,                     !- Field 79
+    0.144,                   !- Field 79
     Until: 15:00,            !- Field 80
     0.01,                    !- Field 81
     Until: 16:00,            !- Field 82
-    0.2,                     !- Field 83
+    0.144,                   !- Field 83
     Until: 17:00,            !- Field 84
-    0.2,                     !- Field 85
+    0.144,                   !- Field 85
     Until: 18:00,            !- Field 86
-    0.2,                     !- Field 87
+    0.144,                   !- Field 87
     Until: 19:00,            !- Field 88
-    0.2,                     !- Field 89
+    0.144,                   !- Field 89
     Until: 20:00,            !- Field 90
-    0.2,                     !- Field 91
+    0.144,                   !- Field 91
     Until: 21:00,            !- Field 92
-    0.2,                     !- Field 93
+    0.144,                   !- Field 93
     Until: 22:00,            !- Field 94
-    0.2,                     !- Field 95
+    0.144,                   !- Field 95
     Until: 23:00,            !- Field 96
-    0.2,                     !- Field 97
+    0.144,                   !- Field 97
     Until: 24:00,            !- Field 98
-    0.2,                     !- Field 99
+    0.144,                   !- Field 99
     For: AllOtherDays,       !- Field 100
     Until: 24:00,            !- Field 101
-    0.2;                     !- Field 102
+    0.144;                   !- Field 102
 
 Schedule:Compact,
     PERIMETER_MID_ZN_2_OA_Mult,  !- Name
@@ -3230,8 +3220,8 @@ Material,
     45.28,                   !- Conductivity {W/m-K}
     7824,                    !- Density {kg/m3}
     500,                     !- Specific Heat {J/kg-K}
-    0.9,                     !- Thermal Absorptance
-    0.7;                     !- Solar Absorptance
+    0.75,                    !- Thermal Absorptance
+    0.45;                    !- Solar Absorptance
 
 Material,
     F12 Asphalt shingles,    !- Name
@@ -3240,8 +3230,8 @@ Material,
     0.04,                    !- Conductivity {W/m-K}
     1120,                    !- Density {kg/m3}
     1260,                    !- Specific Heat {J/kg-K}
-    0.9,                     !- Thermal Absorptance
-    0.7;                     !- Solar Absorptance
+    0.75,                    !- Thermal Absorptance
+    0.45;                    !- Solar Absorptance
 
 Material,
     F13 Built-up roofing,    !- Name
@@ -3250,8 +3240,8 @@ Material,
     0.16,                    !- Conductivity {W/m-K}
     1120,                    !- Density {kg/m3}
     1460,                    !- Specific Heat {J/kg-K}
-    0.9,                     !- Thermal Absorptance
-    0.7;                     !- Solar Absorptance
+    0.75,                    !- Thermal Absorptance
+    0.45;                    !- Solar Absorptance
 
 Material,
     G01 13mm gypsum board,   !- Name
@@ -3405,7 +3395,7 @@ Material,
 Material:NoMass,
     Opaque Door panel_con,   !- Name
     MediumRough,             !- Roughness
-    0.352236703,             !- Thermal Resistance {m2-K/W}
+    0.475963827,             !- Thermal Resistance {m2-K/W}
     0.9,                     !- Thermal Absorptance
     0.7,                     !- Solar Absorptance
     0.7;                     !- Visible Absorptance
@@ -3428,7 +3418,7 @@ Material:NoMass,
 Material:NoMass,
     Nonres_Roof_Insulation,  !- Name
     MediumSmooth,            !- Roughness
-    5.30668495131472,        !- Thermal Resistance {m2-K/W}
+    4.31888738734588,        !- Thermal Resistance {m2-K/W}
     0.9,                     !- Thermal Absorptance
     0.7,                     !- Solar Absorptance
     0.7;                     !- Visible Absorptance
@@ -3452,7 +3442,7 @@ Material:NoMass,
 Material:NoMass,
     Nonres_Exterior_Wall_Insulation,  !- Name
     MediumSmooth,            !- Roughness
-    2.36800034244138,        !- Thermal Resistance {m2-K/W}
+    1.71282848878858,        !- Thermal Resistance {m2-K/W}
     0.9,                     !- Thermal Absorptance
     0.7,                     !- Solar Absorptance
     0.7;                     !- Visible Absorptance
@@ -3510,9 +3500,9 @@ Material:NoMass,
 
 WindowMaterial:SimpleGlazingSystem,
     Glazing Layer,           !- Name
-    2.3848692,               !- U-Factor {W/m2-K}
-    0.4,                     !- Solar Heat Gain Coefficient
-    0.44;                    !- Visible Transmittance
+    2.6119996,               !- U-Factor {W/m2-K}
+    0.25,                    !- Solar Heat Gain Coefficient
+    0.275;                   !- Visible Transmittance
 
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIALPROPERTY:PHASECHANGEHYSTERESIS ===========
@@ -3634,13 +3624,11 @@ Construction,
     F13 Built-up roofing,    !- Outside Layer
     Res_Roof_Insulation;     !- Layer 2
 
-!F08 Metal surface;       !- Layer 3
 Construction,
     semiheated_roof,         !- Name
     F13 Built-up roofing,    !- Outside Layer
     Semiheated_Roof_Insulation;  !- Layer 2
 
-!F08 Metal surface;       !- Layer 3
 Construction,
     nonres_ext_wall,         !- Name
     F07 25mm stucco,         !- Outside Layer
@@ -3699,7 +3687,7 @@ Construction,
     Semiheated_Floor_Insulation;  !- Layer 3
 
 Construction,
-    Window_U_0.42_SHGC_0.4,  !- Name
+    Window_U_0.46_SHGC_0.25, !- Name
     Glazing Layer;           !- Outside Layer
 
 
@@ -3707,31 +3695,31 @@ Construction,
 
 Construction:FfactorGroundFloor,
     Perimeter_bot_ZN_1_Floor_Ffactor,  !- Name
-    0.90012,                 !- F-Factor {W/m-K}
+    1.26363,                 !- F-Factor {W/m-K}
     207.33814098,            !- Area {m2}
     49.911;                  !- PerimeterExposed {m}
 
 Construction:FfactorGroundFloor,
     Perimeter_bot_ZN_2_Floor_Ffactor,  !- Name
-    0.90012,                 !- F-Factor {W/m-K}
+    1.26363,                 !- F-Factor {W/m-K}
     131.26219410000022,      !- Area {m2}
     33.2738;                 !- PerimeterExposed {m}
 
 Construction:FfactorGroundFloor,
     Perimeter_bot_ZN_3_Floor_Ffactor,  !- Name
-    0.90012,                 !- F-Factor {W/m-K}
+    1.26363,                 !- F-Factor {W/m-K}
     207.33814097999993,      !- Area {m2}
     49.911;                  !- PerimeterExposed {m}
 
 Construction:FfactorGroundFloor,
     Perimeter_bot_ZN_4_Floor_Ffactor,  !- Name
-    0.90012,                 !- F-Factor {W/m-K}
+    1.26363,                 !- F-Factor {W/m-K}
     131.25358392,            !- Area {m2}
     33.2738;                 !- PerimeterExposed {m}
 
 Construction:FfactorGroundFloor,
     Core_bot_ZN_5_Floor_Ffactor,  !- Name
-    0.90012,                 !- F-Factor {W/m-K}
+    1.26363,                 !- F-Factor {W/m-K}
     983.5365718200002,       !- Area {m2}
     0;                       !- PerimeterExposed {m}
 
@@ -4696,30 +4684,6 @@ BuildingSurface:Detailed,
     7.9248;                  !- Vertex 4 Z-coordinate {m}
 
 BuildingSurface:Detailed,
-    Plenum_mid_1_Ceiling,    !- Name
-    Ceiling,                 !- Surface Type
-    Slab Floor with Radiant Reverse,  !- Construction Name
-    MidFloor_Plenum,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    Perimeter_top_ZN_1_Floor,!- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0.0000,                  !- Vertex 1 X-coordinate {m}
-    0.0000,                  !- Vertex 1 Y-coordinate {m}
-    7.9248,                  !- Vertex 1 Z-coordinate {m}
-    49.911,                  !- Vertex 2 X-coordinate {m}
-    0.0000,                  !- Vertex 2 Y-coordinate {m}
-    7.9248,                  !- Vertex 2 Z-coordinate {m}
-    45.3375,                 !- Vertex 3 X-coordinate {m}
-    4.5732,                  !- Vertex 3 Y-coordinate {m}
-    7.9248,                  !- Vertex 3 Z-coordinate {m}
-    4.5732,                  !- Vertex 4 X-coordinate {m}
-    4.5732,                  !- Vertex 4 Y-coordinate {m}
-    7.9248;                  !- Vertex 4 Z-coordinate {m}
-
-BuildingSurface:Detailed,
     Perimeter_top_ZN_2_Floor,!- Name
     Floor,                   !- Surface Type
     Slab Floor with Radiant, !- Construction Name
@@ -4741,30 +4705,6 @@ BuildingSurface:Detailed,
     7.9248,                  !- Vertex 3 Z-coordinate {m}
     49.911,                  !- Vertex 4 X-coordinate {m}
     33.2738,                 !- Vertex 4 Y-coordinate {m}
-    7.9248;                  !- Vertex 4 Z-coordinate {m}
-
-BuildingSurface:Detailed,
-    Plenum_mid_2_Ceiling,    !- Name
-    Ceiling,                 !- Surface Type
-    Slab Floor with Radiant ,!- Construction Name
-    MidFloor_Plenum,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    Perimeter_top_ZN_2_Floor,!- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    49.911,                  !- Vertex 1 X-coordinate {m}
-    0.0000,                  !- Vertex 1 Y-coordinate {m}
-    7.9248,                  !- Vertex 1 Z-coordinate {m}
-    49.911,                  !- Vertex 2 X-coordinate {m}
-    33.2738,                 !- Vertex 2 Y-coordinate {m}
-    7.9248,                  !- Vertex 2 Z-coordinate {m}
-    45.3375,                 !- Vertex 3 X-coordinate {m}
-    28.7006,                 !- Vertex 3 Y-coordinate {m}
-    7.9248,                  !- Vertex 3 Z-coordinate {m}
-    45.3375,                 !- Vertex 4 X-coordinate {m}
-    4.5732,                  !- Vertex 4 Y-coordinate {m}
     7.9248;                  !- Vertex 4 Z-coordinate {m}
 
 BuildingSurface:Detailed,
@@ -4792,6 +4732,54 @@ BuildingSurface:Detailed,
     7.9248;                  !- Vertex 4 Z-coordinate {m}
 
 BuildingSurface:Detailed,
+    Plenum_mid_1_Ceiling,    !- Name
+    Ceiling,                 !- Surface Type
+    Slab Floor with Radiant Reverse,  !- Construction Name
+    MidFloor_Plenum,         !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    Perimeter_top_ZN_1_Floor,!- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0.0000,                  !- Vertex 1 X-coordinate {m}
+    0.0000,                  !- Vertex 1 Y-coordinate {m}
+    7.9248,                  !- Vertex 1 Z-coordinate {m}
+    49.911,                  !- Vertex 2 X-coordinate {m}
+    0.0000,                  !- Vertex 2 Y-coordinate {m}
+    7.9248,                  !- Vertex 2 Z-coordinate {m}
+    45.3375,                 !- Vertex 3 X-coordinate {m}
+    4.5732,                  !- Vertex 3 Y-coordinate {m}
+    7.9248,                  !- Vertex 3 Z-coordinate {m}
+    4.5732,                  !- Vertex 4 X-coordinate {m}
+    4.5732,                  !- Vertex 4 Y-coordinate {m}
+    7.9248;                  !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Plenum_mid_2_Ceiling,    !- Name
+    Ceiling,                 !- Surface Type
+    Slab Floor with Radiant Reverse,  !- Construction Name
+    MidFloor_Plenum,         !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    Perimeter_top_ZN_2_Floor,!- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    49.911,                  !- Vertex 1 X-coordinate {m}
+    0.0000,                  !- Vertex 1 Y-coordinate {m}
+    7.9248,                  !- Vertex 1 Z-coordinate {m}
+    49.911,                  !- Vertex 2 X-coordinate {m}
+    33.2738,                 !- Vertex 2 Y-coordinate {m}
+    7.9248,                  !- Vertex 2 Z-coordinate {m}
+    45.3375,                 !- Vertex 3 X-coordinate {m}
+    28.7006,                 !- Vertex 3 Y-coordinate {m}
+    7.9248,                  !- Vertex 3 Z-coordinate {m}
+    45.3375,                 !- Vertex 4 X-coordinate {m}
+    4.5732,                  !- Vertex 4 Y-coordinate {m}
+    7.9248;                  !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
     Plenum_mid_3_Ceiling,    !- Name
     Ceiling,                 !- Surface Type
     Slab Floor with Radiant Reverse,  !- Construction Name
@@ -4816,30 +4804,6 @@ BuildingSurface:Detailed,
     7.9248;                  !- Vertex 4 Z-coordinate {m}
 
 BuildingSurface:Detailed,
-    Perimeter_top_ZN_4_Floor,!- Name
-    Floor,                   !- Surface Type
-    Slab Floor with Radiant, !- Construction Name
-    Perimeter_top_ZN_4,      !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    Plenum_mid_4_Ceiling,    !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0.0000,                  !- Vertex 1 X-coordinate {m}
-    33.2738,                 !- Vertex 1 Y-coordinate {m}
-    7.9248,                  !- Vertex 1 Z-coordinate {m}
-    4.5732,                  !- Vertex 2 X-coordinate {m}
-    28.7006,                 !- Vertex 2 Y-coordinate {m}
-    7.9248,                  !- Vertex 2 Z-coordinate {m}
-    4.5732,                  !- Vertex 3 X-coordinate {m}
-    4.5732,                  !- Vertex 3 Y-coordinate {m}
-    7.9248,                  !- Vertex 3 Z-coordinate {m}
-    0.0000,                  !- Vertex 4 X-coordinate {m}
-    0.0000,                  !- Vertex 4 Y-coordinate {m}
-    7.9248;                  !- Vertex 4 Z-coordinate {m}
-
-BuildingSurface:Detailed,
     Plenum_mid_4_Ceiling,    !- Name
     Ceiling,                 !- Surface Type
     Slab Floor with Radiant Reverse,  !- Construction Name
@@ -4855,30 +4819,6 @@ BuildingSurface:Detailed,
     7.9248,                  !- Vertex 1 Z-coordinate {m}
     0.0000,                  !- Vertex 2 X-coordinate {m}
     0.0000,                  !- Vertex 2 Y-coordinate {m}
-    7.9248,                  !- Vertex 2 Z-coordinate {m}
-    4.5732,                  !- Vertex 3 X-coordinate {m}
-    4.5732,                  !- Vertex 3 Y-coordinate {m}
-    7.9248,                  !- Vertex 3 Z-coordinate {m}
-    4.5732,                  !- Vertex 4 X-coordinate {m}
-    28.7006,                 !- Vertex 4 Y-coordinate {m}
-    7.9248;                  !- Vertex 4 Z-coordinate {m}
-
-BuildingSurface:Detailed,
-    Core_top_ZN_5_Floor,     !- Name
-    Floor,                   !- Surface Type
-    Slab Floor with Radiant, !- Construction Name
-    Core_top,                !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    Plenum_mid_core_Ceiling, !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    45.3375,                 !- Vertex 1 X-coordinate {m}
-    28.7006,                 !- Vertex 1 Y-coordinate {m}
-    7.9248,                  !- Vertex 1 Z-coordinate {m}
-    45.3375,                 !- Vertex 2 X-coordinate {m}
-    4.5732,                  !- Vertex 2 Y-coordinate {m}
     7.9248,                  !- Vertex 2 Z-coordinate {m}
     4.5732,                  !- Vertex 3 X-coordinate {m}
     4.5732,                  !- Vertex 3 Y-coordinate {m}
@@ -4909,6 +4849,54 @@ BuildingSurface:Detailed,
     7.9248,                  !- Vertex 3 Z-coordinate {m}
     45.3375,                 !- Vertex 4 X-coordinate {m}
     4.5732,                  !- Vertex 4 Y-coordinate {m}
+    7.9248;                  !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Perimeter_top_ZN_4_Floor,!- Name
+    Floor,                   !- Surface Type
+    Slab Floor with Radiant, !- Construction Name
+    Perimeter_top_ZN_4,      !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    Plenum_mid_4_Ceiling,    !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0.0000,                  !- Vertex 1 X-coordinate {m}
+    33.2738,                 !- Vertex 1 Y-coordinate {m}
+    7.9248,                  !- Vertex 1 Z-coordinate {m}
+    4.5732,                  !- Vertex 2 X-coordinate {m}
+    28.7006,                 !- Vertex 2 Y-coordinate {m}
+    7.9248,                  !- Vertex 2 Z-coordinate {m}
+    4.5732,                  !- Vertex 3 X-coordinate {m}
+    4.5732,                  !- Vertex 3 Y-coordinate {m}
+    7.9248,                  !- Vertex 3 Z-coordinate {m}
+    0.0000,                  !- Vertex 4 X-coordinate {m}
+    0.0000,                  !- Vertex 4 Y-coordinate {m}
+    7.9248;                  !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Core_top_ZN_5_Floor,     !- Name
+    Floor,                   !- Surface Type
+    Slab Floor with Radiant, !- Construction Name
+    Core_top,                !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    Plenum_mid_core_Ceiling, !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    45.3375,                 !- Vertex 1 X-coordinate {m}
+    28.7006,                 !- Vertex 1 Y-coordinate {m}
+    7.9248,                  !- Vertex 1 Z-coordinate {m}
+    45.3375,                 !- Vertex 2 X-coordinate {m}
+    4.5732,                  !- Vertex 2 Y-coordinate {m}
+    7.9248,                  !- Vertex 2 Z-coordinate {m}
+    4.5732,                  !- Vertex 3 X-coordinate {m}
+    4.5732,                  !- Vertex 3 Y-coordinate {m}
+    7.9248,                  !- Vertex 3 Z-coordinate {m}
+    4.5732,                  !- Vertex 4 X-coordinate {m}
+    28.7006,                 !- Vertex 4 Y-coordinate {m}
     7.9248;                  !- Vertex 4 Z-coordinate {m}
 
 BuildingSurface:Detailed,
@@ -6069,7 +6057,7 @@ BuildingSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_bot_ZN_1_Wall_South_Window1,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_bot_ZN_1_Wall_South,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6092,7 +6080,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_bot_ZN_1_Wall_South_Window2,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_bot_ZN_1_Wall_South,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6115,7 +6103,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_bot_ZN_1_Wall_South_Window3,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_bot_ZN_1_Wall_South,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6184,7 +6172,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_bot_ZN_3_Wall_North_Window1,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_bot_ZN_3_Wall_North,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6207,7 +6195,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_bot_ZN_3_Wall_North_Window2,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_bot_ZN_3_Wall_North,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6230,7 +6218,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_bot_ZN_3_Wall_North_Window3,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_bot_ZN_3_Wall_North,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6299,7 +6287,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_bot_ZN_2_Wall_East_Window1,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_bot_ZN_2_Wall_East,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6322,7 +6310,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_bot_ZN_2_Wall_East_Window2,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_bot_ZN_2_Wall_East,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6368,7 +6356,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_bot_ZN_4_Wall_West_Window1,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_bot_ZN_4_Wall_West,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6391,7 +6379,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_bot_ZN_4_Wall_West_Window2,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_bot_ZN_4_Wall_West,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6437,7 +6425,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_mid_ZN_1_Wall_South_Window,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_mid_ZN_1_Wall_South,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6460,7 +6448,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_mid_ZN_2_Wall_East_Window,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_mid_ZN_2_Wall_East,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6483,7 +6471,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_mid_ZN_3_Wall_North_Window,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_mid_ZN_3_Wall_North,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6506,7 +6494,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_mid_ZN_4_Wall_West_Window,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_mid_ZN_4_Wall_West,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6529,7 +6517,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_top_ZN_1_Wall_South_Window,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_top_ZN_1_Wall_South,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6552,7 +6540,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_top_ZN_2_Wall_East_Window,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_top_ZN_2_Wall_East,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6575,7 +6563,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_top_ZN_3_Wall_North_Window,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_top_ZN_3_Wall_North,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6598,7 +6586,7 @@ FenestrationSurface:Detailed,
 FenestrationSurface:Detailed,
     Perimeter_top_ZN_4_Wall_West_Window,  !- Name
     Window,                  !- Surface Type
-    Window_U_0.42_SHGC_0.4,  !- Construction Name
+    Window_U_0.46_SHGC_0.25, !- Construction Name
     Perimeter_top_ZN_4_Wall_West,  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
@@ -6720,6 +6708,38 @@ SurfaceProperty:HeatTransferAlgorithm,
 
 SurfaceProperty:HeatTransferAlgorithm,
     Plenum_mid_3_Ceiling,    !- Surface Name
+    ConductionFiniteDifference;  !- Algorithm
+
+SurfaceProperty:HeatTransferAlgorithm,
+    Perimeter_top_ZN_2_Floor,!- Surface Name
+    ConductionFiniteDifference;  !- Algorithm
+
+SurfaceProperty:HeatTransferAlgorithm,
+    Plenum_mid_2_Ceiling,    !- Surface Name
+    ConductionFiniteDifference;  !- Algorithm
+
+SurfaceProperty:HeatTransferAlgorithm,
+    Perimeter_top_ZN_1_Floor,!- Surface Name
+    ConductionFiniteDifference;  !- Algorithm
+
+SurfaceProperty:HeatTransferAlgorithm,
+    Plenum_mid_1_Ceiling,    !- Surface Name
+    ConductionFiniteDifference;  !- Algorithm
+
+SurfaceProperty:HeatTransferAlgorithm,
+    Perimeter_top_ZN_4_Floor,!- Surface Name
+    ConductionFiniteDifference;  !- Algorithm
+
+SurfaceProperty:HeatTransferAlgorithm,
+    Plenum_mid_4_Ceiling,    !- Surface Name
+    ConductionFiniteDifference;  !- Algorithm
+
+SurfaceProperty:HeatTransferAlgorithm,
+    Core_top_ZN_5_Floor,     !- Surface Name
+    ConductionFiniteDifference;  !- Algorithm
+
+SurfaceProperty:HeatTransferAlgorithm,
+    Plenum_mid_core_Ceiling,   !- Surface Name
     ConductionFiniteDifference;  !- Algorithm
 
 
@@ -7064,7 +7084,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7079,7 +7099,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7094,7 +7114,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7109,7 +7129,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7124,7 +7144,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7139,7 +7159,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7154,7 +7174,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7169,7 +7189,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7184,7 +7204,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7199,7 +7219,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7214,7 +7234,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7229,7 +7249,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7244,7 +7264,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7259,7 +7279,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7274,7 +7294,7 @@ Lights,
     BLDG_LIGHT_SCH,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
-    8.826406542,             !- Watts per Zone Floor Area {W/m2}
+    6.888902667,             !- Watts per Zone Floor Area {W/m2}
     ,                        !- Watts per Person {W/person}
     0.0000,                  !- Return Air Fraction
     0.7000,                  !- Fraction Radiant
@@ -7515,8 +7535,8 @@ Daylighting:Controls,
     Perimeter_bot_ZN_1,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -7536,8 +7556,8 @@ Daylighting:Controls,
     Perimeter_bot_ZN_2,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -7557,8 +7577,8 @@ Daylighting:Controls,
     Perimeter_bot_ZN_3,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -7578,8 +7598,8 @@ Daylighting:Controls,
     Perimeter_bot_ZN_4,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -7599,8 +7619,8 @@ Daylighting:Controls,
     Perimeter_mid_ZN_1,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -7620,8 +7640,8 @@ Daylighting:Controls,
     Perimeter_mid_ZN_2,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -7641,8 +7661,8 @@ Daylighting:Controls,
     Perimeter_mid_ZN_3,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -7662,8 +7682,8 @@ Daylighting:Controls,
     Perimeter_mid_ZN_4,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -7683,8 +7703,8 @@ Daylighting:Controls,
     Perimeter_top_ZN_1,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -7704,8 +7724,8 @@ Daylighting:Controls,
     Perimeter_top_ZN_2,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -7725,8 +7745,8 @@ Daylighting:Controls,
     Perimeter_top_ZN_3,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -7746,8 +7766,8 @@ Daylighting:Controls,
     Perimeter_top_ZN_4,      !- Zone Name
     SplitFlux,               !- Daylighting Method
     ,                        !- Availability Schedule Name
-    Stepped,                 !- Lighting Control Type
-    0.3,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+    Continuousoff,           !- Lighting Control Type
+    0.2,                     !- Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
     0.2,                     !- Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
     3,                       !- Number of Stepped Control Steps
     1.0,                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
@@ -8039,7 +8059,7 @@ ZoneInfiltration:DesignFlowRate,
     Perimeter_bot_ZN_1,      !- Zone or ZoneList Name
     INFIL_Door_Opening_SCH,  !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.678659786,             !- Design Flow Rate {m3/s}
+    1.04300287,              !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -8172,8 +8192,15 @@ Exterior:Lights,
 
 Exterior:Lights,
     Exterior_Lights_b,       !- Name
-    Exterior_lighting_schedule_b,  !- Schedule Name
-    7402.3,                  !- Design Level {W}
+    Exterior_lighting_schedule_b_2016,  !- Schedule Name
+    375.7,                   !- Design Level {W}
+    AstronomicalClock,       !- Control Option
+    General;                 !- End-Use Subcategory
+
+Exterior:Lights,
+    Exterior_Lights_c,       !- Name
+    Exterior_lighting_schedule_c_2016,  !- Schedule Name
+    4341.6,                  !- Design Level {W}
     AstronomicalClock,       !- Control Option
     General;                 !- End-Use Subcategory
 
@@ -8268,7 +8295,10 @@ DesignSpecification:OutdoorAir,
     SZ DSOA Perimeter_mid_ZN_2,  !- Name
     Flow/Area,               !- Outdoor Air Method
     ,                        !- Outdoor Air Flow per Person {m3/s-person}
-    0.000431773;             !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+    0.000431773,             !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+    0.0,                     !- Outdoor Air Flow per Zone {m3/s}
+    ,                        !- Outdoor Air Flow Air Changes per Hour {1/hr}
+    PERIMETER_MID_ZN_2_OA_Mult;  !- Outdoor Air Schedule Name
 
 DesignSpecification:OutdoorAir,
     SZ DSOA Perimeter_mid_ZN_1,  !- Name
@@ -8360,7 +8390,10 @@ DesignSpecification:OutdoorAir,
     CM DSOA Perimeter_mid_ZN_2,  !- Name
     Sum,                     !- Outdoor Air Method
     0.00000001,              !- Outdoor Air Flow per Person {m3/s-person}
-    0.000431773;             !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+    0.000431773,             !- Outdoor Air Flow per Zone Floor Area {m3/s-m2}
+    0.0,                     !- Outdoor Air Flow per Zone {m3/s}
+    ,                        !- Outdoor Air Flow Air Changes per Hour {1/hr}
+    PERIMETER_MID_ZN_2_OA_Mult;  !- Outdoor Air Schedule Name
 
 DesignSpecification:OutdoorAir,
     CM DSOA Perimeter_mid_ZN_3,  !- Name
@@ -8466,7 +8499,7 @@ DesignSpecification:ZoneAirDistribution,
 Sizing:Parameters,
     1.0,                     !- Heating Sizing Factor
     1.0,                     !- Cooling Sizing Factor
-    20;                      !- Timesteps in Averaging Window
+    6;                       !- Timesteps in Averaging Window
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SIZING:ZONE ===========
@@ -9156,8 +9189,8 @@ ThermostatSetpoint:DualSetpoint,
 
 ThermostatSetpoint:DualSetpoint,
     Perimeter_mid_ZN_2 DualSPSched,  !- Name
-    HTGSETP_SCH_YES_OPTIMUM, !- Heating Setpoint Temperature Schedule Name
-    CLGSETP_SCH_YES_OPTIMUM; !- Cooling Setpoint Temperature Schedule Name
+    HTGSETP_SCH_YES_OPTIMUM_w_SB,  !- Heating Setpoint Temperature Schedule Name
+    CLGSETP_SCH_YES_OPTIMUM_w_SB;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Perimeter_mid_ZN_1 DualSPSched,  !- Name
@@ -9236,7 +9269,7 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Core_Top_LoTemp,         !- Name
-    RADSysAvail_Test,               !- Availability Schedule Name
+    RADSysAvail_Test,        !- Availability Schedule Name
     Core_top,                !- Zone Name
     Core_top_ZN_5_Floor,     !- Surface Name or Radiant Surface Group Name
     0.013,                   !- Hydronic Tubing Inside Diameter {m}
@@ -9267,7 +9300,7 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri1_Top_LoTemp,        !- Name
-    RADSysAvail_Test,               !- Availability Schedule Name
+    RADSysAvail_Test,        !- Availability Schedule Name
     Perimeter_top_ZN_1,      !- Zone Name
     Perimeter_top_ZN_1_Floor,!- Surface Name or Radiant Surface Group Name
     0.013,                   !- Hydronic Tubing Inside Diameter {m}
@@ -9298,7 +9331,7 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri2_Top_LoTemp,        !- Name
-    RADSysAvail_Test,               !- Availability Schedule Name
+    RADSysAvail_Test,        !- Availability Schedule Name
     Perimeter_top_ZN_2,      !- Zone Name
     Perimeter_top_ZN_2_Floor,!- Surface Name or Radiant Surface Group Name
     0.013,                   !- Hydronic Tubing Inside Diameter {m}
@@ -9360,7 +9393,7 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     Peri4_Top_LoTemp,        !- Name
-    RADSysAvail_Test,               !- Availability Schedule Name
+    RADSysAvail_Test,        !- Availability Schedule Name
     Perimeter_top_ZN_4,      !- Zone Name
     Perimeter_top_ZN_4_Floor,!- Surface Name or Radiant Surface Group Name
     0.013,                   !- Hydronic Tubing Inside Diameter {m}
@@ -9651,7 +9684,7 @@ AirTerminal:SingleDuct:VAV:NoReheat,
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Core_Top_DOAS_AirTerminal,  !- Name
-    HVACTemplate-Always 1,   !- Availability Schedule Name
+    ALWAYS_OFF,              !- Availability Schedule Name
     Core_Top_DOAS Supply Inlet,  !- Air Outlet Node Name
     Core_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
@@ -9741,7 +9774,7 @@ AirTerminal:SingleDuct:VAV:NoReheat,
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri1_Top_DOAS_AirTerminal,  !- Name
-    HVACTemplate-Always 1,   !- Availability Schedule Name
+    ALWAYS_OFF,              !- Availability Schedule Name
     Peri1_Top_DOAS Supply Inlet,  !- Air Outlet Node Name
     Peri1_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
@@ -9750,7 +9783,7 @@ AirTerminal:SingleDuct:VAV:NoReheat,
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri2_Top_DOAS_AirTerminal,  !- Name
-    HVACTemplate-Always 1,   !- Availability Schedule Name
+    ALWAYS_OFF,              !- Availability Schedule Name
     Peri2_Top_DOAS Supply Inlet,  !- Air Outlet Node Name
     Peri2_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
@@ -9759,7 +9792,7 @@ AirTerminal:SingleDuct:VAV:NoReheat,
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri3_Top_DOAS_AirTerminal,  !- Name
-    HVACTemplate-Always 1,   !- Availability Schedule Name
+    ALWAYS_OFF,              !- Availability Schedule Name
     Peri3_Top_DOAS Supply Inlet,  !- Air Outlet Node Name
     Peri3_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
@@ -9768,7 +9801,7 @@ AirTerminal:SingleDuct:VAV:NoReheat,
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri4_Top_DOAS_AirTerminal,  !- Name
-    HVACTemplate-Always 1,   !- Availability Schedule Name
+    ALWAYS_OFF,              !- Availability Schedule Name
     Peri4_Top_DOAS Supply Inlet,  !- Air Outlet Node Name
     Peri4_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     autosize,                !- Maximum Air Flow Rate {m3/s}
@@ -11799,7 +11832,7 @@ Output:Variable,
     hourly;                  !- Reporting Frequency
 
 Output:Variable,
-    Core_top,      !- Key Value
+    Core_top,                !- Key Value
     Zone Mean Air Temperature,  !- Variable Name
     hourly;                  !- Reporting Frequency
 
@@ -11833,8 +11866,8 @@ Output:Variable,
     Zone Radiant HVAC Pump Electric Power,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-
 Output:Variable,
-    Core_Top_LoTemp,        !- Key Value
+    Core_Top_LoTemp,         !- Key Value
     Zone Radiant HVAC Pump Electric Power,  !- Variable Name
     Hourly;                  !- Reporting Frequency
+
