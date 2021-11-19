@@ -83,7 +83,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
   Sim_Status, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
   # utility rate, read from an external file
-  uRate = [3.59]*12+[4.69]*2+8.86]*4+[4.69]*2+[5.842]*2+[3.59]*4  
+  uRate = [3.59]*12+[4.69]*2+[8.86]*4+[4.69]*2+[5.842]*2+[3.59]*4  
   alpha = 10**20 ## 
   if Sim_Status:
     tim = hyperParam["tim"]
@@ -192,7 +192,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx =   output_idx = [675,676,677,678,679,1741,1747,1753,1760,1766,1974,2107] # Indices for  
+  output_idx =   output_idx = [675,676,677,678,679,1741,1747,1753,1760,1766,1973,2106] # Indices for  
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
