@@ -66,7 +66,7 @@ def fitness_func(x,solution_idx):
 def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
-  SP_list = [15.6]*5+[17.6]+[19.6]*16+[15.6]*2 # [18,24]
+  SP_list = [26.7]*5+[25.7]+[25]+[24]*15+[26.7]*2 # [18,24]
   ThermalComfort_range = 0.5
   residuals = 0
   for j in range(5):
@@ -83,7 +83,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
   Sim_Status, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
   # utility rate, read from an external file
-  uRate = [3.462]*6+[10.378]*4+[5.842]*7+[10.378]*3+[5.842]*2+[3.462]*2  
+  uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2
   alpha = 10**20 ## 
   if Sim_Status:
     tim = hyperParam["tim"]
@@ -147,7 +147,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
-  Aval_Status = [int(xi>=30) for xi in X_sp]
+  Aval_Status = [int(xi<=17) for xi in X_sp]
   Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
 
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
@@ -192,7 +192,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx =   output_idx = [675,676,677,678,679,1741,1747,1753,1760,1766,1999,2041] # Indices for  
+  output_idx =   output_idx = [675,676,677,678,679,1741,1747,1753,1760,1766,1974,2107] # Indices for  
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -244,8 +244,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*31 
-  final_time= 60*60*24*32
+  start_time= 60*60*24*181  # June 1st 
+  final_time= 60*60*24*182
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
@@ -298,7 +298,7 @@ with MPIPool() as pool:
     mutation_type = "random"
     mutation_probability = 0.2
 
-    gene_space = [{'low': 25, 'high': 50}]*hyperParam['PH']
+    gene_space = [{'low':10, 'high': 18}]*hyperParam['PH']
 
     ga_instance = PooledGA(num_generations=num_generations,
                     num_parents_mating=num_parents_mating,
