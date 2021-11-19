@@ -53,16 +53,6 @@ def modifyIDF(fileName,targetFile,startMon,startDay,endMon, endDay,SchFileLOC):
       line = line.replace("%SchFile_Loc%",SchFileLOC)
       fp.writelines(line)
   
-def fitness_func(x,solution_idx):
-  # run simulation, this is deprecated. 
-  res = run_prediction(tim,x,[1],X_sp_log,start_time,final_time,Eplus_timestep,Eplus_FileName,solution_idx)
-
-  # utility rate
-  uRate = [0.5,0.5,0.6,0.7,1,1]
-
-  total_Cost = sum([x*uRate[i] for i,x in enumerate(res)])
-  return total_Cost
-
 def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
@@ -83,7 +73,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
   Sim_Status, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
   # utility rate, read from an external file
-  uRate = [3.462]*6+[10.378]*4+[5.842]*7+[10.378]*3+[5.842]*2+[3.462]*2  
+  uRate = [3.75]*5+[4.57]*3+[4.24]*8+[4.57]*3+[4.24]*4+[3.75]*1  
   alpha = 10**20 ## 
   if Sim_Status:
     tim = hyperParam["tim"]

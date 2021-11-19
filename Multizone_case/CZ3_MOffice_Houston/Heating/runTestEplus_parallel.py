@@ -192,7 +192,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx =   output_idx = [675,676,677,678,679,1741,1747,1753,1760,1766,1999,2041] # Indices for  
+  output_idx =   output_idx = [675,676,677,678,679,1741,1747,1753,1760,1766,2000,2042] # Indices for  
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -254,7 +254,7 @@ with MPIPool() as pool:
   #### run optimization
   X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
 
-  Eplus_FileName = "MediumOff_NewYork.idf"
+  Eplus_FileName = "MediumOffice_Houston_NoDOAS.idf"
 
 
   #prepare hyper parameter
