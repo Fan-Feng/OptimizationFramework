@@ -175,7 +175,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
     output_DF, ZMAT, Heating_Rate = -1,-1,-1
     ## Step 4. Remove temporary files
     shutil.rmtree(Target_WorkPath)
-    return Sim_Status, Heating_Rate,ZMAT,output_DF
+    return Sim_Status, ZMAT,output_DF
 
 def check_SimulationStatus(fileName):
   with open(fileName,'r') as fp:
@@ -192,7 +192,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx =   output_idx = [675,676,677,678,679,1741,1747,1753,1760,1766,1974,2107] # Indices for  
+  output_idx =   output_idx = [703,704,705,706,707,1685,1724,1730,1734,1743,1933,2062] # Indices for  
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -244,8 +244,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*181  # June 1st 
-  final_time= 60*60*24*182
+  start_time= 60*60*24*203  # June 1st 
+  final_time= 60*60*24*204
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
