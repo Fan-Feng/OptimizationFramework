@@ -6560,39 +6560,39 @@ SurfaceProperty:HeatTransferAlgorithm,
 
 SurfaceProperty:HeatTransferAlgorithm,
     Plenum_mid_3_Ceiling,    !- Surface Name
-    ConductionTransferFunction;  !- Algorithm
+    ConductionFiniteDifference;  !- Algorithm
 
 SurfaceProperty:HeatTransferAlgorithm,
     Perimeter_top_ZN_2_Floor,!- Surface Name
-    ConductionTransferFunction;  !- Algorithm
+    ConductionFiniteDifference;  !- Algorithm
 
 SurfaceProperty:HeatTransferAlgorithm,
     Plenum_mid_2_Ceiling,    !- Surface Name
-    ConductionTransferFunction;  !- Algorithm
+    ConductionFiniteDifference;  !- Algorithm
 
 SurfaceProperty:HeatTransferAlgorithm,
     Perimeter_top_ZN_1_Floor,!- Surface Name
-    ConductionTransferFunction;  !- Algorithm
+    ConductionFiniteDifference;  !- Algorithm
 
 SurfaceProperty:HeatTransferAlgorithm,
     Plenum_mid_1_Ceiling,    !- Surface Name
-    ConductionTransferFunction;  !- Algorithm
+    ConductionFiniteDifference;  !- Algorithm
 
 SurfaceProperty:HeatTransferAlgorithm,
     Perimeter_top_ZN_4_Floor,!- Surface Name
-    ConductionTransferFunction;  !- Algorithm
+    ConductionFiniteDifference;  !- Algorithm
 
 SurfaceProperty:HeatTransferAlgorithm,
     Plenum_mid_4_Ceiling,    !- Surface Name
-    ConductionTransferFunction;  !- Algorithm
+    ConductionFiniteDifference;  !- Algorithm
 
 SurfaceProperty:HeatTransferAlgorithm,
     Core_top_ZN_5_Floor,     !- Surface Name
-    ConductionTransferFunction;  !- Algorithm
+    ConductionFiniteDifference;  !- Algorithm
 
 SurfaceProperty:HeatTransferAlgorithm,
     Plenum_mid_core_Ceiling, !- Surface Name
-    ConductionTransferFunction;  !- Algorithm
+    ConductionFiniteDifference;  !- Algorithm
 
 
 !-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========
