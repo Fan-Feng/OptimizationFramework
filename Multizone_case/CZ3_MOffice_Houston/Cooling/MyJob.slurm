@@ -19,7 +19,7 @@ ml intel/2019b
 
 ml GCCcore/8.3.0
 ml CMake/3.15.3
-export PATH=$SCRATCH/program/EnergyPlus-9-3-0:$SCRATCH/program/Anaconda3/bin:$PATH
+export PATH=$SCRATCH/program/EnergyPlus-9-3-0:$SCRATCH/program/anaconda3/bin:$PATH
 
 
 mpirun python runTestEplus_parallel.py
