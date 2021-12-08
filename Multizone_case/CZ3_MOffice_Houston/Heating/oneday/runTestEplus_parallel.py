@@ -245,7 +245,7 @@ with MPIPool() as pool:
   
   # simulation setup
   start_time= 60*60*24*17 
-  final_time= 60*60*24*24
+  final_time= 60*60*24*18
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
