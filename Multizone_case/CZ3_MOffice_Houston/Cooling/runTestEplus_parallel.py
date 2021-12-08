@@ -17,13 +17,12 @@ import numpy as np
 import numpy.random as random
 import pandas as pd
 
-# Import optimization package
-import pygad
-
 ## import mpi management package
 from mpipool import MPIPool
 from mpi4py import MPI
 
+# Import optimization package
+import pygad
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
   Convert NumOfSec to Month/Day
