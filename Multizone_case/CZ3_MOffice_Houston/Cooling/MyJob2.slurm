@@ -21,8 +21,3 @@ ml CMake/3.15.3-GCCcore-8.3.0
 export PATH=$SCRATCH/EnergyPlus-9.3.0/build:$PATH
 
 mpirun python runTestEplus_parallel.py
-
-for i in range(50):
-    mpirun energyplus -idf 
-
-# mpirun 

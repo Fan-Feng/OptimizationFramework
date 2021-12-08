@@ -377,10 +377,30 @@ RunPeriodControl:SpecialDays,
     4th Thursday in November,!- Start Date
     1,                       !- Duration {days}
     Holiday;                 !- Special Day Type
-! 
-! 
+
+
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:BUILDINGSURFACE ===========
-! 
+
+Site:GroundTemperature:BuildingSurface,
+    20.93,                   !- January Ground Temperature {C}
+    20.91,                   !- February Ground Temperature {C}
+    20.89,                   !- March Ground Temperature {C}
+    20.89,                   !- April Ground Temperature {C}
+    20.89,                   !- May Ground Temperature {C}
+    23.27,                   !- June Ground Temperature {C}
+    23.65,                   !- July Ground Temperature {C}
+    23.72,                   !- August Ground Temperature {C}
+    23.75,                   !- September Ground Temperature {C}
+    21.32,                   !- October Ground Temperature {C}
+    21.02,                   !- November Ground Temperature {C}
+    20.97;                   !- December Ground Temperature {C}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:FCFACTORMETHOD ===========
+
+!
+!
+!
 ! Site:GroundTemperature:BuildingSurface,
 !     20.93,                   !- January Ground Temperature {C}
 !     20.91,                   !- February Ground Temperature {C}
@@ -394,10 +414,6 @@ RunPeriodControl:SpecialDays,
 !     21.32,                   !- October Ground Temperature {C}
 !     21.02,                   !- November Ground Temperature {C}
 !     20.97;                   !- December Ground Temperature {C}
-
-
-!-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:FCFACTORMETHOD ===========
-
 Site:GroundTemperature:FCfactorMethod,
     24.2,                    !- January Ground Temperature {C}
     18.9,                    !- February Ground Temperature {C}
@@ -601,21 +617,21 @@ Schedule:Compact,
     HVACOperationSchd,       !- Name
     on/off,                  !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
-    For: Weekdays SummerDesignDay,  !- Field 2
+    For: Weekdays Weekends Holidays SummerDesignDay,  !- Field 2
     Until: 06:00,            !- Field 3
     0.0,                     !- Field 4
     Until: 22:00,            !- Field 5
     1.0,                     !- Field 6
     Until: 24:00,            !- Field 7
     0.0,                     !- Field 8
-    For: Saturday WinterDesignDay,  !- Field 9
+    For: WinterDesignDay,    !- Field 9
     Until: 06:00,            !- Field 10
     0.0,                     !- Field 11
     Until: 18:00,            !- Field 12
     1.0,                     !- Field 13
     Until: 24:00,            !- Field 14
     0.0,                     !- Field 15
-    For:Sunday Holidays AllOtherDays,  !- Field 16
+    For: AllOtherDays,       !- Field 16
     Until: 24:00,            !- Field 17
     0.0;                     !- Field 18
 
@@ -3141,7 +3157,7 @@ Schedule:Compact,
 Schedule:File,
     RADCOOLLOWWATERTEMP_Test,!- Name
     Temperature,             !- Schedule Type Limits Name
-        %SchFile_Loc%,  !- File Name
+    %SchFile_Loc%,  !- File Name
     1,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -3151,7 +3167,7 @@ Schedule:File,
 Schedule:File,
     RADCOOLHIGHWATERTEMP_Test,  !- Name
     Temperature,             !- Schedule Type Limits Name
-        %SchFile_Loc%,  !- File Name
+    %SchFile_Loc%,  !- File Name
     2,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -3161,7 +3177,7 @@ Schedule:File,
 Schedule:File,
     RADSysAvail_Test,        !- Name
     On/Off,                  !- Schedule Type Limits Name
-        %SchFile_Loc%,  !- File Name
+    %SchFile_Loc%,  !- File Name
     3,                       !- Column Number
     1,                       !- Rows to Skip at Top
     8760,                    !- Number of Hours of Data
@@ -8055,10 +8071,13 @@ Exterior:Lights,
     4341.6,                  !- Design Level {W}
     AstronomicalClock,       !- Control Option
     General;                 !- End-Use Subcategory
-! 
-! 
-!-   ===========  ALL OBJECTS IN CLASS: HVACTEMPLATE:ZONE:IDEALLOADSAIRSYSTEM ===========
-! 
+
+
+!-   ===========  ALL OBJECTS IN CLASS: DESIGNSPECIFICATION:OUTDOORAIR ===========
+
+!
+!
+!
 ! HVACTemplate:Zone:IdealLoadsAirSystem,
 !     Core_mid,                !- Zone Name
 !     ,                        !- Template Thermostat Name
@@ -8090,7 +8109,7 @@ Exterior:Lights,
 !     None,                    !- Heat Recovery Type
 !     0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
 !     0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
-! 
+!
 ! HVACTemplate:Zone:IdealLoadsAirSystem,
 !     Perimeter_mid_ZN_1,      !- Zone Name
 !     ,                        !- Template Thermostat Name
@@ -8122,7 +8141,7 @@ Exterior:Lights,
 !     None,                    !- Heat Recovery Type
 !     0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
 !     0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
-! 
+!
 ! HVACTemplate:Zone:IdealLoadsAirSystem,
 !     Perimeter_mid_ZN_2,      !- Zone Name
 !     ,                        !- Template Thermostat Name
@@ -8154,7 +8173,7 @@ Exterior:Lights,
 !     None,                    !- Heat Recovery Type
 !     0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
 !     0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
-! 
+!
 ! HVACTemplate:Zone:IdealLoadsAirSystem,
 !     Perimeter_mid_ZN_3,      !- Zone Name
 !     ,                        !- Template Thermostat Name
@@ -8186,7 +8205,7 @@ Exterior:Lights,
 !     None,                    !- Heat Recovery Type
 !     0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
 !     0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
-! 
+!
 ! HVACTemplate:Zone:IdealLoadsAirSystem,
 !     Perimeter_mid_ZN_4,      !- Zone Name
 !     ,                        !- Template Thermostat Name
@@ -8218,10 +8237,6 @@ Exterior:Lights,
 !     None,                    !- Heat Recovery Type
 !     0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
 !     0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
-
-
-!-   ===========  ALL OBJECTS IN CLASS: DESIGNSPECIFICATION:OUTDOORAIR ===========
-
 DesignSpecification:OutdoorAir,
     SZ DSOA Core_bottom,     !- Name
     Flow/Area,               !- Outdoor Air Method
@@ -8997,6 +9012,154 @@ ThermostatSetpoint:DualSetpoint,
     CLGSETP_SCH_YES_OPTIMUM; !- Cooling Setpoint Temperature Schedule Name
 
 
+!-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:IDEALLOADSAIRSYSTEM ===========
+
+ZoneHVAC:IdealLoadsAirSystem,
+    Core_mid Ideal Loads Air System,  !- Name
+    ,                        !- Availability Schedule Name
+    Core_mid Ideal Loads Supply Inlet,  !- Zone Supply Air Node Name
+    ,                        !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    NoLimit,                 !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    NoLimit,                 !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    ConstantSensibleHeatRatio,  !- Dehumidification Control Type
+    0.7,                     !- Cooling Sensible Heat Ratio {dimensionless}
+    None,                    !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    None,                    !- Demand Controlled Ventilation Type
+    NoEconomizer,            !- Outdoor Air Economizer Type
+    None,                    !- Heat Recovery Type
+    0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
+    0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
+
+ZoneHVAC:IdealLoadsAirSystem,
+    Perimeter_mid_ZN_1 Ideal Loads Air System,  !- Name
+    ,                        !- Availability Schedule Name
+    Perimeter_mid_ZN_1 Ideal Loads Supply Inlet,  !- Zone Supply Air Node Name
+    ,                        !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    NoLimit,                 !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    NoLimit,                 !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    ConstantSensibleHeatRatio,  !- Dehumidification Control Type
+    0.7,                     !- Cooling Sensible Heat Ratio {dimensionless}
+    None,                    !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    None,                    !- Demand Controlled Ventilation Type
+    NoEconomizer,            !- Outdoor Air Economizer Type
+    None,                    !- Heat Recovery Type
+    0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
+    0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
+
+ZoneHVAC:IdealLoadsAirSystem,
+    Perimeter_mid_ZN_2 Ideal Loads Air System,  !- Name
+    ,                        !- Availability Schedule Name
+    Perimeter_mid_ZN_2 Ideal Loads Supply Inlet,  !- Zone Supply Air Node Name
+    ,                        !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    NoLimit,                 !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    NoLimit,                 !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    ConstantSensibleHeatRatio,  !- Dehumidification Control Type
+    0.7,                     !- Cooling Sensible Heat Ratio {dimensionless}
+    None,                    !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    None,                    !- Demand Controlled Ventilation Type
+    NoEconomizer,            !- Outdoor Air Economizer Type
+    None,                    !- Heat Recovery Type
+    0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
+    0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
+
+ZoneHVAC:IdealLoadsAirSystem,
+    Perimeter_mid_ZN_3 Ideal Loads Air System,  !- Name
+    ,                        !- Availability Schedule Name
+    Perimeter_mid_ZN_3 Ideal Loads Supply Inlet,  !- Zone Supply Air Node Name
+    ,                        !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    NoLimit,                 !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    NoLimit,                 !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    ConstantSensibleHeatRatio,  !- Dehumidification Control Type
+    0.7,                     !- Cooling Sensible Heat Ratio {dimensionless}
+    None,                    !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    None,                    !- Demand Controlled Ventilation Type
+    NoEconomizer,            !- Outdoor Air Economizer Type
+    None,                    !- Heat Recovery Type
+    0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
+    0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
+
+ZoneHVAC:IdealLoadsAirSystem,
+    Perimeter_mid_ZN_4 Ideal Loads Air System,  !- Name
+    ,                        !- Availability Schedule Name
+    Perimeter_mid_ZN_4 Ideal Loads Supply Inlet,  !- Zone Supply Air Node Name
+    ,                        !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    NoLimit,                 !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    NoLimit,                 !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    ConstantSensibleHeatRatio,  !- Dehumidification Control Type
+    0.7,                     !- Cooling Sensible Heat Ratio {dimensionless}
+    None,                    !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    None,                    !- Demand Controlled Ventilation Type
+    NoEconomizer,            !- Outdoor Air Economizer Type
+    None,                    !- Heat Recovery Type
+    0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
+    0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
+
+
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:LOWTEMPERATURERADIANT:CONSTANTFLOW ===========
 
 ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
@@ -9159,7 +9322,7 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Core_Top_DOAS_AirTerminal,  !- Name
-    ALWAYS_OFF,              !- Availability Schedule Name
+    ALWAYS_ON,               !- Availability Schedule Name
     Core_Top_DOAS Supply Inlet,  !- Air Outlet Node Name
     Core_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     2.15517,                 !- Maximum Air Flow Rate {m3/s}
@@ -9168,7 +9331,7 @@ AirTerminal:SingleDuct:VAV:NoReheat,
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri1_Top_DOAS_AirTerminal,  !- Name
-    ALWAYS_OFF,              !- Availability Schedule Name
+    ALWAYS_ON,               !- Availability Schedule Name
     Peri1_Top_DOAS Supply Inlet,  !- Air Outlet Node Name
     Peri1_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     0.69892,                 !- Maximum Air Flow Rate {m3/s}
@@ -9177,7 +9340,7 @@ AirTerminal:SingleDuct:VAV:NoReheat,
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri2_Top_DOAS_AirTerminal,  !- Name
-    ALWAYS_OFF,              !- Availability Schedule Name
+    ALWAYS_ON,               !- Availability Schedule Name
     Peri2_Top_DOAS Supply Inlet,  !- Air Outlet Node Name
     Peri2_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     0.56877,                 !- Maximum Air Flow Rate {m3/s}
@@ -9186,7 +9349,7 @@ AirTerminal:SingleDuct:VAV:NoReheat,
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri3_Top_DOAS_AirTerminal,  !- Name
-    ALWAYS_OFF,              !- Availability Schedule Name
+    ALWAYS_ON,               !- Availability Schedule Name
     Peri3_Top_DOAS Supply Inlet,  !- Air Outlet Node Name
     Peri3_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     0.59569,                 !- Maximum Air Flow Rate {m3/s}
@@ -9195,7 +9358,7 @@ AirTerminal:SingleDuct:VAV:NoReheat,
 
 AirTerminal:SingleDuct:VAV:NoReheat,
     Peri4_Top_DOAS_AirTerminal,  !- Name
-    ALWAYS_OFF,              !- Availability Schedule Name
+    ALWAYS_ON,               !- Availability Schedule Name
     Peri4_Top_DOAS Supply Inlet,  !- Air Outlet Node Name
     Peri4_Top_DOAS Zone Equip Inlet,  !- Air Inlet Node Name
     0.63072,                 !- Maximum Air Flow Rate {m3/s}
@@ -9308,6 +9471,56 @@ ZoneHVAC:EquipmentList,
     2,                       !- Zone Equipment 2 Cooling Sequence
     2;                       !- Zone Equipment 2 Heating or No-Load Sequence
 
+ZoneHVAC:EquipmentList,
+    Core_mid Equipment,      !- Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+    Core_mid Ideal Loads Air System,  !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
+    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+
+ZoneHVAC:EquipmentList,
+    Perimeter_mid_ZN_1 Equipment,  !- Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+    Perimeter_mid_ZN_1 Ideal Loads Air System,  !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
+    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+
+ZoneHVAC:EquipmentList,
+    Perimeter_mid_ZN_2 Equipment,  !- Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+    Perimeter_mid_ZN_2 Ideal Loads Air System,  !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
+    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+
+ZoneHVAC:EquipmentList,
+    Perimeter_mid_ZN_3 Equipment,  !- Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+    Perimeter_mid_ZN_3 Ideal Loads Air System,  !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
+    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+
+ZoneHVAC:EquipmentList,
+    Perimeter_mid_ZN_4 Equipment,  !- Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+    Perimeter_mid_ZN_4 Ideal Loads Air System,  !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
+    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
+
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:EQUIPMENTCONNECTIONS ===========
 
@@ -9356,12 +9569,57 @@ ZoneHVAC:EquipmentConnections,
     Peri4_Top_Outlet_ZoneNode,  !- Zone Return Air Node or NodeList Name
     HVACTemplate-Always 0;   !- Zone Return Air Node 1 Flow Rate Fraction Schedule Name
 
+!
+! -------------------------------------------------------------
+! New objects created from ExpandObjects
+! -------------------------------------------------------------
+!
+ZoneHVAC:EquipmentConnections,
+    Core_mid,                !- Zone Name
+    Core_mid Equipment,      !- Zone Conditioning Equipment List Name
+    Core_mid Ideal Loads Supply Inlet,  !- Zone Air Inlet Node or NodeList Name
+    ,                        !- Zone Air Exhaust Node or NodeList Name
+    Core_mid Zone Air Node,  !- Zone Air Node Name
+    Core_mid Return Outlet;  !- Zone Return Air Node or NodeList Name
+
+ZoneHVAC:EquipmentConnections,
+    Perimeter_mid_ZN_1,      !- Zone Name
+    Perimeter_mid_ZN_1 Equipment,  !- Zone Conditioning Equipment List Name
+    Perimeter_mid_ZN_1 Ideal Loads Supply Inlet,  !- Zone Air Inlet Node or NodeList Name
+    ,                        !- Zone Air Exhaust Node or NodeList Name
+    Perimeter_mid_ZN_1 Zone Air Node,  !- Zone Air Node Name
+    Perimeter_mid_ZN_1 Return Outlet;  !- Zone Return Air Node or NodeList Name
+
+ZoneHVAC:EquipmentConnections,
+    Perimeter_mid_ZN_2,      !- Zone Name
+    Perimeter_mid_ZN_2 Equipment,  !- Zone Conditioning Equipment List Name
+    Perimeter_mid_ZN_2 Ideal Loads Supply Inlet,  !- Zone Air Inlet Node or NodeList Name
+    ,                        !- Zone Air Exhaust Node or NodeList Name
+    Perimeter_mid_ZN_2 Zone Air Node,  !- Zone Air Node Name
+    Perimeter_mid_ZN_2 Return Outlet;  !- Zone Return Air Node or NodeList Name
+
+ZoneHVAC:EquipmentConnections,
+    Perimeter_mid_ZN_3,      !- Zone Name
+    Perimeter_mid_ZN_3 Equipment,  !- Zone Conditioning Equipment List Name
+    Perimeter_mid_ZN_3 Ideal Loads Supply Inlet,  !- Zone Air Inlet Node or NodeList Name
+    ,                        !- Zone Air Exhaust Node or NodeList Name
+    Perimeter_mid_ZN_3 Zone Air Node,  !- Zone Air Node Name
+    Perimeter_mid_ZN_3 Return Outlet;  !- Zone Return Air Node or NodeList Name
+
+ZoneHVAC:EquipmentConnections,
+    Perimeter_mid_ZN_4,      !- Zone Name
+    Perimeter_mid_ZN_4 Equipment,  !- Zone Conditioning Equipment List Name
+    Perimeter_mid_ZN_4 Ideal Loads Supply Inlet,  !- Zone Air Inlet Node or NodeList Name
+    ,                        !- Zone Air Exhaust Node or NodeList Name
+    Perimeter_mid_ZN_4 Zone Air Node,  !- Zone Air Node Name
+    Perimeter_mid_ZN_4 Return Outlet;  !- Zone Return Air Node or NodeList Name
+
 
 !-   ===========  ALL OBJECTS IN CLASS: FAN:VARIABLEVOLUME ===========
 
 Fan:VariableVolume,
     DOAS Supply Fan,         !- Name
-    FanAvailSched,           !- Availability Schedule Name
+    HVACOperationSchd,       !- Availability Schedule Name
     0.7,                     !- Fan Total Efficiency
     1000,                    !- Pressure Rise {Pa}
     4.64927,                 !- Maximum Flow Rate {m3/s}
@@ -10253,7 +10511,7 @@ PlantEquipmentOperationSchemes,
 
 AvailabilityManager:Scheduled,
     DOAS Availability,       !- Name
-    FanAvailSched;           !- Schedule Name
+    HVACOperationSchd;       !- Schedule Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: AVAILABILITYMANAGERASSIGNMENTLIST ===========
@@ -10392,6 +10650,12 @@ Curve:Biquadratic,
     Dimensionless;           !- Output Unit Type
 
 
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLEDICTIONARY ===========
+
+Output:VariableDictionary,
+    IDF;                     !- Key Field
+
+
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUTCONTROL:REPORTINGTOLERANCES ===========
 
 OutputControl:ReportingTolerances,
@@ -10480,257 +10744,4 @@ Output:Variable,
     *,                       !- Key Value
     Site Outdoor Air Drybulb Temperature,  !- Variable Name
     hourly;                  !- Reporting Frequency
-! 
-! -------------------------------------------------------------
-! New objects created from ExpandObjects
-! -------------------------------------------------------------
-! 
 
-ZoneHVAC:EquipmentConnections,
-  Core_mid,                                                !- Zone Name
-  Core_mid Equipment,                                      !- Zone Conditioning Equipment List Name
-  Core_mid Ideal Loads Supply Inlet,                       !- Zone Air Inlet Node or NodeList Name
-  ,                                                        !- Zone Air Exhaust Node or NodeList Name
-  Core_mid Zone Air Node,                                  !- Zone Air Node Name
-  Core_mid Return Outlet;                                  !- Zone Return Air Node Name
-
-ZoneHVAC:EquipmentList,
-  Core_mid Equipment,                                      !- Name
-  SequentialLoad,                                          !- Load Distribution Scheme
-  ZoneHVAC:IdealLoadsAirSystem,                            !- Zone Equipment Object Type
-  Core_mid Ideal Loads Air System,                         !- Zone Equipment Name
-  1,                                                       !- Zone Equipment Cooling Sequence
-  1,                                                       !- Zone Equipment Heating or No-Load Sequence
-  ,                                                        !- Zone Equipment Sequential Cooling Fraction Schedule Name
-  ;                                                        !- Zone Equipment Sequential Heating Fraction Schedule Name
-
-ZoneHVAC:IdealLoadsAirSystem,
-  Core_mid Ideal Loads Air System,                         !- Name
-  ,                                                        !- Availability Schedule Name
-  Core_mid Ideal Loads Supply Inlet,                       !- Zone Supply Air Node Name
-  ,                                                        !- Zone Exhaust Air Node Name
-  ,                                                        !- System Inlet Air Node Name
-  50,                                                      !- Maximum Heating Supply Air Temperature [C]
-  13,                                                      !- Minimum Cooling Supply Air Temperature [C]
-  0.0156,                                                  !- Maximum Heating Supply Air Humidity Ratio [kg-H20/kg-air]
-  0.0077,                                                  !- Minimum Cooling Supply Air Humidity Ratio [kg-H20/kg-air]
-  NoLimit,                                                 !- Heating Limit
-  ,                                                        !- Maximum Heating Air Flow Rate {m3/s}
-  ,                                                        !- Maximum Sensible Heating Capacity {m3/s}
-  NoLimit,                                                 !- Cooling Limit
-  ,                                                        !- Maximum Cooling Air Flow Rate {m3/s}
-  ,                                                        !- Maximum Total Cooling Capacity {m3/s}
-  ,                                                        !- Heating Availability Schedule Name
-  ,                                                        !- Cooling Availability Schedule Name
-  ConstantSensibleHeatRatio,                               !- Dehumidification Control Type
-  0.7,                                                     !- Cooling Sensible Heat Ratio
-  None,                                                    !- Humidification Control Type
-  ,                                                        !- Design Specification Outdoor Air Object Name
-  ,                                                        !- Outdoor Air Inlet Node Name
-  None,                                                    !- Demand Controlled Ventilation Type
-  NoEconomizer,                                            !- Outdoor Air Economizer Type
-  None,                                                    !- Heat Recovery Type
-  0.7,                                                     !- Sensible Heat Recovery Effectiveness
-  0.65;                                                    !- Latent Heat Recovery Effectiveness
-
-ZoneHVAC:EquipmentConnections,
-  Perimeter_mid_ZN_1,                                      !- Zone Name
-  Perimeter_mid_ZN_1 Equipment,                            !- Zone Conditioning Equipment List Name
-  Perimeter_mid_ZN_1 Ideal Loads Supply Inlet,             !- Zone Air Inlet Node or NodeList Name
-  ,                                                        !- Zone Air Exhaust Node or NodeList Name
-  Perimeter_mid_ZN_1 Zone Air Node,                        !- Zone Air Node Name
-  Perimeter_mid_ZN_1 Return Outlet;                        !- Zone Return Air Node Name
-
-ZoneHVAC:EquipmentList,
-  Perimeter_mid_ZN_1 Equipment,                            !- Name
-  SequentialLoad,                                          !- Load Distribution Scheme
-  ZoneHVAC:IdealLoadsAirSystem,                            !- Zone Equipment Object Type
-  Perimeter_mid_ZN_1 Ideal Loads Air System,               !- Zone Equipment Name
-  1,                                                       !- Zone Equipment Cooling Sequence
-  1,                                                       !- Zone Equipment Heating or No-Load Sequence
-  ,                                                        !- Zone Equipment Sequential Cooling Fraction Schedule Name
-  ;                                                        !- Zone Equipment Sequential Heating Fraction Schedule Name
-
-ZoneHVAC:IdealLoadsAirSystem,
-  Perimeter_mid_ZN_1 Ideal Loads Air System,               !- Name
-  ,                                                        !- Availability Schedule Name
-  Perimeter_mid_ZN_1 Ideal Loads Supply Inlet,             !- Zone Supply Air Node Name
-  ,                                                        !- Zone Exhaust Air Node Name
-  ,                                                        !- System Inlet Air Node Name
-  50,                                                      !- Maximum Heating Supply Air Temperature [C]
-  13,                                                      !- Minimum Cooling Supply Air Temperature [C]
-  0.0156,                                                  !- Maximum Heating Supply Air Humidity Ratio [kg-H20/kg-air]
-  0.0077,                                                  !- Minimum Cooling Supply Air Humidity Ratio [kg-H20/kg-air]
-  NoLimit,                                                 !- Heating Limit
-  ,                                                        !- Maximum Heating Air Flow Rate {m3/s}
-  ,                                                        !- Maximum Sensible Heating Capacity {m3/s}
-  NoLimit,                                                 !- Cooling Limit
-  ,                                                        !- Maximum Cooling Air Flow Rate {m3/s}
-  ,                                                        !- Maximum Total Cooling Capacity {m3/s}
-  ,                                                        !- Heating Availability Schedule Name
-  ,                                                        !- Cooling Availability Schedule Name
-  ConstantSensibleHeatRatio,                               !- Dehumidification Control Type
-  0.7,                                                     !- Cooling Sensible Heat Ratio
-  None,                                                    !- Humidification Control Type
-  ,                                                        !- Design Specification Outdoor Air Object Name
-  ,                                                        !- Outdoor Air Inlet Node Name
-  None,                                                    !- Demand Controlled Ventilation Type
-  NoEconomizer,                                            !- Outdoor Air Economizer Type
-  None,                                                    !- Heat Recovery Type
-  0.7,                                                     !- Sensible Heat Recovery Effectiveness
-  0.65;                                                    !- Latent Heat Recovery Effectiveness
-
-ZoneHVAC:EquipmentConnections,
-  Perimeter_mid_ZN_2,                                      !- Zone Name
-  Perimeter_mid_ZN_2 Equipment,                            !- Zone Conditioning Equipment List Name
-  Perimeter_mid_ZN_2 Ideal Loads Supply Inlet,             !- Zone Air Inlet Node or NodeList Name
-  ,                                                        !- Zone Air Exhaust Node or NodeList Name
-  Perimeter_mid_ZN_2 Zone Air Node,                        !- Zone Air Node Name
-  Perimeter_mid_ZN_2 Return Outlet;                        !- Zone Return Air Node Name
-
-ZoneHVAC:EquipmentList,
-  Perimeter_mid_ZN_2 Equipment,                            !- Name
-  SequentialLoad,                                          !- Load Distribution Scheme
-  ZoneHVAC:IdealLoadsAirSystem,                            !- Zone Equipment Object Type
-  Perimeter_mid_ZN_2 Ideal Loads Air System,               !- Zone Equipment Name
-  1,                                                       !- Zone Equipment Cooling Sequence
-  1,                                                       !- Zone Equipment Heating or No-Load Sequence
-  ,                                                        !- Zone Equipment Sequential Cooling Fraction Schedule Name
-  ;                                                        !- Zone Equipment Sequential Heating Fraction Schedule Name
-
-ZoneHVAC:IdealLoadsAirSystem,
-  Perimeter_mid_ZN_2 Ideal Loads Air System,               !- Name
-  ,                                                        !- Availability Schedule Name
-  Perimeter_mid_ZN_2 Ideal Loads Supply Inlet,             !- Zone Supply Air Node Name
-  ,                                                        !- Zone Exhaust Air Node Name
-  ,                                                        !- System Inlet Air Node Name
-  50,                                                      !- Maximum Heating Supply Air Temperature [C]
-  13,                                                      !- Minimum Cooling Supply Air Temperature [C]
-  0.0156,                                                  !- Maximum Heating Supply Air Humidity Ratio [kg-H20/kg-air]
-  0.0077,                                                  !- Minimum Cooling Supply Air Humidity Ratio [kg-H20/kg-air]
-  NoLimit,                                                 !- Heating Limit
-  ,                                                        !- Maximum Heating Air Flow Rate {m3/s}
-  ,                                                        !- Maximum Sensible Heating Capacity {m3/s}
-  NoLimit,                                                 !- Cooling Limit
-  ,                                                        !- Maximum Cooling Air Flow Rate {m3/s}
-  ,                                                        !- Maximum Total Cooling Capacity {m3/s}
-  ,                                                        !- Heating Availability Schedule Name
-  ,                                                        !- Cooling Availability Schedule Name
-  ConstantSensibleHeatRatio,                               !- Dehumidification Control Type
-  0.7,                                                     !- Cooling Sensible Heat Ratio
-  None,                                                    !- Humidification Control Type
-  ,                                                        !- Design Specification Outdoor Air Object Name
-  ,                                                        !- Outdoor Air Inlet Node Name
-  None,                                                    !- Demand Controlled Ventilation Type
-  NoEconomizer,                                            !- Outdoor Air Economizer Type
-  None,                                                    !- Heat Recovery Type
-  0.7,                                                     !- Sensible Heat Recovery Effectiveness
-  0.65;                                                    !- Latent Heat Recovery Effectiveness
-
-ZoneHVAC:EquipmentConnections,
-  Perimeter_mid_ZN_3,                                      !- Zone Name
-  Perimeter_mid_ZN_3 Equipment,                            !- Zone Conditioning Equipment List Name
-  Perimeter_mid_ZN_3 Ideal Loads Supply Inlet,             !- Zone Air Inlet Node or NodeList Name
-  ,                                                        !- Zone Air Exhaust Node or NodeList Name
-  Perimeter_mid_ZN_3 Zone Air Node,                        !- Zone Air Node Name
-  Perimeter_mid_ZN_3 Return Outlet;                        !- Zone Return Air Node Name
-
-ZoneHVAC:EquipmentList,
-  Perimeter_mid_ZN_3 Equipment,                            !- Name
-  SequentialLoad,                                          !- Load Distribution Scheme
-  ZoneHVAC:IdealLoadsAirSystem,                            !- Zone Equipment Object Type
-  Perimeter_mid_ZN_3 Ideal Loads Air System,               !- Zone Equipment Name
-  1,                                                       !- Zone Equipment Cooling Sequence
-  1,                                                       !- Zone Equipment Heating or No-Load Sequence
-  ,                                                        !- Zone Equipment Sequential Cooling Fraction Schedule Name
-  ;                                                        !- Zone Equipment Sequential Heating Fraction Schedule Name
-
-ZoneHVAC:IdealLoadsAirSystem,
-  Perimeter_mid_ZN_3 Ideal Loads Air System,               !- Name
-  ,                                                        !- Availability Schedule Name
-  Perimeter_mid_ZN_3 Ideal Loads Supply Inlet,             !- Zone Supply Air Node Name
-  ,                                                        !- Zone Exhaust Air Node Name
-  ,                                                        !- System Inlet Air Node Name
-  50,                                                      !- Maximum Heating Supply Air Temperature [C]
-  13,                                                      !- Minimum Cooling Supply Air Temperature [C]
-  0.0156,                                                  !- Maximum Heating Supply Air Humidity Ratio [kg-H20/kg-air]
-  0.0077,                                                  !- Minimum Cooling Supply Air Humidity Ratio [kg-H20/kg-air]
-  NoLimit,                                                 !- Heating Limit
-  ,                                                        !- Maximum Heating Air Flow Rate {m3/s}
-  ,                                                        !- Maximum Sensible Heating Capacity {m3/s}
-  NoLimit,                                                 !- Cooling Limit
-  ,                                                        !- Maximum Cooling Air Flow Rate {m3/s}
-  ,                                                        !- Maximum Total Cooling Capacity {m3/s}
-  ,                                                        !- Heating Availability Schedule Name
-  ,                                                        !- Cooling Availability Schedule Name
-  ConstantSensibleHeatRatio,                               !- Dehumidification Control Type
-  0.7,                                                     !- Cooling Sensible Heat Ratio
-  None,                                                    !- Humidification Control Type
-  ,                                                        !- Design Specification Outdoor Air Object Name
-  ,                                                        !- Outdoor Air Inlet Node Name
-  None,                                                    !- Demand Controlled Ventilation Type
-  NoEconomizer,                                            !- Outdoor Air Economizer Type
-  None,                                                    !- Heat Recovery Type
-  0.7,                                                     !- Sensible Heat Recovery Effectiveness
-  0.65;                                                    !- Latent Heat Recovery Effectiveness
-
-ZoneHVAC:EquipmentConnections,
-  Perimeter_mid_ZN_4,                                      !- Zone Name
-  Perimeter_mid_ZN_4 Equipment,                            !- Zone Conditioning Equipment List Name
-  Perimeter_mid_ZN_4 Ideal Loads Supply Inlet,             !- Zone Air Inlet Node or NodeList Name
-  ,                                                        !- Zone Air Exhaust Node or NodeList Name
-  Perimeter_mid_ZN_4 Zone Air Node,                        !- Zone Air Node Name
-  Perimeter_mid_ZN_4 Return Outlet;                        !- Zone Return Air Node Name
-
-ZoneHVAC:EquipmentList,
-  Perimeter_mid_ZN_4 Equipment,                            !- Name
-  SequentialLoad,                                          !- Load Distribution Scheme
-  ZoneHVAC:IdealLoadsAirSystem,                            !- Zone Equipment Object Type
-  Perimeter_mid_ZN_4 Ideal Loads Air System,               !- Zone Equipment Name
-  1,                                                       !- Zone Equipment Cooling Sequence
-  1,                                                       !- Zone Equipment Heating or No-Load Sequence
-  ,                                                        !- Zone Equipment Sequential Cooling Fraction Schedule Name
-  ;                                                        !- Zone Equipment Sequential Heating Fraction Schedule Name
-
-ZoneHVAC:IdealLoadsAirSystem,
-  Perimeter_mid_ZN_4 Ideal Loads Air System,               !- Name
-  ,                                                        !- Availability Schedule Name
-  Perimeter_mid_ZN_4 Ideal Loads Supply Inlet,             !- Zone Supply Air Node Name
-  ,                                                        !- Zone Exhaust Air Node Name
-  ,                                                        !- System Inlet Air Node Name
-  50,                                                      !- Maximum Heating Supply Air Temperature [C]
-  13,                                                      !- Minimum Cooling Supply Air Temperature [C]
-  0.0156,                                                  !- Maximum Heating Supply Air Humidity Ratio [kg-H20/kg-air]
-  0.0077,                                                  !- Minimum Cooling Supply Air Humidity Ratio [kg-H20/kg-air]
-  NoLimit,                                                 !- Heating Limit
-  ,                                                        !- Maximum Heating Air Flow Rate {m3/s}
-  ,                                                        !- Maximum Sensible Heating Capacity {m3/s}
-  NoLimit,                                                 !- Cooling Limit
-  ,                                                        !- Maximum Cooling Air Flow Rate {m3/s}
-  ,                                                        !- Maximum Total Cooling Capacity {m3/s}
-  ,                                                        !- Heating Availability Schedule Name
-  ,                                                        !- Cooling Availability Schedule Name
-  ConstantSensibleHeatRatio,                               !- Dehumidification Control Type
-  0.7,                                                     !- Cooling Sensible Heat Ratio
-  None,                                                    !- Humidification Control Type
-  ,                                                        !- Design Specification Outdoor Air Object Name
-  ,                                                        !- Outdoor Air Inlet Node Name
-  None,                                                    !- Demand Controlled Ventilation Type
-  NoEconomizer,                                            !- Outdoor Air Economizer Type
-  None,                                                    !- Heat Recovery Type
-  0.7,                                                     !- Sensible Heat Recovery Effectiveness
-  0.65;                                                    !- Latent Heat Recovery Effectiveness
-
-Site:GroundTemperature:BuildingSurface,
-  20.93,                                                   !- January Ground Temperature
-  20.91,                                                   !- February Ground Temperature
-  20.89,                                                   !- March Ground Temperature
-  20.89,                                                   !- April Ground Temperature
-  20.89,                                                   !- May Ground Temperature
-  23.27,                                                   !- June Ground Temperature
-  23.65,                                                   !- July Ground Temperature
-  23.72,                                                   !- August Ground Temperature
-  23.75,                                                   !- September Ground Temperature
-  21.32,                                                   !- October Ground Temperature
-  21.02,                                                   !- November Ground Temperature
-  20.97;                                                   !- December Ground Temperature
