@@ -15,7 +15,7 @@
 ##SBATCH --account=122774970664             #Set billing account to 122774970664
 
 ml purge
-ml intel/2019a
+ml intel/2019b
 
 ml GCCcore/8.3.0
 ml CMake/3.15.3
