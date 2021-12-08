@@ -17,12 +17,9 @@ import numpy as np
 import numpy.random as random
 import pandas as pd
 
-## import mpi management package
-from mpipool import MPIPool
-from mpi4py import MPI
-
 # Import optimization package
 import pygad
+
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
   Convert NumOfSec to Month/Day
@@ -228,33 +225,22 @@ def read_result(filename):
 
   data = pd.DataFrame(data)
   return data
-
-class PooledGA(pygad.GA):
-
-  def cal_pop_fitness(self):
-    global pool,hyperParam
-    pop_fitness = pool.starmap(fitness_wrapper, [(individual,i,hyperParam) for i,individual in enumerate(self.population)])
-    #print(pop_fitness)
-    pop_fitness = np.array(pop_fitness)
-    return pop_fitness
-
-# run optimization 
-with MPIPool() as pool:
-  pool.workers_exit() ## Only master process will proceed
-  
-  # simulation setup
+if __name__ == "__main__":
+    # simulation setup
   start_time= 60*60*24*203  # June 1st 
   final_time= 60*60*24*204
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
-  pred_horizon = {"length":6,"timestep":3600}
+  pred_horizon = {"length":24,"timestep":3600}
 
   #### run optimization
   X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
 
   Eplus_FileName = "MediumOffice_Houston_Cooling.idf"
 
+     ##
+  tim = start_time
 
   #prepare hyper parameter
   hyperParam  ={}
@@ -264,67 +250,16 @@ with MPIPool() as pool:
   hyperParam["final_time"] = final_time 
   hyperParam["Eplus_timestep"] = Eplus_timestep
   hyperParam["Eplus_FileName"] = Eplus_FileName
-
   
-  ##
-  tim = start_time
-  while True:
-    #
-    hyperParam["tim"] = tim
-    hyperParam["X_sp_log"] = X_sp_log
+  #
+  hyperParam["tim"] = tim
+  hyperParam["X_sp_log"] = X_sp_log
 
-    # Do optimization
-    
-    #SP_cur = run_Optimization(hyperParam)
 
-    ## At each time step, this function will implement an optimization.. \
-    # Parameter for GA 
-    num_parents_mating = 24
-    num_genes = hyperParam["PH"]
+  x = [17.759526053904015, 17.553348491031816, 17.93452688391634, 13.162727128161603, 11.661261672952136, 15.524898249935223, 11.908621714922823, 10.686156182211182, 12.336517019721898, 17.86897865652388, 10.659983248021266, 11.644185964218352, 14.609280400282138, 12.367135230198844, 17.356217083514277, 17.506367397395774, 17.64304011877485, 17.47842003048702, 17.495893761779524, 17.187718414438745, 17.481005201709095, 17.505457499350538, 17.566630340205737, 17.91148979371677]
 
-    init_range_low = 25
-    init_range_high = 50
-    parent_selection_type = "tournament"
-    keep_parents = 1
+  res = fitness_wrapper(x,0,hyperParam)
 
-    # Optimization algorithm setting
-    num_generations = 30
-    sol_per_pop = 49   # Number of individuals
 
-    crossover_type = "single_point"
-    crossover_probability = 0.9
-
-    mutation_type = "random"
-    mutation_probability = 0.2
-
-    gene_space = [{'low':10, 'high': 18}]*hyperParam['PH']
-
-    ga_instance = PooledGA(num_generations=num_generations,
-                    num_parents_mating=num_parents_mating,
-                    fitness_func=fitness_func, # Actually this is not used.
-                    sol_per_pop=sol_per_pop,
-                    num_genes=num_genes,
-                    init_range_low=init_range_low,
-                    init_range_high=init_range_high,
-                    parent_selection_type=parent_selection_type,
-                    keep_parents=keep_parents,
-                    crossover_type=crossover_type,
-                    crossover_probability = crossover_probability,
-                    mutation_type=mutation_type,
-                    mutation_probability = mutation_probability,
-                    gene_space = gene_space
-                    )
-    print("Start Optimization")
-    ga_instance.run()
-    print("Op completed")
-    SP_cur = ga_instance.best_solution()[0][0]
-    X_sp_log.append(SP_cur)
-    print(X_sp_log,tim)
-    # proceed to next timestep
-    tim = tim + pred_horizon['timestep']
-    if tim>= final_time:
-      break
-    
-    
-  print("all mpi process join again then")
+  print(res)
       

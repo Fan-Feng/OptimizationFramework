@@ -5,7 +5,7 @@
   
 ##NECESSARY JOB SPECIFICATIONS
 #SBATCH --job-name=C90_M3_P100_G50     #Set the job name to "JobExample1"
-#SBATCH --time=5:00:00            #Set the wall clock limit to 1hr and 30min
+#SBATCH --time=6:00:00            #Set the wall clock limit to 1hr and 30min
 #SBATCH --ntasks=50                #Request 400 task
 #SBATCH --ntasks-per-node=20        #Request 10 task/core per node
 #SBATCH --mem=20480M                #Request 204800MB (20GB) per node
@@ -15,11 +15,9 @@
 ##SBATCH --account=122774970664             #Set billing account to 122774970664
 
 ml purge
-ml intel/2019b
+ml intel/2019a
 
-ml GCCcore/8.3.0
-ml CMake/3.15.3
-export PATH=$SCRATCH/program/EnergyPlus-9-3-0:$SCRATCH/program/anaconda3/bin:$PATH
-
+ml CMake/3.15.3-GCCcore-8.3.0
+export PATH=$SCRATCH/EnergyPlus-9.3.0/build:$PATH
 
 mpirun python runTestEplus_parallel.py
