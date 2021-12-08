@@ -3155,7 +3155,7 @@ Schedule:Compact,
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:FILE ===========
 
 Schedule:File,
-    RADHEATLOWWATERTEMP_Test,!- Name
+    RADCOOLLOWWATERTEMP_Test,!- Name
     Temperature,             !- Schedule Type Limits Name
     %SchFile_Loc%,  !- File Name
     1,                       !- Column Number
@@ -3165,7 +3165,7 @@ Schedule:File,
     No;                      !- Interpolate to Timestep
 
 Schedule:File,
-    RADHEATHIGHWATERTEMP_Test,  !- Name
+    RADCOOLHIGHWATERTEMP_Test,  !- Name
     Temperature,             !- Schedule Type Limits Name
     %SchFile_Loc%,  !- File Name
     2,                       !- Column Number
