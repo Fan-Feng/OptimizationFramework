@@ -1,0 +1,149 @@
+Program Version,EnergyPlus, Version 9.3.0-baff08990c, YMD=2021.12.09 05:15,
+   ** Warning ** Sizing:Parameters: note Timesteps in Averaging Window entered value=[6] is less than 1 hour (i.e., 20 timesteps).
+   ************* Beginning Zone Sizing Calculations
+   ** Warning ** Weather file location will be used rather than entered (IDF) Location object.
+   **   ~~~   ** ..Location object=NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA WMO=744860
+   **   ~~~   ** ..Weather File Location=New York Central Prk Obs Belv NY USA TMY3 WMO#=725033
+   **   ~~~   ** ..due to location differences, Latitude difference=[0.12] degrees, Longitude difference=[0.17] degrees.
+   **   ~~~   ** ..Time Zone difference=[0.0] hour(s), Elevation difference=[471.43] percent, [33.00] meters.
+   ** Warning ** The input file includes 2 MaterialProperty:PhaseChange objects but the conduction finite difference algorithm is not used anywhere.
+   **   ~~~   ** Previous materials will be ignored due to HeatBalanceAlgorithm choice.
+   ** Warning ** CheckUsedConstructions: There are 24 nominally unused constructions in input.
+   **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="CORNER_CLASS_1_POD_1_ZN_1_FLR_1", only 0.76 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="MULT_CLASS_1_POD_1_ZN_1_FLR_1", only 0.56 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="CORNER_CLASS_2_POD_1_ZN_1_FLR_1", only 0.78 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="MULT_CLASS_2_POD_1_ZN_1_FLR_1", only 0.56 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="CORNER_CLASS_1_POD_2_ZN_1_FLR_1", only 0.76 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="MULT_CLASS_1_POD_2_ZN_1_FLR_1", only 0.56 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="CORNER_CLASS_2_POD_2_ZN_1_FLR_1", only 0.76 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="MULT_CLASS_2_POD_2_ZN_1_FLR_1", only 0.56 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="CORNER_CLASS_1_POD_3_ZN_1_FLR_1", only 0.76 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="MULT_CLASS_1_POD_3_ZN_1_FLR_1", only 0.28 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="CORNER_CLASS_2_POD_3_ZN_1_FLR_1", only 0.76 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="MULT_CLASS_2_POD_3_ZN_1_FLR_1", only 0.56 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="COMPUTER_CLASS_ZN_1_FLR_1", only 0.56 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="LOBBY_ZN_1_FLR_1", only 0.56 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="OFFICES_ZN_1_FLR_1", only 0.42 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="CAFETERIA_ZN_1_FLR_1", only 0.50 of the zone is controlled.
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="LIBRARY_MEDIA_CENTER_ZN_1_FLR_1", only 0.44 of the zone is controlled.
+   ** Warning ** GetElectricEIRChillerInput: Chiller:Electric:EIR="COOLSYS1 CHILLER1"
+   **   ~~~   ** Adding OutdoorAir:Node=CONDENSER SIDE INLET NODE
+   ** Warning ** SetUpZoneSizingArrays: Sizing for Zone="MAIN_CORRIDOR_ZN_1_FLR_1" will use Sizing:Zone specifications listed for Zone="CORNER_CLASS_1_POD_1_ZN_1_FLR_1".
+   ** Warning ** SetUpZoneSizingArrays: Sizing for Zone="LOBBY_ZN_1_FLR_1" will use Sizing:Zone specifications listed for Zone="CORNER_CLASS_1_POD_1_ZN_1_FLR_1".
+   ************* Beginning System Sizing Calculations
+   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.
+   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:NoReheat = CORNER_CLASS_1_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT
+   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.
+   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:NoReheat = MULT_CLASS_1_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT
+   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.
+   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:NoReheat = CORRIDOR_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT
+   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.
+   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:NoReheat = CORNER_CLASS_2_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT
+   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.
+   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:NoReheat = MULT_CLASS_2_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT
+   ************* Beginning Plant Sizing Calculations
+   ** Warning ** InitOAController: Maximum Outdoor Air Flow Rate for Controller:OutdoorAir=DOAS OA CONTROLLER is greater than Design Supply Air Flow Rate for AirLoopHVAC=DOAS.
+   **   ~~~   ** ...Maximum Outdoor Air Flow Rate=4.649270 will be reset to loop Design Supply Air Flow Rate=2.648970
+   ** Warning ** In calculating the design coil UA for Coil:Cooling:Water DOAS COOLING COIL
+   **   ~~~   ** the coil bypass factor is unrealistically large;
+   **   ~~~   ** The initial design conditions are: Tair,in = 31.9183
+   **   ~~~   **                                    Wair,in = 1.411931E-002
+   **   ~~~   **                                    Twater,in = 7.0000
+   **   ~~~   **                                    Tair,out = 11.6441
+   **   ~~~   **                                    Wair,out = 9.240000E-003
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Testing Individual Supply Air Path Integrity
+   ************* All Supply Air Paths passed integrity testing
+   ************* Testing Individual Return Air Path Integrity
+   ************* All Return Air Paths passed integrity testing
+   ************* No node connection errors were found.
+   ************* Beginning Simulation
+   ** Warning ** ElectricEIRChillerModel - CHILLER:ELECTRIC:EIR "COOLSYS1 CHILLER1" - Air Cooled Condenser Inlet Temperature below 0C.
+   **   ~~~   ** ... Outdoor Dry-bulb Condition =  -5.60 C. Occurrence info = RUNPERIOD 1, 01/02 08:06 - 08:07
+   ** Warning ** ZoneHVAC:LowTemperatureRadiant:ConstantFlow [CORNER_CLASS_1_POD_1_ZN_1_FLR_1_LOTEMP]
+   **   ~~~   ** Surface [CORNER_CLASS_1_POD_1_ZN_1_FLR_1_FLOOR] temperature below dew-point temperature--potential for condensation exists
+   **   ~~~   ** Flow to the radiant system will be shut-off to avoid condensation
+   **   ~~~   ** Predicted radiant system surface temperature = 20.32
+   **   ~~~   ** Zone dew-point temperature + safety delta T= 20.32
+   **   ~~~   **  Environment=RUNPERIOD 1, at Simulation time=01/03 13:48 - 13:51
+   **   ~~~   ** Note that a 1.0000 C safety was chosen in the input for the shut-off criteria
+   **   ~~~   ** Note also that this affects all surfaces that are part of this radiant system
+   ** Warning ** ZoneHVAC:LowTemperatureRadiant:ConstantFlow [CORNER_CLASS_2_POD_1_ZN_1_FLR_1_LOTEMP]
+   **   ~~~   ** Surface [CORNER_CLASS_2_POD_1_ZN_1_FLR_1_FLOOR] temperature below dew-point temperature--potential for condensation exists
+   **   ~~~   ** Flow to the radiant system will be shut-off to avoid condensation
+   **   ~~~   ** Predicted radiant system surface temperature = 20.42
+   **   ~~~   ** Zone dew-point temperature + safety delta T= 20.46
+   **   ~~~   **  Environment=RUNPERIOD 1, at Simulation time=01/03 14:03 - 14:06
+   **   ~~~   ** Note that a 1.0000 C safety was chosen in the input for the shut-off criteria
+   **   ~~~   ** Note also that this affects all surfaces that are part of this radiant system
+   ** Warning ** ZoneHVAC:LowTemperatureRadiant:ConstantFlow [MULT_CLASS_1_POD_1_ZN_1_FLR_1_LOTEMP]
+   **   ~~~   ** Surface [MULT_CLASS_1_POD_1_ZN_1_FLR_1_FLOOR] temperature below dew-point temperature--potential for condensation exists
+   **   ~~~   ** Flow to the radiant system will be shut-off to avoid condensation
+   **   ~~~   ** Predicted radiant system surface temperature = 20.56
+   **   ~~~   ** Zone dew-point temperature + safety delta T= 20.59
+   **   ~~~   **  Environment=RUNPERIOD 1, at Simulation time=01/03 15:48 - 15:51
+   **   ~~~   ** Note that a 1.0000 C safety was chosen in the input for the shut-off criteria
+   **   ~~~   ** Note also that this affects all surfaces that are part of this radiant system
+   ************* Simulation Error Summary *************
+   ************* There are 75 unused schedules in input.
+   ************* There are 4 unused week schedules in input.
+   ************* There are 4 unused day schedules in input.
+   ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
+   *************
+   ************* ===== Recurring Error Summary =====
+   ************* The following recurring error messages occurred.
+   *************
+   *************  ** Warning ** ElectricEIRChillerModel - CHILLER:ELECTRIC:EIR "COOLSYS1 CHILLER1" - Air Cooled Condenser Inlet Temperature below 0C error continues.
+   *************  **   ~~~   **   This error occurred 797 total times;
+   *************  **   ~~~   **   during Warmup 0 times;
+   *************  **   ~~~   **   during Sizing 0 times.
+   *************  **   ~~~   **   Max=-0.6 [C]  Min=-5.88 [C]
+   *************
+   *************  ** Warning ** ZoneHVAC:LowTemperatureRadiant:ConstantFlow [CORNER_CLASS_1_POD_1_ZN_1_FLR_1_LOTEMP] condensation shut-off occurrence continues.
+   *************  **   ~~~   **   This error occurred 160 total times;
+   *************  **   ~~~   **   during Warmup 0 times;
+   *************  **   ~~~   **   during Sizing 0 times.
+   *************  **   ~~~   **   Max=20.840917 C  Min=19.324935 C
+   *************
+   *************  ** Warning ** ZoneHVAC:LowTemperatureRadiant:ConstantFlow [CORNER_CLASS_2_POD_1_ZN_1_FLR_1_LOTEMP] condensation shut-off occurrence continues.
+   *************  **   ~~~   **   This error occurred 145 total times;
+   *************  **   ~~~   **   during Warmup 0 times;
+   *************  **   ~~~   **   during Sizing 0 times.
+   *************  **   ~~~   **   Max=20.854716 C  Min=19.458628 C
+   *************
+   *************  ** Warning ** ZoneHVAC:LowTemperatureRadiant:ConstantFlow [MULT_CLASS_1_POD_1_ZN_1_FLR_1_LOTEMP] condensation shut-off occurrence continues.
+   *************  **   ~~~   **   This error occurred 18 total times;
+   *************  **   ~~~   **   during Warmup 0 times;
+   *************  **   ~~~   **   during Sizing 0 times.
+   *************  **   ~~~   **   Max=19.745422 C  Min=19.593662 C
+   *************
+   *************
+   ************* ===== Final Error Summary =====
+   ************* The following error categories occurred.  Consider correcting or noting.
+   ************* Nominally Unused Constructions
+   ************* ..The nominally unused constructions warning is provided to alert you to potential conditions that can cause
+   ************* ..extra time during simulation. Each construction is calculated by the algorithm indicated in the HeatBalanceAlgorithm
+   ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).
+   *************
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 29 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 1152 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 21.71sec
