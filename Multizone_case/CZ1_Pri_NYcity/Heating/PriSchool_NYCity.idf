@@ -390,11 +390,11 @@ SizingPeriod:DesignDay,
 
 RunPeriod,
     RUNPERIOD 1,             !- Name
-    %BeginMon%,                       !- Begin Month
-    %BeginDay%,                      !- Begin Day of Month
+    1,                       !- Begin Month
+    23,                      !- Begin Day of Month
     ,                        !- Begin Year
-    %EndMon%,                       !- End Month
-    %EndDay%,                      !- End Day of Month
+    1,                       !- End Month
+    30,                      !- End Day of Month
     ,                        !- End Year
     Sunday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
@@ -472,23 +472,23 @@ RunPeriodControl:SpecialDays,
 RunPeriodControl:DaylightSavingTime,
     2nd Sunday in March,     !- Start Date
     1st Sunday in November;  !- End Date
-
-
+! 
+! 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:BUILDINGSURFACE ===========
-
-Site:GroundTemperature:BuildingSurface,
-    19.713,                  !- January Ground Temperature {C}
-    19.665,                  !- February Ground Temperature {C}
-    19.706,                  !- March Ground Temperature {C}
-    19.745,                  !- April Ground Temperature {C}
-    20.486,                  !- May Ground Temperature {C}
-    22.110,                  !- June Ground Temperature {C}
-    22.459,                  !- July Ground Temperature {C}
-    22.554,                  !- August Ground Temperature {C}
-    22.169,                  !- September Ground Temperature {C}
-    20.607,                  !- October Ground Temperature {C}
-    20.047,                  !- November Ground Temperature {C}
-    19.805;                  !- December Ground Temperature {C}
+! 
+! Site:GroundTemperature:BuildingSurface,
+!     19.713,                  !- January Ground Temperature {C}
+!     19.665,                  !- February Ground Temperature {C}
+!     19.706,                  !- March Ground Temperature {C}
+!     19.745,                  !- April Ground Temperature {C}
+!     20.486,                  !- May Ground Temperature {C}
+!     22.110,                  !- June Ground Temperature {C}
+!     22.459,                  !- July Ground Temperature {C}
+!     22.554,                  !- August Ground Temperature {C}
+!     22.169,                  !- September Ground Temperature {C}
+!     20.607,                  !- October Ground Temperature {C}
+!     20.047,                  !- November Ground Temperature {C}
+!     19.805;                  !- December Ground Temperature {C}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:FCFACTORMETHOD ===========
@@ -516,6 +516,35 @@ Site:WaterMainsTemperature,
     12.4666666666667,        !- Annual Average Outdoor Air Temperature {C}
     25.2;                    !- Maximum Difference In Monthly Average Outdoor Air Temperatures {deltaC}
 
+Schedule:File,
+    RADHEATLOWWATERTEMP_Test,!- Name
+    Temperature,             !- Schedule Type Limits Name
+    RadInletWater_SP_schedule.csv,  !- File Name
+    1,                       !- Column Number
+    1,                       !- Rows to Skip at Top
+    8760,                    !- Number of Hours of Data
+    Comma,                   !- Column Separator
+    No;                      !- Interpolate to Timestep
+
+Schedule:File,
+    RADHEATHIGHWATERTEMP_Test,  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    RadInletWater_SP_schedule.csv,  !- File Name
+    2,                       !- Column Number
+    1,                       !- Rows to Skip at Top
+    8760,                    !- Number of Hours of Data
+    Comma,                   !- Column Separator
+    No;                      !- Interpolate to Timestep
+
+Schedule:File,
+    RADSysAvail_Test,        !- Name
+    On/Off,                  !- Schedule Type Limits Name
+    RadInletWater_SP_schedule.csv,  !- File Name
+    3,                       !- Column Number
+    1,                       !- Rows to Skip at Top
+    8760,                    !- Number of Hours of Data
+    Comma,                   !- Column Separator
+    No;                      !- Interpolate to Timestep
 
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULETYPELIMITS ===========
 
@@ -555,35 +584,6 @@ ScheduleTypeLimits,
 ScheduleTypeLimits,
     Number;                  !- Name
 
-Schedule:File,
-    RADHEATLOWWATERTEMP_Test,!- Name
-    Temperature,             !- Schedule Type Limits Name
-    %SchFile_Loc%,  !- File Name
-    1,                       !- Column Number
-    1,                       !- Rows to Skip at Top
-    8760,                    !- Number of Hours of Data
-    Comma,                   !- Column Separator
-    No;                      !- Interpolate to Timestep
-
-Schedule:File,
-    RADHEATHIGHWATERTEMP_Test,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    %SchFile_Loc%,  !- File Name
-    2,                       !- Column Number
-    1,                       !- Rows to Skip at Top
-    8760,                    !- Number of Hours of Data
-    Comma,                   !- Column Separator
-    No;                      !- Interpolate to Timestep
-
-Schedule:File,
-    RADSysAvail_Test,        !- Name
-    On/Off,                  !- Schedule Type Limits Name
-    %SchFile_Loc%,  !- File Name
-    3,                       !- Column Number
-    1,                       !- Rows to Skip at Top
-    8760,                    !- Number of Hours of Data
-    Comma,                   !- Column Separator
-    No;                      !- Interpolate to Timestep
 
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:COMPACT ===========
 
@@ -657,7 +657,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    25.00;                   !- Field 4
+    35.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLLOWCONTROLTEMP,   !- Name
@@ -665,7 +665,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    23.00;                   !- Field 4
+    33.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLHIGHCONTROLTEMP_Test,  !- Name
@@ -682,7 +682,6 @@ Schedule:Compact,
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
     22.00;                   !- Field 4
-
 
 Schedule:Compact,
     BLDG_LIGHT_BATH_SCH,     !- Name
@@ -2656,14 +2655,14 @@ Schedule:Compact,
     HVACOperationSchd,       !- Name
     On/Off,                  !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
-    For: Weekdays WeekEnds Holidays SummerDesignDay WinterDesignDay,  !- Field 2
+    For: Weekdays WeekEnds SummerDesignDay WinterDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
     0,                       !- Field 4
     Until: 21:00,            !- Field 5
     1,                       !- Field 6
     Until: 24:00,            !- Field 7
     0,                       !- Field 8
-    For: AllOtherDays,  !- Field 9
+    For: Holidays AllOtherDays,  !- Field 9
     Until: 24:00,            !- Field 10
     0;                       !- Field 11
 
@@ -13807,73 +13806,73 @@ Exterior:Lights,
     584.3,                   !- Design Level {W}
     AstronomicalClock,       !- Control Option
     General;                 !- End-Use Subcategory
-
-
+! 
+! 
 !-   ===========  ALL OBJECTS IN CLASS: HVACTEMPLATE:ZONE:IDEALLOADSAIRSYSTEM ===========
-
-HVACTemplate:Zone:IdealLoadsAirSystem,
-    Main_Corridor_ZN_1_FLR_1,!- Zone Name
-    ,                        !- Template Thermostat Name
-    ,                        !- System Availability Schedule Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    NoLimit,                 !- Heating Limit
-    ,                        !- Maximum Heating Air Flow Rate {m3/s}
-    ,                        !- Maximum Sensible Heating Capacity {W}
-    NoLimit,                 !- Cooling Limit
-    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
-    ,                        !- Maximum Total Cooling Capacity {W}
-    ,                        !- Heating Availability Schedule Name
-    ,                        !- Cooling Availability Schedule Name
-    ConstantSensibleHeatRatio,  !- Dehumidification Control Type
-    0.7,                     !- Cooling Sensible Heat Ratio {dimensionless}
-    60,                      !- Dehumidification Setpoint {percent}
-    None,                    !- Humidification Control Type
-    30,                      !- Humidification Setpoint {percent}
-    None,                    !- Outdoor Air Method
-    0.00944,                 !- Outdoor Air Flow Rate per Person {m3/s}
-    ,                        !- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Outdoor Air Flow Rate per Zone {m3/s}
-    ,                        !- Design Specification Outdoor Air Object Name
-    None,                    !- Demand Controlled Ventilation Type
-    NoEconomizer,            !- Outdoor Air Economizer Type
-    None,                    !- Heat Recovery Type
-    0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
-    0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
-
-HVACTemplate:Zone:IdealLoadsAirSystem,
-    Lobby_ZN_1_FLR_1,        !- Zone Name
-    ,                        !- Template Thermostat Name
-    ,                        !- System Availability Schedule Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    NoLimit,                 !- Heating Limit
-    ,                        !- Maximum Heating Air Flow Rate {m3/s}
-    ,                        !- Maximum Sensible Heating Capacity {W}
-    NoLimit,                 !- Cooling Limit
-    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
-    ,                        !- Maximum Total Cooling Capacity {W}
-    ,                        !- Heating Availability Schedule Name
-    ,                        !- Cooling Availability Schedule Name
-    ConstantSensibleHeatRatio,  !- Dehumidification Control Type
-    0.7,                     !- Cooling Sensible Heat Ratio {dimensionless}
-    60,                      !- Dehumidification Setpoint {percent}
-    None,                    !- Humidification Control Type
-    30,                      !- Humidification Setpoint {percent}
-    None,                    !- Outdoor Air Method
-    0.00944,                 !- Outdoor Air Flow Rate per Person {m3/s}
-    ,                        !- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Outdoor Air Flow Rate per Zone {m3/s}
-    ,                        !- Design Specification Outdoor Air Object Name
-    None,                    !- Demand Controlled Ventilation Type
-    NoEconomizer,            !- Outdoor Air Economizer Type
-    None,                    !- Heat Recovery Type
-    0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
-    0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
+! 
+! HVACTemplate:Zone:IdealLoadsAirSystem,
+!     Main_Corridor_ZN_1_FLR_1,!- Zone Name
+!     ,                        !- Template Thermostat Name
+!     ,                        !- System Availability Schedule Name
+!     50,                      !- Maximum Heating Supply Air Temperature {C}
+!     13,                      !- Minimum Cooling Supply Air Temperature {C}
+!     0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+!     0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+!     NoLimit,                 !- Heating Limit
+!     ,                        !- Maximum Heating Air Flow Rate {m3/s}
+!     ,                        !- Maximum Sensible Heating Capacity {W}
+!     NoLimit,                 !- Cooling Limit
+!     ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+!     ,                        !- Maximum Total Cooling Capacity {W}
+!     ,                        !- Heating Availability Schedule Name
+!     ,                        !- Cooling Availability Schedule Name
+!     ConstantSensibleHeatRatio,  !- Dehumidification Control Type
+!     0.7,                     !- Cooling Sensible Heat Ratio {dimensionless}
+!     60,                      !- Dehumidification Setpoint {percent}
+!     None,                    !- Humidification Control Type
+!     30,                      !- Humidification Setpoint {percent}
+!     None,                    !- Outdoor Air Method
+!     0.00944,                 !- Outdoor Air Flow Rate per Person {m3/s}
+!     ,                        !- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
+!     ,                        !- Outdoor Air Flow Rate per Zone {m3/s}
+!     ,                        !- Design Specification Outdoor Air Object Name
+!     None,                    !- Demand Controlled Ventilation Type
+!     NoEconomizer,            !- Outdoor Air Economizer Type
+!     None,                    !- Heat Recovery Type
+!     0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
+!     0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
+! 
+! HVACTemplate:Zone:IdealLoadsAirSystem,
+!     Lobby_ZN_1_FLR_1,        !- Zone Name
+!     ,                        !- Template Thermostat Name
+!     ,                        !- System Availability Schedule Name
+!     50,                      !- Maximum Heating Supply Air Temperature {C}
+!     13,                      !- Minimum Cooling Supply Air Temperature {C}
+!     0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+!     0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+!     NoLimit,                 !- Heating Limit
+!     ,                        !- Maximum Heating Air Flow Rate {m3/s}
+!     ,                        !- Maximum Sensible Heating Capacity {W}
+!     NoLimit,                 !- Cooling Limit
+!     ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+!     ,                        !- Maximum Total Cooling Capacity {W}
+!     ,                        !- Heating Availability Schedule Name
+!     ,                        !- Cooling Availability Schedule Name
+!     ConstantSensibleHeatRatio,  !- Dehumidification Control Type
+!     0.7,                     !- Cooling Sensible Heat Ratio {dimensionless}
+!     60,                      !- Dehumidification Setpoint {percent}
+!     None,                    !- Humidification Control Type
+!     30,                      !- Humidification Setpoint {percent}
+!     None,                    !- Outdoor Air Method
+!     0.00944,                 !- Outdoor Air Flow Rate per Person {m3/s}
+!     ,                        !- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
+!     ,                        !- Outdoor Air Flow Rate per Zone {m3/s}
+!     ,                        !- Design Specification Outdoor Air Object Name
+!     None,                    !- Demand Controlled Ventilation Type
+!     NoEconomizer,            !- Outdoor Air Economizer Type
+!     None,                    !- Heat Recovery Type
+!     0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
+!     0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: DESIGNSPECIFICATION:OUTDOORAIR ===========
@@ -14457,7 +14456,7 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Corner_Class_1_Pod_1_ZN_1_FLR_1_RadHeatWater_Inlet_Node,  !- Heating Water Inlet Node Name
     Corner_Class_1_Pod_1_ZN_1_FLR_1_RadHeatWater_Outlet_Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
+RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
     RADHEATLOWWATERTEMP_Test,!- Heating Low Water Temperature Schedule Name
     RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
     RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
@@ -14488,10 +14487,10 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Mult_Class_1_Pod_1_ZN_1_FLR_1_RadHeatWater_Inlet_Node,  !- Heating Water Inlet Node Name
     Mult_Class_1_Pod_1_ZN_1_FLR_1_RadHeatWater_Outlet_Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
+RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
     RADHEATLOWWATERTEMP_Test,!- Heating Low Water Temperature Schedule Name
     RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP_Test,   !- Heating Low Control Temperature Schedule Name
     Mult_Class_1_Pod_1_ZN_1_FLR_1_RadCoolWater_Inlet_Node,  !- Cooling Water Inlet Node Name
     Mult_Class_1_Pod_1_ZN_1_FLR_1_RadCoolWater_Outlet_Node,  !- Cooling Water Outlet Node Name
     RADCOOLHIGHWATERTEMP,    !- Cooling High Water Temperature Schedule Name
@@ -14519,10 +14518,10 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Corridor_Pod_1_ZN_1_FLR_1_RadHeatWater_Inlet_Node,  !- Heating Water Inlet Node Name
     Corridor_Pod_1_ZN_1_FLR_1_RadHeatWater_Outlet_Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
+RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
     RADHEATLOWWATERTEMP_Test,!- Heating Low Water Temperature Schedule Name
     RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP_Test,    !- Heating Low Control Temperature Schedule Name
     Corridor_Pod_1_ZN_1_FLR_1_RadCoolWater_Inlet_Node,  !- Cooling Water Inlet Node Name
     Corridor_Pod_1_ZN_1_FLR_1_RadCoolWater_Outlet_Node,  !- Cooling Water Outlet Node Name
     RADCOOLHIGHWATERTEMP,    !- Cooling High Water Temperature Schedule Name
@@ -14550,10 +14549,10 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Corner_Class_2_Pod_1_ZN_1_FLR_1_LoTemp_RadHeatWater_Inlet_Node,  !- Heating Water Inlet Node Name
     Corner_Class_2_Pod_1_ZN_1_FLR_1_LoTemp_RadHeatWater_Outlet_Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
+RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
     RADHEATLOWWATERTEMP_Test,!- Heating Low Water Temperature Schedule Name
     RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP_Test,   !- Heating Low Control Temperature Schedule Name
     Corner_Class_2_Pod_1_ZN_1_FLR_1_LoTemp_RadCoolWater_Inlet_Node,  !- Cooling Water Inlet Node Name
     Corner_Class_2_Pod_1_ZN_1_FLR_1_LoTemp_RadCoolWater_Outlet_Node,  !- Cooling Water Outlet Node Name
     RADCOOLHIGHWATERTEMP,    !- Cooling High Water Temperature Schedule Name
@@ -14581,10 +14580,10 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Mult_Class_2_Pod_1_ZN_1_FLR_1_LoTemp_RadHeatWater_Inlet_Node,  !- Heating Water Inlet Node Name
     Mult_Class_2_Pod_1_ZN_1_FLR_1_LoTemp_RadHeatWater_Outlet_Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
+RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
     RADHEATLOWWATERTEMP_Test,!- Heating Low Water Temperature Schedule Name
     RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP_Test,   !- Heating Low Control Temperature Schedule Name
     Mult_Class_2_Pod_1_ZN_1_FLR_1_LoTemp_RadCoolWater_Inlet_Node,  !- Cooling Water Inlet Node Name
     Mult_Class_2_Pod_1_ZN_1_FLR_1_LoTemp_RadCoolWater_Outlet_Node,  !- Cooling Water Outlet Node Name
     RADCOOLHIGHWATERTEMP,    !- Cooling High Water Temperature Schedule Name
@@ -14825,7 +14824,7 @@ Fan:VariableVolume,
 
 Coil:Cooling:Water,
     DOAS Cooling Coil,       !- Name
-    HVACTemplate-Always 1,   !- Availability Schedule Name
+    ALWAYS_OFF,              !- Availability Schedule Name
     autosize,                !- Design Water Flow Rate {m3/s}
     autosize,                !- Design Air Flow Rate {m3/s}
     autosize,                !- Design Inlet Water Temperature {C}
@@ -16248,20 +16247,177 @@ Output:VariableDictionary,
 
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
-Output:Variable,Mult_Class_2_Pod_1_ZN_1_FLR_1,Zone Mean Air Temperature,hourly; !- Zone Average [C]
-Output:Variable,Corner_Class_2_Pod_1_ZN_1_FLR_1,Zone Mean Air Temperature,hourly; !- Zone Average [C]
-Output:Variable,Corridor_Pod_1_ZN_1_FLR_1,Zone Mean Air Temperature,hourly; !- Zone Average [C]
-Output:Variable,Mult_Class_1_Pod_1_ZN_1_FLR_1,Zone Mean Air Temperature,hourly; !- Zone Average [C]
-Output:Variable,Corner_Class_1_Pod_1_ZN_1_FLR_1,Zone Mean Air Temperature,hourly; !- Zone Average [C]
+Output:Variable,
+    Corner_Class_1_Pod_1_ZN_1_FLR_1,      !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
+    hourly;                  !- Reporting Frequency
 
-Output:Variable,Mult_Class_2_Pod_1_ZN_1_FLR_1_LOTEMP,Zone Radiant HVAC Pump Electric Power,hourly; !- HVAC Average [W]
-Output:Variable,Corner_Class_2_Pod_1_ZN_1_FLR_1_LOTEMP,Zone Radiant HVAC Pump Electric Power,hourly; !- HVAC Average [W]
-Output:Variable,Corridor_Pod_1_ZN_1_FLR_1_LOTEMP,Zone Radiant HVAC Pump Electric Power,hourly; !- HVAC Average [W]
-Output:Variable,Mult_Class_1_Pod_1_ZN_1_FLR_1_LOTEMP,Zone Radiant HVAC Pump Electric Power,hourly; !- HVAC Average [W]
-Output:Variable,Corner_Class_1_Pod_1_ZN_1_FLR_1_LOTEMP,Zone Radiant HVAC Pump Electric Power,hourly; !- HVAC Average [W]
-Output:Variable,Hot Water Loop HW Supply Pump2,Pump Electric Energy,hourly; !- HVAC Sum [J]
+Output:Variable,
+    Mult_Class_1_Pod_1_ZN_1_FLR_1,      !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    Corridor_Pod_1_ZN_1_FLR_1,      !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    Corner_Class_2_Pod_1_ZN_1_FLR_1,      !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    Mult_Class_2_Pod_1_ZN_1_FLR_1,                !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Boiler Electric Power,   !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    HOT WATER LOOP HW SUPPLY PUMP2,  !- Key Value
+    Pump Electric Power,     !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    Corner_Class_1_Pod_1_ZN_1_FLR_1_loTemp,        !- Key Value
+    Zone Radiant HVAC Pump Electric Power,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    Mult_Class_1_Pod_1_ZN_1_FLR_1_loTemp,        !- Key Value
+    Zone Radiant HVAC Pump Electric Power,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    Corridor_Pod_1_ZN_1_FLR_1_loTemp,        !- Key Value
+    Zone Radiant HVAC Pump Electric Power,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    Corner_Class_2_Pod_1_ZN_1_FLR_1_loTemp,        !- Key Value
+    Zone Radiant HVAC Pump Electric Power,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    Mult_Class_2_Pod_1_ZN_1_FLR_1_loTemp,         !- Key Value
+    Zone Radiant HVAC Pump Electric Power,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
 Output:Variable,*,Heat Pump Electric Power,hourly; !- HVAC Average [W]
+! 
+! -------------------------------------------------------------
+! New objects created from ExpandObjects
+! -------------------------------------------------------------
+! 
 
+ZoneHVAC:EquipmentConnections,
+  Main_Corridor_ZN_1_FLR_1,                                !- Zone Name
+  Main_Corridor_ZN_1_FLR_1 Equipment,                      !- Zone Conditioning Equipment List Name
+  Main_Corridor_ZN_1_FLR_1 Ideal Loads Supply Inlet,       !- Zone Air Inlet Node or NodeList Name
+  ,                                                        !- Zone Air Exhaust Node or NodeList Name
+  Main_Corridor_ZN_1_FLR_1 Zone Air Node,                  !- Zone Air Node Name
+  Main_Corridor_ZN_1_FLR_1 Return Outlet;                  !- Zone Return Air Node Name
 
+ZoneHVAC:EquipmentList,
+  Main_Corridor_ZN_1_FLR_1 Equipment,                      !- Name
+  SequentialLoad,                                          !- Load Distribution Scheme
+  ZoneHVAC:IdealLoadsAirSystem,                            !- Zone Equipment Object Type
+  Main_Corridor_ZN_1_FLR_1 Ideal Loads Air System,         !- Zone Equipment Name
+  1,                                                       !- Zone Equipment Cooling Sequence
+  1,                                                       !- Zone Equipment Heating or No-Load Sequence
+  ,                                                        !- Zone Equipment Sequential Cooling Fraction Schedule Name
+  ;                                                        !- Zone Equipment Sequential Heating Fraction Schedule Name
 
+ZoneHVAC:IdealLoadsAirSystem,
+  Main_Corridor_ZN_1_FLR_1 Ideal Loads Air System,         !- Name
+  ,                                                        !- Availability Schedule Name
+  Main_Corridor_ZN_1_FLR_1 Ideal Loads Supply Inlet,       !- Zone Supply Air Node Name
+  ,                                                        !- Zone Exhaust Air Node Name
+  ,                                                        !- System Inlet Air Node Name
+  50,                                                      !- Maximum Heating Supply Air Temperature [C]
+  13,                                                      !- Minimum Cooling Supply Air Temperature [C]
+  0.0156,                                                  !- Maximum Heating Supply Air Humidity Ratio [kg-H20/kg-air]
+  0.0077,                                                  !- Minimum Cooling Supply Air Humidity Ratio [kg-H20/kg-air]
+  NoLimit,                                                 !- Heating Limit
+  ,                                                        !- Maximum Heating Air Flow Rate {m3/s}
+  ,                                                        !- Maximum Sensible Heating Capacity {m3/s}
+  NoLimit,                                                 !- Cooling Limit
+  ,                                                        !- Maximum Cooling Air Flow Rate {m3/s}
+  ,                                                        !- Maximum Total Cooling Capacity {m3/s}
+  ,                                                        !- Heating Availability Schedule Name
+  ,                                                        !- Cooling Availability Schedule Name
+  ConstantSensibleHeatRatio,                               !- Dehumidification Control Type
+  0.7,                                                     !- Cooling Sensible Heat Ratio
+  None,                                                    !- Humidification Control Type
+  ,                                                        !- Design Specification Outdoor Air Object Name
+  ,                                                        !- Outdoor Air Inlet Node Name
+  None,                                                    !- Demand Controlled Ventilation Type
+  NoEconomizer,                                            !- Outdoor Air Economizer Type
+  None,                                                    !- Heat Recovery Type
+  0.7,                                                     !- Sensible Heat Recovery Effectiveness
+  0.65;                                                    !- Latent Heat Recovery Effectiveness
 
+ZoneHVAC:EquipmentConnections,
+  Lobby_ZN_1_FLR_1,                                        !- Zone Name
+  Lobby_ZN_1_FLR_1 Equipment,                              !- Zone Conditioning Equipment List Name
+  Lobby_ZN_1_FLR_1 Ideal Loads Supply Inlet,               !- Zone Air Inlet Node or NodeList Name
+  ,                                                        !- Zone Air Exhaust Node or NodeList Name
+  Lobby_ZN_1_FLR_1 Zone Air Node,                          !- Zone Air Node Name
+  Lobby_ZN_1_FLR_1 Return Outlet;                          !- Zone Return Air Node Name
+
+ZoneHVAC:EquipmentList,
+  Lobby_ZN_1_FLR_1 Equipment,                              !- Name
+  SequentialLoad,                                          !- Load Distribution Scheme
+  ZoneHVAC:IdealLoadsAirSystem,                            !- Zone Equipment Object Type
+  Lobby_ZN_1_FLR_1 Ideal Loads Air System,                 !- Zone Equipment Name
+  1,                                                       !- Zone Equipment Cooling Sequence
+  1,                                                       !- Zone Equipment Heating or No-Load Sequence
+  ,                                                        !- Zone Equipment Sequential Cooling Fraction Schedule Name
+  ;                                                        !- Zone Equipment Sequential Heating Fraction Schedule Name
+
+ZoneHVAC:IdealLoadsAirSystem,
+  Lobby_ZN_1_FLR_1 Ideal Loads Air System,                 !- Name
+  ,                                                        !- Availability Schedule Name
+  Lobby_ZN_1_FLR_1 Ideal Loads Supply Inlet,               !- Zone Supply Air Node Name
+  ,                                                        !- Zone Exhaust Air Node Name
+  ,                                                        !- System Inlet Air Node Name
+  50,                                                      !- Maximum Heating Supply Air Temperature [C]
+  13,                                                      !- Minimum Cooling Supply Air Temperature [C]
+  0.0156,                                                  !- Maximum Heating Supply Air Humidity Ratio [kg-H20/kg-air]
+  0.0077,                                                  !- Minimum Cooling Supply Air Humidity Ratio [kg-H20/kg-air]
+  NoLimit,                                                 !- Heating Limit
+  ,                                                        !- Maximum Heating Air Flow Rate {m3/s}
+  ,                                                        !- Maximum Sensible Heating Capacity {m3/s}
+  NoLimit,                                                 !- Cooling Limit
+  ,                                                        !- Maximum Cooling Air Flow Rate {m3/s}
+  ,                                                        !- Maximum Total Cooling Capacity {m3/s}
+  ,                                                        !- Heating Availability Schedule Name
+  ,                                                        !- Cooling Availability Schedule Name
+  ConstantSensibleHeatRatio,                               !- Dehumidification Control Type
+  0.7,                                                     !- Cooling Sensible Heat Ratio
+  None,                                                    !- Humidification Control Type
+  ,                                                        !- Design Specification Outdoor Air Object Name
+  ,                                                        !- Outdoor Air Inlet Node Name
+  None,                                                    !- Demand Controlled Ventilation Type
+  NoEconomizer,                                            !- Outdoor Air Economizer Type
+  None,                                                    !- Heat Recovery Type
+  0.7,                                                     !- Sensible Heat Recovery Effectiveness
+  0.65;                                                    !- Latent Heat Recovery Effectiveness
+
+Site:GroundTemperature:BuildingSurface,
+  19.713,                                                  !- January Ground Temperature
+  19.665,                                                  !- February Ground Temperature
+  19.706,                                                  !- March Ground Temperature
+  19.745,                                                  !- April Ground Temperature
+  20.486,                                                  !- May Ground Temperature
+  22.110,                                                  !- June Ground Temperature
+  22.459,                                                  !- July Ground Temperature
+  22.554,                                                  !- August Ground Temperature
+  22.169,                                                  !- September Ground Temperature
+  20.607,                                                  !- October Ground Temperature
+  20.047,                                                  !- November Ground Temperature
+  19.805;                                                  !- December Ground Temperature
