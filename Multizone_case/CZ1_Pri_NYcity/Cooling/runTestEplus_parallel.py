@@ -75,7 +75,7 @@ def penalty_func(ZMAT,output_DF,tim):
       hourOfDay = int(dtime.hour)
       if SP_list[hourOfDay] >20:
         a=0
-      residuals += max(SP_list[hourOfDay]-ThermalComfort_range-ZMAT.iloc[i,j],0)
+      residuals += max(ZMAT.iloc[i,j] - ThermalComfort_range- SP_list[hourOfDay],0)
   
   return residuals
 
@@ -244,8 +244,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*181  # June 1st 
-  final_time= 60*60*24*182
+  start_time= 60*60*24*205  # June 1st 
+  final_time= 60*60*24*206
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC

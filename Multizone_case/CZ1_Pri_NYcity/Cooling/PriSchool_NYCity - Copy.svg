@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<svg width="250mm" height="200mm" viewBox="0 0   3200    1500"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:ev="http://www.w3.org/2001/xml-events">
+<g font-family="Verdana" font-size="8" >
+  <line x1="  2400" y1="   790" x2="  2400" y2="   390" style = "stroke:silver  ;"/>
+  <line x1="  2400" y1="   830" x2="  2400" y2="   430" style = "stroke:silver  ;"/>
+  <line x1="  2400" y1="   870" x2="  2400" y2="   470" style = "stroke:silver  ;"/>
+  <line x1="  2400" y1="   910" x2="  2400" y2="   510" style = "stroke:silver  ;"/>
+  <line x1="  2400" y1="   750" x2="  2400" y2="   350" style = "stroke:silver  ;"/>
+  <line x1="  2400" y1="   710" x2="   900" y2="    30" style = "stroke:silver  ;"/>
+  <line x1="  2400" y1="   550" x2="   600" y2="    30" style = "stroke:silver  ;"/>
+  <rect x="  2000" y="    20" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>     1
+  <text x="  2002" y="    33">CORNER_CLASS_1_POD_1_ZN_1_FLR_1</text>
+  <rect x="   200" y="   980" width="   200" height="    20" style = "fill:snow; stroke: Black;"/>     8
+  <text x="   202" y="   993">OutdoorAir:NodeList</text>
+  <rect x="   800" y="   260" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    31
+  <text  x="   802" y="   268">CHILLED WATER LOOP CHW SUPPLY SIDE
+  <tspan x="   802" y="   276">BYPASS PIPE2</tspan></text>
+  <rect x="  1400" y="   300" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    32
+  <text  x="  1402" y="   308">CHILLED WATER LOOP CHW SUPPLY
+  <tspan x="  1402" y="   316">OUTLET PIPE2</tspan></text>
+  <rect x="  1700" y="   300" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    33
+  <text  x="  1702" y="   308">CHILLED WATER LOOP CHW DEMAND INLET
+  <tspan x="  1702" y="   316">PIPE2</tspan></text>
+  <rect x="  2300" y="   300" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    34
+  <text  x="  2302" y="   308">CHILLED WATER LOOP CHW DEMAND SIDE
+  <tspan x="  2302" y="   316">BYPASS PIPE2</tspan></text>
+  <rect x="  2900" y="   540" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    35
+  <text  x="  2902" y="   548">CHILLED WATER LOOP CHW DEMAND
+  <tspan x="  2902" y="   556">OUTLET PIPE2</tspan></text>
+  <rect x="  1700" y="   660" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    36
+  <text x="  1702" y="   673">HOT WATER LOOP HW DEMAND INLET PIPE2</text>
+  <rect x="  2300" y="   660" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    37
+  <text  x="  2302" y="   668">HOT WATER LOOP HW DEMAND SIDE
+  <tspan x="  2302" y="   676">BYPASS PIPE2</tspan></text>
+  <rect x="  2900" y="   900" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    38
+  <text  x="  2902" y="   908">HOT WATER LOOP HW DEMAND OUTLET
+  <tspan x="  2902" y="   916">PIPE2</tspan></text>
+  <rect x="   800" y="   660" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    39
+  <text  x="   802" y="   668">HOT WATER LOOP HW SUPPLY SIDE
+  <tspan x="   802" y="   676">BYPASS PIPE2</tspan></text>
+  <rect x="  1400" y="   660" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    40
+  <text  x="  1402" y="   668">HOT WATER LOOP HW SUPPLY OUTLET
+  <tspan x="  1402" y="   676">PIPE2</tspan></text>
+  <rect x="  2000" y="   300" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    41
+  <text  x="  2002" y="   308">CHILLED WATER LOOP CHW DEMAND
+  <tspan x="  2002" y="   316">SPLITTER2</tspan></text>
+  <rect x="  2600" y="   540" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    42
+  <text x="  2602" y="   553">CHILLED WATER LOOP CHW DEMAND MIXER2</text>
+  <rect x="   800" y="   300" width="   200" height="    20" style = "fill:powderblue; stroke: Black;"/>    43
+  <text x="   802" y="   313">COOLSYS1 CHILLER1</text>
+  <rect x="   500" y="   260" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    46
+  <text  x="   502" y="   268">CHILLED WATER LOOP CHW SUPPLY
+  <tspan x="   502" y="   276">SPLITTER2</tspan></text>
+  <rect x="  1100" y="   300" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    47
+  <text x="  1102" y="   313">CHILLED WATER LOOP CHW SUPPLY MIXER2</text>
+  <rect x="  2000" y="   660" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    48
+  <text x="  2002" y="   673">HOT WATER LOOP HW DEMAND SPLITTER2</text>
+  <rect x="  2600" y="   900" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    49
+  <text x="  2602" y="   913">HOT WATER LOOP HW DEMAND MIXER2</text>
+  <rect x="   800" y="   620" width="   200" height="    20" style = "fill:aliceblue; stroke: Black;"/>    50
+  <text x="   802" y="   633">HP_RADSYS</text>
+  <rect x="   500" y="   620" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    52
+  <text x="   502" y="   633">HOT WATER LOOP HW SUPPLY SPLITTER2</text>
+  <rect x="  1100" y="   660" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    53
+  <text x="  1102" y="   673">HOT WATER LOOP HW SUPPLY MIXER2</text>
+  <rect x="  1400" y="    20" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    54
+  <text x="  1402" y="    33">DOAS ZONE SPLITTER</text>
+  <rect x="  1700" y="    20" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    55
+  <text  x="  1702" y="    28">CORNER_CLASS_1_POD_1_ZN_1_FLR_1 VAV
+  <tspan x="  1702" y="    36">BOX COMPONENT</tspan></text>
+  <rect x="  1700" y="    60" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    56
+  <text  x="  1702" y="    68">MULT_CLASS_1_POD_1_ZN_1_FLR_1 VAV
+  <tspan x="  1702" y="    76">BOX COMPONENT</tspan></text>
+  <rect x="  1700" y="   100" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    57
+  <text  x="  1702" y="   108">CORRIDOR_POD_1_ZN_1_FLR_1 VAV BOX
+  <tspan x="  1702" y="   116">COMPONENT</tspan></text>
+  <rect x="  1700" y="   140" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    58
+  <text  x="  1702" y="   148">CORNER_CLASS_2_POD_1_ZN_1_FLR_1 VAV
+  <tspan x="  1702" y="   156">BOX COMPONENT</tspan></text>
+  <rect x="  1700" y="   180" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    59
+  <text  x="  1702" y="   188">MULT_CLASS_2_POD_1_ZN_1_FLR_1 VAV
+  <tspan x="  1702" y="   196">BOX COMPONENT</tspan></text>
+  <rect x="  2300" y="   780" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    60
+  <text  x="  2302" y="   788">CORNER_CLASS_1_POD_1_ZN_1_FLR_1_LOTE
+  <tspan x="  2302" y="   796">MP</tspan></text>
+  <rect x="  2300" y="   380" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    61
+  <text  x="  2302" y="   388">CORNER_CLASS_1_POD_1_ZN_1_FLR_1_LOTE
+  <tspan x="  2302" y="   396">MP</tspan></text>
+  <rect x="  2300" y="   820" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    62
+  <text x="  2302" y="   833">MULT_CLASS_1_POD_1_ZN_1_FLR_1_LOTEMP</text>
+  <rect x="  2300" y="   420" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    63
+  <text x="  2302" y="   433">MULT_CLASS_1_POD_1_ZN_1_FLR_1_LOTEMP</text>
+  <rect x="  2300" y="   860" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    64
+  <text x="  2302" y="   873">CORRIDOR_POD_1_ZN_1_FLR_1_LOTEMP</text>
+  <rect x="  2300" y="   460" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    65
+  <text x="  2302" y="   473">CORRIDOR_POD_1_ZN_1_FLR_1_LOTEMP</text>
+  <rect x="  2300" y="   900" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    66
+  <text  x="  2302" y="   908">CORNER_CLASS_2_POD_1_ZN_1_FLR_1_LOTE
+  <tspan x="  2302" y="   916">MP</tspan></text>
+  <rect x="  2300" y="   500" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    67
+  <text  x="  2302" y="   508">CORNER_CLASS_2_POD_1_ZN_1_FLR_1_LOTE
+  <tspan x="  2302" y="   516">MP</tspan></text>
+  <rect x="  2300" y="   740" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    68
+  <text x="  2302" y="   753">MULT_CLASS_2_POD_1_ZN_1_FLR_1_LOTEMP</text>
+  <rect x="  2300" y="   340" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    69
+  <text x="  2302" y="   353">MULT_CLASS_2_POD_1_ZN_1_FLR_1_LOTEMP</text>
+  <rect x="  2300" y="   180" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    72
+  <text x="  2302" y="   193">DOAS ZONE MIXER</text>
+  <rect x="   200" y="    20" width="   200" height="    20" style = "fill:lawngreen; stroke: Black;"/>    73
+  <text x="   202" y="    33">DOAS OA MIXING BOX</text>
+  <rect x="  2300" y="   700" width="   200" height="    20" style = "fill:salmon; stroke: Black;"/>    74
+  <text x="  2302" y="   713">DOAS HEATING COIL</text>
+  <rect x="   800" y="    20" width="   200" height="    20" style = "fill:salmon; stroke: Black;"/>    75
+  <text x="   802" y="    33">DOAS HEATING COIL</text>
+  <rect x="  2300" y="   540" width="   200" height="    20" style = "fill:skyblue; stroke: Black;"/>    76
+  <text x="  2302" y="   553">DOAS COOLING COIL</text>
+  <rect x="   500" y="    20" width="   200" height="    20" style = "fill:skyblue; stroke: Black;"/>    77
+  <text x="   502" y="    33">DOAS COOLING COIL</text>
+  <rect x="  1100" y="    20" width="   200" height="    20" style = "fill:silver; stroke: Black;"/>    80
+  <text x="  1102" y="    33">DOAS SUPPLY FAN</text>
+  <rect x="   200" y="   260" width="   200" height="    20" style = "fill:springgreen; stroke: Black;"/>    82
+  <text x="   202" y="   273">CHILLED WATER LOOP CHW SUPPLY PUMP2</text>
+  <rect x="   200" y="   620" width="   200" height="    20" style = "fill:springgreen; stroke: Black;"/>    83
+  <text x="   202" y="   633">HOT WATER LOOP HW SUPPLY PUMP2</text>
+  <rect x="  2000" y="    60" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>    84
+  <text x="  2002" y="    73">MULT_CLASS_1_POD_1_ZN_1_FLR_1</text>
+  <rect x="  2000" y="   100" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>    85
+  <text x="  2002" y="   113">CORRIDOR_POD_1_ZN_1_FLR_1</text>
+  <rect x="  2000" y="   140" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>    86
+  <text x="  2002" y="   153">CORNER_CLASS_2_POD_1_ZN_1_FLR_1</text>
+  <rect x="  2000" y="   180" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>    87
+  <text x="  2002" y="   193">MULT_CLASS_2_POD_1_ZN_1_FLR_1</text>
+  <line x1="  1000" y1="   270" x2="  1100" y2="   310" style = "stroke: Black;"/>
+  <line x1="  1600" y1="   310" x2="  1700" y2="   310" style = "stroke: Black;"/>
+  <line x1="  1900" y1="   310" x2="  2000" y2="   310" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   310" x2="  2600" y2="   550" style = "stroke: Black;"/>
+  <line x1="  1900" y1="   670" x2="  2000" y2="   670" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   670" x2="  2600" y2="   910" style = "stroke: Black;"/>
+  <line x1="  1000" y1="   670" x2="  1100" y2="   670" style = "stroke: Black;"/>
+  <line x1="  1600" y1="   670" x2="  1700" y2="   670" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   310" x2="  2300" y2="   310" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   310" x2="  2300" y2="   350" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   310" x2="  2300" y2="   390" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   310" x2="  2300" y2="   430" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   310" x2="  2300" y2="   470" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   310" x2="  2300" y2="   510" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   310" x2="  2300" y2="   550" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   550" x2="  2900" y2="   550" style = "stroke: Black;"/>
+  <line x1="  1000" y1="   310" x2="  1100" y2="   310" style = "stroke: Black;"/>
+  <line x1="   700" y1="   270" x2="   800" y2="   270" style = "stroke: Black;"/>
+  <line x1="   700" y1="   270" x2="   800" y2="   310" style = "stroke: Black;"/>
+  <line x1="  1300" y1="   310" x2="  1400" y2="   310" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   670" x2="  2300" y2="   670" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   670" x2="  2300" y2="   710" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   670" x2="  2300" y2="   750" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   670" x2="  2300" y2="   790" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   670" x2="  2300" y2="   830" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   670" x2="  2300" y2="   870" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   670" x2="  2300" y2="   910" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   910" x2="  2900" y2="   910" style = "stroke: Black;"/>
+  <line x1="  1000" y1="   630" x2="  1100" y2="   670" style = "stroke: Black;"/>
+  <line x1="   700" y1="   630" x2="   800" y2="   630" style = "stroke: Black;"/>
+  <line x1="   700" y1="   630" x2="   800" y2="   670" style = "stroke: Black;"/>
+  <line x1="  1300" y1="   670" x2="  1400" y2="   670" style = "stroke: Black;"/>
+  <line x1="  1600" y1="    30" x2="  1700" y2="    30" style = "stroke: Black;"/>
+  <line x1="  1600" y1="    30" x2="  1700" y2="    70" style = "stroke: Black;"/>
+  <line x1="  1600" y1="    30" x2="  1700" y2="   110" style = "stroke: Black;"/>
+  <line x1="  1600" y1="    30" x2="  1700" y2="   150" style = "stroke: Black;"/>
+  <line x1="  1600" y1="    30" x2="  1700" y2="   190" style = "stroke: Black;"/>
+  <line x1="  1900" y1="    30" x2="  2000" y2="    30" style = "stroke: Black;"/>
+  <line x1="  1900" y1="    70" x2="  2000" y2="    70" style = "stroke: Black;"/>
+  <line x1="  1900" y1="   110" x2="  2000" y2="   110" style = "stroke: Black;"/>
+  <line x1="  1900" y1="   150" x2="  2000" y2="   150" style = "stroke: Black;"/>
+  <line x1="  1900" y1="   190" x2="  2000" y2="   190" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   790" x2="  2600" y2="   910" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   390" x2="  2600" y2="   550" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   830" x2="  2600" y2="   910" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   430" x2="  2600" y2="   550" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   870" x2="  2600" y2="   910" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   470" x2="  2600" y2="   550" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   910" x2="  2600" y2="   910" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   510" x2="  2600" y2="   550" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   750" x2="  2600" y2="   910" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   350" x2="  2600" y2="   550" style = "stroke: Black;"/>
+  <line x1="   400" y1="    30" x2="   500" y2="    30" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   710" x2="  2600" y2="   910" style = "stroke: Black;"/>
+  <line x1="  1000" y1="    30" x2="  1100" y2="    30" style = "stroke: Black;"/>
+  <line x1="  2500" y1="   550" x2="  2600" y2="   550" style = "stroke: Black;"/>
+  <line x1="   700" y1="    30" x2="   800" y2="    30" style = "stroke: Black;"/>
+  <line x1="  1300" y1="    30" x2="  1400" y2="    30" style = "stroke: Black;"/>
+  <line x1="   400" y1="   270" x2="   500" y2="   270" style = "stroke: Black;"/>
+  <line x1="   400" y1="   630" x2="   500" y2="   630" style = "stroke: Black;"/>
+  <line x1="  2200" y1="    30" x2="  2300" y2="   190" style = "stroke: Black;"/>
+  <line x1="  2200" y1="    70" x2="  2300" y2="   190" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   110" x2="  2300" y2="   190" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   150" x2="  2300" y2="   190" style = "stroke: Black;"/>
+  <line x1="  2200" y1="   190" x2="  2300" y2="   190" style = "stroke: Black;"/>
+  <line x1="   200" y1="    30" x2="   175" y2="    30" style = "stroke: Black;"/>
+  <line x1="   175" y1="    30" x2="   175" y2="     0" style = "stroke: Black;"/>
+  <line x1="   175" y1="     0" x2="  2525" y2="     0" style = "stroke: Black;"/>
+  <line x1="  2525" y1="     0" x2="  2525" y2="   190" style = "stroke: Black;"/>
+  <line x1="  2525" y1="   190" x2="  2500" y2="   190" style = "stroke: Black;"/>
+  <line x1="   200" y1="   270" x2="   175" y2="   270" style = "stroke: Black;"/>
+  <line x1="   175" y1="   270" x2="   175" y2="   240" style = "stroke: Black;"/>
+  <line x1="   175" y1="   240" x2="  3125" y2="   240" style = "stroke: Black;"/>
+  <line x1="  3125" y1="   240" x2="  3125" y2="   550" style = "stroke: Black;"/>
+  <line x1="  3125" y1="   550" x2="  3100" y2="   550" style = "stroke: Black;"/>
+  <line x1="   200" y1="   630" x2="   175" y2="   630" style = "stroke: Black;"/>
+  <line x1="   175" y1="   630" x2="   175" y2="   600" style = "stroke: Black;"/>
+  <line x1="   175" y1="   600" x2="  3125" y2="   600" style = "stroke: Black;"/>
+  <line x1="  3125" y1="   600" x2="  3125" y2="   910" style = "stroke: Black;"/>
+  <line x1="  3125" y1="   910" x2="  3100" y2="   910" style = "stroke: Black;"/>
+  <text x="   200" y="  1040">Unused Non-Parent Objects:</text>
+  <text x="   220" y="  1060">MAIN_CORRIDOR_ZN_1_FLR_1</text>
+  <text x="   220" y="  1080">LOBBY_ZN_1_FLR_1</text>
+  <text x="   220" y="  1100">OutdoorAir:Node</text>
+  <text x="   220" y="  1120">OutdoorAir:Node</text>
+  <text x="   220" y="  1140">OutdoorAir:Node</text>
+  <text x="   220" y="  1160">OutdoorAir:Node</text>
+  <text x="   220" y="  1180">OutdoorAir:Node</text>
+  <text x="   220" y="  1200">OutdoorAir:Node</text>
+  <text x="   220" y="  1220">OutdoorAir:Node</text>
+  <text x="   220" y="  1240">OutdoorAir:Node</text>
+  <text x="   220" y="  1260">DOAS HEATING SUPPLY AIR TEMP MANAGER</text>
+  <text x="   220" y="  1280">DOAS COOLING SUPPLY AIR TEMP MANAGER</text>
+  <text x="   220" y="  1300">CHILLED WATER LOOP CHW TEMP MANAGER2</text>
+  <text x="   220" y="  1320">HOT WATER LOOP HW TEMP MANAGER2</text>
+  <text x="   220" y="  1340">DOAS COOLING COIL AIR TEMP MANAGER</text>
+  <text x="   220" y="  1360">DOAS HEATING COIL AIR TEMP MANAGER</text>
+  <text x="   220" y="  1380">DOAS ECONOMIZER TEMP MANAGER</text>
+  <text x="   220" y="  1400">OutdoorAir:Node</text>
+  <text x="   220" y="  1420">MAIN_CORRIDOR_ZN_1_FLR_1 IDEAL LOADS AIR SYSTEM</text>
+  <text x="   220" y="  1440">LOBBY_ZN_1_FLR_1 IDEAL LOADS AIR SYSTEM</text>
+  <text x="   220" y="  1460">DOAS COOLING COIL CONTROLLER</text>
+  <text x="   220" y="  1480">DOAS HEATING COIL CONTROLLER</text>
+  <text x="   220" y="  1500">DOAS OA CONTROLLER</text>
+  <text x="   200" y="  1540">
+The following are not supported: objects related to controls or ZoneHVAC:IdealLoadsAirSystem</text>
+</g>
+</svg>
