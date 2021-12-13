@@ -1372,34 +1372,13 @@ Schedule:Compact,
     19.6,                    !- Field 8
     Until: 24:00,            !- Field 9
     15.6,                    !- Field 10
-    For: Weekdays,           !- Field 11
-    Until: 05:00,            !- Field 12
-    15.6,                    !- Field 13
-    Until: 06:00,            !- Field 14
-    17.8,                    !- Field 15
-    Until: 07:00,            !- Field 16
-    20.0,                    !- Field 17
-    Until: 22:00,            !- Field 18
-    21.0,                    !- Field 19
-    Until: 24:00,            !- Field 20
-    15.6,                    !- Field 21
-    For SummerDesignDay,     !- Field 22
-    Until: 24:00,            !- Field 23
-    15.6,                    !- Field 24
-    For: Saturday,           !- Field 25
-    Until: 05:00,            !- Field 26
-    15.6,                    !- Field 27
-    Until: 06:00,            !- Field 28
-    17.8,                    !- Field 29
-    Until: 07:00,            !- Field 30
-    20.0,                    !- Field 31
-    Until: 17:00,            !- Field 32
-    21.0,                    !- Field 33
-    Until: 24:00,            !- Field 34
-    15.6,                    !- Field 35
-    For:Sunday Holidays AllOtherDays,  !- Field 36
-    Until: 24:00,            !- Field 37
-    15.6;                    !- Field 38
+    For: AllOtherDays,       !- Field 11
+    Until: 06:00,            !- Field 12
+    11.6,                    !- Field 13
+    Until: 22:00,            !- Field 14
+    19.6,                    !- Field 15
+    Until: 24:00,            !- Field 16
+    11.6;                    !- Field 17
 
 Schedule:Compact,
     HTGSETP_SCH_YES_OPTIMUM_w_SB,  !- Name
@@ -1756,34 +1735,13 @@ Schedule:Compact,
     24.0,                    !- Field 10
     Until: 24:00,            !- Field 11
     26.7,                    !- Field 12
-    For: Weekdays,           !- Field 13
-    Until: 05:00,            !- Field 14
-    26.7,                    !- Field 15
-    Until: 06:00,            !- Field 16
-    25.6,                    !- Field 17
-    Until: 07:00,            !- Field 18
-    25.0,                    !- Field 19
-    Until: 22:00,            !- Field 20
-    24.0,                    !- Field 21
-    Until: 24:00,            !- Field 22
-    26.7,                    !- Field 23
-    For: Saturday,           !- Field 24
-    Until: 05:00,            !- Field 25
-    26.7,                    !- Field 26
-    Until: 06:00,            !- Field 27
-    25.7,                    !- Field 28
-    Until: 07:00,            !- Field 29
-    25.0,                    !- Field 30
-    Until: 17:00,            !- Field 31
-    24.0,                    !- Field 32
-    Until: 24:00,            !- Field 33
-    26.7,                    !- Field 34
-    For WinterDesignDay,     !- Field 35
-    Until: 24:00,            !- Field 36
-    26.7,                    !- Field 37
-    For:Sunday Holidays AllOtherDays,  !- Field 38
-    Until: 24:00,            !- Field 39
-    26.7;                    !- Field 40
+    For: AllOtherDays,       !- Field 13
+    Until: 06:00,            !- Field 14
+    30.7,                    !- Field 15
+    Until: 22:00,            !- Field 16
+    24.0,                    !- Field 17
+    Until: 24:00,            !- Field 18
+    30.7;                    !- Field 19
 
 Schedule:Compact,
     CLGSETP_SCH_YES_OPTIMUM_ORIGINAL,  !- Name
@@ -3048,7 +3006,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    22.00;                   !- Field 4
+    21.00;                   !- Field 4
 
 Schedule:Compact,
     RADHEATLOWCONTROLTEMP_Test,  !- Name
@@ -3080,7 +3038,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    25.00;                   !- Field 4
+    30.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLLOWCONTROLTEMP,   !- Name
@@ -3088,7 +3046,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    23.00;                   !- Field 4
+    28.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLHIGHCONTROLTEMP_Test,  !- Name
@@ -3530,13 +3488,13 @@ MaterialProperty:PhaseChangeHysteresis,
     2111.66,                 !- Liquid State Density {kg/m3}
     1.0466,                  !- Liquid State Specific Heat {J/kg-K}
     1,                       !- High Temperature Difference of Melting Curve {deltaC}
-    21,                      !- Peak Melting Temperature {C}
+    26,                      !- Peak Melting Temperature {C}
     1,                       !- Low Temperature Difference of Melting Curve {deltaC}
     1.762,                   !- Solid State Thermal Conductivity {W/m-K}
     2111.66,                 !- Solid State Density {kg/m3}
     0.9992,                  !- Solid State Specific Heat {J/kg-K}
     1,                       !- High Temperature Difference of Freezing Curve {deltaC}
-    18.5,                    !- Peak Freezing Temperature {C}
+    24,                      !- Peak Freezing Temperature {C}
     1;                       !- Low Temperature Difference of Freezing Curve {deltaC}
 
 MaterialProperty:PhaseChangeHysteresis,
@@ -3546,13 +3504,13 @@ MaterialProperty:PhaseChangeHysteresis,
     2111.66,                 !- Liquid State Density {kg/m3}
     1.0466,                  !- Liquid State Specific Heat {J/kg-K}
     1,                       !- High Temperature Difference of Melting Curve {deltaC}
-    21,                      !- Peak Melting Temperature {C}
+    26,                      !- Peak Melting Temperature {C}
     1,                       !- Low Temperature Difference of Melting Curve {deltaC}
     1.762,                   !- Solid State Thermal Conductivity {W/m-K}
     2111.66,                 !- Solid State Density {kg/m3}
     0.9992,                  !- Solid State Specific Heat {J/kg-K}
     1,                       !- High Temperature Difference of Freezing Curve {deltaC}
-    18.5,                    !- Peak Freezing Temperature {C}
+    24,                      !- Peak Freezing Temperature {C}
     1;                       !- Low Temperature Difference of Freezing Curve {deltaC}
 
 
@@ -9178,16 +9136,16 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Core_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Core_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
-    RADHEATLOWWATERTEMP,     !- Heating Low Water Temperature Schedule Name
-    RADHEATHIGHCONTROLTEMP,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP,   !- Heating Low Control Temperature Schedule Name
+    RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
+    RADHEATLOWWATERTEMP_Test,!- Heating Low Water Temperature Schedule Name
+    RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
     Core_Top_LoTemp_Chw_Inlet,  !- Cooling Water Inlet Node Name
     Core_Top_LoTemp_Chw_Outlet,  !- Cooling Water Outlet Node Name
-    RADCOOLHIGHWATERTEMP_Test,  !- Cooling High Water Temperature Schedule Name
-    RADCOOLLOWWATERTEMP_Test,!- Cooling Low Water Temperature Schedule Name
-    RADCOOLHIGHCONTROLTEMP_Test,  !- Cooling High Control Temperature Schedule Name
-    RADCOOLLOWCONTROLTEMP_Test,  !- Cooling Low Control Temperature Schedule Name
+    RADCOOLHIGHWATERTEMP,    !- Cooling High Water Temperature Schedule Name
+    RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
+    RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
+    RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
     Off,                     !- Condensation Control Type
     1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
@@ -9209,16 +9167,16 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri1_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri1_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
-    RADHEATLOWWATERTEMP,     !- Heating Low Water Temperature Schedule Name
-    RADHEATHIGHCONTROLTEMP,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP,   !- Heating Low Control Temperature Schedule Name
+    RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
+    RADHEATLOWWATERTEMP_Test,!- Heating Low Water Temperature Schedule Name
+    RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
     Peri1_Top_LoTemp_Chw_Inlet,  !- Cooling Water Inlet Node Name
     Peri1_Top_LoTemp_Chw_Outlet,  !- Cooling Water Outlet Node Name
-    RADCOOLHIGHWATERTEMP_Test,  !- Cooling High Water Temperature Schedule Name
-    RADCOOLLOWWATERTEMP_Test,!- Cooling Low Water Temperature Schedule Name
-    RADCOOLHIGHCONTROLTEMP_Test,  !- Cooling High Control Temperature Schedule Name
-    RADCOOLLOWCONTROLTEMP_Test,  !- Cooling Low Control Temperature Schedule Name
+    RADCOOLHIGHWATERTEMP,    !- Cooling High Water Temperature Schedule Name
+    RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
+    RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
+    RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
     Off,                     !- Condensation Control Type
     1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
@@ -9240,16 +9198,16 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri2_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri2_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
-    RADHEATLOWWATERTEMP,     !- Heating Low Water Temperature Schedule Name
-    RADHEATHIGHCONTROLTEMP,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP,   !- Heating Low Control Temperature Schedule Name
+    RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
+    RADHEATLOWWATERTEMP_Test,!- Heating Low Water Temperature Schedule Name
+    RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
     Peri2_Top_LoTemp_Chw_Inlet,  !- Cooling Water Inlet Node Name
     Peri2_Top_LoTemp_Chw_Outlet,  !- Cooling Water Outlet Node Name
-    RADCOOLHIGHWATERTEMP_Test,  !- Cooling High Water Temperature Schedule Name
-    RADCOOLLOWWATERTEMP_Test,!- Cooling Low Water Temperature Schedule Name
-    RADCOOLHIGHCONTROLTEMP_Test,  !- Cooling High Control Temperature Schedule Name
-    RADCOOLLOWCONTROLTEMP_Test,  !- Cooling Low Control Temperature Schedule Name
+    RADCOOLHIGHWATERTEMP,    !- Cooling High Water Temperature Schedule Name
+    RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
+    RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
+    RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
     Off,                     !- Condensation Control Type
     1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
@@ -9271,16 +9229,16 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri3_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri3_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
-    RADHEATLOWWATERTEMP,     !- Heating Low Water Temperature Schedule Name
-    RADHEATHIGHCONTROLTEMP,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP,   !- Heating Low Control Temperature Schedule Name
+    RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
+    RADHEATLOWWATERTEMP_Test,!- Heating Low Water Temperature Schedule Name
+    RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
     Peri3_Top_LoTemp_Chw_Inlet,  !- Cooling Water Inlet Node Name
     Peri3_Top_LoTemp_Chw_Outlet,  !- Cooling Water Outlet Node Name
-    RADCOOLHIGHWATERTEMP_Test,  !- Cooling High Water Temperature Schedule Name
-    RADCOOLLOWWATERTEMP_Test,!- Cooling Low Water Temperature Schedule Name
-    RADCOOLHIGHCONTROLTEMP_Test,  !- Cooling High Control Temperature Schedule Name
-    RADCOOLLOWCONTROLTEMP_Test,  !- Cooling Low Control Temperature Schedule Name
+    RADCOOLHIGHWATERTEMP,    !- Cooling High Water Temperature Schedule Name
+    RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
+    RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
+    RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
     Off,                     !- Condensation Control Type
     1,                       !- Condensation Control Dewpoint Offset {C}
     CalculateFromCircuitLength,  !- Number of Circuits
@@ -9302,16 +9260,16 @@ ZoneHVAC:LowTemperatureRadiant:ConstantFlow,
     ,                        !- Fraction of Motor Inefficiencies to Fluid Stream
     Peri4_Top Radiant Water Inlet Node,  !- Heating Water Inlet Node Name
     Peri4_Top Radiant Water Outlet Node,  !- Heating Water Outlet Node Name
-    RADHEATHIGHWATERTEMP,    !- Heating High Water Temperature Schedule Name
-    RADHEATLOWWATERTEMP,     !- Heating Low Water Temperature Schedule Name
-    RADHEATHIGHCONTROLTEMP,  !- Heating High Control Temperature Schedule Name
-    RADHEATLOWCONTROLTEMP,   !- Heating Low Control Temperature Schedule Name
+    RADHEATHIGHWATERTEMP_Test,  !- Heating High Water Temperature Schedule Name
+    RADHEATLOWWATERTEMP_Test,!- Heating Low Water Temperature Schedule Name
+    RADHEATHIGHCONTROLTEMP_Test,  !- Heating High Control Temperature Schedule Name
+    RADHEATLOWCONTROLTEMP_Test,  !- Heating Low Control Temperature Schedule Name
     Peri4_Top_LoTemp_Chw_Inlet,  !- Cooling Water Inlet Node Name
     Peri4_Top_LoTemp_Chw_Outlet,  !- Cooling Water Outlet Node Name
-    RADCOOLHIGHWATERTEMP_Test,  !- Cooling High Water Temperature Schedule Name
-    RADCOOLLOWWATERTEMP_Test,!- Cooling Low Water Temperature Schedule Name
-    RADCOOLHIGHCONTROLTEMP_Test,  !- Cooling High Control Temperature Schedule Name
-    RADCOOLLOWCONTROLTEMP_Test,  !- Cooling Low Control Temperature Schedule Name
+    RADCOOLHIGHWATERTEMP,    !- Cooling High Water Temperature Schedule Name
+    RADCOOLLOWWATERTEMP,     !- Cooling Low Water Temperature Schedule Name
+    RADCOOLHIGHCONTROLTEMP,  !- Cooling High Control Temperature Schedule Name
+    RADCOOLLOWCONTROLTEMP,   !- Cooling Low Control Temperature Schedule Name
     Off,                     !- Condensation Control Type
     1,                       !- Condensation Control Dewpoint Offset {C}
     OnePerSurface,           !- Number of Circuits
@@ -9915,8 +9873,8 @@ Branch,
 Branch,
     Main Boiler HW Branch2,  !- Name
     ,                        !- Pressure Drop Curve Name
-    Boiler:HotWater,         !- Component 1 Object Type
-    Boiler_RadSys,           !- Component 1 Name
+    HeatPump:PlantLoop:EIR:Heating,  !- Component 1 Object Type
+    HP_RadSys,               !- Component 1 Name
     Boiler_RadSys Inlet Node,!- Component 1 Inlet Node Name
     Boiler_RadSys Outlet Node;  !- Component 1 Outlet Node Name
 
@@ -10223,6 +10181,17 @@ OutdoorAir:Node,
     No,                      !- Symmetric Wind Pressure Coefficient Curve
     Absolute;                !- Wind Angle Type
 
+OutdoorAir:Node,
+    Outdoor Air Inlet Node,  !- Name
+    -1,                      !- Height Above Ground {m}
+    ,                        !- Drybulb Temperature Schedule Name
+    ,                        !- Wetbulb Temperature Schedule Name
+    ,                        !- Wind Speed Schedule Name
+    ,                        !- Wind Direction Schedule Name
+    ,                        !- Wind Pressure Coefficient Curve Name
+    No,                      !- Symmetric Wind Pressure Coefficient Curve
+    Absolute;                !- Wind Angle Type
+
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTDOORAIR:NODELIST ===========
 
@@ -10308,28 +10277,6 @@ Pump:ConstantSpeed,
     INTERMITTENT;            !- Pump Control Type
 
 
-!-   ===========  ALL OBJECTS IN CLASS: BOILER:HOTWATER ===========
-
-Boiler:HotWater,
-    Boiler_RadSys,           !- Name
-    Electricity,             !- Fuel Type
-    189679.58843,            !- Nominal Capacity {W}
-    0.8,                     !- Nominal Thermal Efficiency
-    LeavingBoiler,           !- Efficiency Curve Temperature Evaluation Variable
-    BoilerEfficiency,        !- Normalized Boiler Efficiency Curve Name
-    0.00419074,              !- Design Water Flow Rate {m3/s}
-    0,                       !- Minimum Part Load Ratio
-    1.2,                     !- Maximum Part Load Ratio
-    1,                       !- Optimum Part Load Ratio
-    Boiler_RadSys Inlet Node,!- Boiler Water Inlet Node Name
-    Boiler_RadSys Outlet Node,  !- Boiler Water Outlet Node Name
-    99.9,                    !- Water Outlet Upper Temperature Limit {C}
-    ConstantFlow,            !- Boiler Flow Mode
-    ,                        !- Parasitic Electric Load {W}
-    1,                       !- Sizing Factor
-    General;                 !- End-Use Subcategory
-
-
 !-   ===========  ALL OBJECTS IN CLASS: CHILLER:ELECTRIC:EIR ===========
 
 Chiller:Electric:EIR,
@@ -10357,6 +10304,26 @@ Chiller:Electric:EIR,
     2.0,                     !- Leaving Chilled Water Lower Temperature Limit {C}
     ConstantFlow,            !- Chiller Flow Mode
     0.0;                     !- Design Heat Recovery Water Flow Rate {m3/s}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: HEATPUMP:PLANTLOOP:EIR:HEATING ===========
+
+HeatPump:PlantLoop:EIR:Heating,
+    HP_RadSys,               !- Name
+    Boiler_RadSys Inlet Node,!- Load Side Inlet Node Name
+    Boiler_RadSys Outlet Node,  !- Load Side Outlet Node Name
+    AirSource,               !- Condenser Type
+    Outdoor Air Inlet Node,  !- Source Side Inlet Node Name
+    Outdoor Air Outlet Node, !- Source Side Outlet Node Name
+    ,                        !- Companion Heat Pump Name
+    0.00419074,              !- Load Side Reference Flow Rate {m3/s}
+    autosize,                !- Source Side Reference Flow Rate {m3/s}
+    189679.42156,            !- Reference Capacity {W}
+    7.5,                     !- Reference Coefficient of Performance {W/W}
+    1,                       !- Sizing Factor
+    CapCurveFuncTemp,        !- Capacity Modifier Function of Temperature Curve Name
+    EIRCurveFuncTemp,        !- Electric Input to Output Ratio Modifier Function of Temperature Curve Name
+    EIRCurveFuncPLR;         !- Electric Input to Output Ratio Modifier Function of Part Load Ratio Curve Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: DISTRICTCOOLING ===========
@@ -10446,8 +10413,8 @@ PlantEquipmentList,
 
 PlantEquipmentList,
     Hot Water Loop All Equipment2,  !- Name
-    Boiler:HotWater,         !- Equipment 1 Object Type
-    Boiler_RadSys;           !- Equipment 1 Name
+    HeatPump:PlantLoop:EIR:Heating,  !- Equipment 1 Object Type
+    HP_RadSys;               !- Equipment 1 Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: PLANTEQUIPMENTOPERATION:COOLINGLOAD ===========
@@ -10610,6 +10577,14 @@ Curve:Quadratic,
     0.15,                    !- Minimum Value of x
     1.0;                     !- Maximum Value of x
 
+Curve:Quadratic,
+    EIRCurveFuncPLR,         !- Name
+    1.0,                     !- Coefficient1 Constant
+    0.0,                     !- Coefficient2 x
+    0.0,                     !- Coefficient3 x**2
+    0.0,                     !- Minimum Value of x
+    1.0;                     !- Maximum Value of x
+
 
 !-   ===========  ALL OBJECTS IN CLASS: CURVE:BIQUADRATIC ===========
 
@@ -10649,6 +10624,42 @@ Curve:Biquadratic,
     Temperature,             !- Input Unit Type for Y
     Dimensionless;           !- Output Unit Type
 
+Curve:Biquadratic,
+    CapCurveFuncTemp,        !- Name
+    1.0,                     !- Coefficient1 Constant
+    0.0,                     !- Coefficient2 x
+    0.0,                     !- Coefficient3 x**2
+    0.0,                     !- Coefficient4 y
+    0.0,                     !- Coefficient5 y**2
+    0.0,                     !- Coefficient6 x*y
+    5.0,                     !- Minimum Value of x
+    10.0,                    !- Maximum Value of x
+    24.0,                    !- Minimum Value of y
+    35.0,                    !- Maximum Value of y
+    ,                        !- Minimum Curve Output
+    ,                        !- Maximum Curve Output
+    Temperature,             !- Input Unit Type for X
+    Temperature,             !- Input Unit Type for Y
+    Dimensionless;           !- Output Unit Type
+
+Curve:Biquadratic,
+    EIRCurveFuncTemp,        !- Name
+    1.0,                     !- Coefficient1 Constant
+    0.0,                     !- Coefficient2 x
+    0.0,                     !- Coefficient3 x**2
+    0.0,                     !- Coefficient4 y
+    0.0,                     !- Coefficient5 y**2
+    0.0,                     !- Coefficient6 x*y
+    5.0,                     !- Minimum Value of x
+    10.0,                    !- Maximum Value of x
+    24.0,                    !- Minimum Value of y
+    35.0,                    !- Maximum Value of y
+    ,                        !- Minimum Curve Output
+    ,                        !- Maximum Curve Output
+    Temperature,             !- Input Unit Type for X
+    Temperature,             !- Input Unit Type for Y
+    Dimensionless;           !- Output Unit Type
+
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLEDICTIONARY ===========
 
@@ -10664,11 +10675,6 @@ OutputControl:ReportingTolerances,
 
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
-
-Output:Variable,
-    PERI3_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Cooling Rate,  !- Variable Name
-    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     Perimeter_top_ZN_1,      !- Key Value
@@ -10694,11 +10700,6 @@ Output:Variable,
     Core_top,                !- Key Value
     Zone Mean Air Temperature,  !- Variable Name
     hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    *,                       !- Key Value
-    Boiler Electric Power,   !- Variable Name
-    Hourly;                  !- Reporting Frequency
 
 Output:Variable,
     HOT WATER LOOP HW SUPPLY PUMP2,  !- Key Value
@@ -10732,17 +10733,11 @@ Output:Variable,
 
 Output:Variable,
     *,                       !- Key Value
-    Chiller Electric Power,  !- Variable Name
-    hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    Chilled Water Loop ChW Supply Pump2,  !- Key Value
-    Pump Electric Power,     !- Variable Name
+    Site Outdoor Air Drybulb Temperature,  !- Variable Name
     hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    Site Outdoor Air Drybulb Temperature,  !- Variable Name
+    Heat Pump Electric Power,!- Variable Name
     hourly;                  !- Reporting Frequency
 
-Output:Variable,*,Heat Pump Electric Power,hourly; !- HVAC Average [W]

@@ -1372,34 +1372,13 @@ Schedule:Compact,
     19.6,                    !- Field 8
     Until: 24:00,            !- Field 9
     15.6,                    !- Field 10
-    For: Weekdays,           !- Field 11
-    Until: 05:00,            !- Field 12
-    15.6,                    !- Field 13
-    Until: 06:00,            !- Field 14
-    17.8,                    !- Field 15
-    Until: 07:00,            !- Field 16
-    20.0,                    !- Field 17
-    Until: 22:00,            !- Field 18
-    21.0,                    !- Field 19
-    Until: 24:00,            !- Field 20
-    15.6,                    !- Field 21
-    For SummerDesignDay,     !- Field 22
-    Until: 24:00,            !- Field 23
-    15.6,                    !- Field 24
-    For: Saturday,           !- Field 25
-    Until: 05:00,            !- Field 26
-    15.6,                    !- Field 27
-    Until: 06:00,            !- Field 28
-    17.8,                    !- Field 29
-    Until: 07:00,            !- Field 30
-    20.0,                    !- Field 31
-    Until: 17:00,            !- Field 32
-    21.0,                    !- Field 33
-    Until: 24:00,            !- Field 34
-    15.6,                    !- Field 35
-    For:Sunday Holidays AllOtherDays,  !- Field 36
-    Until: 24:00,            !- Field 37
-    15.6;                    !- Field 38
+    For: AllOtherDays,       !- Field 11
+    Until: 06:00,            !- Field 12
+    11.6,                    !- Field 13
+    Until: 22:00,            !- Field 14
+    19.6,                    !- Field 15
+    Until: 24:00,            !- Field 16
+    11.6;                    !- Field 17
 
 Schedule:Compact,
     HTGSETP_SCH_YES_OPTIMUM_w_SB,  !- Name
@@ -1756,34 +1735,13 @@ Schedule:Compact,
     24.0,                    !- Field 10
     Until: 24:00,            !- Field 11
     26.7,                    !- Field 12
-    For: Weekdays,           !- Field 13
-    Until: 05:00,            !- Field 14
-    26.7,                    !- Field 15
-    Until: 06:00,            !- Field 16
-    25.6,                    !- Field 17
-    Until: 07:00,            !- Field 18
-    25.0,                    !- Field 19
-    Until: 22:00,            !- Field 20
-    24.0,                    !- Field 21
-    Until: 24:00,            !- Field 22
-    26.7,                    !- Field 23
-    For: Saturday,           !- Field 24
-    Until: 05:00,            !- Field 25
-    26.7,                    !- Field 26
-    Until: 06:00,            !- Field 27
-    25.7,                    !- Field 28
-    Until: 07:00,            !- Field 29
-    25.0,                    !- Field 30
-    Until: 17:00,            !- Field 31
-    24.0,                    !- Field 32
-    Until: 24:00,            !- Field 33
-    26.7,                    !- Field 34
-    For WinterDesignDay,     !- Field 35
-    Until: 24:00,            !- Field 36
-    26.7,                    !- Field 37
-    For:Sunday Holidays AllOtherDays,  !- Field 38
-    Until: 24:00,            !- Field 39
-    26.7;                    !- Field 40
+    For: AllOtherDays,       !- Field 13
+    Until: 06:00,            !- Field 14
+    30.7,                    !- Field 15
+    Until: 22:00,            !- Field 16
+    24.0,                    !- Field 17
+    Until: 24:00,            !- Field 18
+    30.7;                    !- Field 19
 
 Schedule:Compact,
     CLGSETP_SCH_YES_OPTIMUM_ORIGINAL,  !- Name
@@ -3080,7 +3038,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    25.00;                   !- Field 4
+    30.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLLOWCONTROLTEMP,   !- Name
@@ -3088,7 +3046,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    23.00;                   !- Field 4
+    28.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLHIGHCONTROLTEMP_Test,  !- Name
@@ -10719,11 +10677,6 @@ OutputControl:ReportingTolerances,
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
 
 Output:Variable,
-    PERI3_TOP_LOTEMP,        !- Key Value
-    Zone Radiant HVAC Cooling Rate,  !- Variable Name
-    hourly;                  !- Reporting Frequency
-
-Output:Variable,
     Perimeter_top_ZN_1,      !- Key Value
     Zone Mean Air Temperature,  !- Variable Name
     hourly;                  !- Reporting Frequency
@@ -10780,16 +10733,11 @@ Output:Variable,
 
 Output:Variable,
     *,                       !- Key Value
-    Chiller Electric Power,  !- Variable Name
-    hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    Chilled Water Loop ChW Supply Pump2,  !- Key Value
-    Pump Electric Power,     !- Variable Name
+    Site Outdoor Air Drybulb Temperature,  !- Variable Name
     hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    Site Outdoor Air Drybulb Temperature,  !- Variable Name
+    Heat Pump Electric Power,!- Variable Name
     hourly;                  !- Reporting Frequency
 

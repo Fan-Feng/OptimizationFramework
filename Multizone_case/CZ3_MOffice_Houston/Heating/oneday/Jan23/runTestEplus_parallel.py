@@ -66,7 +66,7 @@ def fitness_func(x,solution_idx):
 def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
-  SP_list = [15.6]*5+[17.6]+[19.6]*16+[15.6]*2 # [18,24]
+  SP_list = [11.6]*6+[19.6]*16+[11.6]*2 # [18,24]
   ThermalComfort_range = 0.5
   residuals = 0
   for j in range(5):
@@ -83,7 +83,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
   Sim_Status, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
   # utility rate, read from an external file
-  uRate = [3.462]*6+[10.378]*4+[5.842]*7+[10.378]*3+[5.842]*2+[3.462]*2  
+  uRate = [3.75]*5+[4.57]*3+[4.24]*8+[4.57]*3+[4.24]*4 + [3.75] 
   alpha = 10**20 ## 
   if Sim_Status:
     tim = hyperParam["tim"]
@@ -192,7 +192,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx =   output_idx = [703,704,705,706,707,1682,1724,1730,1737,1743,2022,2064] # Indices for  
+  output_idx =   output_idx = [703,704,705,706,707,1682,1724,1730,1736,1742,2008,2036] # Indices for  
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -244,8 +244,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*17 
-  final_time= 60*60*24*18
+  start_time= 60*60*24*22 
+  final_time= 60*60*24*23
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
@@ -254,7 +254,7 @@ with MPIPool() as pool:
   #### run optimization
   X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
 
-  Eplus_FileName = "MediumOffice_Houston_NoDOAS_Simplified.idf"
+  Eplus_FileName = "MediumOffice_Houston.idf"
 
 
   #prepare hyper parameter
