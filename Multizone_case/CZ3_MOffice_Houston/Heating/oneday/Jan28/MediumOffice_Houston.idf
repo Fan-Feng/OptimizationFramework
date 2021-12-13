@@ -9364,70 +9364,70 @@ ZoneHVAC:EquipmentList,
     SequentialLoad,          !- Load Distribution Scheme
     ZoneHVAC:LowTemperatureRadiant:ConstantFlow,  !- Zone Equipment 1 Object Type
     Core_Top_LoTemp,         !- Zone Equipment 1 Name
-    1,                       !- Zone Equipment 1 Cooling Sequence
-    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    2,                       !- Zone Equipment 1 Cooling Sequence
+    2,                       !- Zone Equipment 1 Heating or No-Load Sequence
     ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
     ,                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
     ZoneHVAC:AirDistributionUnit,  !- Zone Equipment 2 Object Type
     Core_Top DOAS ATU,       !- Zone Equipment 2 Name
-    2,                       !- Zone Equipment 2 Cooling Sequence
-    2;                       !- Zone Equipment 2 Heating or No-Load Sequence
+    1,                       !- Zone Equipment 2 Cooling Sequence
+    1;                       !- Zone Equipment 2 Heating or No-Load Sequence
 
 ZoneHVAC:EquipmentList,
     Peri2_Top_Equip,         !- Name
     SequentialLoad,          !- Load Distribution Scheme
     ZoneHVAC:LowTemperatureRadiant:ConstantFlow,  !- Zone Equipment 1 Object Type
     Peri2_Top_LoTemp,        !- Zone Equipment 1 Name
-    1,                       !- Zone Equipment 1 Cooling Sequence
-    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    2,                       !- Zone Equipment 1 Cooling Sequence
+    2,                       !- Zone Equipment 1 Heating or No-Load Sequence
     ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
     ,                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
     ZoneHVAC:AirDistributionUnit,  !- Zone Equipment 2 Object Type
     Peri2_Top DOAS ATU,      !- Zone Equipment 2 Name
-    2,                       !- Zone Equipment 2 Cooling Sequence
-    2;                       !- Zone Equipment 2 Heating or No-Load Sequence
+    1,                       !- Zone Equipment 2 Cooling Sequence
+    1;                       !- Zone Equipment 2 Heating or No-Load Sequence
 
 ZoneHVAC:EquipmentList,
     Peri3_Top_Equip,         !- Name
     SequentialLoad,          !- Load Distribution Scheme
     ZoneHVAC:LowTemperatureRadiant:ConstantFlow,  !- Zone Equipment 1 Object Type
     Peri3_Top_LoTemp,        !- Zone Equipment 1 Name
-    1,                       !- Zone Equipment 1 Cooling Sequence
-    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    2,                       !- Zone Equipment 1 Cooling Sequence
+    2,                       !- Zone Equipment 1 Heating or No-Load Sequence
     ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
     ,                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
     ZoneHVAC:AirDistributionUnit,  !- Zone Equipment 2 Object Type
     Peri3_Top DOAS ATU,      !- Zone Equipment 2 Name
-    2,                       !- Zone Equipment 2 Cooling Sequence
-    2;                       !- Zone Equipment 2 Heating or No-Load Sequence
+    1,                       !- Zone Equipment 2 Cooling Sequence
+    1;                       !- Zone Equipment 2 Heating or No-Load Sequence
 
 ZoneHVAC:EquipmentList,
     Peri4_Top_Equip,         !- Name
     SequentialLoad,          !- Load Distribution Scheme
     ZoneHVAC:LowTemperatureRadiant:ConstantFlow,  !- Zone Equipment 1 Object Type
     Peri4_Top_LoTemp,        !- Zone Equipment 1 Name
-    1,                       !- Zone Equipment 1 Cooling Sequence
-    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    2,                       !- Zone Equipment 1 Cooling Sequence
+    2,                       !- Zone Equipment 1 Heating or No-Load Sequence
     ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
     ,                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
     ZoneHVAC:AirDistributionUnit,  !- Zone Equipment 2 Object Type
     Peri4_Top DOAS ATU,      !- Zone Equipment 2 Name
-    2,                       !- Zone Equipment 2 Cooling Sequence
-    2;                       !- Zone Equipment 2 Heating or No-Load Sequence
+    1,                       !- Zone Equipment 2 Cooling Sequence
+    1;                       !- Zone Equipment 2 Heating or No-Load Sequence
 
 ZoneHVAC:EquipmentList,
     Peri1_Top_Equip,         !- Name
     SequentialLoad,          !- Load Distribution Scheme
     ZoneHVAC:LowTemperatureRadiant:ConstantFlow,  !- Zone Equipment 1 Object Type
     Peri1_Top_LoTemp,        !- Zone Equipment 1 Name
-    1,                       !- Zone Equipment 1 Cooling Sequence
-    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    2,                       !- Zone Equipment 1 Cooling Sequence
+    2,                       !- Zone Equipment 1 Heating or No-Load Sequence
     ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
     ,                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
     ZoneHVAC:AirDistributionUnit,  !- Zone Equipment 2 Object Type
     Peri1_Top DOAS ATU,      !- Zone Equipment 2 Name
-    2,                       !- Zone Equipment 2 Cooling Sequence
-    2;                       !- Zone Equipment 2 Heating or No-Load Sequence
+    1,                       !- Zone Equipment 2 Cooling Sequence
+    1;                       !- Zone Equipment 2 Heating or No-Load Sequence
 
 ZoneHVAC:EquipmentList,
     Core_mid Equipment,      !- Name
