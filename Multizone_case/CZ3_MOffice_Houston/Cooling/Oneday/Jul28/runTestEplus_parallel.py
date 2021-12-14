@@ -191,7 +191,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx =   output_idx = [703,704,705,706,707,1682,1724,1730,1737,1743,1933,2062] # Indices for  
+  output_idx =   output_idx = [703,704,705,706,707,1682,1724,1730,1736,1742,1932,2035] # Indices for  
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -243,8 +243,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*208  # July 24
-  final_time= 60*60*24*209
+  start_time= 60*60*24*204  # July 24
+  final_time= 60*60*24*205
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
