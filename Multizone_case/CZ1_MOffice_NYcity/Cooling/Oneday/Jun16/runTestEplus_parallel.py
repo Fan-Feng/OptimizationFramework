@@ -17,12 +17,13 @@ import numpy as np
 import numpy.random as random
 import pandas as pd
 
+# Import optimization package
+import pygad
+
 ## import mpi management package
 from mpipool import MPIPool
 from mpi4py import MPI
 
-# Import optimization package
-import pygad
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
   Convert NumOfSec to Month/Day
@@ -82,7 +83,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
   Sim_Status, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
   # utility rate, read from an external file
-  uRate = [3.59]*12+[4.69]*2+[8.86]*4+[4.69]*2+[3.59]*4  
+  uRate = [3.462]*6 + [5.842]*9+[10.378]*5+[5.842]*2 + [3.462]*2 
   alpha = 10**20 ## 
   if Sim_Status:
     tim = hyperParam["tim"]
@@ -191,7 +192,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx =   output_idx = [703,704,705,706,707,1682,1724,1730,1736,1742,1932,2035] # Indices for  
+  output_idx =   output_idx = [704,705,706,707,708,1683,1725,1731,1737,1743,2009,2037] # Indices for  
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -243,8 +244,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*204  # July 24
-  final_time= 60*60*24*205
+  start_time= 60*60*24*166 
+  final_time= 60*60*24*167
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
@@ -253,7 +254,7 @@ with MPIPool() as pool:
   #### run optimization
   X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
 
-  Eplus_FileName = "MediumOffice_Houston_Cooling.idf"
+  Eplus_FileName = "MediumOffice_NYCity.idf"
 
 
   #prepare hyper parameter
@@ -297,7 +298,7 @@ with MPIPool() as pool:
     mutation_type = "random"
     mutation_probability = 0.2
 
-    gene_space = [{'low':10, 'high': 18}]*hyperParam['PH']
+    gene_space = [{'low': 10, 'high': 18}]*hyperParam['PH']
 
     ga_instance = PooledGA(num_generations=num_generations,
                     num_parents_mating=num_parents_mating,
