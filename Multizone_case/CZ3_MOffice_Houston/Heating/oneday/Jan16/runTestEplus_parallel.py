@@ -254,7 +254,7 @@ with MPIPool() as pool:
   #### run optimization
   X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
 
-  Eplus_FileName = "MediumOffice_NYCity.idf"
+  Eplus_FileName = "MediumOffice_Houston.idf"
 
 
   #prepare hyper parameter
