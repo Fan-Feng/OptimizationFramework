@@ -83,7 +83,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
   Sim_Status, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
   # utility rate, read from an external file
-  uRate = [3.75]*5+[4.57]*3+[4.24]*8+[4.57]*3+[4.24]*4 + [3.75] 
+  uRate = [3.75]*5+[4.57]*3+[4.24]*8+[4.57]*3 + [4.24]*4 + [3.75]
   alpha = 10**20 ## 
   if Sim_Status:
     tim = hyperParam["tim"]
@@ -192,7 +192,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx =   output_idx = [703,704,705,706,707,1682,1724,1730,1736,1742,2008,2036] # Indices for  
+  output_idx =   output_idx = [704,705,706,707,708,1683,1725,1731,1737,1743,2009,2037] # Indices for  
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -244,8 +244,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*27 
-  final_time= 60*60*24*28
+  start_time= 60*60*24*15 
+  final_time= 60*60*24*16
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
@@ -254,7 +254,7 @@ with MPIPool() as pool:
   #### run optimization
   X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
 
-  Eplus_FileName = "MediumOffice_Houston.idf"
+  Eplus_FileName = "MediumOffice_NYCity.idf"
 
 
   #prepare hyper parameter

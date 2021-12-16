@@ -17,12 +17,13 @@ import numpy as np
 import numpy.random as random
 import pandas as pd
 
+# Import optimization package
+import pygad
+
 ## import mpi management package
 from mpipool import MPIPool
 from mpi4py import MPI
 
-# Import optimization package
-import pygad
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
   Convert NumOfSec to Month/Day
@@ -65,7 +66,7 @@ def fitness_func(x,solution_idx):
 def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
-  SP_list = [30.7]*6+[25]+[24]*15+[30.7]*2 # [18,24]
+  SP_list = [11.6]*6+[19.6]*16+[11.6]*2 # [18,24]
   ThermalComfort_range = 0.5
   residuals = 0
   for j in range(5):
@@ -74,7 +75,7 @@ def penalty_func(ZMAT,output_DF,tim):
       hourOfDay = int(dtime.hour)
       if SP_list[hourOfDay] >20:
         a=0
-      residuals += max(ZMAT.iloc[i,j] - ThermalComfort_range- SP_list[hourOfDay],0)
+      residuals += max(SP_list[hourOfDay]-ThermalComfort_range-ZMAT.iloc[i,j],0)
   
   return residuals
 
@@ -82,7 +83,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
   Sim_Status, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
   # utility rate, read from an external file
-  uRate = [3.59]*12+[4.69]*2+[8.86]*4+[4.69]*2+[3.59]*4  
+  uRate = [3.75]*5+[4.57]*3+[4.24]*8+[4.57]*3 + [4.24]*4 + [3.75]
   alpha = 10**20 ## 
   if Sim_Status:
     tim = hyperParam["tim"]
@@ -146,7 +147,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
   start_idx,end_idx = int(start_time/3600),int(time_end/3600)
   Input_DF.iloc[start_idx:end_idx,0] = X_sp  #
   Input_DF.iloc[start_idx:end_idx,1] = X_sp
-  Aval_Status = [int(xi<=17) for xi in X_sp]
+  Aval_Status = [int(xi>=30) for xi in X_sp]
   Input_DF.iloc[start_idx:end_idx,2] = Aval_Status
 
   Input_DF.to_csv(Target_WorkPath+"//RadInletWater_SP_schedule.csv",index = False)
@@ -174,7 +175,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
     output_DF, ZMAT, Heating_Rate = -1,-1,-1
     ## Step 4. Remove temporary files
     shutil.rmtree(Target_WorkPath)
-    return Sim_Status, ZMAT,output_DF
+    return Sim_Status, Heating_Rate,ZMAT,output_DF
 
 def check_SimulationStatus(fileName):
   with open(fileName,'r') as fp:
@@ -191,7 +192,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx =   output_idx = [703,704,705,706,707,1682,1724,1730,1736,1742,1932,2035] # Indices for  
+  output_idx =   output_idx = [704,705,706,707,708,1683,1725,1731,1737,1743,2009,2037] # Indices for  
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -243,8 +244,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*204  # July 24
-  final_time= 60*60*24*205
+  start_time= 60*60*24*15 
+  final_time= 60*60*24*16
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
@@ -253,7 +254,7 @@ with MPIPool() as pool:
   #### run optimization
   X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
 
-  Eplus_FileName = "MediumOffice_Houston_Cooling.idf"
+  Eplus_FileName = "MediumOffice_NYCity.idf"
 
 
   #prepare hyper parameter
@@ -297,7 +298,7 @@ with MPIPool() as pool:
     mutation_type = "random"
     mutation_probability = 0.2
 
-    gene_space = [{'low':10, 'high': 18}]*hyperParam['PH']
+    gene_space = [{'low': 25, 'high': 50}]*hyperParam['PH']
 
     ga_instance = PooledGA(num_generations=num_generations,
                     num_parents_mating=num_parents_mating,
