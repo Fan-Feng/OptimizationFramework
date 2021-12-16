@@ -1,0 +1,1760 @@
+
+ Meters for 7,EXTERIOR_LIGHTS_A:Exterior Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=ExteriorLights:Electricity [J]
+  OnMeter=General:ExteriorLights:Electricity [J]
+
+ Meters for 44,EXTERIOR_LIGHTS_B:Exterior Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=ExteriorLights:Electricity [J]
+  OnMeter=General:ExteriorLights:Electricity [J]
+
+ Meters for 45,EXTERIOR_LIGHTS_C:Exterior Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=ExteriorLights:Electricity [J]
+  OnMeter=General:ExteriorLights:Electricity [J]
+
+ Meters for 47,CORE_BOTTOM_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:CORE_BOTTOM [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:CORE_BOTTOM [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 108,CORE_MID_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:CORE_MID [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:CORE_MID [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 133,CORE_TOP_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:CORE_TOP [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:CORE_TOP [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 158,PERIMETER_TOP_ZN_3_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_TOP_ZN_3 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_TOP_ZN_3 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 183,PERIMETER_TOP_ZN_2_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_TOP_ZN_2 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_TOP_ZN_2 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 208,PERIMETER_TOP_ZN_1_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_TOP_ZN_1 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_TOP_ZN_1 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 233,PERIMETER_TOP_ZN_4_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_TOP_ZN_4 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_TOP_ZN_4 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 258,PERIMETER_BOT_ZN_3_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_BOT_ZN_3 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_BOT_ZN_3 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 283,PERIMETER_BOT_ZN_2_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_BOT_ZN_2 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_BOT_ZN_2 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 308,PERIMETER_BOT_ZN_1_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_BOT_ZN_1 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_BOT_ZN_1 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 333,PERIMETER_BOT_ZN_4_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_BOT_ZN_4 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_BOT_ZN_4 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 358,PERIMETER_MID_ZN_3_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_MID_ZN_3 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_MID_ZN_3 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 383,PERIMETER_MID_ZN_2_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_MID_ZN_2 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_MID_ZN_2 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 408,PERIMETER_MID_ZN_1_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_MID_ZN_1 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_MID_ZN_1 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 433,PERIMETER_MID_ZN_4_LIGHTS:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_MID_ZN_4 [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIMETER_MID_ZN_4 [J]
+  OnMeter=LightsWired:InteriorLights:Electricity [J]
+
+ Meters for 458,CORE_BOTTOM_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:CORE_BOTTOM [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:CORE_BOTTOM [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 495,CORE_MID_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:CORE_MID [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:CORE_MID [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 508,CORE_TOP_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:CORE_TOP [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:CORE_TOP [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 521,PERIMETER_TOP_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_TOP_ZN_3 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_TOP_ZN_3 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 534,PERIMETER_TOP_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_TOP_ZN_2 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_TOP_ZN_2 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 547,PERIMETER_TOP_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_TOP_ZN_1 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_TOP_ZN_1 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 560,PERIMETER_TOP_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_TOP_ZN_4 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_TOP_ZN_4 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 573,PERIMETER_BOT_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_BOT_ZN_3 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_BOT_ZN_3 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 586,PERIMETER_BOT_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_BOT_ZN_2 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_BOT_ZN_2 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 599,PERIMETER_BOT_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_BOT_ZN_1 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_BOT_ZN_1 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 612,PERIMETER_BOT_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_BOT_ZN_4 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_BOT_ZN_4 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 625,PERIMETER_MID_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_MID_ZN_3 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_MID_ZN_3 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 638,PERIMETER_MID_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_MID_ZN_2 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_MID_ZN_2 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 651,PERIMETER_MID_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_MID_ZN_1 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_MID_ZN_1 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 664,PERIMETER_MID_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIMETER_MID_ZN_4 [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIMETER_MID_ZN_4 [J]
+  OnMeter=MiscPlug:InteriorEquipment:Electricity [J]
+
+ Meters for 677,CORE_BOTTOM_ELEVATORS_EQUIP:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:CORE_BOTTOM [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:CORE_BOTTOM [J]
+  OnMeter=ElevatorLift:InteriorEquipment:Electricity [J]
+
+ Meters for 690,ELEVATORS_LIGHTS_FAN:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:CORE_BOTTOM [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:CORE_BOTTOM [J]
+  OnMeter=ElevatorLightsFan:InteriorEquipment:Electricity [J]
+
+ Meters for 708,CORE_BOTTOM:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:CORE_BOTTOM [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:CORE_BOTTOM [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 781,CORE_BOTTOM:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:CORE_BOTTOM [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:CORE_BOTTOM [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 818,TOPFLOOR_PLENUM:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:TOPFLOOR_PLENUM [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:TOPFLOOR_PLENUM [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 843,TOPFLOOR_PLENUM:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:TOPFLOOR_PLENUM [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:TOPFLOOR_PLENUM [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 856,MIDFLOOR_PLENUM:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:MIDFLOOR_PLENUM [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:MIDFLOOR_PLENUM [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 881,MIDFLOOR_PLENUM:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:MIDFLOOR_PLENUM [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:MIDFLOOR_PLENUM [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 894,FIRSTFLOOR_PLENUM:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:FIRSTFLOOR_PLENUM [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:FIRSTFLOOR_PLENUM [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 919,FIRSTFLOOR_PLENUM:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:FIRSTFLOOR_PLENUM [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:FIRSTFLOOR_PLENUM [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 932,CORE_MID:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:CORE_MID [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:CORE_MID [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 957,CORE_MID:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:CORE_MID [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:CORE_MID [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 970,CORE_TOP:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:CORE_TOP [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:CORE_TOP [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 995,CORE_TOP:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:CORE_TOP [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:CORE_TOP [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1008,PERIMETER_TOP_ZN_3:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_3 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_TOP_ZN_3 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1033,PERIMETER_TOP_ZN_3:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_3 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_TOP_ZN_3 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1046,PERIMETER_TOP_ZN_2:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_2 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_TOP_ZN_2 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1071,PERIMETER_TOP_ZN_2:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_2 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_TOP_ZN_2 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1084,PERIMETER_TOP_ZN_1:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_1 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_TOP_ZN_1 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1109,PERIMETER_TOP_ZN_1:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_1 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_TOP_ZN_1 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1122,PERIMETER_TOP_ZN_4:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_4 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_TOP_ZN_4 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1147,PERIMETER_TOP_ZN_4:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_4 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_TOP_ZN_4 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1160,PERIMETER_BOT_ZN_3:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_3 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_BOT_ZN_3 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1185,PERIMETER_BOT_ZN_3:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_3 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_BOT_ZN_3 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1198,PERIMETER_BOT_ZN_2:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_2 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_BOT_ZN_2 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1223,PERIMETER_BOT_ZN_2:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_2 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_BOT_ZN_2 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1236,PERIMETER_BOT_ZN_1:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_1 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_BOT_ZN_1 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1261,PERIMETER_BOT_ZN_1:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_1 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_BOT_ZN_1 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1274,PERIMETER_BOT_ZN_4:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_4 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_BOT_ZN_4 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1299,PERIMETER_BOT_ZN_4:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_4 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_BOT_ZN_4 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1312,PERIMETER_MID_ZN_3:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_MID_ZN_3 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_MID_ZN_3 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1337,PERIMETER_MID_ZN_3:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_MID_ZN_3 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_MID_ZN_3 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1350,PERIMETER_MID_ZN_2:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_MID_ZN_2 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_MID_ZN_2 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1375,PERIMETER_MID_ZN_2:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_MID_ZN_2 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_MID_ZN_2 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1388,PERIMETER_MID_ZN_1:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_MID_ZN_1 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_MID_ZN_1 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1413,PERIMETER_MID_ZN_1:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_MID_ZN_1 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_MID_ZN_1 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1426,PERIMETER_MID_ZN_4:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_MID_ZN_4 [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIMETER_MID_ZN_4 [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+
+ Meters for 1451,PERIMETER_MID_ZN_4:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIMETER_MID_ZN_4 [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIMETER_MID_ZN_4 [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+
+ Meters for 1464,CORE_MID IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+  OnMeter=General:Heating:DistrictHeating [J]
+
+ Meters for 1513,CORE_MID IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+  OnMeter=General:Cooling:DistrictCooling [J]
+
+ Meters for 1562,PERIMETER_MID_ZN_1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+  OnMeter=General:Heating:DistrictHeating [J]
+
+ Meters for 1563,PERIMETER_MID_ZN_1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+  OnMeter=General:Cooling:DistrictCooling [J]
+
+ Meters for 1564,PERIMETER_MID_ZN_2 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+  OnMeter=General:Heating:DistrictHeating [J]
+
+ Meters for 1565,PERIMETER_MID_ZN_2 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+  OnMeter=General:Cooling:DistrictCooling [J]
+
+ Meters for 1566,PERIMETER_MID_ZN_3 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+  OnMeter=General:Heating:DistrictHeating [J]
+
+ Meters for 1567,PERIMETER_MID_ZN_3 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+  OnMeter=General:Cooling:DistrictCooling [J]
+
+ Meters for 1568,PERIMETER_MID_ZN_4 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+  OnMeter=General:Heating:DistrictHeating [J]
+
+ Meters for 1569,PERIMETER_MID_ZN_4 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+  OnMeter=General:Cooling:DistrictCooling [J]
+
+ Meters for 1570,CORE_TOP_LOTEMP:Zone Radiant HVAC Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=HeatingCoils:EnergyTransfer [J]
+
+ Meters for 1595,CORE_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy [J]
+  OnMeter=PlantLoopHeatingDemand:Facility [J]
+  OnMeter=PlantLoopHeatingDemand:HVAC [J]
+  OnMeter=HeatingCoils:PlantLoopHeatingDemand [J]
+
+ Meters for 1632,CORE_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=CoolingCoils:EnergyTransfer [J]
+
+ Meters for 1645,CORE_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy [J]
+  OnMeter=PlantLoopCoolingDemand:Facility [J]
+  OnMeter=PlantLoopCoolingDemand:HVAC [J]
+  OnMeter=CoolingCoils:PlantLoopCoolingDemand [J]
+
+ Meters for 1683,CORE_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Plant [J]
+  OnMeter=Pumps:Electricity [J]
+  OnMeter=General:Pumps:Electricity [J]
+
+ Meters for 1720,PERI1_TOP_LOTEMP:Zone Radiant HVAC Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=HeatingCoils:EnergyTransfer [J]
+
+ Meters for 1721,PERI1_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy [J]
+  OnMeter=PlantLoopHeatingDemand:Facility [J]
+  OnMeter=PlantLoopHeatingDemand:HVAC [J]
+  OnMeter=HeatingCoils:PlantLoopHeatingDemand [J]
+
+ Meters for 1722,PERI1_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=CoolingCoils:EnergyTransfer [J]
+
+ Meters for 1723,PERI1_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy [J]
+  OnMeter=PlantLoopCoolingDemand:Facility [J]
+  OnMeter=PlantLoopCoolingDemand:HVAC [J]
+  OnMeter=CoolingCoils:PlantLoopCoolingDemand [J]
+
+ Meters for 1725,PERI1_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Plant [J]
+  OnMeter=Pumps:Electricity [J]
+  OnMeter=General:Pumps:Electricity [J]
+
+ Meters for 1726,PERI2_TOP_LOTEMP:Zone Radiant HVAC Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=HeatingCoils:EnergyTransfer [J]
+
+ Meters for 1727,PERI2_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy [J]
+  OnMeter=PlantLoopHeatingDemand:Facility [J]
+  OnMeter=PlantLoopHeatingDemand:HVAC [J]
+  OnMeter=HeatingCoils:PlantLoopHeatingDemand [J]
+
+ Meters for 1728,PERI2_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=CoolingCoils:EnergyTransfer [J]
+
+ Meters for 1729,PERI2_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy [J]
+  OnMeter=PlantLoopCoolingDemand:Facility [J]
+  OnMeter=PlantLoopCoolingDemand:HVAC [J]
+  OnMeter=CoolingCoils:PlantLoopCoolingDemand [J]
+
+ Meters for 1731,PERI2_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Plant [J]
+  OnMeter=Pumps:Electricity [J]
+  OnMeter=General:Pumps:Electricity [J]
+
+ Meters for 1732,PERI3_TOP_LOTEMP:Zone Radiant HVAC Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=HeatingCoils:EnergyTransfer [J]
+
+ Meters for 1733,PERI3_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy [J]
+  OnMeter=PlantLoopHeatingDemand:Facility [J]
+  OnMeter=PlantLoopHeatingDemand:HVAC [J]
+  OnMeter=HeatingCoils:PlantLoopHeatingDemand [J]
+
+ Meters for 1734,PERI3_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=CoolingCoils:EnergyTransfer [J]
+
+ Meters for 1735,PERI3_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy [J]
+  OnMeter=PlantLoopCoolingDemand:Facility [J]
+  OnMeter=PlantLoopCoolingDemand:HVAC [J]
+  OnMeter=CoolingCoils:PlantLoopCoolingDemand [J]
+
+ Meters for 1737,PERI3_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Plant [J]
+  OnMeter=Pumps:Electricity [J]
+  OnMeter=General:Pumps:Electricity [J]
+
+ Meters for 1738,PERI4_TOP_LOTEMP:Zone Radiant HVAC Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=HeatingCoils:EnergyTransfer [J]
+
+ Meters for 1739,PERI4_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy [J]
+  OnMeter=PlantLoopHeatingDemand:Facility [J]
+  OnMeter=PlantLoopHeatingDemand:HVAC [J]
+  OnMeter=HeatingCoils:PlantLoopHeatingDemand [J]
+
+ Meters for 1740,PERI4_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=CoolingCoils:EnergyTransfer [J]
+
+ Meters for 1741,PERI4_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy [J]
+  OnMeter=PlantLoopCoolingDemand:Facility [J]
+  OnMeter=PlantLoopCoolingDemand:HVAC [J]
+  OnMeter=CoolingCoils:PlantLoopCoolingDemand [J]
+
+ Meters for 1743,PERI4_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Plant [J]
+  OnMeter=Pumps:Electricity [J]
+  OnMeter=General:Pumps:Electricity [J]
+
+ Meters for 1744,DOAS HEATING COIL:Heating Coil Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=HeatingCoils:EnergyTransfer [J]
+
+ Meters for 1745,DOAS HEATING COIL:Heating Coil Source Side Heat Transfer Energy [J]
+  OnMeter=PlantLoopHeatingDemand:Facility [J]
+  OnMeter=PlantLoopHeatingDemand:HVAC [J]
+  OnMeter=HeatingCoils:PlantLoopHeatingDemand [J]
+
+ Meters for 1746,DOAS COOLING COIL:Cooling Coil Total Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=CoolingCoils:EnergyTransfer [J]
+
+ Meters for 1747,DOAS COOLING COIL:Cooling Coil Source Side Heat Transfer Energy [J]
+  OnMeter=PlantLoopCoolingDemand:Facility [J]
+  OnMeter=PlantLoopCoolingDemand:HVAC [J]
+  OnMeter=CoolingCoils:PlantLoopCoolingDemand [J]
+
+ Meters for 1748,DOAS SUPPLY FAN:Fan Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:HVAC [J]
+  OnMeter=Fans:Electricity [J]
+  OnMeter=General:Fans:Electricity [J]
+
+ Meters for 1785,Whole Building:Facility Total Purchased Electric Energy [J]
+  OnMeter=ElectricityPurchased:Facility [J]
+  OnMeter=ElectricityPurchased:Plant [J]
+  OnMeter=Cogeneration:ElectricityPurchased [J]
+  OnMeter=General:Cogeneration:ElectricityPurchased [J]
+
+ Meters for 1834,Whole Building:Facility Total Surplus Electric Energy [J]
+  OnMeter=ElectricitySurplusSold:Facility [J]
+  OnMeter=ElectricitySurplusSold:Plant [J]
+  OnMeter=Cogeneration:ElectricitySurplusSold [J]
+  OnMeter=General:Cogeneration:ElectricitySurplusSold [J]
+
+ Meters for 1883,Whole Building:Facility Net Purchased Electric Energy [J]
+  OnMeter=ElectricityNet:Facility [J]
+  OnMeter=ElectricityNet:Plant [J]
+  OnMeter=Cogeneration:ElectricityNet [J]
+  OnMeter=General:Cogeneration:ElectricityNet [J]
+
+ Meters for 1933,COOLSYS1 CHILLER1:Chiller Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Plant [J]
+  OnMeter=Cooling:Electricity [J]
+  OnMeter=General:Cooling:Electricity [J]
+
+ Meters for 1958,COOLSYS1 CHILLER1:Chiller Evaporator Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Plant [J]
+  OnMeter=Chillers:EnergyTransfer [J]
+
+ Meters for 1983,COOLSYS1 CHILLER1:Chiller Condenser Heat Transfer Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Plant [J]
+  OnMeter=HeatRejection:EnergyTransfer [J]
+  OnMeter=General:HeatRejection:EnergyTransfer [J]
+
+ Meters for 2008,HP_RADSYS:Heat Pump Load Side Heat Transfer Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Plant [J]
+
+ Meters for 2009,HP_RADSYS:Heat Pump Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Plant [J]
+  OnMeter=Heating:Electricity [J]
+  OnMeter=Heat Pump:Heating:Electricity [J]
+
+ Meters for 2034,CHILLED WATER LOOP CHW SUPPLY PUMP2:Pump Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Plant [J]
+  OnMeter=Pumps:Electricity [J]
+  OnMeter=General:Pumps:Electricity [J]
+
+ Meters for 2036,HOT WATER LOOP HW SUPPLY PUMP2:Pump Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Plant [J]
+  OnMeter=Pumps:Electricity [J]
+  OnMeter=General:Pumps:Electricity [J]
+
+ Meters for 2037,Site:Environmental Impact Total N2O Emissions Carbon Equivalent Mass [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ Meters for 2062,Site:Environmental Impact Total CH4 Emissions Carbon Equivalent Mass [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ Meters for 2063,Site:Environmental Impact Total CO2 Emissions Carbon Equivalent Mass [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ For Meter=Electricity:Facility [J], ResourceType=Electricity, contents are:
+  EXTERIOR_LIGHTS_A:Exterior Lights Electric Energy
+  EXTERIOR_LIGHTS_B:Exterior Lights Electric Energy
+  EXTERIOR_LIGHTS_C:Exterior Lights Electric Energy
+  CORE_BOTTOM_LIGHTS:Lights Electric Energy
+  CORE_MID_LIGHTS:Lights Electric Energy
+  CORE_TOP_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_4_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_4_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_4_LIGHTS:Lights Electric Energy
+  CORE_BOTTOM_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_MID_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_TOP_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_BOTTOM_ELEVATORS_EQUIP:Electric Equipment Electric Energy
+  ELEVATORS_LIGHTS_FAN:Electric Equipment Electric Energy
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  DOAS SUPPLY FAN:Fan Electric Energy
+  COOLSYS1 CHILLER1:Chiller Electric Energy
+  HP_RADSYS:Heat Pump Electric Energy
+  CHILLED WATER LOOP CHW SUPPLY PUMP2:Pump Electric Energy
+  HOT WATER LOOP HW SUPPLY PUMP2:Pump Electric Energy
+
+ For Meter=ExteriorLights:Electricity [J], ResourceType=Electricity, EndUse=ExteriorLights, contents are:
+  EXTERIOR_LIGHTS_A:Exterior Lights Electric Energy
+  EXTERIOR_LIGHTS_B:Exterior Lights Electric Energy
+  EXTERIOR_LIGHTS_C:Exterior Lights Electric Energy
+
+ For Meter=General:ExteriorLights:Electricity [J], ResourceType=Electricity, EndUse=ExteriorLights, contents are:
+  EXTERIOR_LIGHTS_A:Exterior Lights Electric Energy
+  EXTERIOR_LIGHTS_B:Exterior Lights Electric Energy
+  EXTERIOR_LIGHTS_C:Exterior Lights Electric Energy
+
+ For Meter=Electricity:Building [J], ResourceType=Electricity, Group=Building, contents are:
+  CORE_BOTTOM_LIGHTS:Lights Electric Energy
+  CORE_MID_LIGHTS:Lights Electric Energy
+  CORE_TOP_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_4_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_4_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_4_LIGHTS:Lights Electric Energy
+  CORE_BOTTOM_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_MID_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_TOP_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_BOTTOM_ELEVATORS_EQUIP:Electric Equipment Electric Energy
+  ELEVATORS_LIGHTS_FAN:Electric Equipment Electric Energy
+
+ For Meter=Electricity:Zone:CORE_BOTTOM [J], ResourceType=Electricity, Group=Zone, contents are:
+  CORE_BOTTOM_LIGHTS:Lights Electric Energy
+  CORE_BOTTOM_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_BOTTOM_ELEVATORS_EQUIP:Electric Equipment Electric Energy
+  ELEVATORS_LIGHTS_FAN:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity [J], ResourceType=Electricity, EndUse=InteriorLights, contents are:
+  CORE_BOTTOM_LIGHTS:Lights Electric Energy
+  CORE_MID_LIGHTS:Lights Electric Energy
+  CORE_TOP_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_4_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_4_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_4_LIGHTS:Lights Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:CORE_BOTTOM [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  CORE_BOTTOM_LIGHTS:Lights Electric Energy
+
+ For Meter=LightsWired:InteriorLights:Electricity [J], ResourceType=Electricity, EndUse=InteriorLights, contents are:
+  CORE_BOTTOM_LIGHTS:Lights Electric Energy
+  CORE_MID_LIGHTS:Lights Electric Energy
+  CORE_TOP_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_4_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_4_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_4_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:CORE_MID [J], ResourceType=Electricity, Group=Zone, contents are:
+  CORE_MID_LIGHTS:Lights Electric Energy
+  CORE_MID_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:CORE_MID [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  CORE_MID_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:CORE_TOP [J], ResourceType=Electricity, Group=Zone, contents are:
+  CORE_TOP_LIGHTS:Lights Electric Energy
+  CORE_TOP_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:CORE_TOP [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  CORE_TOP_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_TOP_ZN_3 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_TOP_ZN_3 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_3_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_TOP_ZN_2 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_TOP_ZN_2 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_2_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_TOP_ZN_1 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_TOP_ZN_1 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_1_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_TOP_ZN_4 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_4_LIGHTS:Lights Electric Energy
+  PERIMETER_TOP_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_TOP_ZN_4 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_4_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_BOT_ZN_3 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_BOT_ZN_3 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_3_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_BOT_ZN_2 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_BOT_ZN_2 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_2_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_BOT_ZN_1 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_BOT_ZN_1 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_1_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_BOT_ZN_4 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_4_LIGHTS:Lights Electric Energy
+  PERIMETER_BOT_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_BOT_ZN_4 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_4_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_MID_ZN_3 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_MID_ZN_3_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_MID_ZN_3 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_MID_ZN_3_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_MID_ZN_2 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_MID_ZN_2_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_MID_ZN_2 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_MID_ZN_2_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_MID_ZN_1 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_MID_ZN_1_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_MID_ZN_1 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_MID_ZN_1_LIGHTS:Lights Electric Energy
+
+ For Meter=Electricity:Zone:PERIMETER_MID_ZN_4 [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIMETER_MID_ZN_4_LIGHTS:Lights Electric Energy
+  PERIMETER_MID_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIMETER_MID_ZN_4 [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIMETER_MID_ZN_4_LIGHTS:Lights Electric Energy
+
+ For Meter=InteriorEquipment:Electricity [J], ResourceType=Electricity, EndUse=InteriorEquipment, contents are:
+  CORE_BOTTOM_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_MID_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_TOP_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_BOTTOM_ELEVATORS_EQUIP:Electric Equipment Electric Energy
+  ELEVATORS_LIGHTS_FAN:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:CORE_BOTTOM [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  CORE_BOTTOM_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_BOTTOM_ELEVATORS_EQUIP:Electric Equipment Electric Energy
+  ELEVATORS_LIGHTS_FAN:Electric Equipment Electric Energy
+
+ For Meter=MiscPlug:InteriorEquipment:Electricity [J], ResourceType=Electricity, EndUse=InteriorEquipment, contents are:
+  CORE_BOTTOM_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_MID_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  CORE_TOP_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_TOP_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_BOT_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+  PERIMETER_MID_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:CORE_MID [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  CORE_MID_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:CORE_TOP [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  CORE_TOP_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_TOP_ZN_3 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_TOP_ZN_2 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_TOP_ZN_1 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_TOP_ZN_4 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_BOT_ZN_3 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_BOT_ZN_2 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_BOT_ZN_1 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_BOT_ZN_4 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_MID_ZN_3 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_MID_ZN_3_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_MID_ZN_2 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_MID_ZN_2_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_MID_ZN_1 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_MID_ZN_1_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIMETER_MID_ZN_4 [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIMETER_MID_ZN_4_MISCPLUG_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=ElevatorLift:InteriorEquipment:Electricity [J], ResourceType=Electricity, EndUse=InteriorEquipment, contents are:
+  CORE_BOTTOM_ELEVATORS_EQUIP:Electric Equipment Electric Energy
+
+ For Meter=ElevatorLightsFan:InteriorEquipment:Electricity [J], ResourceType=Electricity, EndUse=InteriorEquipment, contents are:
+  ELEVATORS_LIGHTS_FAN:Electric Equipment Electric Energy
+
+ For Meter=EnergyTransfer:Facility [J], ResourceType=EnergyTransfer, contents are:
+  CORE_BOTTOM:Zone Air System Sensible Heating Energy
+  CORE_BOTTOM:Zone Air System Sensible Cooling Energy
+  TOPFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  TOPFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  MIDFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  MIDFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  CORE_MID:Zone Air System Sensible Heating Energy
+  CORE_MID:Zone Air System Sensible Cooling Energy
+  CORE_TOP:Zone Air System Sensible Heating Energy
+  CORE_TOP:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Cooling Energy
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  DOAS HEATING COIL:Heating Coil Heating Energy
+  DOAS COOLING COIL:Cooling Coil Total Cooling Energy
+  COOLSYS1 CHILLER1:Chiller Evaporator Cooling Energy
+  COOLSYS1 CHILLER1:Chiller Condenser Heat Transfer Energy
+  HP_RADSYS:Heat Pump Load Side Heat Transfer Energy
+
+ For Meter=EnergyTransfer:Building [J], ResourceType=EnergyTransfer, Group=Building, contents are:
+  CORE_BOTTOM:Zone Air System Sensible Heating Energy
+  CORE_BOTTOM:Zone Air System Sensible Cooling Energy
+  TOPFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  TOPFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  MIDFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  MIDFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  CORE_MID:Zone Air System Sensible Heating Energy
+  CORE_MID:Zone Air System Sensible Cooling Energy
+  CORE_TOP:Zone Air System Sensible Heating Energy
+  CORE_TOP:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:CORE_BOTTOM [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  CORE_BOTTOM:Zone Air System Sensible Heating Energy
+  CORE_BOTTOM:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Heating, contents are:
+  CORE_BOTTOM:Zone Air System Sensible Heating Energy
+  TOPFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  MIDFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  CORE_MID:Zone Air System Sensible Heating Energy
+  CORE_TOP:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Heating Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:CORE_BOTTOM [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  CORE_BOTTOM:Zone Air System Sensible Heating Energy
+
+ For Meter=General:Heating:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Heating, contents are:
+  CORE_BOTTOM:Zone Air System Sensible Heating Energy
+  TOPFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  MIDFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  CORE_MID:Zone Air System Sensible Heating Energy
+  CORE_TOP:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Cooling, contents are:
+  CORE_BOTTOM:Zone Air System Sensible Cooling Energy
+  TOPFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  MIDFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  CORE_MID:Zone Air System Sensible Cooling Energy
+  CORE_TOP:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Cooling Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:CORE_BOTTOM [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  CORE_BOTTOM:Zone Air System Sensible Cooling Energy
+
+ For Meter=General:Cooling:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Cooling, contents are:
+  CORE_BOTTOM:Zone Air System Sensible Cooling Energy
+  TOPFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  MIDFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+  CORE_MID:Zone Air System Sensible Cooling Energy
+  CORE_TOP:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Cooling Energy
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:TOPFLOOR_PLENUM [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  TOPFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  TOPFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:TOPFLOOR_PLENUM [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  TOPFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:TOPFLOOR_PLENUM [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  TOPFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:MIDFLOOR_PLENUM [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  MIDFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  MIDFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:MIDFLOOR_PLENUM [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  MIDFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:MIDFLOOR_PLENUM [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  MIDFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:FIRSTFLOOR_PLENUM [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:FIRSTFLOOR_PLENUM [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:FIRSTFLOOR_PLENUM [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  FIRSTFLOOR_PLENUM:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:CORE_MID [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  CORE_MID:Zone Air System Sensible Heating Energy
+  CORE_MID:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:CORE_MID [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  CORE_MID:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:CORE_MID [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  CORE_MID:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:CORE_TOP [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  CORE_TOP:Zone Air System Sensible Heating Energy
+  CORE_TOP:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:CORE_TOP [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  CORE_TOP:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:CORE_TOP [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  CORE_TOP:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_3 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_TOP_ZN_3 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_TOP_ZN_3 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_3:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_2 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_TOP_ZN_2 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_TOP_ZN_2 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_2:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_1 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_TOP_ZN_1 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_TOP_ZN_1 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_1:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_TOP_ZN_4 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_TOP_ZN_4 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_TOP_ZN_4 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_TOP_ZN_4:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_3 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_BOT_ZN_3 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_BOT_ZN_3 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_3:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_2 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_BOT_ZN_2 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_BOT_ZN_2 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_2:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_1 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_BOT_ZN_1 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_BOT_ZN_1 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_1:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_BOT_ZN_4 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_BOT_ZN_4 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_BOT_ZN_4 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_BOT_ZN_4:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_MID_ZN_3 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_MID_ZN_3 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_MID_ZN_3 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_MID_ZN_3:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_MID_ZN_2 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_MID_ZN_2 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_MID_ZN_2 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_MID_ZN_2:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_MID_ZN_1 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_MID_ZN_1 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_MID_ZN_1 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_MID_ZN_1:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIMETER_MID_ZN_4 [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Heating Energy
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIMETER_MID_ZN_4 [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIMETER_MID_ZN_4 [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIMETER_MID_ZN_4:Zone Air System Sensible Cooling Energy
+
+ For Meter=DistrictHeating:Facility [J], ResourceType=DistrictHeating, contents are:
+  CORE_MID IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_2 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_3 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_4 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+
+ For Meter=DistrictHeating:HVAC [J], ResourceType=DistrictHeating, Group=HVAC, contents are:
+  CORE_MID IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_2 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_3 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_4 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+
+ For Meter=Heating:DistrictHeating [J], ResourceType=DistrictHeating, EndUse=Heating, contents are:
+  CORE_MID IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_2 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_3 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_4 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+
+ For Meter=General:Heating:DistrictHeating [J], ResourceType=DistrictHeating, EndUse=Heating, contents are:
+  CORE_MID IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_2 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_3 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+  PERIMETER_MID_ZN_4 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Heating Energy
+
+ For Meter=DistrictCooling:Facility [J], ResourceType=DistrictCooling, contents are:
+  CORE_MID IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_2 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_3 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_4 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+
+ For Meter=DistrictCooling:HVAC [J], ResourceType=DistrictCooling, Group=HVAC, contents are:
+  CORE_MID IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_2 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_3 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_4 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+
+ For Meter=Cooling:DistrictCooling [J], ResourceType=DistrictCooling, EndUse=Cooling, contents are:
+  CORE_MID IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_2 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_3 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_4 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+
+ For Meter=General:Cooling:DistrictCooling [J], ResourceType=DistrictCooling, EndUse=Cooling, contents are:
+  CORE_MID IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_2 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_3 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+  PERIMETER_MID_ZN_4 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy
+
+ For Meter=EnergyTransfer:HVAC [J], ResourceType=EnergyTransfer, Group=HVAC, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  DOAS HEATING COIL:Heating Coil Heating Energy
+  DOAS COOLING COIL:Cooling Coil Total Cooling Energy
+
+ For Meter=HeatingCoils:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=HeatingCoils, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Heating Energy
+  DOAS HEATING COIL:Heating Coil Heating Energy
+
+ For Meter=PlantLoopHeatingDemand:Facility [J], ResourceType=PlantLoopHeatingDemand, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  DOAS HEATING COIL:Heating Coil Source Side Heat Transfer Energy
+
+ For Meter=PlantLoopHeatingDemand:HVAC [J], ResourceType=PlantLoopHeatingDemand, Group=HVAC, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  DOAS HEATING COIL:Heating Coil Source Side Heat Transfer Energy
+
+ For Meter=HeatingCoils:PlantLoopHeatingDemand [J], ResourceType=PlantLoopHeatingDemand, EndUse=HeatingCoils, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Heating Fluid Heat Transfer Energy
+  DOAS HEATING COIL:Heating Coil Source Side Heat Transfer Energy
+
+ For Meter=CoolingCoils:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=CoolingCoils, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Cooling Energy
+  DOAS COOLING COIL:Cooling Coil Total Cooling Energy
+
+ For Meter=PlantLoopCoolingDemand:Facility [J], ResourceType=PlantLoopCoolingDemand, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  DOAS COOLING COIL:Cooling Coil Source Side Heat Transfer Energy
+
+ For Meter=PlantLoopCoolingDemand:HVAC [J], ResourceType=PlantLoopCoolingDemand, Group=HVAC, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  DOAS COOLING COIL:Cooling Coil Source Side Heat Transfer Energy
+
+ For Meter=CoolingCoils:PlantLoopCoolingDemand [J], ResourceType=PlantLoopCoolingDemand, EndUse=CoolingCoils, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Cooling Fluid Heat Transfer Energy
+  DOAS COOLING COIL:Cooling Coil Source Side Heat Transfer Energy
+
+ For Meter=Electricity:Plant [J], ResourceType=Electricity, Group=Plant, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  COOLSYS1 CHILLER1:Chiller Electric Energy
+  HP_RADSYS:Heat Pump Electric Energy
+  CHILLED WATER LOOP CHW SUPPLY PUMP2:Pump Electric Energy
+  HOT WATER LOOP HW SUPPLY PUMP2:Pump Electric Energy
+
+ For Meter=Pumps:Electricity [J], ResourceType=Electricity, EndUse=Pumps, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  CHILLED WATER LOOP CHW SUPPLY PUMP2:Pump Electric Energy
+  HOT WATER LOOP HW SUPPLY PUMP2:Pump Electric Energy
+
+ For Meter=General:Pumps:Electricity [J], ResourceType=Electricity, EndUse=Pumps, contents are:
+  CORE_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI1_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI2_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI3_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  PERI4_TOP_LOTEMP:Zone Radiant HVAC Pump Electric Energy
+  CHILLED WATER LOOP CHW SUPPLY PUMP2:Pump Electric Energy
+  HOT WATER LOOP HW SUPPLY PUMP2:Pump Electric Energy
+
+ For Meter=Electricity:HVAC [J], ResourceType=Electricity, Group=HVAC, contents are:
+  DOAS SUPPLY FAN:Fan Electric Energy
+
+ For Meter=Fans:Electricity [J], ResourceType=Electricity, EndUse=Fans, contents are:
+  DOAS SUPPLY FAN:Fan Electric Energy
+
+ For Meter=General:Fans:Electricity [J], ResourceType=Electricity, EndUse=Fans, contents are:
+  DOAS SUPPLY FAN:Fan Electric Energy
+
+ For Meter=ElectricityPurchased:Facility [J], ResourceType=ElectricityPurchased, contents are:
+  Whole Building:Facility Total Purchased Electric Energy
+
+ For Meter=ElectricityPurchased:Plant [J], ResourceType=ElectricityPurchased, Group=Plant, contents are:
+  Whole Building:Facility Total Purchased Electric Energy
+
+ For Meter=Cogeneration:ElectricityPurchased [J], ResourceType=ElectricityPurchased, EndUse=Cogeneration, contents are:
+  Whole Building:Facility Total Purchased Electric Energy
+
+ For Meter=General:Cogeneration:ElectricityPurchased [J], ResourceType=ElectricityPurchased, EndUse=Cogeneration, contents are:
+  Whole Building:Facility Total Purchased Electric Energy
+
+ For Meter=ElectricitySurplusSold:Facility [J], ResourceType=ElectricitySurplusSold, contents are:
+  Whole Building:Facility Total Surplus Electric Energy
+
+ For Meter=ElectricitySurplusSold:Plant [J], ResourceType=ElectricitySurplusSold, Group=Plant, contents are:
+  Whole Building:Facility Total Surplus Electric Energy
+
+ For Meter=Cogeneration:ElectricitySurplusSold [J], ResourceType=ElectricitySurplusSold, EndUse=Cogeneration, contents are:
+  Whole Building:Facility Total Surplus Electric Energy
+
+ For Meter=General:Cogeneration:ElectricitySurplusSold [J], ResourceType=ElectricitySurplusSold, EndUse=Cogeneration, contents are:
+  Whole Building:Facility Total Surplus Electric Energy
+
+ For Meter=ElectricityNet:Facility [J], ResourceType=ElectricityNet, contents are:
+  Whole Building:Facility Net Purchased Electric Energy
+
+ For Meter=ElectricityNet:Plant [J], ResourceType=ElectricityNet, Group=Plant, contents are:
+  Whole Building:Facility Net Purchased Electric Energy
+
+ For Meter=Cogeneration:ElectricityNet [J], ResourceType=ElectricityNet, EndUse=Cogeneration, contents are:
+  Whole Building:Facility Net Purchased Electric Energy
+
+ For Meter=General:Cogeneration:ElectricityNet [J], ResourceType=ElectricityNet, EndUse=Cogeneration, contents are:
+  Whole Building:Facility Net Purchased Electric Energy
+
+ For Meter=Cooling:Electricity [J], ResourceType=Electricity, EndUse=Cooling, contents are:
+  COOLSYS1 CHILLER1:Chiller Electric Energy
+
+ For Meter=General:Cooling:Electricity [J], ResourceType=Electricity, EndUse=Cooling, contents are:
+  COOLSYS1 CHILLER1:Chiller Electric Energy
+
+ For Meter=EnergyTransfer:Plant [J], ResourceType=EnergyTransfer, Group=Plant, contents are:
+  COOLSYS1 CHILLER1:Chiller Evaporator Cooling Energy
+  COOLSYS1 CHILLER1:Chiller Condenser Heat Transfer Energy
+  HP_RADSYS:Heat Pump Load Side Heat Transfer Energy
+
+ For Meter=Chillers:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Chillers, contents are:
+  COOLSYS1 CHILLER1:Chiller Evaporator Cooling Energy
+
+ For Meter=HeatRejection:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=HeatRejection, contents are:
+  COOLSYS1 CHILLER1:Chiller Condenser Heat Transfer Energy
+
+ For Meter=General:HeatRejection:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=HeatRejection, contents are:
+  COOLSYS1 CHILLER1:Chiller Condenser Heat Transfer Energy
+
+ For Meter=Heating:Electricity [J], ResourceType=Electricity, EndUse=Heating, contents are:
+  HP_RADSYS:Heat Pump Electric Energy
+
+ For Meter=Heat Pump:Heating:Electricity [J], ResourceType=Electricity, EndUse=Heating, contents are:
+  HP_RADSYS:Heat Pump Electric Energy
+
+ For Meter=Carbon Equivalent:Facility [kg], ResourceType=Carbon Equivalent, contents are:
+  Site:Environmental Impact Total N2O Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CH4 Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CO2 Emissions Carbon Equivalent Mass
+
+ For Meter=CarbonEquivalentEmissions:Carbon Equivalent [kg], ResourceType=Carbon Equivalent, EndUse=CarbonEquivalentEmissions, contents are:
+  Site:Environmental Impact Total N2O Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CH4 Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CO2 Emissions Carbon Equivalent Mass
