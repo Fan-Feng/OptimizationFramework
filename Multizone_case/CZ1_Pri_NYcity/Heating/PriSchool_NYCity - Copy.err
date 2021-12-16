@@ -1,11 +1,11 @@
-Program Version,EnergyPlus, Version 9.3.0-baff08990c, YMD=2021.12.09 05:24,
+Program Version,EnergyPlus, Version 9.3.0-baff08990c, YMD=2021.12.16 05:56,
    ** Warning ** Sizing:Parameters: note Timesteps in Averaging Window entered value=[6] is less than 1 hour (i.e., 20 timesteps).
    ************* Beginning Zone Sizing Calculations
    ** Warning ** Weather file location will be used rather than entered (IDF) Location object.
    **   ~~~   ** ..Location object=NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA WMO=744860
-   **   ~~~   ** ..Weather File Location=New York Central Prk Obs Belv NY USA TMY3 WMO#=725033
-   **   ~~~   ** ..due to location differences, Latitude difference=[0.12] degrees, Longitude difference=[0.17] degrees.
-   **   ~~~   ** ..Time Zone difference=[0.0] hour(s), Elevation difference=[471.43] percent, [33.00] meters.
+   **   ~~~   ** ..Weather File Location=Houston Bush Intercontinental TX USA TMY3 WMO#=722430
+   **   ~~~   ** ..due to location differences, Latitude difference=[10.66] degrees, Longitude difference=[21.57] degrees.
+   **   ~~~   ** ..Time Zone difference=[1.0] hour(s), Elevation difference=[314.29] percent, [22.00] meters.
    ** Warning ** The input file includes 2 MaterialProperty:PhaseChange objects but the conduction finite difference algorithm is not used anywhere.
    **   ~~~   ** Previous materials will be ignored due to HeatBalanceAlgorithm choice.
    ** Warning ** CheckUsedConstructions: There are 24 nominally unused constructions in input.
@@ -61,20 +61,14 @@ Program Version,EnergyPlus, Version 9.3.0-baff08990c, YMD=2021.12.09 05:24,
    **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:NoReheat = MULT_CLASS_2_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT
    ************* Beginning Plant Sizing Calculations
    ** Warning ** InitOAController: Maximum Outdoor Air Flow Rate for Controller:OutdoorAir=DOAS OA CONTROLLER is greater than Design Supply Air Flow Rate for AirLoopHVAC=DOAS.
-   **   ~~~   ** ...Maximum Outdoor Air Flow Rate=4.649270 will be reset to loop Design Supply Air Flow Rate=2.648970
+   **   ~~~   ** ...Maximum Outdoor Air Flow Rate=4.649270 will be reset to loop Design Supply Air Flow Rate=2.735011
    ** Warning ** In calculating the design coil UA for Coil:Cooling:Water DOAS COOLING COIL
    **   ~~~   ** the coil bypass factor is unrealistically large;
-   **   ~~~   ** The initial design conditions are: Tair,in = 31.9183
-   **   ~~~   **                                    Wair,in = 1.411931E-002
+   **   ~~~   ** The initial design conditions are: Tair,in = 31.8518
+   **   ~~~   **                                    Wair,in = 1.411919E-002
    **   ~~~   **                                    Twater,in = 7.0000
-   **   ~~~   **                                    Tair,out = 11.6441
+   **   ~~~   **                                    Tair,out = 11.6456
    **   ~~~   **                                    Wair,out = 9.240000E-003
-   ** Warning ** GetCurrentScheduleValue: Schedule="RADSYSAVAIL_TEST" is a Schedule:File
-   **   ~~~   ** ...Use of Schedule:File when DaylightSavingTime is in effect is not recommended.
-   **   ~~~   ** ...1) Remove RunperiodControl:DaylightSavingTime object or remove DST period from Weather File.
-   **   ~~~   ** ...2) Configure other schedules and Schedule:File to account for occupant behavior during DST.
-   **   ~~~   ** ...   If you have already done this, you can ignore this message.
-   **   ~~~   ** ...When active, DaylightSavingTime will shift all scheduled items by one hour, retaining the same day type as the original.
    ************* Testing Individual Branch Integrity
    ************* All Branches passed integrity testing
    ************* Testing Individual Supply Air Path Integrity
@@ -98,4 +92,4 @@ Program Version,EnergyPlus, Version 9.3.0-baff08990c, YMD=2021.12.09 05:24,
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 29 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 32 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 23.64sec
+   ************* EnergyPlus Completed Successfully-- 31 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 18.35sec

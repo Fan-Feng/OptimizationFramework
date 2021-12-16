@@ -66,7 +66,7 @@ def fitness_func(x,solution_idx):
 def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
-  SP_list = [15.6]*5+[17.6]+[19.6]*16+[15.6]*2 # [18,24]
+  SP_list = [11.6]*5+[17.6]+[19.6]*16+[11.6]*2 # [18,24]
   ThermalComfort_range = 0.5
   residuals = 0
   for j in range(5):
@@ -244,8 +244,8 @@ with MPIPool() as pool:
   pool.workers_exit() ## Only master process will proceed
   
   # simulation setup
-  start_time= 60*60*24*31 
-  final_time= 60*60*24*32
+  start_time= 60*60*24*22 
+  final_time= 60*60*24*23
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC

@@ -390,13 +390,13 @@ SizingPeriod:DesignDay,
 
 RunPeriod,
     RUNPERIOD 1,             !- Name
-    6,                       !- Begin Month
+    7,                       !- Begin Month
     1,                       !- Begin Day of Month
     ,                        !- Begin Year
-    10,                      !- End Month
-    4,                       !- End Day of Month
+    7,                       !- End Month
+    7,                       !- End Day of Month
     ,                        !- End Year
-    Sunday,                  !- Day of Week for Start Day
+    Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
     No,                      !- Apply Weekend Holiday Rule
@@ -465,13 +465,6 @@ RunPeriodControl:SpecialDays,
     4th Thursday in November,!- Start Date
     1,                       !- Duration {days}
     Holiday;                 !- Special Day Type
-
-
-!-   ===========  ALL OBJECTS IN CLASS: RUNPERIODCONTROL:DAYLIGHTSAVINGTIME ===========
-
-RunPeriodControl:DaylightSavingTime,
-    2nd Sunday in March,     !- Start Date
-    1st Sunday in November;  !- End Date
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:BUILDINGSURFACE ===========
@@ -660,7 +653,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    24.00;                   !- Field 4
+    25.00;                   !- Field 4
 
 Schedule:Compact,
     RADCOOLLOWCONTROLTEMP_Test,  !- Name
@@ -668,7 +661,7 @@ Schedule:Compact,
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    22.00;                   !- Field 4
+    21.00;                   !- Field 4
 
 Schedule:Compact,
     BLDG_LIGHT_BATH_SCH,     !- Name
@@ -2650,8 +2643,12 @@ Schedule:Compact,
     Until: 24:00,            !- Field 7
     0,                       !- Field 8
     For: AllOtherDays,       !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
+    Until: 07:00,            !- Field 10
+    0,                       !- Field 11
+    Until: 21:00,            !- Field 12
+    1,                       !- Field 13
+    Until: 24:00,            !- Field 14
+    0;                       !- Field 15
 
 Schedule:Compact,
     HTGSETP_SCH_NO_OPTIMUM,  !- Name
@@ -2682,26 +2679,28 @@ Schedule:Compact,
     HTGSETP_SCH_YES_OPTIMUM, !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
-    For: SummerDesignDay,    !- Field 2
-    Until: 24:00,            !- Field 3
+    For: WinterDesignDay,    !- Field 2
+    Until: 06:00,            !- Field 3
     15.6,                    !- Field 4
-    For: WinterDesignDay,    !- Field 5
-    Until: 24:00,            !- Field 6
-    21,                      !- Field 7
-    For: Weekdays,           !- Field 8
-    Until: 06:00,            !- Field 9
-    15.6,                    !- Field 10
-    Until: 07:00,            !- Field 11
-    17.8,                    !- Field 12
-    Until: 08:00,            !- Field 13
-    20.0,                    !- Field 14
-    Until: 21:00,            !- Field 15
-    21.0,                    !- Field 16
-    Until: 24:00,            !- Field 17
-    15.6,                    !- Field 18
-    For: WeekEnds Holidays AllOtherDays,  !- Field 19
-    Until: 24:00,            !- Field 20
-    15.6;                    !- Field 21
+    Until: 07:00,            !- Field 5
+    17.8,                    !- Field 6
+    Until: 08:00,            !- Field 7
+    20.0,                    !- Field 8
+    Until: 21:00,            !- Field 9
+    21.0,                    !- Field 10
+    Until: 24:00,            !- Field 11
+    15.6,                    !- Field 12
+    For: AllOtherDays,       !- Field 13
+    Until: 06:00,            !- Field 14
+    11.6,                    !- Field 15
+    Until: 07:00,            !- Field 16
+    17.8,                    !- Field 17
+    Until: 08:00,            !- Field 18
+    20.0,                    !- Field 19
+    Until: 21:00,            !- Field 20
+    21.0,                    !- Field 21
+    Until: 24:00,            !- Field 22
+    11.6;                    !- Field 23
 
 Schedule:Compact,
     HTGSETP_SCH_YES_OPTIMUM_w_SB,  !- Name
@@ -3065,9 +3064,9 @@ Schedule:Compact,
     For: WinterDesignDay,    !- Field 5
     Until: 24:00,            !- Field 6
     26.7,                    !- Field 7
-    For: Weekdays,           !- Field 8
+    For: AllOtherDays,       !- Field 8
     Until: 06:00,            !- Field 9
-    26.7,                    !- Field 10
+    30.7,                    !- Field 10
     Until: 07:00,            !- Field 11
     25.6,                    !- Field 12
     Until: 08:00,            !- Field 13
@@ -3075,10 +3074,7 @@ Schedule:Compact,
     Until: 21:00,            !- Field 15
     24.0,                    !- Field 16
     Until: 24:00,            !- Field 17
-    26.7,                    !- Field 18
-    For: WeekEnds Holidays AllOtherDays,  !- Field 19
-    Until: 24:00,            !- Field 20
-    26.7;                    !- Field 21
+    30.7;                    !- Field 18
 
 Schedule:Compact,
     CLGSETP_SCH_Yes_Optimum_w_SB,  !- Name
@@ -16427,10 +16423,5 @@ Output:Variable,
 Output:Variable,
     *,                       !- Key Value
     Chiller Electric Power,  !- Variable Name
-    hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    *,                       !- Key Value
-    Site Outdoor Air Drybulb Temperature,  !- Variable Name
     hourly;                  !- Reporting Frequency
 
