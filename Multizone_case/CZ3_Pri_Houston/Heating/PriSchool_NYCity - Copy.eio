@@ -1,0 +1,667 @@
+Program Version,EnergyPlus, Version 9.3.0-baff08990c, YMD=2021.12.16 05:56
+! <Version>, Version ID
+ Version, 9.3
+! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
+ Timesteps per Hour, 20,  3
+! <System Convergence Limits>, Minimum System TimeStep {minutes}, Max HVAC Iterations, Minimum Plant Iterations, Maximum Plant Iterations
+ System Convergence Limits, 1, 20, 2, 8
+! <Simulation Control>, Do Zone Sizing, Do System Sizing, Do Plant Sizing, Do Design Days, Do Weather Simulation, Do HVAC Sizing Simulation
+ Simulation Control, Yes, Yes, Yes, No, Yes, No
+! <Performance Precision Tradeoffs>, Use Coil Direct Simulation, Zone Radiant Exchange Algorithm, Override Mode, Number of Timestep In Hour, Force Euler Method, Minimum Number of Warmup Days, Force Suppress All Begin Environment Resets, MaxZoneTempDiff
+ Performance Precision Tradeoffs, No, ScriptF, Normal, 20, No, 1, No, 0.300
+! <Output Reporting Tolerances>, Tolerance for Time Heating Setpoint Not Met, Tolerance for Zone Cooling Setpoint Not Met Time
+ Output Reporting Tolerances, 0.200, 0.200, 
+! <Site:GroundTemperature:BuildingSurface>,Jan{C},Feb{C},Mar{C},Apr{C},May{C},Jun{C},Jul{C},Aug{C},Sep{C},Oct{C},Nov{C},Dec{C}
+ Site:GroundTemperature:BuildingSurface,  19.71,  19.66,  19.71,  19.75,  20.49,  22.11,  22.46,  22.55,  22.17,  20.61,  20.05,  19.80
+! <Site:GroundTemperature:FCfactorMethod>,Jan{C},Feb{C},Mar{C},Apr{C},May{C},Jun{C},Jul{C},Aug{C},Sep{C},Oct{C},Nov{C},Dec{C}
+ Site:GroundTemperature:FCfactorMethod,  14.00,   7.30,   3.30,   1.20,  -0.20,   5.60,  10.90,  16.10,  21.70,  25.00,  24.80,  19.90
+! <Site:GroundTemperature:Shallow>,Jan{C},Feb{C},Mar{C},Apr{C},May{C},Jun{C},Jul{C},Aug{C},Sep{C},Oct{C},Nov{C},Dec{C}
+ Site:GroundTemperature:Shallow,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00
+! <Site:GroundTemperature:Deep>,Jan{C},Feb{C},Mar{C},Apr{C},May{C},Jun{C},Jul{C},Aug{C},Sep{C},Oct{C},Nov{C},Dec{C}
+ Site:GroundTemperature:Deep,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00
+! <Site:GroundReflectance>,Jan{dimensionless},Feb{dimensionless},Mar{dimensionless},Apr{dimensionless},May{dimensionless},Jun{dimensionless},Jul{dimensionless},Aug{dimensionless},Sep{dimensionless},Oct{dimensionless},Nov{dimensionless},Dec{dimensionless}
+ Site:GroundReflectance,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:SnowModifier>, Normal, Daylighting {dimensionless}
+ Site:GroundReflectance:SnowModifier,   1.000,   1.000
+! <Site:GroundReflectance:Snow>,Jan{dimensionless},Feb{dimensionless},Mar{dimensionless},Apr{dimensionless},May{dimensionless},Jun{dimensionless},Jul{dimensionless},Aug{dimensionless},Sep{dimensionless},Oct{dimensionless},Nov{dimensionless},Dec{dimensionless}
+ Site:GroundReflectance:Snow,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:Snow:Daylighting>,Jan{dimensionless},Feb{dimensionless},Mar{dimensionless},Apr{dimensionless},May{dimensionless},Jun{dimensionless},Jul{dimensionless},Aug{dimensionless},Sep{dimensionless},Oct{dimensionless},Nov{dimensionless},Dec{dimensionless}
+ Site:GroundReflectance:Snow:Daylighting,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Environment:Weather Station>,Wind Sensor Height Above Ground {m},Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Sensor Height Above Ground {m},Wind Speed Modifier Coefficient-Internal,Temperature Modifier Coefficient-Internal
+Environment:Weather Station,10.000,0.140,270.000,1.500,1.586,9.750E-003
+! <Site:Location>, Location Name, Latitude {N+/S- Deg}, Longitude {E+/W- Deg},  Time Zone Number {GMT+/-}, Elevation {m},  Standard Pressure at Elevation {Pa}, Standard RhoAir at Elevation
+Site:Location,Houston Bush Intercontinental TX USA TMY3 WMO#=722430,30.00,-95.37,-6.00,29.00,100977,1.2002
+! <Site Water Mains Temperature Information>,Calculation Method{},Water Mains Temperature Schedule Name{},Annual Average Outdoor Air Temperature{C},Maximum Difference In Monthly Average Outdoor Air Temperatures{deltaC},Fixed Default Water Mains Temperature{C}
+Site Water Mains Temperature Information,Correlation,NA,12.47,25.20,NA
+! <Building Information>, Building Name,North Axis {deg},Terrain,  Loads Convergence Tolerance Value,Temperature Convergence Tolerance Value,  Solar Distribution,Maximum Number of Warmup Days,Minimum Number of Warmup Days
+ Building Information,SchoolPrimary,0.000,City,4.00000E-002,0.20000,FullInteriorAndExterior,25,6
+! <Inside Convection Algorithm>, Algorithm {Simple | TARP | CeilingDiffuser | AdaptiveConvectionAlgorithm}
+Inside Convection Algorithm,TARP
+! <Outside Convection Algorithm>, Algorithm {SimpleCombined | TARP | MoWitt | DOE-2 | AdaptiveConvectionAlgorithm}
+Outside Convection Algorithm,TARP
+! <Sky Radiance Distribution>, Value {Anisotropic}
+Sky Radiance Distribution,Anisotropic
+! <Zone Air Solution Algorithm>, Value {ThirdOrderBackwardDifference | AnalyticalSolution | EulerMethod}
+ Zone Air Solution Algorithm, ThirdOrderBackwardDifference
+! <Zone Air Carbon Dioxide Balance Simulation>, Simulation {Yes/No}, Carbon Dioxide Concentration
+ Zone Air Carbon Dioxide Balance Simulation, No,N/A
+! <Zone Air Generic Contaminant Balance Simulation>, Simulation {Yes/No}, Generic Contaminant Concentration
+ Zone Air Generic Contaminant Balance Simulation, No,N/A
+! <Zone Air Mass Flow Balance Simulation>, Enforce Mass Balance, Adjust Zone Mixing, Adjust Zone Infiltration {AddInfiltration | AdjustInfiltration | None}, Infiltration Zones {MixingSourceZonesOnly | AllZones}
+ Zone Air Mass Flow Balance Simulation, No,N/A,N/A,N/A
+! <HVACSystemRootFindingAlgorithm>, Value {RegulaFalsi | Bisection | BisectionThenRegulaFalsi | RegulaFalsiThenBisection}
+ HVACSystemRootFindingAlgorithm, RegulaFalsi
+! <Environment:Site Atmospheric Variation>,Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Gradient Coefficient {K/m}
+Environment:Site Atmospheric Variation,0.330,460.000,6.500000E-003
+! <Surface Geometry>,Starting Corner,Vertex Input Direction,Coordinate System,Daylight Reference Point Coordinate System,Rectangular (Simple) Surface Coordinate System
+ Surface Geometry,UpperLeftCorner,Counterclockwise,RelativeCoordinateSystem,RelativeCoordinateSystem,RelativeToZoneOrigin
+! <Surface Heat Transfer Algorithm>, Value {CTF - ConductionTransferFunction | EMPD - MoisturePenetrationDepthConductionTransferFunction | CondFD - ConductionFiniteDifference | HAMT - CombinedHeatAndMoistureFiniteElement} - Description,Inside Surface Max Temperature Limit{C}, Surface Convection Coefficient Lower Limit {W/m2-K}, Surface Convection Coefficient Upper Limit {W/m2-K}
+Surface Heat Transfer Algorithm, CTF - ConductionTransferFunction,200,0.10,1000.0
+! <Shading Summary>, Number of Fixed Detached Shades, Number of Building Detached Shades, Number of Attached Shades
+ Shading Summary,0,0,0
+! <Zone Summary>, Number of Zones, Number of Zone Surfaces, Number of SubSurfaces
+ Zone Summary,25,288,92
+! <Zone Information>,Zone Name,North Axis {deg},Origin X-Coordinate {m},Origin Y-Coordinate {m},Origin Z-Coordinate {m},Centroid X-Coordinate {m},Centroid Y-Coordinate {m},Centroid Z-Coordinate {m},Type,Zone Multiplier,Zone List Multiplier,Minimum X {m},Maximum X {m},Minimum Y {m},Maximum Y {m},Minimum Z {m},Maximum Z {m},Ceiling Height {m},Volume {m3},Zone Inside Convection Algorithm {Simple-Detailed-CeilingDiffuser-TrombeWall},Zone Outside Convection Algorithm {Simple-Detailed-Tarp-MoWitt-DOE-2-BLAST}, Floor Area {m2},Exterior Gross Wall Area {m2},Exterior Net Wall Area {m2},Exterior Window Area {m2}, Number of Surfaces, Number of SubSurfaces, Number of Shading SubSurfaces,  Part of Total Building Area
+ Zone Information, CORNER_CLASS_1_POD_1_ZN_1_FLR_1,0.0,-64.00,0.00,0.00,-58.50,4.50,2.00,1,1,1,-64.00,-53.00,0.00,9.00,0.00,4.00,4.00,396.00,TARP,TARP,99.00,80.00,50.05,28.00,6,4,0,Yes
+ Zone Information, MULT_CLASS_1_POD_1_ZN_1_FLR_1,0.0,-53.00,0.00,0.00,-26.50,4.50,2.00,1,1,1,-53.00,0.00,0.00,9.00,0.00,4.00,4.00,1908.00,TARP,TARP,477.00,212.00,133.90,74.20,6,5,0,Yes
+ Zone Information, CORRIDOR_POD_1_ZN_1_FLR_1,0.0,-64.00,9.00,0.00,-32.00,10.50,2.00,1,1,1,-64.00,0.00,9.00,12.00,0.00,4.00,4.00,768.00,TARP,TARP,192.00,12.00,7.80,4.20,8,1,0,Yes
+ Zone Information, CORNER_CLASS_2_POD_1_ZN_1_FLR_1,0.0,-64.00,12.00,0.00,-58.50,16.50,2.00,1,1,1,-64.00,-53.00,12.00,21.00,0.00,4.00,4.00,396.00,TARP,TARP,99.00,80.00,50.05,28.00,6,4,0,Yes
+ Zone Information, MULT_CLASS_2_POD_1_ZN_1_FLR_1,0.0,-53.00,12.00,0.00,-26.50,16.50,2.00,1,1,1,-53.00,0.00,12.00,21.00,0.00,4.00,4.00,1908.00,TARP,TARP,477.00,212.00,133.90,74.20,6,5,0,Yes
+ Zone Information, CORNER_CLASS_1_POD_2_ZN_1_FLR_1,0.0,-64.00,30.00,0.00,-58.50,34.50,2.00,1,1,1,-64.00,-53.00,30.00,39.00,0.00,4.00,4.00,396.00,TARP,TARP,99.00,80.00,50.05,28.00,6,4,0,Yes
+ Zone Information, MULT_CLASS_1_POD_2_ZN_1_FLR_1,0.0,-53.00,30.00,0.00,-26.50,34.50,2.00,1,1,1,-53.00,0.00,30.00,39.00,0.00,4.00,4.00,1908.00,TARP,TARP,477.00,212.00,133.90,74.20,6,5,0,Yes
+ Zone Information, CORRIDOR_POD_2_ZN_1_FLR_1,0.0,-64.00,39.00,0.00,-32.00,40.50,2.00,1,1,1,-64.00,0.00,39.00,42.00,0.00,4.00,4.00,768.00,TARP,TARP,192.00,12.00,7.80,4.20,8,1,0,Yes
+ Zone Information, CORNER_CLASS_2_POD_2_ZN_1_FLR_1,0.0,-64.00,42.00,0.00,-58.50,46.50,2.00,1,1,1,-64.00,-53.00,42.00,51.00,0.00,4.00,4.00,396.00,TARP,TARP,99.00,80.00,50.05,28.00,6,4,0,Yes
+ Zone Information, MULT_CLASS_2_POD_2_ZN_1_FLR_1,0.0,-53.00,42.00,0.00,-26.50,46.50,2.00,1,1,1,-53.00,0.00,42.00,51.00,0.00,4.00,4.00,1908.00,TARP,TARP,477.00,212.00,133.90,74.20,6,5,0,Yes
+ Zone Information, CORNER_CLASS_1_POD_3_ZN_1_FLR_1,0.0,-64.00,61.00,0.00,-58.50,65.50,2.00,1,1,1,-64.00,-53.00,61.00,70.00,0.00,4.00,4.00,396.00,TARP,TARP,99.00,80.00,50.05,28.00,6,4,0,Yes
+ Zone Information, MULT_CLASS_1_POD_3_ZN_1_FLR_1,0.0,-53.00,61.00,0.00,-26.50,65.50,2.00,1,1,1,-53.00,0.00,61.00,70.00,0.00,4.00,4.00,1908.00,TARP,TARP,477.00,212.00,133.90,74.20,6,5,0,Yes
+ Zone Information, CORRIDOR_POD_3_ZN_1_FLR_1,0.0,-64.00,70.00,0.00,-32.00,71.50,2.00,1,1,1,-64.00,0.00,70.00,73.00,0.00,4.00,4.00,768.00,TARP,TARP,192.00,12.00,7.80,4.20,9,1,0,Yes
+ Zone Information, CORNER_CLASS_2_POD_3_ZN_1_FLR_1,0.0,-64.00,73.00,0.00,-58.50,77.50,2.00,1,1,1,-64.00,-53.00,73.00,82.00,0.00,4.00,4.00,396.00,TARP,TARP,99.00,80.00,50.10,27.95,6,4,0,Yes
+ Zone Information, MULT_CLASS_2_POD_3_ZN_1_FLR_1,0.0,-53.00,73.00,0.00,-35.50,77.50,2.00,1,1,1,-53.00,-18.00,73.00,82.00,0.00,4.00,4.00,1260.00,TARP,TARP,315.00,140.00,87.10,49.00,6,5,0,Yes
+ Zone Information, COMPUTER_CLASS_ZN_1_FLR_1,0.0,-18.00,73.00,0.00,-9.00,77.50,2.00,1,1,1,-18.00,0.00,73.00,82.00,0.00,4.00,4.00,648.00,TARP,TARP,162.00,72.00,44.85,25.20,6,3,0,Yes
+ Zone Information, MAIN_CORRIDOR_ZN_1_FLR_1,0.0,0.00,9.00,0.00,6.50,30.00,2.00,1,1,1,0.00,13.00,9.00,51.00,0.00,4.00,4.00,2184.00,TARP,TARP,546.00,36.00,21.45,12.60,11,3,0,Yes
+ Zone Information, LOBBY_ZN_1_FLR_1,0.0,0.00,0.00,0.00,9.50,4.50,2.00,1,1,1,0.00,19.00,0.00,9.00,0.00,4.00,4.00,684.00,TARP,TARP,171.00,76.00,47.45,26.60,7,3,0,Yes
+ Zone Information, MECH_ZN_1_FLR_1,0.0,13.00,9.00,0.00,16.00,30.00,2.00,1,1,1,13.00,19.00,9.00,51.00,0.00,4.00,4.00,1008.00,TARP,TARP,252.00,0.00,0.00,0.00,9,0,0,Yes
+ Zone Information, BATH_ZN_1_FLR_1,0.0,0.00,51.00,0.00,9.50,56.00,2.00,1,1,1,0.00,19.00,51.00,61.00,0.00,4.00,4.00,760.00,TARP,TARP,190.00,40.00,26.00,14.00,7,1,0,Yes
+ Zone Information, OFFICES_ZN_1_FLR_1,0.0,19.00,0.00,0.00,29.50,10.50,2.00,1,1,1,19.00,40.00,0.00,21.00,0.00,4.00,4.00,1764.00,TARP,TARP,441.00,168.00,107.25,58.80,7,4,0,Yes
+ Zone Information, GYM_ZN_1_FLR_1,0.0,19.00,21.00,0.00,29.50,29.50,2.00,1,1,1,19.00,40.00,21.00,38.00,0.00,4.00,4.00,1428.00,TARP,TARP,357.00,68.00,42.25,37.18,6,12,0,Yes
+ Zone Information, KITCHEN_ZN_1_FLR_1,0.0,19.00,38.00,0.00,29.50,42.00,2.00,1,1,1,19.00,40.00,38.00,46.00,0.00,4.00,4.00,672.00,TARP,TARP,168.00,32.00,20.80,11.20,6,1,0,Yes
+ Zone Information, CAFETERIA_ZN_1_FLR_1,0.0,19.00,46.00,0.00,29.50,53.50,2.00,1,1,1,19.00,40.00,46.00,61.00,0.00,4.00,4.00,1260.00,TARP,TARP,315.00,144.00,91.65,50.40,7,4,0,Yes
+ Zone Information, LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,0.0,0.00,61.00,0.00,9.50,71.50,2.00,1,1,1,0.00,19.00,61.00,82.00,0.00,4.00,4.00,1596.00,TARP,TARP,399.00,160.00,102.05,56.00,8,4,0,Yes
+! <Zone Internal Gains Nominal>,Zone Name, Floor Area {m2},# Occupants,Area per Occupant {m2/person},Occupant per Area {person/m2},Interior Lighting {W/m2},Electric Load {W/m2},Gas Load {W/m2},Other Load {W/m2},Hot Water Eq {W/m2},Steam Equipment {W/m2},Sum Loads per Area {W/m2},Outdoor Controlled Baseboard Heat
+ Zone Internal Gains Nominal, CORNER_CLASS_1_POD_1_ZN_1_FLR_1,99.00,26.6,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, MULT_CLASS_1_POD_1_ZN_1_FLR_1,477.00,128.4,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, CORRIDOR_POD_1_ZN_1_FLR_1,192.00,0.0,N/A,0.000,4.413,4.000,0.000,0.000,0.000,0.000,8.413,No
+ Zone Internal Gains Nominal, CORNER_CLASS_2_POD_1_ZN_1_FLR_1,99.00,26.6,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, MULT_CLASS_2_POD_1_ZN_1_FLR_1,477.00,128.4,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, CORNER_CLASS_1_POD_2_ZN_1_FLR_1,99.00,26.6,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, MULT_CLASS_1_POD_2_ZN_1_FLR_1,477.00,128.4,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, CORRIDOR_POD_2_ZN_1_FLR_1,192.00,0.0,N/A,0.000,4.413,4.000,0.000,0.000,0.000,0.000,8.413,No
+ Zone Internal Gains Nominal, CORNER_CLASS_2_POD_2_ZN_1_FLR_1,99.00,26.6,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, MULT_CLASS_2_POD_2_ZN_1_FLR_1,477.00,128.4,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, CORNER_CLASS_1_POD_3_ZN_1_FLR_1,99.00,26.6,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, MULT_CLASS_1_POD_3_ZN_1_FLR_1,477.00,128.4,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, CORRIDOR_POD_3_ZN_1_FLR_1,192.00,0.0,N/A,0.000,4.413,4.000,0.000,0.000,0.000,0.000,8.413,No
+ Zone Internal Gains Nominal, CORNER_CLASS_2_POD_3_ZN_1_FLR_1,99.00,26.6,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, MULT_CLASS_2_POD_3_ZN_1_FLR_1,315.00,84.8,3.716,0.269,7.642,15.000,0.000,0.000,0.000,0.000,22.642,No
+ Zone Internal Gains Nominal, COMPUTER_CLASS_ZN_1_FLR_1,162.00,43.6,3.716,0.269,7.642,20.000,0.000,0.000,0.000,0.000,27.642,No
+ Zone Internal Gains Nominal, MAIN_CORRIDOR_ZN_1_FLR_1,546.00,0.0,N/A,0.000,4.413,4.000,0.000,0.000,0.000,0.000,8.413,No
+ Zone Internal Gains Nominal, LOBBY_ZN_1_FLR_1,171.00,0.0,N/A,0.000,9.042,4.000,0.000,0.000,0.000,0.000,13.042,No
+ Zone Internal Gains Nominal, MECH_ZN_1_FLR_1,252.00,0.0,N/A,0.000,10.226,10.000,0.000,0.000,0.000,0.000,20.226,No
+ Zone Internal Gains Nominal, BATH_ZN_1_FLR_1,190.00,0.0,N/A,0.000,6.781,4.000,0.000,0.000,0.000,0.000,10.781,No
+ Zone Internal Gains Nominal, OFFICES_ZN_1_FLR_1,441.00,23.7,18.579,5.382E-002,7.965,10.800,0.000,0.000,0.000,0.000,18.765,No
+ Zone Internal Gains Nominal, GYM_ZN_1_FLR_1,357.00,115.3,3.096,0.323,9.688,5.000,0.000,0.000,0.000,0.000,14.688,No
+ Zone Internal Gains Nominal, KITCHEN_ZN_1_FLR_1,168.00,27.0,6.222,0.161,11.733,195.618,1431.100,0.000,0.000,0.000,1638.451,No
+ Zone Internal Gains Nominal, CAFETERIA_ZN_1_FLR_1,315.00,339.1,0.929,1.076,4.306,25.390,0.000,0.000,0.000,0.000,29.696,No
+ Zone Internal Gains Nominal, LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,399.00,43.0,9.289,0.108,8.934,15.000,0.000,0.000,0.000,0.000,23.934,No
+! <People Internal Gains Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Number of People {},People/Floor Area {person/m2},Floor Area per person {m2/person},Fraction Radiant,Fraction Convected,Sensible Fraction Calculation,Activity level,ASHRAE 55 Warnings,Carbon Dioxide Generation Rate,Nominal Minimum Number of People,Nominal Maximum Number of People,MRT Calculation Type,Work Efficiency, Clothing Insulation Calculation Method,Clothing Insulation Calculation Method Schedule,Clothing,Air Velocity,Fanger Calculation,Pierce Calculation,KSU Calculation
+ People Internal Gains Nominal, CORNER_CLASS_1_POD_1_ZN_1_FLR_1,BLDG_OCC_SCH,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,99.00,26.6,26.6,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,25,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, MULT_CLASS_1_POD_1_ZN_1_FLR_1,BLDG_OCC_SCH,MULT_CLASS_1_POD_1_ZN_1_FLR_1,477.00,128.4,128.4,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,122,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, CORRIDOR_POD_1_ZN_1_FLR_1,BLDG_OCC_SCH,CORRIDOR_POD_1_ZN_1_FLR_1,192.00,0.0,0.0,0.000,N/A,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,0,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, CORNER_CLASS_2_POD_1_ZN_1_FLR_1,BLDG_OCC_SCH,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,99.00,26.6,26.6,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,25,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, MULT_CLASS_2_POD_1_ZN_1_FLR_1,BLDG_OCC_SCH,MULT_CLASS_2_POD_1_ZN_1_FLR_1,477.00,128.4,128.4,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,122,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, CORNER_CLASS_1_POD_2_ZN_1_FLR_1,BLDG_OCC_SCH,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,99.00,26.6,26.6,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,25,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, MULT_CLASS_1_POD_2_ZN_1_FLR_1,BLDG_OCC_SCH,MULT_CLASS_1_POD_2_ZN_1_FLR_1,477.00,128.4,128.4,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,122,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, CORRIDOR_POD_2_ZN_1_FLR_1,BLDG_OCC_SCH,CORRIDOR_POD_2_ZN_1_FLR_1,192.00,0.0,0.0,0.000,N/A,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,0,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, CORNER_CLASS_2_POD_2_ZN_1_FLR_1,BLDG_OCC_SCH,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,99.00,26.6,26.6,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,25,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, MULT_CLASS_2_POD_2_ZN_1_FLR_1,BLDG_OCC_SCH,MULT_CLASS_2_POD_2_ZN_1_FLR_1,477.00,128.4,128.4,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,122,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, CORNER_CLASS_1_POD_3_ZN_1_FLR_1,BLDG_OCC_SCH,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,99.00,26.6,26.6,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,25,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, MULT_CLASS_1_POD_3_ZN_1_FLR_1,BLDG_OCC_SCH,MULT_CLASS_1_POD_3_ZN_1_FLR_1,477.00,128.4,128.4,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,122,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, CORRIDOR_POD_3_ZN_1_FLR_1,BLDG_OCC_SCH,CORRIDOR_POD_3_ZN_1_FLR_1,192.00,0.0,0.0,0.000,N/A,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,0,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, CORNER_CLASS_2_POD_3_ZN_1_FLR_1,BLDG_OCC_SCH,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,99.00,26.6,26.6,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,25,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, MULT_CLASS_2_POD_3_ZN_1_FLR_1,BLDG_OCC_SCH,MULT_CLASS_2_POD_3_ZN_1_FLR_1,315.00,84.8,84.8,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,81,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, COMPUTER_CLASS_ZN_1_FLR_1,BLDG_OCC_SCH_EXTEND,COMPUTER_CLASS_ZN_1_FLR_1,162.00,43.6,43.6,0.269,3.716,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,41,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, MECH_ZN_1_FLR_1,BLDG_OCC_SCH,MECH_ZN_1_FLR_1,252.00,0.0,0.0,0.000,N/A,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,0,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, BATH_ZN_1_FLR_1,BLDG_OCC_SCH,BATH_ZN_1_FLR_1,190.00,0.0,0.0,0.000,N/A,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,0,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, OFFICES_ZN_1_FLR_1,BLDG_OCC_SCH_OFFICES_W_SB,OFFICES_ZN_1_FLR_1,441.00,23.7,23.7,5.382E-002,18.579,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,23,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, GYM_ZN_1_FLR_1,BLDG_OCC_SCH_GYM,GYM_ZN_1_FLR_1,357.00,115.3,115.3,0.323,3.096,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,110,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, KITCHEN_ZN_1_FLR_1,BLDG_OCC_SCH,KITCHEN_ZN_1_FLR_1,168.00,27.0,27.0,0.161,6.222,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,26,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, CAFETERIA_ZN_1_FLR_1,BLDG_OCC_SCH_CAFETERIA,CAFETERIA_ZN_1_FLR_1,315.00,339.1,339.1,1.076,0.929,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,322,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+ People Internal Gains Nominal, LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,BLDG_OCC_SCH,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,399.00,43.0,43.0,0.108,9.289,0.300,0.700,AutoCalculate,ACTIVITY_SCH,No,3.8200E-008,0,41,Zone Averaged,WORK_EFF_SCH,Clothing Insulation Schedule,N/A,CLOTHING_SCH,AIR_VELO_SCH,Yes,No,No
+! <Lights Internal Gains Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Lighting Level {W},Lights/Floor Area {W/m2},Lights per person {W/person},Fraction Return Air,Fraction Radiant,Fraction Short Wave,Fraction Convected,Fraction Replaceable,End-Use Category,Nominal Minimum Lighting Level {W},Nominal Maximum Lighting Level {W}
+ Lights Internal Gains Nominal, CORNER_CLASS_1_POD_1_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,99.00,26.6,756.595,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,756.595
+ Lights Internal Gains Nominal, MULT_CLASS_1_POD_1_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,MULT_CLASS_1_POD_1_ZN_1_FLR_1,477.00,128.4,3645.414,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,3645.414
+ Lights Internal Gains Nominal, CORRIDOR_POD_1_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CORRIDOR_SCH,CORRIDOR_POD_1_ZN_1_FLR_1,192.00,0.0,847.335,4.413,N/A,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,847.335
+ Lights Internal Gains Nominal, CORNER_CLASS_2_POD_1_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,99.00,26.6,756.595,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,756.595
+ Lights Internal Gains Nominal, MULT_CLASS_2_POD_1_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,MULT_CLASS_2_POD_1_ZN_1_FLR_1,477.00,128.4,3645.414,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,3645.414
+ Lights Internal Gains Nominal, CORNER_CLASS_1_POD_2_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,99.00,26.6,756.595,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,756.595
+ Lights Internal Gains Nominal, MULT_CLASS_1_POD_2_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,MULT_CLASS_1_POD_2_ZN_1_FLR_1,477.00,128.4,3645.414,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,3645.414
+ Lights Internal Gains Nominal, CORRIDOR_POD_2_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CORRIDOR_SCH,CORRIDOR_POD_2_ZN_1_FLR_1,192.00,0.0,847.335,4.413,N/A,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,847.335
+ Lights Internal Gains Nominal, CORNER_CLASS_2_POD_2_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,99.00,26.6,756.595,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,756.595
+ Lights Internal Gains Nominal, MULT_CLASS_2_POD_2_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,MULT_CLASS_2_POD_2_ZN_1_FLR_1,477.00,128.4,3645.414,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,3645.414
+ Lights Internal Gains Nominal, CORNER_CLASS_1_POD_3_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,99.00,26.6,756.595,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,756.595
+ Lights Internal Gains Nominal, MULT_CLASS_1_POD_3_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,MULT_CLASS_1_POD_3_ZN_1_FLR_1,477.00,128.4,3645.414,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,3645.414
+ Lights Internal Gains Nominal, CORRIDOR_POD_3_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CORRIDOR_SCH,CORRIDOR_POD_3_ZN_1_FLR_1,192.00,0.0,847.335,4.413,N/A,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,847.335
+ Lights Internal Gains Nominal, CORNER_CLASS_2_POD_3_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,99.00,26.6,756.595,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,756.595
+ Lights Internal Gains Nominal, MULT_CLASS_2_POD_3_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CLASSROOM_SCH,MULT_CLASS_2_POD_3_ZN_1_FLR_1,315.00,84.8,2407.349,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,2407.349
+ Lights Internal Gains Nominal, COMPUTER_CLASS_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_SCH,COMPUTER_CLASS_ZN_1_FLR_1,162.00,43.6,1238.065,7.642,28.399,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,1238.065
+ Lights Internal Gains Nominal, MAIN_CORRIDOR_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_CORRIDOR_SCH,MAIN_CORRIDOR_ZN_1_FLR_1,546.00,0.0,2409.609,4.413,N/A,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,2409.609
+ Lights Internal Gains Nominal, LOBBY_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_LOBBYFLR1_SCH,LOBBY_ZN_1_FLR_1,171.00,0.0,1546.128,9.042,N/A,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,1546.128
+ Lights Internal Gains Nominal, MECH_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_SCH,MECH_ZN_1_FLR_1,252.00,0.0,2576.880,10.226,N/A,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,2576.880
+ Lights Internal Gains Nominal, BATH_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_BATH_SCH,BATH_ZN_1_FLR_1,190.00,0.0,1288.440,6.781,N/A,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,1288.440
+ Lights Internal Gains Nominal, OFFICES_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_OFFICE_SCH,OFFICES_ZN_1_FLR_1,441.00,23.7,3512.695,7.965,147.987,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,3512.695
+ Lights Internal Gains Nominal, GYM_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_GYM_SCH,GYM_ZN_1_FLR_1,357.00,115.3,3458.444,9.688,29.993,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,3458.444
+ Lights Internal Gains Nominal, KITCHEN_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_SCH,KITCHEN_ZN_1_FLR_1,168.00,27.0,1971.087,11.733,73.003,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,1971.087
+ Lights Internal Gains Nominal, CAFETERIA_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_SCH,CAFETERIA_ZN_1_FLR_1,315.00,339.1,1356.253,4.306,4.000,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,1356.253
+ Lights Internal Gains Nominal, LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_LIGHTS,BLDG_LIGHT_LIBRARY_SCH,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,399.00,43.0,3564.684,8.934,82.988,0.000,0.370,0.200,0.430,1.000,LightsWired,0.000,3564.684
+! <ElectricEquipment Internal Gains Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Equipment Level {W},Equipment/Floor Area {W/m2},Equipment per person {W/person},Fraction Latent,Fraction Radiant,Fraction Lost,Fraction Convected,End-Use SubCategory,Nominal Minimum Equipment Level {W},Nominal Maximum Equipment Level {W}
+ ElectricEquipment Internal Gains Nominal, CORNER_CLASS_1_POD_1_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,99.00,26.6,1485.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,289.458,1410.750
+ ElectricEquipment Internal Gains Nominal, MULT_CLASS_1_POD_1_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,MULT_CLASS_1_POD_1_ZN_1_FLR_1,477.00,128.4,7155.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,1394.662,6797.250
+ ElectricEquipment Internal Gains Nominal, CORRIDOR_POD_1_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,CORRIDOR_POD_1_ZN_1_FLR_1,192.00,0.0,768.000,4.000,N/A,0.000,0.500,0.000,0.500,MiscPlug,149.700,729.600
+ ElectricEquipment Internal Gains Nominal, CORNER_CLASS_2_POD_1_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,99.00,26.6,1485.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,289.458,1410.750
+ ElectricEquipment Internal Gains Nominal, MULT_CLASS_2_POD_1_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,MULT_CLASS_2_POD_1_ZN_1_FLR_1,477.00,128.4,7155.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,1394.662,6797.250
+ ElectricEquipment Internal Gains Nominal, CORNER_CLASS_1_POD_2_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,99.00,26.6,1485.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,289.458,1410.750
+ ElectricEquipment Internal Gains Nominal, MULT_CLASS_1_POD_2_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,MULT_CLASS_1_POD_2_ZN_1_FLR_1,477.00,128.4,7155.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,1394.662,6797.250
+ ElectricEquipment Internal Gains Nominal, CORRIDOR_POD_2_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,CORRIDOR_POD_2_ZN_1_FLR_1,192.00,0.0,768.000,4.000,N/A,0.000,0.500,0.000,0.500,MiscPlug,149.700,729.600
+ ElectricEquipment Internal Gains Nominal, CORNER_CLASS_2_POD_2_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,99.00,26.6,1485.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,289.458,1410.750
+ ElectricEquipment Internal Gains Nominal, MULT_CLASS_2_POD_2_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,MULT_CLASS_2_POD_2_ZN_1_FLR_1,477.00,128.4,7155.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,1394.662,6797.250
+ ElectricEquipment Internal Gains Nominal, CORNER_CLASS_1_POD_3_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,99.00,26.6,1485.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,289.458,1410.750
+ ElectricEquipment Internal Gains Nominal, MULT_CLASS_1_POD_3_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,MULT_CLASS_1_POD_3_ZN_1_FLR_1,477.00,128.4,7155.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,1394.662,6797.250
+ ElectricEquipment Internal Gains Nominal, CORRIDOR_POD_3_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,CORRIDOR_POD_3_ZN_1_FLR_1,192.00,0.0,768.000,4.000,N/A,0.000,0.500,0.000,0.500,MiscPlug,149.700,729.600
+ ElectricEquipment Internal Gains Nominal, CORNER_CLASS_2_POD_3_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,99.00,26.6,1485.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,289.458,1410.750
+ ElectricEquipment Internal Gains Nominal, MULT_CLASS_2_POD_3_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,MULT_CLASS_2_POD_3_ZN_1_FLR_1,315.00,84.8,4725.000,15.000,55.740,0.000,0.500,0.000,0.500,MiscPlug,921.003,4488.750
+ ElectricEquipment Internal Gains Nominal, COMPUTER_CLASS_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,COMPUTER_CLASS_ZN_1_FLR_1,162.00,43.6,3240.000,20.000,74.320,0.000,0.500,0.000,0.500,MiscPlug,631.545,3078.000
+ ElectricEquipment Internal Gains Nominal, MAIN_CORRIDOR_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,MAIN_CORRIDOR_ZN_1_FLR_1,546.00,0.0,2184.000,4.000,N/A,0.000,0.500,0.000,0.500,MiscPlug,425.708,2074.800
+ ElectricEquipment Internal Gains Nominal, LOBBY_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,LOBBY_ZN_1_FLR_1,171.00,0.0,684.000,4.000,N/A,0.000,0.500,0.000,0.500,MiscPlug,133.326,649.800
+ ElectricEquipment Internal Gains Nominal, MECH_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,MECH_ZN_1_FLR_1,252.00,0.0,2520.000,10.000,N/A,0.000,0.500,0.000,0.500,MiscPlug,491.202,2394.000
+ ElectricEquipment Internal Gains Nominal, BATH_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,BATH_ZN_1_FLR_1,190.00,0.0,760.000,4.000,N/A,0.000,0.500,0.000,0.500,MiscPlug,148.140,722.000
+ ElectricEquipment Internal Gains Nominal, OFFICES_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,OFFICES_ZN_1_FLR_1,441.00,23.7,4762.800,10.800,200.653,0.000,0.500,0.000,0.500,MiscPlug,928.371,4524.660
+ ElectricEquipment Internal Gains Nominal, GYM_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,GYM_ZN_1_FLR_1,357.00,115.3,1785.000,5.000,15.480,0.000,0.500,0.000,0.500,MiscPlug,347.935,1695.750
+ ElectricEquipment Internal Gains Nominal, KITCHEN_ZN_1_FLR_1_MISCELEC_EQUIP,KITCHEN_ELEC_EQUIP_SCH,KITCHEN_ZN_1_FLR_1,168.00,27.0,31995.600,190.450,1185.022,0.250,0.300,0.200,0.250,Cooking,3199.560,7998.900
+ ElectricEquipment Internal Gains Nominal, KITCHEN_ZN_1_FLR_1_REACH-IN-FREEZER,ALWAYS_ON,KITCHEN_ZN_1_FLR_1,168.00,27.0,555.000,3.304,20.556,0.000,0.000,1.000,0.000,ReachInFreezer,555.000,555.000
+ ElectricEquipment Internal Gains Nominal, KITCHEN_ZN_1_FLR_1_REACH-IN-REFRIGERATOR,ALWAYS_ON,KITCHEN_ZN_1_FLR_1,168.00,27.0,313.300,1.865,11.604,0.000,0.000,1.000,0.000,ReachInRefrigerator,313.300,313.300
+ ElectricEquipment Internal Gains Nominal, CAFETERIA_ZN_1_FLR_1_PLUGMISC_EQUIP,KITCHEN_ELEC_EQUIP_SCH,CAFETERIA_ZN_1_FLR_1,315.00,339.1,7997.850,25.390,23.587,0.000,0.500,0.000,0.500,Cooking,799.785,1999.463
+ ElectricEquipment Internal Gains Nominal, LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_PLUGMISC_EQUIP,BLDG_EQUIP_SCH,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,399.00,43.0,5985.000,15.000,139.335,0.000,0.500,0.000,0.500,MiscPlug,1166.604,5685.750
+! <GasEquipment Internal Gains Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Equipment Level {W},Equipment/Floor Area {W/m2},Equipment per person {W/person},Fraction Latent,Fraction Radiant,Fraction Lost,Fraction Convected,End-Use SubCategory,Nominal Minimum Equipment Level {W},Nominal Maximum Equipment Level {W}
+ GasEquipment Internal Gains Nominal, KITCHEN_ZN_1_FLR_1_MISCGAS_EQUIP,KITCHEN_GAS_EQUIP_SCH,KITCHEN_ZN_1_FLR_1,168.00,27.0,240424.800,1431.100,8904.622,0.100,0.200,0.700,0.000,Cooking,4808.496,48084.960
+! <Shadowing/Sun Position Calculations Annual Simulations>, Shading Calculation Method, Shading Calculation Update Frequency Method, Shading Calculation Update Frequency {days}, Maximum Figures in Shadow Overlap Calculations {}, Polygon Clipping Algorithm, Pixel Counting Resolution, Sky Diffuse Modeling Algorithm, Output External Shading Calculation Results, Disable Self-Shading Within Shading Zone Groups, Disable Self-Shading From Shading Zone Groups to Other Zones
+Shadowing/Sun Position Calculations Annual Simulations,PolygonClipping,Periodic,30,15000,SutherlandHodgman,512,SimpleSkyDiffuseModeling,No,No,No
+! <Zone/Window Adjacency Daylighting Counts>, Zone Name, Number of Exterior Windows, Number of Exterior Windows in Adjacent Zones
+Zone/Window Adjacency Daylighting Counts, CORNER_CLASS_1_POD_1_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, MULT_CLASS_1_POD_1_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, CORNER_CLASS_2_POD_1_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, MULT_CLASS_2_POD_1_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, CORNER_CLASS_1_POD_2_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, MULT_CLASS_1_POD_2_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, CORNER_CLASS_2_POD_2_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, MULT_CLASS_2_POD_2_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, CORNER_CLASS_1_POD_3_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, MULT_CLASS_1_POD_3_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, CORNER_CLASS_2_POD_3_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, MULT_CLASS_2_POD_3_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, COMPUTER_CLASS_ZN_1_FLR_1,2,0
+Zone/Window Adjacency Daylighting Counts, LOBBY_ZN_1_FLR_1,2,0
+Zone/Window Adjacency Daylighting Counts, OFFICES_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, GYM_ZN_1_FLR_1,11,0
+Zone/Window Adjacency Daylighting Counts, CAFETERIA_ZN_1_FLR_1,3,0
+Zone/Window Adjacency Daylighting Counts, LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,3,0
+! <Zone/Window Adjacency Daylighting Matrix>, Zone Name, Number of Adjacent Zones with Windows,Adjacent Zone Names - 1st 100 (max)
+Zone/Window Adjacency Daylighting Matrix, CORNER_CLASS_1_POD_1_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, MULT_CLASS_1_POD_1_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, CORNER_CLASS_2_POD_1_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, MULT_CLASS_2_POD_1_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, CORNER_CLASS_1_POD_2_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, MULT_CLASS_1_POD_2_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, CORNER_CLASS_2_POD_2_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, MULT_CLASS_2_POD_2_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, CORNER_CLASS_1_POD_3_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, MULT_CLASS_1_POD_3_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, CORNER_CLASS_2_POD_3_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, MULT_CLASS_2_POD_3_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, COMPUTER_CLASS_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, LOBBY_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, OFFICES_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, GYM_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, CAFETERIA_ZN_1_FLR_1,0
+Zone/Window Adjacency Daylighting Matrix, LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,0
+! <ZoneInfiltration Airflow Stats Nominal>,Name,Schedule Name,Zone Name, Zone Floor Area {m2}, # Zone Occupants,Design Volume Flow Rate {m3/s},Volume Flow Rate/Floor Area {m3/s-m2},Volume Flow Rate/Exterior Surface Area {m3/s-m2},ACH - Air Changes per Hour,Equation A - Constant Term Coefficient {},Equation B - Temperature Term Coefficient {1/C},Equation C - Velocity Term Coefficient {s/m}, Equation D - Velocity Squared Term Coefficient {s2/m2}
+ ZoneInfiltration Airflow Stats Nominal, CORNER_CLASS_1_POD_1_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,99.00,26.6,4.602E-002,4.649E-004,2.543E-004,0.418,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, MULT_CLASS_1_POD_1_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,MULT_CLASS_1_POD_1_ZN_1_FLR_1,477.00,128.4,0.121,2.546E-004,1.752E-004,0.229,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, CORRIDOR_POD_1_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,CORRIDOR_POD_1_ZN_1_FLR_1,192.00,0.0,6.848E-003,3.567E-005,3.357E-005,3.210E-002,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, CORNER_CLASS_2_POD_1_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,99.00,26.6,4.602E-002,4.649E-004,2.543E-004,0.418,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, MULT_CLASS_2_POD_1_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,MULT_CLASS_2_POD_1_ZN_1_FLR_1,477.00,128.4,0.121,2.546E-004,1.752E-004,0.229,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, CORNER_CLASS_1_POD_2_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,99.00,26.6,4.602E-002,4.649E-004,2.543E-004,0.418,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, MULT_CLASS_1_POD_2_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,MULT_CLASS_1_POD_2_ZN_1_FLR_1,477.00,128.4,0.121,2.546E-004,1.752E-004,0.229,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, CORRIDOR_POD_2_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,CORRIDOR_POD_2_ZN_1_FLR_1,192.00,0.0,6.848E-003,3.567E-005,3.357E-005,3.210E-002,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, CORNER_CLASS_2_POD_2_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,99.00,26.6,4.602E-002,4.649E-004,2.543E-004,0.418,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, MULT_CLASS_2_POD_2_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,MULT_CLASS_2_POD_2_ZN_1_FLR_1,477.00,128.4,0.121,2.546E-004,1.752E-004,0.229,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, CORNER_CLASS_1_POD_3_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,99.00,26.6,4.602E-002,4.649E-004,2.543E-004,0.418,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, MULT_CLASS_1_POD_3_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,MULT_CLASS_1_POD_3_ZN_1_FLR_1,477.00,128.4,0.121,2.546E-004,1.752E-004,0.229,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, CORRIDOR_POD_3_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,CORRIDOR_POD_3_ZN_1_FLR_1,192.00,0.0,6.848E-003,3.567E-005,3.357E-005,3.210E-002,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, CORNER_CLASS_2_POD_3_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,99.00,26.6,4.602E-002,4.649E-004,2.543E-004,0.418,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, MULT_CLASS_2_POD_3_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,MULT_CLASS_2_POD_3_ZN_1_FLR_1,315.00,84.8,8.042E-002,2.553E-004,1.752E-004,0.230,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, COMPUTER_CLASS_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,COMPUTER_CLASS_ZN_1_FLR_1,162.00,43.6,4.135E-002,2.552E-004,1.752E-004,0.230,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, MAIN_CORRIDOR_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,MAIN_CORRIDOR_ZN_1_FLR_1,546.00,0.0,2.060E-002,3.773E-005,3.528E-005,3.395E-002,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, LOBBY_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,LOBBY_ZN_1_FLR_1,171.00,0.0,4.363E-002,2.551E-004,1.752E-004,0.230,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, LOBBY_ZN_1_FLR_1_DOOR_INFILTRATION,INFIL_DOOR_OPENING_SCH,LOBBY_ZN_1_FLR_1,171.00,0.0,3.031,1.773E-002,1.218E-002,15.954,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats Nominal, MECH_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,MECH_ZN_1_FLR_1,252.00,0.0,0.000,0.000,0.000,0.000,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, BATH_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,BATH_ZN_1_FLR_1,190.00,0.0,2.277E-002,1.198E-004,9.900E-005,0.108,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, OFFICES_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,OFFICES_ZN_1_FLR_1,441.00,23.7,9.594E-002,2.175E-004,1.570E-004,0.196,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, GYM_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,GYM_ZN_1_FLR_1,357.00,115.3,3.887E-002,1.089E-004,9.103E-005,9.798E-002,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, KITCHEN_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,KITCHEN_ZN_1_FLR_1,168.00,27.0,1.821E-002,1.084E-004,9.103E-005,9.754E-002,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, CAFETERIA_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,CAFETERIA_ZN_1_FLR_1,315.00,339.1,8.235E-002,2.614E-004,1.787E-004,0.235,0.000,0.000,0.224,0.000
+ ZoneInfiltration Airflow Stats Nominal, LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_INFILTRATION,INFIL_SCH_PNNL,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,399.00,43.0,9.128E-002,2.288E-004,1.627E-004,0.206,0.000,0.000,0.224,0.000
+! <AirFlow Model>, Simple
+ AirFlow Model, Simple
+! <RoomAir Model>, Zone Name, Mixing/Mundt/UCSDDV/UCSDCV/UCSDUFI/UCSDUFE/User Defined
+RoomAir Model,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,MULT_CLASS_1_POD_1_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,CORRIDOR_POD_1_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,MULT_CLASS_2_POD_1_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,MULT_CLASS_1_POD_2_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,CORRIDOR_POD_2_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,MULT_CLASS_2_POD_2_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,MULT_CLASS_1_POD_3_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,CORRIDOR_POD_3_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,MULT_CLASS_2_POD_3_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,COMPUTER_CLASS_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,MAIN_CORRIDOR_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,LOBBY_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,MECH_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,BATH_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,OFFICES_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,GYM_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,KITCHEN_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,CAFETERIA_ZN_1_FLR_1,Mixing/Well-Stirred
+RoomAir Model,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,Mixing/Well-Stirred
+! <AirflowNetwork Model:Control>, No Multizone or Distribution/Multizone with Distribution/Multizone without Distribution/Multizone with Distribution only during Fan Operation
+AirflowNetwork Model:Control,NoMultizoneOrDistribution
+! <Zone Volume Capacitance Multiplier>, Sensible Heat Capacity Multiplier, Moisture Capacity Multiplier, Carbon Dioxide Capacity Multiplier, Generic Contaminant Capacity Multiplier
+Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
+! <Load Timesteps in Zone Design Calculation Averaging Window>, Value
+ Load Timesteps in Zone Design Calculation Averaging Window,    6
+! <Heating Sizing Factor Information>, Sizing Factor ID, Value
+ Heating Sizing Factor Information, Global,   1.0000    
+! <Cooling Sizing Factor Information>, Sizing Factor ID, Value
+ Cooling Sizing Factor Information, Global,   1.0000    
+! <Sky Daylight Factors>, MonthAndDay, Zone Name, Window Name, Daylight Fac: Ref Pt #1, Daylight Fac: Ref Pt #2
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW1,1.8619E-003,3.1600E-003
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW1,1.9533E-003,3.2678E-003
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW1,1.4251E-003,2.2690E-003
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW1,7.1605E-004,1.0170E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW2,5.9415E-002,2.3653E-002
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW2,6.3602E-002,2.5124E-002
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW2,4.1509E-002,1.5817E-002
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW2,1.6493E-002,6.7054E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_4_WINDOW_1,7.8548E-003,2.1017E-002
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_4_WINDOW_1,6.6742E-003,1.7990E-002
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_4_WINDOW_1,5.9771E-003,1.7811E-002
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,CORNER_CLASS_1_POD_1_ZN_1_FLR_1_WALL_4_WINDOW_1,5.6503E-003,1.5729E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW1,5.6277E-003,5.6927E-003
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW1,6.0113E-003,6.0654E-003
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW1,4.3144E-003,4.3571E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW1,2.1150E-003,2.1422E-003
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW2,0.1313,5.5606E-002
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW2,0.1454,5.9220E-002
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW2,0.1037,3.8831E-002
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW2,4.3584E-002,1.5195E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW3,5.6310E-003,5.7110E-003
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW3,6.0150E-003,6.0853E-003
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW3,4.3179E-003,4.3721E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_1_POD_1_ZN_1_FLR_1,MULT_CLASS_1_POD_1_ZN_1_FLR_1_WALL_1_WINDOW3,2.1149E-003,2.1422E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW1,1.1482E-003,4.5195E-004
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW1,9.0908E-004,3.7006E-004
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW1,8.2812E-004,3.5317E-004
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW1,1.1940E-003,5.3783E-004
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW2,1.1033E-002,6.5098E-003
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW2,8.4755E-003,5.0359E-003
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW2,6.5058E-003,3.6434E-003
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW2,1.0908E-002,5.7763E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_4_WINDOW_1,8.2326E-003,1.9920E-002
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_4_WINDOW_1,7.0484E-003,1.6623E-002
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_4_WINDOW_1,6.3954E-003,1.6322E-002
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,CORNER_CLASS_2_POD_1_ZN_1_FLR_1_WALL_4_WINDOW_1,5.7979E-003,1.5729E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW1,1.0337E-003,1.0521E-003
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW1,8.6091E-004,8.7562E-004
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW1,9.2007E-004,9.3111E-004
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW1,1.5222E-003,1.5314E-003
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW2,2.4794E-002,1.0479E-002
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW2,1.9387E-002,8.0382E-003
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW2,2.0502E-002,6.4890E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW2,3.7013E-002,1.0607E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW3,1.1757E-003,1.2285E-003
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW3,9.7560E-004,1.0163E-003
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW3,1.0065E-003,1.0311E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_2_POD_1_ZN_1_FLR_1,MULT_CLASS_2_POD_1_ZN_1_FLR_1_WALL_3_WINDOW3,1.6073E-003,1.6315E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW1,1.0542E-003,2.3523E-003
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW1,1.0949E-003,2.4095E-003
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW1,8.5756E-004,1.7015E-003
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW1,4.6526E-004,7.6624E-004
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW2,3.7772E-002,1.3242E-002
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW2,4.0952E-002,1.4237E-002
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW2,2.8364E-002,9.2571E-003
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW2,1.1535E-002,4.0319E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_4_WINDOW_1,6.4449E-003,1.9607E-002
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_4_WINDOW_1,5.4466E-003,1.6762E-002
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_4_WINDOW_1,4.7563E-003,1.6590E-002
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,CORNER_CLASS_1_POD_2_ZN_1_FLR_1_WALL_4_WINDOW_1,4.4557E-003,1.4534E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW1,2.2335E-003,2.2908E-003
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW1,2.4258E-003,2.4735E-003
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW1,1.9427E-003,1.9805E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW1,1.0617E-003,1.0859E-003
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW2,0.1034,3.3646E-002
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW2,0.1160,3.6508E-002
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW2,8.5127E-002,2.5284E-002
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW2,3.6488E-002,1.0061E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW3,2.0821E-003,2.1080E-003
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW3,2.2842E-003,2.3072E-003
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW3,1.8342E-003,1.8524E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_1_POD_2_ZN_1_FLR_1,MULT_CLASS_1_POD_2_ZN_1_FLR_1_WALL_1_WINDOW3,1.0021E-003,1.0113E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW1,1.0739E-003,3.7766E-004
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW1,8.5071E-004,3.1169E-004
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW1,7.6164E-004,2.8669E-004
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW1,1.0669E-003,4.1072E-004
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW2,1.0358E-002,5.8346E-003
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW2,7.9456E-003,4.5060E-003
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW2,5.9713E-003,3.1090E-003
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW2,9.9309E-003,4.7988E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_4_WINDOW_1,6.8227E-003,1.8510E-002
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_4_WINDOW_1,5.8207E-003,1.5396E-002
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_4_WINDOW_1,5.1746E-003,1.5101E-002
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,CORNER_CLASS_2_POD_2_ZN_1_FLR_1_WALL_4_WINDOW_1,4.6033E-003,1.4534E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW1,7.2552E-004,7.4391E-004
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW1,6.1880E-004,6.3352E-004
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW1,6.5494E-004,6.6599E-004
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW1,1.0252E-003,1.0344E-003
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW2,2.4448E-002,1.0120E-002
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW2,1.9115E-002,7.7559E-003
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW2,2.0214E-002,6.1915E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW2,3.6493E-002,1.0073E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW3,8.2326E-004,8.8335E-004
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW3,6.9842E-004,7.4475E-004
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW3,7.1542E-004,7.4322E-004
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_2_POD_2_ZN_1_FLR_1,MULT_CLASS_2_POD_2_ZN_1_FLR_1_WALL_3_WINDOW3,1.0847E-003,1.1120E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW1,1.0814E-003,2.3794E-003
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW1,1.1213E-003,2.4358E-003
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW1,8.7719E-004,1.7211E-003
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW1,4.7561E-004,7.7659E-004
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW2,3.7986E-002,1.3457E-002
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW2,4.1161E-002,1.4446E-002
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW2,2.8526E-002,9.4191E-003
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW2,1.1632E-002,4.1296E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_4_WINDOW_1,6.4449E-003,1.9607E-002
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_4_WINDOW_1,5.4466E-003,1.6762E-002
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_4_WINDOW_1,4.7563E-003,1.6590E-002
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,CORNER_CLASS_1_POD_3_ZN_1_FLR_1_WALL_4_WINDOW_1,4.4557E-003,1.4534E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW1,2.2567E-003,2.3217E-003
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW1,2.4490E-003,2.5032E-003
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW1,1.9659E-003,2.0086E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW1,1.0848E-003,1.1121E-003
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW2,0.1035,3.3668E-002
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW2,0.1161,3.6530E-002
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW2,8.5145E-002,2.5307E-002
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW2,3.6493E-002,1.0084E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW3,2.1050E-003,2.1309E-003
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW3,2.3071E-003,2.3301E-003
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW3,1.8571E-003,1.8753E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_1_POD_3_ZN_1_FLR_1,MULT_CLASS_1_POD_3_ZN_1_FLR_1_WALL_1_WINDOW3,1.0251E-003,1.0343E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW1,1.8129E-003,6.1645E-004
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW1,1.4117E-003,4.9358E-004
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW1,1.0734E-003,3.8508E-004
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW1,1.4420E-003,5.3562E-004
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW2,1.5339E-002,8.4969E-003
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW2,1.1616E-002,6.4842E-003
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW2,7.6507E-003,4.0068E-003
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW2,1.2474E-002,6.0232E-003
+ Clear Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_4_WINDOW_1,6.8228E-003,1.8510E-002
+ Clear Turbid Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_4_WINDOW_1,5.8208E-003,1.5396E-002
+ Intermediate Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_4_WINDOW_1,5.1747E-003,1.5101E-002
+ Overcast Sky Daylight Factors,01/21,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,CORNER_CLASS_2_POD_3_ZN_1_FLR_1_WALL_4_WINDOW_1,4.6034E-003,1.4535E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW1,1.4437E-003,1.6374E-003
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW1,1.1746E-003,1.3279E-003
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW1,9.8732E-004,1.0970E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW1,1.4236E-003,1.5210E-003
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW2,3.4457E-002,1.7814E-002
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW2,2.6589E-002,1.3436E-002
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW2,2.4542E-002,8.9138E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW2,4.3064E-002,1.4109E-002
+ Clear Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW3,1.4398E-003,1.6391E-003
+ Clear Turbid Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW3,1.1686E-003,1.3205E-003
+ Intermediate Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW3,9.7464E-004,1.0624E-003
+ Overcast Sky Daylight Factors,01/21,MULT_CLASS_2_POD_3_ZN_1_FLR_1,MULT_CLASS_2_POD_3_ZN_1_FLR_1_WALL_3_WINDOW3,1.4236E-003,1.5210E-003
+ Clear Sky Daylight Factors,01/21,COMPUTER_CLASS_ZN_1_FLR_1,COMPUTER_CLASS_ZN_1_FLR_1_WALL_3_WINDOW1,3.1308E-004,3.6141E-004
+ Clear Turbid Sky Daylight Factors,01/21,COMPUTER_CLASS_ZN_1_FLR_1,COMPUTER_CLASS_ZN_1_FLR_1_WALL_3_WINDOW1,2.5477E-004,2.9295E-004
+ Intermediate Sky Daylight Factors,01/21,COMPUTER_CLASS_ZN_1_FLR_1,COMPUTER_CLASS_ZN_1_FLR_1_WALL_3_WINDOW1,2.1413E-004,2.4156E-004
+ Overcast Sky Daylight Factors,01/21,COMPUTER_CLASS_ZN_1_FLR_1,COMPUTER_CLASS_ZN_1_FLR_1_WALL_3_WINDOW1,3.0731E-004,3.3197E-004
+ Clear Sky Daylight Factors,01/21,COMPUTER_CLASS_ZN_1_FLR_1,COMPUTER_CLASS_ZN_1_FLR_1_WALL_3_WINDOW2,3.7044E-002,2.0824E-002
+ Clear Turbid Sky Daylight Factors,01/21,COMPUTER_CLASS_ZN_1_FLR_1,COMPUTER_CLASS_ZN_1_FLR_1_WALL_3_WINDOW2,2.8692E-002,1.5857E-002
+ Intermediate Sky Daylight Factors,01/21,COMPUTER_CLASS_ZN_1_FLR_1,COMPUTER_CLASS_ZN_1_FLR_1_WALL_3_WINDOW2,2.6341E-002,1.0872E-002
+ Overcast Sky Daylight Factors,01/21,COMPUTER_CLASS_ZN_1_FLR_1,COMPUTER_CLASS_ZN_1_FLR_1_WALL_3_WINDOW2,4.5686E-002,1.6893E-002
+ Clear Sky Daylight Factors,01/21,LOBBY_ZN_1_FLR_1,LOBBY_ZN_1_FLR_1_WALL_1_WINDOW1,7.3115E-004,7.7644E-004
+ Clear Turbid Sky Daylight Factors,01/21,LOBBY_ZN_1_FLR_1,LOBBY_ZN_1_FLR_1_WALL_1_WINDOW1,7.7620E-004,8.1465E-004
+ Intermediate Sky Daylight Factors,01/21,LOBBY_ZN_1_FLR_1,LOBBY_ZN_1_FLR_1_WALL_1_WINDOW1,5.6379E-004,5.9576E-004
+ Overcast Sky Daylight Factors,01/21,LOBBY_ZN_1_FLR_1,LOBBY_ZN_1_FLR_1_WALL_1_WINDOW1,2.8835E-004,3.0768E-004
+ Clear Sky Daylight Factors,01/21,LOBBY_ZN_1_FLR_1,LOBBY_ZN_1_FLR_1_WALL_1_WINDOW2,0.1369,6.0175E-002
+ Clear Turbid Sky Daylight Factors,01/21,LOBBY_ZN_1_FLR_1,LOBBY_ZN_1_FLR_1_WALL_1_WINDOW2,0.1512,6.4079E-002
+ Intermediate Sky Daylight Factors,01/21,LOBBY_ZN_1_FLR_1,LOBBY_ZN_1_FLR_1_WALL_1_WINDOW2,0.1078,4.2295E-002
+ Overcast Sky Daylight Factors,01/21,LOBBY_ZN_1_FLR_1,LOBBY_ZN_1_FLR_1_WALL_1_WINDOW2,4.5667E-002,1.6965E-002
+ Clear Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_1_WINDOW1,3.2938E-004,3.0718E-004
+ Clear Turbid Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_1_WINDOW1,3.4266E-004,3.2447E-004
+ Intermediate Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_1_WINDOW1,2.5104E-004,2.3547E-004
+ Overcast Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_1_WINDOW1,1.3076E-004,1.1939E-004
+ Clear Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_1_WINDOW2,5.4920E-002,8.7652E-003
+ Clear Turbid Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_1_WINDOW2,5.8452E-002,9.0980E-003
+ Intermediate Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_1_WINDOW2,3.8257E-002,5.7742E-003
+ Overcast Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_1_WINDOW2,1.4937E-002,2.5527E-003
+ Clear Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_2_WINDOW_1,4.5109E-003,2.5647E-002
+ Clear Turbid Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_2_WINDOW_1,4.0054E-003,2.3295E-002
+ Intermediate Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_2_WINDOW_1,3.4206E-003,2.1205E-002
+ Overcast Sky Daylight Factors,01/21,OFFICES_ZN_1_FLR_1,OFFICES_ZN_1_FLR_1_WALL_2_WINDOW_1,2.6710E-003,1.4895E-002
+ Clear Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_WALL_2_WINDOW1,1.0399E-003,3.0230E-004
+ Clear Turbid Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_WALL_2_WINDOW1,1.0995E-003,2.7941E-004
+ Intermediate Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_WALL_2_WINDOW1,6.7527E-004,2.4743E-004
+ Overcast Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_WALL_2_WINDOW1,3.1111E-004,1.8127E-004
+ Clear Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_WALL_2_WINDOW2,5.4703E-002,3.3230E-003
+ Clear Turbid Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_WALL_2_WINDOW2,5.1140E-002,3.0284E-003
+ Intermediate Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_WALL_2_WINDOW2,5.5097E-002,2.7033E-003
+ Overcast Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_WALL_2_WINDOW2,4.4066E-002,2.1349E-003
+ Clear Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_1,2.6299E-004,2.3870E-003
+ Clear Turbid Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_1,2.6483E-004,2.3384E-003
+ Intermediate Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_1,2.7542E-004,3.1123E-003
+ Overcast Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_1,2.8724E-004,2.4206E-003
+ Clear Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_2,3.5039E-004,2.4872E-003
+ Clear Turbid Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_2,3.3979E-004,2.5758E-003
+ Intermediate Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_2,3.6917E-004,2.8710E-003
+ Overcast Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_2,3.6276E-004,1.7881E-003
+ Clear Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_3,5.4950E-003,3.0901E-004
+ Clear Turbid Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_3,5.7839E-003,3.0663E-004
+ Intermediate Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_3,6.6156E-003,3.2131E-004
+ Overcast Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_3,4.5805E-003,3.1461E-004
+ Clear Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_4,2.6235E-004,1.1562E-003
+ Clear Turbid Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_4,2.6405E-004,9.7431E-004
+ Intermediate Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_4,2.7400E-004,1.1947E-003
+ Overcast Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_4,2.8715E-004,2.0698E-003
+ Clear Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_5,3.3099E-004,9.8489E-004
+ Clear Turbid Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_5,3.1837E-004,8.5393E-004
+ Intermediate Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_5,3.3039E-004,1.1258E-003
+ Overcast Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_5,3.5827E-004,1.5667E-003
+ Clear Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_6,1.7115E-003,2.9340E-004
+ Clear Turbid Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_6,1.4198E-003,2.8985E-004
+ Intermediate Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_6,1.8046E-003,3.0349E-004
+ Overcast Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_6,3.7060E-003,3.1331E-004
+ Clear Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_7,2.5951E-004,3.3966E-004
+ Clear Turbid Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_7,2.6169E-004,3.2142E-004
+ Intermediate Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_7,2.7150E-004,3.1289E-004
+ Overcast Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_7,2.8505E-004,3.6236E-004
+ Clear Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_8,2.7958E-004,3.2953E-004
+ Clear Turbid Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_8,2.7677E-004,3.1481E-004
+ Intermediate Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_8,2.8164E-004,3.1344E-004
+ Overcast Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_8,3.0088E-004,3.5370E-004
+ Clear Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_9,3.5471E-004,2.6951E-004
+ Clear Turbid Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_9,3.3265E-004,2.6958E-004
+ Intermediate Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_9,3.2143E-004,2.7847E-004
+ Overcast Sky Daylight Factors,01/21,GYM_ZN_1_FLR_1,GYM_ZN_1_FLR_1_CEILING_SKYLIGHT_9,3.8016E-004,2.9286E-004
+ Clear Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_2_WINDOW1,3.1043E-004,6.6235E-004
+ Clear Turbid Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_2_WINDOW1,2.9544E-004,6.7073E-004
+ Intermediate Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_2_WINDOW1,2.4772E-004,4.4367E-004
+ Overcast Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_2_WINDOW1,1.7721E-004,2.4075E-004
+ Clear Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_2_WINDOW2,4.3491E-003,2.4503E-002
+ Clear Turbid Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_2_WINDOW2,3.9509E-003,2.1991E-002
+ Intermediate Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_2_WINDOW2,3.3578E-003,2.0456E-002
+ Overcast Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_2_WINDOW2,2.3662E-003,1.4582E-002
+ Clear Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_3_WINDOW_1,1.7220E-002,5.7810E-003
+ Clear Turbid Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_3_WINDOW_1,1.3100E-002,4.4138E-003
+ Intermediate Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_3_WINDOW_1,9.2054E-003,2.6583E-003
+ Overcast Sky Daylight Factors,01/21,CAFETERIA_ZN_1_FLR_1,CAFETERIA_ZN_1_FLR_1_WALL_3_WINDOW_1,1.4520E-002,4.0030E-003
+ Clear Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_2_WINDOW1,7.4797E-005,7.4797E-005
+ Clear Turbid Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_2_WINDOW1,6.5057E-005,6.5057E-005
+ Intermediate Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_2_WINDOW1,7.0991E-005,7.0991E-005
+ Overcast Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_2_WINDOW1,7.7412E-005,7.7412E-005
+ Clear Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_2_WINDOW2,2.2245E-002,4.6913E-003
+ Clear Turbid Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_2_WINDOW2,1.9748E-002,4.2263E-003
+ Intermediate Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_2_WINDOW2,1.9072E-002,3.7156E-003
+ Overcast Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_2_WINDOW2,1.4175E-002,2.7206E-003
+ Clear Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_3_WINDOW_1,3.8512E-003,1.8395E-002
+ Clear Turbid Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_3_WINDOW_1,2.9519E-003,1.3938E-002
+ Intermediate Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_3_WINDOW_1,1.7959E-003,9.4972E-003
+ Overcast Sky Daylight Factors,01/21,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1_WALL_3_WINDOW_1,2.6435E-003,1.4815E-002
+! <Zone Sizing Information>, Zone Name, Load Type, Calc Des Load {W}, User Des Load {W}, Calc Des Air Flow Rate {m3/s}, User Des Air Flow Rate {m3/s}, Design Day Name, Date/Time of Peak, Temperature at Peak {C}, Humidity Ratio at Peak {kgWater/kgDryAir}, Floor Area {m2}, # Occupants, Calc Outdoor Air Flow Rate {m3/s}, Calc DOAS Heat Addition Rate {W}
+ Zone Sizing Information, CORNER_CLASS_1_POD_1_ZN_1_FLR_1, Cooling, 3879.49079, 3879.49079, 0.28278, 0.28278, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 16:45:00, 31.21200, 1.41180E-002, 99.00000, 26.64155, 0.18607, 0.00000
+ Zone Sizing Information, CORNER_CLASS_1_POD_1_ZN_1_FLR_1, Heating, 6612.35803, 6612.35803, 0.26182, 0.26182, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:18:00, -10.70000, 1.50390E-003, 99.00000, 26.64155, 0.18607, 0.00000
+ Zone Sizing Information, MULT_CLASS_1_POD_1_ZN_1_FLR_1, Cooling, 12150.59322, 12150.59322, 0.88568, 0.89651, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 14:39:00, 32.10000, 1.41196E-002, 477.00000, 128.36383, 0.89651, 0.00000
+ Zone Sizing Information, MULT_CLASS_1_POD_1_ZN_1_FLR_1, Heating, 23461.18679, 23461.18679, 0.92042, 0.92042, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:18:00, -10.70000, 1.50390E-003, 477.00000, 128.36383, 0.89651, 0.00000
+ Zone Sizing Information, CORRIDOR_POD_1_ZN_1_FLR_1, Cooling, 3475.81616, 3475.81616, 0.25335, 0.25335, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 16:09:00, 31.56720, 1.41187E-002, 192.00000, 0.00000, 5.85180E-002, 0.00000
+ Zone Sizing Information, CORRIDOR_POD_1_ZN_1_FLR_1, Heating, 8695.97403, 8695.97403, 0.34027, 0.34027, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:18:00, -10.70000, 1.50390E-003, 192.00000, 0.00000, 5.85180E-002, 0.00000
+ Zone Sizing Information, CORNER_CLASS_2_POD_1_ZN_1_FLR_1, Cooling, 3768.40440, 3768.40440, 0.27469, 0.27469, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 16:51:00, 31.15280, 1.41179E-002, 99.00000, 26.64155, 0.18607, 0.00000
+ Zone Sizing Information, CORNER_CLASS_2_POD_1_ZN_1_FLR_1, Heating, 6606.55527, 6606.55527, 0.26159, 0.26159, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:18:00, -10.70000, 1.50390E-003, 99.00000, 26.64155, 0.18607, 0.00000
+ Zone Sizing Information, MULT_CLASS_2_POD_1_ZN_1_FLR_1, Cooling, 11156.69529, 11156.69529, 0.81323, 0.89651, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 14:45:00, 32.10000, 1.41196E-002, 477.00000, 128.36383, 0.89651, 0.00000
+ Zone Sizing Information, MULT_CLASS_2_POD_1_ZN_1_FLR_1, Heating, 23374.16615, 23374.16615, 0.91686, 0.91686, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:18:00, -10.70000, 1.50390E-003, 477.00000, 128.36383, 0.89651, 0.00000
+ Zone Sizing Information, MAIN_CORRIDOR_ZN_1_FLR_1, Cooling, 20103.27211, 20103.27211, 1.46532, 1.46532, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 16:06:00, 31.59680, 1.41187E-002, 546.00000, 0.00000, 1.02620, 0.00000
+ Zone Sizing Information, MAIN_CORRIDOR_ZN_1_FLR_1, Heating, 30542.04631, 30542.04631, 1.20398, 1.20398, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:18:00, -10.70000, 1.50390E-003, 546.00000, 0.00000, 1.02620, 0.00000
+ Zone Sizing Information, LOBBY_ZN_1_FLR_1, Cooling, 5980.88045, 5980.88045, 0.43595, 0.43595, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 14:36:00, 32.10000, 1.41196E-002, 171.00000, 0.00000, 0.32139, 0.00000
+ Zone Sizing Information, LOBBY_ZN_1_FLR_1, Heating, 11607.94047, 11607.94047, 0.45986, 0.45986, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:18:00, -10.70000, 1.50390E-003, 171.00000, 0.00000, 0.32139, 0.00000
+! <System Sizing Information>, System Name, Load Type, Peak Load Kind, User Design Capacity, Calc Des Air Flow Rate [m3/s], User Des Air Flow Rate [m3/s], Design Day Name, Date/Time of Peak
+ System Sizing Information, DOAS, Cooling, Sensible, 59827.43, 2.60385, 2.60385, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN CLG .4% CONDNS DB=>MWB, 7/21 00:00:00
+ System Sizing Information, DOAS, Heating, Sensible, 74593.60, 2.70095, 2.70095, NEW.YORK-JOHN.F.KENNEDY.INTL.AP_NY_USA ANN HTG 99.6% CONDNS DB, 1/21 07:18:00
+! <Component Sizing Information>, Component Type, Component Name, Input Field Description, Value
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORNER_CLASS_1_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Maximum Air Flow Rate [m3/s], 0.28278
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORNER_CLASS_1_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Constant Minimum Air Flow Fraction, 0.26677
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORNER_CLASS_1_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Minimum Air Flow Rate [m3/s], 7.54380E-002
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORNER_CLASS_1_POD_1_ZN_1_FLR_1_LOTEMP, Design Size Maximum Water Flow [m3/s], 1.54040E-004
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORNER_CLASS_1_POD_1_ZN_1_FLR_1_LOTEMP, Design Size Hydronic Tubing Length [m], 649.60630
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, MULT_CLASS_1_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Maximum Air Flow Rate [m3/s], 0.92042
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, MULT_CLASS_1_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Constant Minimum Air Flow Fraction, 0.39490
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, MULT_CLASS_1_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Minimum Air Flow Rate [m3/s], 0.36347
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, MULT_CLASS_1_POD_1_ZN_1_FLR_1_LOTEMP, Design Size Maximum Water Flow [m3/s], 5.18346E-004
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, MULT_CLASS_1_POD_1_ZN_1_FLR_1_LOTEMP, Design Size Hydronic Tubing Length [m], 3129.92126
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORRIDOR_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Maximum Air Flow Rate [m3/s], 0.34027
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORRIDOR_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Constant Minimum Air Flow Fraction, 0.42997
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORRIDOR_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Minimum Air Flow Rate [m3/s], 0.14630
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORRIDOR_POD_1_ZN_1_FLR_1_LOTEMP, Design Size Maximum Water Flow [m3/s], 1.92127E-004
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORRIDOR_POD_1_ZN_1_FLR_1_LOTEMP, Design Size Hydronic Tubing Length [m], 1259.84252
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORNER_CLASS_2_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Maximum Air Flow Rate [m3/s], 0.27469
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORNER_CLASS_2_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Constant Minimum Air Flow Fraction, 0.27463
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, CORNER_CLASS_2_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Minimum Air Flow Rate [m3/s], 7.54380E-002
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORNER_CLASS_2_POD_1_ZN_1_FLR_1_LOTEMP, Design Size Maximum Water Flow [m3/s], 1.49629E-004
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, CORNER_CLASS_2_POD_1_ZN_1_FLR_1_LOTEMP, Design Size Hydronic Tubing Length [m], 649.60630
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, MULT_CLASS_2_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Maximum Air Flow Rate [m3/s], 0.91686
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, MULT_CLASS_2_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Constant Minimum Air Flow Fraction, 0.39644
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:NoReheat, MULT_CLASS_2_POD_1_ZN_1_FLR_1 VAV BOX COMPONENT, Design Size Minimum Air Flow Rate [m3/s], 0.36347
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, MULT_CLASS_2_POD_1_ZN_1_FLR_1_LOTEMP, Design Size Maximum Water Flow [m3/s], 5.16424E-004
+ Component Sizing Information, ZoneHVAC:LowTemperatureRadiant:ConstantFlow, MULT_CLASS_2_POD_1_ZN_1_FLR_1_LOTEMP, Design Size Hydronic Tubing Length [m], 3129.92126
+ Component Sizing Information, AirLoopHVAC, DOAS, Sum of Air Terminal Maximum Heating Flow Rates [m3/s], 1.02413
+ Component Sizing Information, AirLoopHVAC, DOAS, Sum of Air Terminal Minimum Heating Flow Rates [m3/s], 1.02413
+ Component Sizing Information, AirLoopHVAC, DOAS, Sum of Air Terminal Maximum Flow Rates [m3/s], 2.73501
+ Component Sizing Information, AirLoopHVAC, DOAS, Adjusted Heating Design Air Flow Rate [m3/s], 2.70095
+ Component Sizing Information, AirLoopHVAC, DOAS, Adjusted Cooling Design Air Flow Rate [m3/s], 2.60385
+ Component Sizing Information, AirLoopHVAC, DOAS, Adjusted Main Design Air Flow Rate [m3/s], 2.73501
+ Component Sizing Information, AirLoopHVAC, DOAS, User Heating Air Flow Ratio [], 1.00000
+ Component Sizing Information, AirLoopHVAC, DOAS, Calculated Heating Air Flow Ratio [], 0.98755
+ Component Sizing Information, AirLoopHVAC, DOAS, Design Supply Air Flow Rate [m3/s], 2.73501
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Inlet Air Temperature [C], 31.85180
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Inlet Water Temperature [C], 7.00000
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Outlet Air Temperature [C], 11.64558
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Inlet Air Humidity Ratio [kgWater/kgDryAir], 1.41192E-002
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Outlet Air Humidity Ratio [kgWater/kgDryAir], 9.24000E-003
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Coil Load [W], 108790.03593
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Water Flow Rate [m3/s], 4.31963E-003
+ Component Sizing Information, Coil:Cooling:Water, DOAS COOLING COIL, Design Size Design Air Flow Rate [m3/s], 2.73501
+! <Water Cooling Coil Capacity Information>,Component Type,Name,Nominal Total Capacity {W},Nominal Sensible Capacity {W},Nominal Latent Capacity {W},Nominal Sensible Heat Ratio, Nominal Coil UA Value {W/C}, Nominal Coil Surface Area {m2}
+Water Cooling Coil Capacity Information,Coil:Cooling:Water,DOAS COOLING COIL,84875.03,55201.53,29673.50,0.65,9494.06,96.29
+ Component Sizing Information, Coil:Heating:Water, DOAS HEATING COIL, Design Size Rated Capacity [W], 75534.19745
+ Component Sizing Information, Coil:Heating:Water, DOAS HEATING COIL, Design Size Maximum Water Flow Rate [m3/s], 1.66884E-003
+ Component Sizing Information, Coil:Heating:Water, DOAS HEATING COIL, Design Size U-Factor Times Area Value [W/K], 1028.64719
+! <Water Heating Coil Capacity Information>,Component Type,Name,Nominal Total Capacity {W}
+Water Heating Coil Capacity Information,Coil:Heating:Water,DOAS HEATING COIL,53576.05
+ Component Sizing Information, Fan:VariableVolume, DOAS SUPPLY FAN, Design Size Maximum Flow Rate [m3/s], 2.73501
+ Component Sizing Information, Controller:WaterCoil, DOAS COOLING COIL CONTROLLER, Maximum Actuated Flow [m3/s], 4.31963E-003
+ Component Sizing Information, Controller:WaterCoil, DOAS COOLING COIL CONTROLLER, Controller Convergence Tolerance, 1.10239E-004
+ Component Sizing Information, Controller:WaterCoil, DOAS HEATING COIL CONTROLLER, Maximum Actuated Flow [m3/s], 1.66884E-003
+ Component Sizing Information, Controller:WaterCoil, DOAS HEATING COIL CONTROLLER, Controller Convergence Tolerance, 2.85343E-004
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP2, Maximum Loop Flow Rate [m3/s], 5.85020E-003
+ Component Sizing Information, PlantLoop, CHILLED WATER LOOP CHILLED WATER LOOP2, Plant Loop Volume [m3], 0.70202
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP2, Design Flow Rate [m3/s], 5.85020E-003
+ Component Sizing Information, Pump:ConstantSpeed, CHILLED WATER LOOP CHW SUPPLY PUMP2, Design Power Consumption [W], 1494.65099
+ Component Sizing Information, Chiller:Electric:EIR, COOLSYS1 CHILLER1, Design Size Reference Chilled Water Flow Rate [m3/s], 5.85020E-003
+ Component Sizing Information, Chiller:Electric:EIR, COOLSYS1 CHILLER1, Design Size Reference Capacity [W], 147337.34038
+ Component Sizing Information, Chiller:Electric:EIR, COOLSYS1 CHILLER1, Design Size Reference Condenser Fluid Flow Rate  [m3/s], 16.79646
+! <Chiller Standard Rating Information>, Component Type, Component Name, IPLV in SI Units {W/W}, IPLV in IP Units {Btu/W-h}
+ Chiller Standard Rating Information, Chiller:Electric:EIR, COOLSYS1 CHILLER1, 3.26, 11.13
+ Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP2, Maximum Loop Flow Rate [m3/s], 3.19940E-003
+ Component Sizing Information, PlantLoop, HOT WATER LOOP HOT WATER LOOP2, Plant Loop Volume [m3], 0.38393
+ Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP2, Design Flow Rate [m3/s], 3.19940E-003
+ Component Sizing Information, Pump:ConstantSpeed, HOT WATER LOOP HW SUPPLY PUMP2, Design Power Consumption [W], 817.40596
+ Component Sizing Information, HeatPump:PlantLoop:EIR:Heating, HP_RADSYS, Design Size Nominal Capacity [W], 144810.05153
+ Component Sizing Information, HeatPump:PlantLoop:EIR:Heating, HP_RADSYS, User-Specified Nominal Capacity [W], 189679.42156
+ Component Sizing Information, HeatPump:PlantLoop:EIR:Heating, HP_RADSYS, Design Size Load Side Volume Flow Rate [m3/s], 3.19940E-003
+ Component Sizing Information, HeatPump:PlantLoop:EIR:Heating, HP_RADSYS, User-Specified Load Side Volume Flow Rate [m3/s], 4.19074E-003
+! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values, Sky Temperature Model
+! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
+! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
+! <Environment:WarmupDays>, NumberofWarmupDays
+Environment,RUNPERIOD 1,WeatherFileRunPeriod,01/21/2007,01/23/2007,Sunday,3,Use RunPeriod Specified Day,No,No,No,Yes,Yes,Clark and Allen
+Environment:Daylight Saving,No,RunPeriod Object
+Environment:Special Days,NEW YEARS DAY,Holiday,InputFile,01/01,  1Environment:Special Days,VETERANS DAY,Holiday,InputFile,11/11,  1Environment:Special Days,CHRISTMAS,Holiday,InputFile,12/25,  1Environment:Special Days,INDEPENDENCE DAY,Holiday,InputFile,07/04,  1Environment:Special Days,MLK DAY,Holiday,InputFile,01/15,  1Environment:Special Days,PRESIDENTS DAY,Holiday,InputFile,02/19,  1Environment:Special Days,MEMORIAL DAY,Holiday,InputFile,05/28,  1Environment:Special Days,LABOR DAY,Holiday,InputFile,09/03,  1Environment:Special Days,COLUMBUS DAY,Holiday,InputFile,10/08,  1Environment:Special Days,THANKSGIVING,Holiday,InputFile,11/22,  1Environment:WarmupDays, 13
+! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
+ Warmup Convergence Information,CORNER_CLASS_1_POD_1_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,7.6339718448E-003,1.0467080473E-002,Pass,Pass,3.3022895618E-003,4.5591484257E-002,Pass,Pass
+ Warmup Convergence Information,MULT_CLASS_1_POD_1_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,6.5539348351E-003,1.2470834129E-002,Pass,Pass,3.1480799864E-003,4.5905160480E-002,Pass,Pass
+ Warmup Convergence Information,CORRIDOR_POD_1_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,4.8454073948E-003,1.2085194657E-002,Pass,Pass,3.2919863974E-003,4.5877947384E-002,Pass,Pass
+ Warmup Convergence Information,CORNER_CLASS_2_POD_1_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,6.8368995321E-003,9.5813060194E-003,Pass,Pass,3.4102995487E-003,4.5495726685E-002,Pass,Pass
+ Warmup Convergence Information,MULT_CLASS_2_POD_1_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,5.7890739553E-003,1.1756328451E-002,Pass,Pass,3.2544621705E-003,4.5835261395E-002,Pass,Pass
+ Warmup Convergence Information,CORNER_CLASS_1_POD_2_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,7.6133121335E-003,6.7303067146E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,MULT_CLASS_1_POD_2_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,5.3422034240E-003,4.2841498433E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CORRIDOR_POD_2_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,3.3710061996E-003,2.6228040931E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CORNER_CLASS_2_POD_2_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,6.8141206384E-003,5.6135963297E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,MULT_CLASS_2_POD_2_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,4.6616546157E-003,3.3938005696E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CORNER_CLASS_1_POD_3_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,7.6347825037E-003,6.7544293684E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,MULT_CLASS_1_POD_3_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,5.5768483303E-003,4.4238478941E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CORRIDOR_POD_3_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,3.4587491128E-003,2.6989569227E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CORNER_CLASS_2_POD_3_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,6.9555470191E-003,5.8744625581E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,MULT_CLASS_2_POD_3_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,4.9134751994E-003,3.7413709526E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,COMPUTER_CLASS_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,4.7688953007E-003,3.5954191745E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,MAIN_CORRIDOR_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,8.2639014325E-003,7.0565597331E-002,Pass,Pass,2.9986998018E-002,0.3052200475,Pass,Pass
+ Warmup Convergence Information,LOBBY_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,1.2962800177E-002,0.1035769684,Pass,Pass,2.1847949854E-002,0.1640107754,Pass,Pass
+ Warmup Convergence Information,MECH_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,2.6759094039E-003,1.8484051218E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,BATH_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,3.7188073886E-003,2.7896695142E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,OFFICES_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,5.0741871448E-003,4.1636007111E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,GYM_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,4.1315315330E-003,3.2945356163E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,KITCHEN_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,3.6206010112E-003,2.7600362006E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CAFETERIA_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,5.0688065104E-003,3.9714244944E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,LIBRARY_MEDIA_CENTER_ZN_1_FLR_1,RunPeriod: RUNPERIOD 1,4.8260525339E-003,3.6063688093E-003,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
+Program Control:Threads/Parallel Sims, No,1, N/A, N/A, N/A, N/A, N/A, N/A
+End of Data

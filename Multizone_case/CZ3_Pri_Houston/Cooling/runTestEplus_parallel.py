@@ -20,6 +20,10 @@ import pandas as pd
 # Import optimization package
 import pygad
 
+## import mpi management package
+from mpipool import MPIPool
+from mpi4py import MPI
+
 def convert_NumOfSec_To_MonAndDay(NumOfSec): 
   '''
   Convert NumOfSec to Month/Day
@@ -62,7 +66,7 @@ def fitness_func(x,solution_idx):
 def penalty_func(ZMAT,output_DF,tim):
 
   ## This function could be modified in the future if necessary
-  SP_list = [26.7]*5+[25.7]+[25]+[24]*15+[26.7]*2 # [18,24]
+  SP_list = [30.7]*5+[25.7]+[25]+[24]*15+[30.7]*2 # [18,24]
   ThermalComfort_range = 0.5
   residuals = 0
   for j in range(5):
@@ -79,7 +83,7 @@ def fitness_wrapper(x,solution_idx,hyperParam):
   # run simulation 
   Sim_Status, ZMAT,output_DF = run_prediction(x,solution_idx,hyperParam)
   # utility rate, read from an external file
-  uRate = [3.59]*12+[4.69]*2+[8.86]*4+[4.69]*2+[5.842]*2+[3.59]*4  
+  uRate = [3.462]*6+[5.842]*9+[10.378]*5+[5.842]*2+[3.462]*2
   alpha = 10**20 ## 
   if Sim_Status:
     tim = hyperParam["tim"]
@@ -171,7 +175,7 @@ def run_prediction(CVar_list, solution_idx,hyperParam):
     output_DF, ZMAT, Heating_Rate = -1,-1,-1
     ## Step 4. Remove temporary files
     shutil.rmtree(Target_WorkPath)
-    return Sim_Status, ZMAT,output_DF
+    return Sim_Status, Heating_Rate,ZMAT,output_DF
 
 def check_SimulationStatus(fileName):
   with open(fileName,'r') as fp:
@@ -188,7 +192,7 @@ def read_result(filename):
   import datetime
   ## a function used to process ESO file
 
-  output_idx =   output_idx = [703,704,705,706,707,1682,1724,1730,1737,1743,1933,2062] # Indices for  
+  output_idx =   output_idx = [1140,1141,1142,1143,1144,2426,2468,2474,2480,2486,2656,2758] # Indices for  
   data = {'dtime':[],
           'dayType':[]}
   for id_i in output_idx:
@@ -225,22 +229,33 @@ def read_result(filename):
 
   data = pd.DataFrame(data)
   return data
-if __name__ == "__main__":
-    # simulation setup
-  start_time= 60*60*24*203  # June 1st 
-  final_time= 60*60*24*204
+
+class PooledGA(pygad.GA):
+
+  def cal_pop_fitness(self):
+    global pool,hyperParam
+    pop_fitness = pool.starmap(fitness_wrapper, [(individual,i,hyperParam) for i,individual in enumerate(self.population)])
+    #print(pop_fitness)
+    pop_fitness = np.array(pop_fitness)
+    return pop_fitness
+
+# run optimization 
+with MPIPool() as pool:
+  pool.workers_exit() ## Only master process will proceed
+  
+  # simulation setup
+  start_time= 60*60*24*271  # June 1st 
+  final_time= 60*60*24*272
   Eplus_timestep = 60*3 # 3 min
 
   # setup for MPC
-  pred_horizon = {"length":24,"timestep":3600}
+  pred_horizon = {"length":6,"timestep":3600}
 
   #### run optimization
   X_sp_log = []  # This trend variable is used to store all setpoints from start_time 
 
-  Eplus_FileName = "MediumOffice_Houston_Cooling.idf"
+  Eplus_FileName = "PriSchool_NYCity.idf"
 
-     ##
-  tim = start_time
 
   #prepare hyper parameter
   hyperParam  ={}
@@ -250,16 +265,67 @@ if __name__ == "__main__":
   hyperParam["final_time"] = final_time 
   hyperParam["Eplus_timestep"] = Eplus_timestep
   hyperParam["Eplus_FileName"] = Eplus_FileName
+
   
-  #
-  hyperParam["tim"] = tim
-  hyperParam["X_sp_log"] = X_sp_log
+  ##
+  tim = start_time
+  while True:
+    #
+    hyperParam["tim"] = tim
+    hyperParam["X_sp_log"] = X_sp_log
 
+    # Do optimization
+    
+    #SP_cur = run_Optimization(hyperParam)
 
-  x = [17.759526053904015, 17.553348491031816, 17.93452688391634, 13.162727128161603, 11.661261672952136, 15.524898249935223, 11.908621714922823, 10.686156182211182, 12.336517019721898, 17.86897865652388, 10.659983248021266, 11.644185964218352, 14.609280400282138, 12.367135230198844, 17.356217083514277, 17.506367397395774, 17.64304011877485, 17.47842003048702, 17.495893761779524, 17.187718414438745, 17.481005201709095, 17.505457499350538, 17.566630340205737, 17.91148979371677]
+    ## At each time step, this function will implement an optimization.. \
+    # Parameter for GA 
+    num_parents_mating = 24
+    num_genes = hyperParam["PH"]
 
-  res = fitness_wrapper(x,0,hyperParam)
+    init_range_low = 25
+    init_range_high = 50
+    parent_selection_type = "tournament"
+    keep_parents = 1
 
+    # Optimization algorithm setting
+    num_generations = 30
+    sol_per_pop = 49   # Number of individuals
 
-  print(res)
+    crossover_type = "single_point"
+    crossover_probability = 0.9
+
+    mutation_type = "random"
+    mutation_probability = 0.2
+
+    gene_space = [{'low':10, 'high': 18}]*hyperParam['PH']
+
+    ga_instance = PooledGA(num_generations=num_generations,
+                    num_parents_mating=num_parents_mating,
+                    fitness_func=fitness_func, # Actually this is not used.
+                    sol_per_pop=sol_per_pop,
+                    num_genes=num_genes,
+                    init_range_low=init_range_low,
+                    init_range_high=init_range_high,
+                    parent_selection_type=parent_selection_type,
+                    keep_parents=keep_parents,
+                    crossover_type=crossover_type,
+                    crossover_probability = crossover_probability,
+                    mutation_type=mutation_type,
+                    mutation_probability = mutation_probability,
+                    gene_space = gene_space
+                    )
+    print("Start Optimization")
+    ga_instance.run()
+    print("Op completed")
+    SP_cur = ga_instance.best_solution()[0][0]
+    X_sp_log.append(SP_cur)
+    print(X_sp_log,tim)
+    # proceed to next timestep
+    tim = tim + pred_horizon['timestep']
+    if tim>= final_time:
+      break
+    
+    
+  print("all mpi process join again then")
       
